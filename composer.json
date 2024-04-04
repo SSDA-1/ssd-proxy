@@ -1,5 +1,5 @@
 {
-  "name": "ssd/proxies",
+  "name": "ssda-1/proxies",
   "description": "proxies",
   "type": "library",
   "license": "MIT",
@@ -9,7 +9,7 @@
   },
   "extra": {
     "laravel": {
-      "providers": "ssd\\proxies\\Providers\\ProxyServiceProvider"
+      "providers": "ssda-1\\proxies\\Providers\\ProxyServiceProvider"
     }
   },
   "autoload": {
