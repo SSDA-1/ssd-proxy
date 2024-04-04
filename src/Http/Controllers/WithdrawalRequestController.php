@@ -1,8 +1,8 @@
 <?php
 
-namespace ssd\proxies\Http\Controllers;
+namespace ssda1\proxies\Http\Controllers;
 
-use ssd\proxies\Models\WithdrawalRequest;
+use ssda1\proxies\Models\WithdrawalRequest;
 
 use Illuminate\Http\Request;
 use Illuminate\Contracts\Foundation\Application;
@@ -67,7 +67,7 @@ class WithdrawalRequestController extends Controller
     {
         $withdrawalrequest->status = 2;
         $withdrawalrequest->save();
-        
+
         return redirect()->route('withdrawalrequest.index')
             ->with('success', 'Заявка на вывод успешно обновлена' /*. json_encode($input)*/);
     }

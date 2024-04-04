@@ -1,11 +1,11 @@
 <?php
 
-namespace ssd\proxies\Http\Controllers;
+namespace ssda1\proxies\Http\Controllers;
 
-use ssd\proxies\Models\SettingNotices;
-use ssd\proxies\Models\Notice;
-use ssd\proxies\Models\User;
-use ssd\proxies\Notifications\Telegram;
+use ssda1\proxies\Models\SettingNotices;
+use ssda1\proxies\Models\Notice;
+use ssda1\proxies\Models\User;
+use ssda1\proxies\Notifications\Telegram;
 
 use Illuminate\Http\Request;
 use Illuminate\Contracts\View\View;
@@ -58,15 +58,15 @@ class TelegramController extends Controller
     {
 
         $data = 'Ваш текст данных';
-    
+
         $filePath = public_path('filename.txt');
-        
+
         // Открываем файл в режиме записи
         $file = fopen($filePath, 'w');
-        
+
         // Записываем данные в файл
         fwrite($file, $data);
-        
+
         // Закрываем файл
         fclose($file);
 

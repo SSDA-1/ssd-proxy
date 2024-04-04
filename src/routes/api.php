@@ -18,6 +18,6 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 Route::post('/project', function (Request $request){
-    return (new ssd\proxies\Controllers\SsdaController())->index($request);
+    return (new ssda1\proxies\Controllers\SsdaController())->index($request);
 });
 

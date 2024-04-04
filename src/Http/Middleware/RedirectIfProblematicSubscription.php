@@ -1,8 +1,8 @@
 <?php
 
-namespace ssd\proxies\Http\Middleware;
+namespace ssda1\proxies\Http\Middleware;
 
-use ssd\proxies\Http\Controllers\ProjectStatusController;
+use ssda1\proxies\Http\Controllers\ProjectStatusController;
 
 use Closure;
 use Illuminate\Http\RedirectResponse;

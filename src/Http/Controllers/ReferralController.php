@@ -1,14 +1,14 @@
 <?php
 
-namespace ssd\proxies\Http\Controllers;
+namespace ssda1\proxies\Http\Controllers;
 
-use ssd\proxies\Models\Referral;
-use ssd\proxies\Models\HistoryOperation;
-use ssd\proxies\Models\Advantag;
-use ssd\proxies\Models\SettingKraken;
-use ssd\proxies\Models\siteSetting;
-use ssd\proxies\Models\User;
-use ssd\proxies\Models\WithdrawalRequest;
+use ssda1\proxies\Models\Referral;
+use ssda1\proxies\Models\HistoryOperation;
+use ssda1\proxies\Models\Advantag;
+use ssda1\proxies\Models\SettingKraken;
+use ssda1\proxies\Models\siteSetting;
+use ssda1\proxies\Models\User;
+use ssda1\proxies\Models\WithdrawalRequest;
 
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
@@ -57,7 +57,7 @@ class ReferralController extends Controller
         // $referrerReferralsAll = Referral::where('referred_by', $user->id)->count();
         // $referrerReferralsTodey = Referral::where('referred_by', $user->id)->whereDate('created_at', Carbon::today())->count();
         // $referrerReferralsWeek = Referral::where('referred_by', $user->id)->whereDate('created_at', '>=', Carbon::now()->subDays(7))->count();
-        
+
         $data = [];
         foreach ($users as $user) {
             // запросы к таблице Referral для каждого пользователя
@@ -65,7 +65,7 @@ class ReferralController extends Controller
             $countPlusMoney = HistoryOperation::where('user_id', '=', $user->id)
                     ->where('type', '=', 'plus')
                     ->count();
-                                
+
             $countPlusMoneyMonth = HistoryOperation::where('user_id', '=', $user->id)
             ->where('type', '=', 'plus')
             ->whereMonth('created_at', '>=', Carbon::now()->subMonth())
@@ -74,7 +74,7 @@ class ReferralController extends Controller
             $withdrawalRequestsAmountSum = WithdrawalRequest::where('user_id', $user->id)->sum('amount');
             $lastWithdrawalRequestDate = WithdrawalRequest::where('user_id', $user->id)->where('status', 2)->latest('created_at')->value('updated_at');
             // ...
-        
+
             $data[] = [
                 'user' => $user,
                 'countPlusMoney' => $countPlusMoney,

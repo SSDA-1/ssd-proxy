@@ -1,8 +1,8 @@
 <?php
 
-namespace ssd\proxies\Http\Controllers;
+namespace ssda1\proxies\Http\Controllers;
 
-use ssd\proxies\Models\TariffSettings;
+use ssda1\proxies\Models\TariffSettings;
 
 use Illuminate\Http\Request;
 use Illuminate\Http\RedirectResponse;

@@ -1,9 +1,9 @@
 <?php
 
-namespace ssd\proxies\Service;
+namespace ssda1\proxies\Service;
 
-use ssd\proxies\Models\HistoryOperation;
-use ssd\proxies\Models\siteSetting;
+use ssda1\proxies\Models\HistoryOperation;
+use ssda1\proxies\Models\siteSetting;
 
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Http;
@@ -39,7 +39,7 @@ class CapitalistService
             ];
 
             ksort($data);
-            
+
             $sign = hash_hmac('md5', implode(':', $data), $api_key);
             $data['sign'] = strtolower($sign);
             $request = json_encode($data);
@@ -49,9 +49,9 @@ class CapitalistService
                 'Content-Type' => 'application/json'
             ])
             ->post('https://capitalist.net/merchant/payGate/createorder', $data);
-            
-            file_put_contents('capitalistLogPost.txt', $response); 
-            
+
+            file_put_contents('capitalistLogPost.txt', $response);
+
             if ($response->successful()) {
                 $order = $response->json();
                 // Получаем модель по идентификатору, который был назначен при создании
@@ -97,7 +97,7 @@ class CapitalistService
                 'Content-Type' => 'application/json'
             ])
             ->post('https://capitalist.net/merchant/payGate/checkstate', ['json' => $data]);
-            
+
             if ($response->successful()) {
                 $order = $response->json();
                 if (isset($order['data']) and $order['data']['order']['paid'] == true) {

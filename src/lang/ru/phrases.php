@@ -641,14 +641,14 @@ $data = [
     'Начисление' => 'Начисление',
 ];
 
-$faqs = ssd\proxies\Models\Faq::all();
+$faqs = ssda1\proxies\Models\Faq::all();
 $dataFaqQuestions = $faqs->pluck('question', 'question')->toArray();
 $dataFaqAnswers = $faqs->pluck('answer', 'answer')->toArray();
 
-$menus = ssd\proxies\Models\Menu::all();
+$menus = ssda1\proxies\Models\Menu::all();
 $dataMenus = $menus->pluck('name', 'name')->toArray();
 
-$logs = ssd\proxies\Models\ProcessLog::all();
+$logs = ssda1\proxies\Models\ProcessLog::all();
 $dataLogNames = $logs->pluck('name', 'name')->toArray();
 $dataLogDescriptions = $logs->pluck('description', 'description')->toArray();
 

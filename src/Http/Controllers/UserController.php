@@ -1,14 +1,14 @@
 <?php
 
-namespace ssd\proxies\Http\Controllers;
+namespace ssda1\proxies\Http\Controllers;
 
-use ssd\proxies\Models\Template;
-use ssd\proxies\Models\Referral;
-use ssd\proxies\Models\User;
-use ssd\proxies\Models\ProcessLog;
-use ssd\proxies\Models\SettingKraken;
-use ssd\proxies\Models\Server;
-use ssd\proxies\Service\ProcessLogService;
+use ssda1\proxies\Models\Template;
+use ssda1\proxies\Models\Referral;
+use ssda1\proxies\Models\User;
+use ssda1\proxies\Models\ProcessLog;
+use ssda1\proxies\Models\SettingKraken;
+use ssda1\proxies\Models\Server;
+use ssda1\proxies\Service\ProcessLogService;
 
 use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Contracts\View\Factory;

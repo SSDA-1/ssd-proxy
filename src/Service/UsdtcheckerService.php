@@ -1,9 +1,9 @@
 <?php
 
-namespace ssd\proxies\Service;
+namespace ssda1\proxies\Service;
 
-use ssd\proxies\Models\HistoryOperation;
-use ssd\proxies\Models\siteSetting;
+use ssda1\proxies\Models\HistoryOperation;
+use ssda1\proxies\Models\siteSetting;
 
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Http;
@@ -36,7 +36,7 @@ class UsdtcheckerService
         //     'sign' => md5($amount.$apiKey.$newOperation->id), // рассчитываем сигнатуру
         // ];
 
-        
+
         // Calculate the signature
         $signature = hash('sha256', "{$amount}{$secretKey}{$order_id}{$login}");
 
@@ -91,7 +91,7 @@ class UsdtcheckerService
         // $response = curl_exec($curl);
 
         // curl_close($curl);
-        // 
+        //
 
 
             // if ($response) {
@@ -109,14 +109,14 @@ class UsdtcheckerService
             // }
         // dd($response);
         // $response['idtransaction'] = $newOperation->id;
-        
-        // декодирование json-строки в ассоциативный массив
-        $data = json_decode($response, true); 
 
-        // добавление нового поля 
+        // декодирование json-строки в ассоциативный массив
+        $data = json_decode($response, true);
+
+        // добавление нового поля
         $data['idtransaction'] = $newOperation->id;
 
-        // преобразование обратно в JSON-формат 
+        // преобразование обратно в JSON-формат
         $new_response = json_encode($data);
         $payUrl = $response;
 
@@ -149,7 +149,7 @@ class UsdtcheckerService
                 'Content-Type' => 'application/json'
             ])
             ->post('https://capitalist.net/merchant/payGate/checkstate', ['json' => $data]);
-            
+
             if ($response->successful()) {
                 $order = $response->json();
                 if (isset($order['data']) and $order['data']['order']['paid'] == true) {

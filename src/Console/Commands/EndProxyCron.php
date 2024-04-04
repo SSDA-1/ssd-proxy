@@ -1,13 +1,13 @@
 <?php
 
-namespace ssd\proxies\Console\Commands;
+namespace ssda1\proxies\Console\Commands;
 
-use ssd\proxies\Models\SettingKraken;
-use ssd\proxies\Models\siteSetting;
-use ssd\proxies\Models\SettingNotices;
-use ssd\proxies\Models\CountPairsProxyDiscount;
-use ssd\proxies\Models\Proxy;
-use ssd\proxies\Models\User;
+use ssda1\proxies\Models\SettingKraken;
+use ssda1\proxies\Models\siteSetting;
+use ssda1\proxies\Models\SettingNotices;
+use ssda1\proxies\Models\CountPairsProxyDiscount;
+use ssda1\proxies\Models\Proxy;
+use ssda1\proxies\Models\User;
 
 use Illuminate\Console\Command;
 use Illuminate\Support\Facades\Mail;

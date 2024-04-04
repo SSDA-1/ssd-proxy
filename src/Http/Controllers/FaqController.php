@@ -1,10 +1,10 @@
 <?php
 
-namespace ssd\proxies\Http\Controllers;
+namespace ssda1\proxies\Http\Controllers;
 
-use ssd\proxies\Models\Faq;
-use ssd\proxies\Models\ProcessLog;
-use ssd\proxies\Service\ProcessLogService;
+use ssda1\proxies\Models\Faq;
+use ssda1\proxies\Models\ProcessLog;
+use ssda1\proxies\Service\ProcessLogService;
 
 use Illuminate\Http\Request;
 use Illuminate\Contracts\View\View;

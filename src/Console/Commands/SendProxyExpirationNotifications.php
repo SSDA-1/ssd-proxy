@@ -1,10 +1,10 @@
 <?php
 
-namespace ssd\proxies\Console\Commands;
+namespace ssda1\proxies\Console\Commands;
 
-use ssd\proxies\Models\Proxy;
-use ssd\proxies\Models\ProcessLog;
-use ssd\proxies\Models\SettingNotices;
+use ssda1\proxies\Models\Proxy;
+use ssda1\proxies\Models\ProcessLog;
+use ssda1\proxies\Models\SettingNotices;
 
 use Carbon\Carbon;
 use Illuminate\Console\Command;

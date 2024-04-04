@@ -1,6 +1,6 @@
 <?php
 
-namespace ssd\proxies\Providers;
+namespace ssda1\proxies\Providers;
 
 use Illuminate\Cache\RateLimiting\Limit;
 use Illuminate\Foundation\Support\Providers\RouteServiceProvider as ServiceProvider;

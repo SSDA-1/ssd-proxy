@@ -1,18 +1,18 @@
 <?php
 
-namespace ssd\proxies\Providers;
+namespace ssda1\proxies\Providers;
 
-use ssd\proxies\Models\Faq;
-use ssd\proxies\Models\Menu;
-use ssd\proxies\Models\Server;
-use ssd\proxies\Models\Partner;
-use ssd\proxies\Models\Reviews;
-use ssd\proxiesApp\Models\Advantag;
-use ssd\proxies\Models\siteSetting;
-use ssd\proxies\Models\SettingNotices;
-use ssd\proxies\Models\TariffSettings;
-use ssd\proxies\Models\CountDaysDiscount;
-use ssd\proxies\Models\CountProxyDiscount;
+use ssda1\proxies\Models\Faq;
+use ssda1\proxies\Models\Menu;
+use ssda1\proxies\Models\Server;
+use ssda1\proxies\Models\Partner;
+use ssda1\proxies\Models\Reviews;
+use ssda1\proxiesApp\Models\Advantag;
+use ssda1\proxies\Models\siteSetting;
+use ssda1\proxies\Models\SettingNotices;
+use ssda1\proxies\Models\TariffSettings;
+use ssda1\proxies\Models\CountDaysDiscount;
+use ssda1\proxies\Models\CountProxyDiscount;
 
 use Jenssegers\Date\Date;
 use Illuminate\Support\Facades\View;

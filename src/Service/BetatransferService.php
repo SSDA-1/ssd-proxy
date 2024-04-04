@@ -1,15 +1,15 @@
 <?php
 
-namespace ssd\proxies\Service;
+namespace ssda1\proxies\Service;
 
-use ssd\proxies\Models\HistoryOperation;
-use ssd\proxies\Models\siteSetting;
+use ssda1\proxies\Models\HistoryOperation;
+use ssda1\proxies\Models\siteSetting;
 
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Http;
 
 class BetatransferService
-{ 
+{
     // Новое аппи
     public function getPayOLD($amount)
     {
@@ -22,7 +22,7 @@ class BetatransferService
 
         $urlSite = $_SERVER['SERVER_NAME'];
         $urlSucc = $urlSite.'/balancedone/'.$newOperation->id.'/b';
-        
+
 
         $newOperation = HistoryOperation::create([
             'type' => 'buySub',
@@ -49,7 +49,7 @@ class BetatransferService
 
         // $responseArray = $response->json();
 
-            
+
             if ($response->successful()) {
                 $order = $response->json();
 
@@ -94,7 +94,7 @@ class BetatransferService
 
         // $responseArray = $response->json();
 
-            
+
             if ($response->successful()) {
                 $order = $response->json();
                 if (isset($order['status']) and $order['status'] == 'success') {
@@ -152,7 +152,7 @@ class BetatransferService
 
         // $responseArray = $response->json();
 
-            
+
             if ($response->successful()) {
                 $order = $response->json();
 

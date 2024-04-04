@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace ssd\proxies\Http\Controllers;
+namespace ssda1\proxies\Http\Controllers;
 
-use ssd\proxies\Models\ProjectStatus;
-use ssd\proxies\Service\KrakenService;
+use ssda1\proxies\Models\ProjectStatus;
+use ssda1\proxies\Service\KrakenService;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Artisan;

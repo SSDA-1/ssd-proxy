@@ -1,8 +1,8 @@
 <?php
 
-namespace ssd\proxies\Http\Controllers;
+namespace ssda1\proxies\Http\Controllers;
 
-use ssd\proxies\Models\ProcessLog;
+use ssda1\proxies\Models\ProcessLog;
 
 use Illuminate\Http\Request;
 

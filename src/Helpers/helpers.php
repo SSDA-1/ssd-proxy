@@ -1,13 +1,13 @@
 <?php
 
-use ssd\proxies\Models\User;
-use ssd\proxies\Models\Modem;
-use ssd\proxies\Models\Proxy;
-use ssd\proxies\Models\SettingNotices;
-use ssd\proxies\Models\SettingKraken;
-use ssd\proxies\Models\HistoryOperation;
-use ssd\proxies\Models\Server;
-use ssd\proxies\Service\KrakenService;
+use ssda1\proxies\Models\User;
+use ssda1\proxies\Models\Modem;
+use ssda1\proxies\Models\Proxy;
+use ssda1\proxies\Models\SettingNotices;
+use ssda1\proxies\Models\SettingKraken;
+use ssda1\proxies\Models\HistoryOperation;
+use ssda1\proxies\Models\Server;
+use ssda1\proxies\Service\KrakenService;
 
 use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\Mail;
@@ -649,7 +649,7 @@ if (!function_exists('purchaseProxy')) {
                 $return = 'в наличии ' . $countNotFullModems;
             }
         }
-        
+
         return $return;
     }
 }

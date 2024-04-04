@@ -1,6 +1,6 @@
 <?php
 
-namespace ssd\proxies\Http\Middleware;
+namespace ssda1\proxies\Http\Middleware;
 
 use Closure;
 use Illuminate\Http\Request;

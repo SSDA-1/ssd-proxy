@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace ssd\proxies\Http\Controllers;
+namespace ssda1\proxies\Http\Controllers;
 
-use ssd\proxies\Models\News;
-use ssd\proxies\Service\ProcessLogService;
+use ssda1\proxies\Models\News;
+use ssda1\proxies\Service\ProcessLogService;
 
 use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Contracts\View\Factory;
@@ -233,7 +233,7 @@ class NewsController extends Controller
     public function destroy(News $news): RedirectResponse
     {
         $id = $news->id;
-        
+
         try {
             $news->delete();
         } catch (\Exception $exception) {

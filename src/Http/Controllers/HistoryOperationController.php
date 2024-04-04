@@ -1,11 +1,11 @@
 <?php
 
-namespace ssd\proxies\Http\Controllers;
+namespace ssda1\proxies\Http\Controllers;
 
-use ssd\proxies\Models\User;
-use ssd\proxies\Models\ProcessLog;
-use ssd\proxies\Models\HistoryOperation;
-use ssd\proxies\Service\ProcessLogService;
+use ssda1\proxies\Models\User;
+use ssda1\proxies\Models\ProcessLog;
+use ssda1\proxies\Models\HistoryOperation;
+use ssda1\proxies\Service\ProcessLogService;
 
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;

@@ -1,11 +1,11 @@
 <?php
 
-namespace ssd\proxies\Http\Controllers;
+namespace ssda1\proxies\Http\Controllers;
 
-use ssd\proxies\Models\siteSetting;
-use ssd\proxies\Service\ProcessLogService;
-use ssd\proxies\Models\SettingKraken;
-use ssd\proxies\Models\SettingNotices;
+use ssda1\proxies\Models\siteSetting;
+use ssda1\proxies\Service\ProcessLogService;
+use ssda1\proxies\Models\SettingKraken;
+use ssda1\proxies\Models\SettingNotices;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -53,7 +53,7 @@ class SiteSettingsController extends Controller
     public function allSettingsSiteSave(Request $request)
     {
 
-        
+
         // Данные пользователя
         $user = Auth::user();
         $balance = $user->balance;
@@ -112,7 +112,7 @@ class SiteSettingsController extends Controller
     public function referallSettingsSiteSave(Request $request)
     {
 
-        
+
         // Данные пользователя
         $user = Auth::user();
         $balance = $user->balance;
@@ -130,7 +130,7 @@ class SiteSettingsController extends Controller
         if (!empty($input['minimum_withdrawal_amount'])) {
             $siteSettingModel->minimum_withdrawal_amount = $input['minimum_withdrawal_amount'];
         }
-        
+
         $siteSettingModel->card_output = !empty($input['card_output']) ? true : false;
         $siteSettingModel->ecash_output = !empty($input['ecash_output']) ? true : false;
         $siteSettingModel->usdt_trc_20_output = !empty($input['usdt_trc_20_output']) ? true : false;

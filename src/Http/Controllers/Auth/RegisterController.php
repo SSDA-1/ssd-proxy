@@ -1,14 +1,14 @@
 <?php
 
-namespace ssd\proxies\Http\Controllers\Auth;
+namespace ssda1\proxies\Http\Controllers\Auth;
 
-use ssd\proxies\Http\Controllers\Controller;
-use ssd\proxies\Models\Template;
-use ssd\proxies\Providers\RouteServiceProvider;
-use ssd\proxies\Models\SettingKraken;
-use ssd\proxies\Models\User;
-use ssd\proxies\Models\Referral;
-use ssd\proxies\Models\Server;
+use ssda1\proxies\Http\Controllers\Controller;
+use ssda1\proxies\Models\Template;
+use ssda1\proxies\Providers\RouteServiceProvider;
+use ssda1\proxies\Models\SettingKraken;
+use ssda1\proxies\Models\User;
+use ssda1\proxies\Models\Referral;
+use ssda1\proxies\Models\Server;
 
 use Illuminate\Support\Str;
 use Illuminate\Foundation\Auth\RegistersUsers;

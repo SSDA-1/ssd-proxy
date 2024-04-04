@@ -1,8 +1,8 @@
 <?php
 
-namespace ssd\proxies\Service;
+namespace ssda1\proxies\Service;
 
-use ssd\proxies\Models\Project;
+use ssda1\proxies\Models\Project;
 
 class KrakenService
 {

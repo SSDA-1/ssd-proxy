@@ -1,11 +1,11 @@
 <?php
 
-namespace ssd\proxies\Http\Controllers;
+namespace ssda1\proxies\Http\Controllers;
 
-use ssd\proxies\Models\ProcessLog;
-use ssd\proxies\Models\TariffSettings;
-use ssd\proxies\Service\ProcessLogService;
-use ssd\proxies\Models\CountPairsProxyDiscount;
+use ssda1\proxies\Models\ProcessLog;
+use ssda1\proxies\Models\TariffSettings;
+use ssda1\proxies\Service\ProcessLogService;
+use ssda1\proxies\Models\CountPairsProxyDiscount;
 
 use Illuminate\Http\Request;
 use Illuminate\Http\RedirectResponse;

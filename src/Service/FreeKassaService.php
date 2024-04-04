@@ -1,9 +1,9 @@
 <?php
 
-namespace ssd\proxies\Service;
+namespace ssda1\proxies\Service;
 
-use ssd\proxies\Models\HistoryOperation;
-use ssd\proxies\Models\siteSetting;
+use ssda1\proxies\Models\HistoryOperation;
+use ssda1\proxies\Models\siteSetting;
 
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Http;
@@ -42,7 +42,7 @@ class FreeKassaService
             'billId' => $nonce,
             'user_id' => $user->id,
         ]);
-        
+
         $urlSite = $_SERVER['SERVER_NAME'];
         $urlSucc = $urlSite.'/balancedone/'.$newOperation->id.'/fk';
 
@@ -67,12 +67,12 @@ class FreeKassaService
                 'Content-Type' => 'application/json'
             ])
             ->post('https://api.freekassa.ru/v1/orders/create', $data);
-        
+
             // Получаем данные из запроса
             $content = json_encode($response->json());
-    
-            file_put_contents('freekassaLogPost.txt', $content); 
-            
+
+            file_put_contents('freekassaLogPost.txt', $content);
+
             if ($response->successful()) {
                 $order = $response->json();
                 // Получаем модель по идентификатору, который был назначен при создании
@@ -87,12 +87,12 @@ class FreeKassaService
                 $order = $response->json();
             }
         // dd($response);
-            file_put_contents('freekassaLogPost.txt', $billld); 
+            file_put_contents('freekassaLogPost.txt', $billld);
         $payUrl = $order;
 
         return $payUrl;
     }
-    
+
     public function getPaySCI($amount)
     {
         $user = Auth::user();
@@ -131,7 +131,7 @@ class FreeKassaService
         $shopId = $siteSettingModel->freekassa_id;
         $api_key = $siteSettingModel->freekassa_secret;
         $operation = HistoryOperation::find($id);
-        
+
 
             $data = [
                 'shopId' => $shopId,
@@ -148,7 +148,7 @@ class FreeKassaService
                 'Content-Type' => 'application/json'
             ])
             ->post('https://api.freekassa.ru/v1/orders', ['json' => $data]);
-            
+
             if ($response->successful()) {
                 $order = $response->json();
                 if (isset($order['type']) and $order['type'] == 'success') {

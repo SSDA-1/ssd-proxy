@@ -1,12 +1,12 @@
 <?php
 
-namespace ssd\proxies\Service;
+namespace ssda1\proxies\Service;
 
-use ssd\proxies\Models\User;
-use ssd\proxies\Models\Modem;
-use ssd\proxies\Models\Proxy;
-use ssd\proxies\Models\Server;
-use ssd\proxies\Models\SettingKraken;
+use ssda1\proxies\Models\User;
+use ssda1\proxies\Models\Modem;
+use ssda1\proxies\Models\Proxy;
+use ssda1\proxies\Models\Server;
+use ssda1\proxies\Models\SettingKraken;
 
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Http;

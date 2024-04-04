@@ -1,11 +1,11 @@
 <?php
 
-namespace ssd\proxies\Http\Controllers;
+namespace ssda1\proxies\Http\Controllers;
 
-use ssd\proxies\Models\Support;
-use ssd\proxies\Models\SupportMassages;
-use ssd\proxies\Models\User;
-use ssd\proxies\Service\ProcessLogService;
+use ssda1\proxies\Models\Support;
+use ssda1\proxies\Models\SupportMassages;
+use ssda1\proxies\Models\User;
+use ssda1\proxies\Service\ProcessLogService;
 
 use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Contracts\View\Factory;
@@ -294,7 +294,7 @@ class SupportController extends Controller
         $user = Auth::user();
         $balance = $user->balance;
         $userID = $user->id;
-        
+
         $newSupport = new Support;
         $newSupport->user_id = $userID;
 

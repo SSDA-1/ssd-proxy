@@ -1,8 +1,8 @@
 <?php
 
-namespace ssd\proxies\Http\Controllers;
+namespace ssda1\proxies\Http\Controllers;
 
-use ssd\proxies\Models\SettingKraken;
+use ssda1\proxies\Models\SettingKraken;
 
 use Illuminate\Contracts\Support\Renderable;
 

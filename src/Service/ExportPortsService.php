@@ -1,12 +1,12 @@
 <?php
 
-namespace ssd\proxies\Service;
+namespace ssda1\proxies\Service;
 
-use ssd\proxies\Models\HistoryOperation;
-use ssd\proxies\Models\siteSetting;
-use ssd\proxies\Models\Modem;
-use ssd\proxies\Models\User;
-use ssd\proxies\Models\Proxy;
+use ssda1\proxies\Models\HistoryOperation;
+use ssda1\proxies\Models\siteSetting;
+use ssda1\proxies\Models\Modem;
+use ssda1\proxies\Models\User;
+use ssda1\proxies\Models\Proxy;
 
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
@@ -36,7 +36,7 @@ class ExportPortsService
         $testLine = '';
         foreach ($proxyPortsListRes as $key => $port) {
             // $FingerListOption[$val['id']] = $val['name'];
-            if (Modem::where('server_id', '=', $serverId)->where('id_kraken', '=', $port['id'])->exists()) { 
+            if (Modem::where('server_id', '=', $serverId)->where('id_kraken', '=', $port['id'])->exists()) {
                 // если есть в БД
             }else{
                 $testLine = '';//$port['name'].'--'.$port['ifname'].'--'.$port['type'].'--'.$port['active'].'--'.$port['net_mode'].'--'.$port['is_osfp'].'--'.$port['osfp'].'--'.$port['reconnect_type'].'--'.$port['reconnect_interval'].'--'.$port['reconnect_min'].'--'.$port['id'];

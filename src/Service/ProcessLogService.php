@@ -1,8 +1,8 @@
 <?php
 
-namespace ssd\proxies\Service;
+namespace ssda1\proxies\Service;
 
-use ssd\proxies\Models\ProcessLog;
+use ssda1\proxies\Models\ProcessLog;
 
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Http;
