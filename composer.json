@@ -1,0 +1,22 @@
+{
+  "name": "ssd/proxies",
+  "description": "proxies",
+  "type": "library",
+  "license": "MIT",
+  "require": {
+    "php": "^8.0.2",
+    "laravel/framework": "^9.2"
+  },
+  "extra": {
+    "laravel": {
+      "providers": "ssd\\proxies\\Providers\\ProxyServiceProvider"
+    }
+  },
+  "autoload": {
+    "psr-4": {
+      "ssd\\proxies": "src/"
+    }
+  },
+  "minimum-stability": "dev",
+  "prefer-stable": true
+}

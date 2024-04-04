@@ -1,0 +1,294 @@
+.content-block-customer,
+.block-content-customer .title-content {
+    display: flex;
+    justify-content: space-between;
+}
+.content-block-customer input:focus,
+.content-block-customer select:focus,
+.content-block-customer textarea:focus {
+    outline: 1px solid #557dfc;
+}
+.content-block-customer textarea {
+    padding: 5px;
+}
+.block-content-customer {
+    flex: 1;
+    margin-right: 50px;
+}
+.right-block {
+    flex: 0.3;
+}
+.block-content-customer .content-block,
+.right-block .content-block {
+    margin-bottom: 30px;
+}
+.block-content-customer .title-content {
+    margin-bottom: 20px;
+}
+.block-content-customer .title-content h4 {
+    font-size: 18px;
+}
+.block-content-customer .content-block input,
+.block-content-customer .content-block select,
+.right-block .content-block input,
+.right-block .content-block select {
+    background-color: var(--line-block);
+    border: 0;
+    padding: 10px;
+    font-size: 18px;
+    color: var(--home-text-color);
+    border-radius: 10px;
+    margin-bottom: 10px;
+    margin-right: 30px;
+}
+.block-content-customer .content-block input,
+.block-content-customer .content-block select,
+.right-block .content-block input,
+.right-block .content-block select {
+    flex: 1;
+}
+.block-content-customer .content-block select:last-child,
+.block-content-customer .content-block input:last-child {
+    margin-right: 0;
+}
+.block-content-customer .content-block .first-line input[name="sum"] {
+    margin-right: 20px;
+}
+.first-line,
+.second-line,
+.third-line,
+.fourth-line {
+    display: flex;
+}
+.right-block .content-block {
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+}
+
+.block-tasks {
+    background-color: var(--crm-content-block);
+    border-radius: 15px;
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+}
+.block-tasks h4 {
+    font-size: 18px;
+    margin-bottom: 20px;
+}
+.block-tasks .first-line {
+    justify-content: space-between;
+    align-items: center;
+}
+.block-filter-tasks {
+    background-color: var(--line-block);
+    border: 1px solid #557dfc;
+    height: 55px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+}
+.block-filter-tasks ul {
+    display: flex;
+    list-style: none;
+    margin: 0 22px;
+}
+.block-filter-tasks ul li {
+    margin-right: 30px;
+}
+.block-filter-tasks ul li:last-child {
+    margin-right: 0;
+}
+.block-filter-tasks ul li a {
+    font-size: 18px;
+    text-decoration: none;
+    color: var(--home-text-color);
+}
+.block-tasks .first-line span {
+    height: 55px;
+    background-color: var(--line-block);
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    padding: 0 50px 0 10px;
+    font-size: 20px;
+    cursor: pointer;
+}
+.block-tasks .first-line span i {
+    color: var(--sidebar-color);
+    padding-right: 20px;
+    font-size: 23px;
+}
+.block-tasks .first-line span:last-child {
+    height: 55px;
+    background-color: var(--sidebar-color);
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    padding: 0 20px;
+    cursor: pointer;
+    margin-right: 20px;
+}
+.block-tasks .first-line span:last-child i {
+    color: var(--text-color);
+    padding-right: 0px;
+    font-size: 20px;
+}
+.content-tasks-block {
+    width: 100%;
+    background-color: var(--line-block);
+    padding: 20px 10px 10px;
+    border-radius: 10px;
+}
+.block-tasks .second-line,
+.content-tasks-block .wrapper-tasks-block-content {
+    margin-top: 20px;
+}
+.wrapper-tasks-block-title,
+.wrapper-tasks-block-content {
+    display: flex;
+    justify-content: space-between;
+}
+.content-tasks-block-title {
+    display: flex;
+}
+.content-tasks-block-title h4 {
+    margin-right: 15%;
+}
+.tasks-block-content {
+    flex: 0.6;
+    margin-right: 40px;
+}
+.tasks-block-content:last-child {
+    flex: 0.4;
+    margin-right: 0px;
+}
+.tasks-block-content .tasks-block-comment textarea {
+    border: 1px solid #f2f2f2;
+    background-color: var(--text-line-block);
+    color: var(--text-crm);
+    max-width: 700px;
+    max-height: 500px;
+}
+.tasks-block-content ul {
+    margin-top: 10px;
+    list-style: none;
+}
+.tasks-block-content ul li {
+    margin-bottom: 5px;
+    font-size: 18px;
+}
+.tasks-block-content ul li label {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+
+.tasks-block-content ul li label input:checked ~ span.checkbox-text {
+    text-decoration: line-through;
+    color: #686868;
+}
+.content-subtasks-block-title {
+    display: flex;
+    flex: 0.4;
+    justify-content: space-between;
+}
+.content-tasks-block-title {
+    flex: 0.5;
+}
+.date-time {
+    font-size: 14px;
+    color: var(--data-time);
+}
+.date-time span {
+    vertical-align: -webkit-baseline-middle;
+}
+.content-subtasks-block-title i {
+    margin-right: 20px;
+}
+hr {
+    background-color: #f2f2f2;
+    border: none;
+    height: 2px;
+    margin: 0 -10px;
+}
+.tasks-block-content .btn-crm,
+.right-block .content-block .btn-crm {
+    display: flex;
+    justify-content: flex-end;
+}
+.tasks-block-content input[type="submit"] {
+    background-color: var(--submit-color);
+    color: var(--text-color);
+    font-size: 18px;
+    border: 0;
+    border-radius: 10px;
+    padding: 10px 30px;
+    margin-right: 10px;
+    margin-top: 20px;
+}
+.right-block .content-block input,
+.right-block .content-block select {
+    margin-right: 0;
+}
+.right-block .content-block label {
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+.right-block .content-block label input {
+    margin-right: 10px;
+}
+.right-block .content-block textarea {
+    border: 1px solid #f2f2f2;
+    border-radius: 10px;
+    background-color: var(--text-line-block);
+    color: var(--text-crm);
+    max-width: 360px;
+    max-height: 500px;
+}
+.right-block .content-block .btn-crm input[type="submit"] {
+    background-color: var(--sidebar-color);
+    color: #fff;
+    flex: 0.8;
+    margin-bottom: 0;
+}
+.right-block .content-block .btn-crm a {
+    flex: 0.2;
+    margin-left: 25px;
+}
+.right-block .content-block .btn-crm a i {
+    font-size: 25px;
+    color: #fff;
+    padding: 9px;
+    background-color: var(--sidebar-color);
+    border-radius: 10px;
+}
+.right-block .content-block h4 {
+    margin: 20px 0 20px 10px;
+}
+.right-block .content-block .wrapper-action {
+    background-color: var(--line-block);
+    border-radius: 10px;
+    padding: 10px;
+    font-size: 18px;
+}
+.right-block .content-block .wrapper-action select {
+    background-color: rgba(85, 125, 252, 0.15);
+    height: 35px;
+    padding: 0 10px;
+}
+.right-block .content-block .important-questions {
+    display: flex;
+    justify-content: space-between;
+}
+.right-block .content-block .btn-crm {
+    justify-content: center;
+    margin-top: 20px;
+}
+.right-block .content-block.block-action .btn-crm input {
+    flex: 1;
+}

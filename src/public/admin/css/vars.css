@@ -1,0 +1,85 @@
+:root {
+    /* ===== Colors ===== */
+    --body-color: #fff;
+    --sidebar-color: #557dfc;
+    --primary-color: #fff;
+    --primary-color-light: #7f9cf9;
+    --toggle-color: #ddd;
+    --text-color: #000;
+    --home-text-color: #000;
+    --home-text-activ: #557dfc;
+    --content-block: #f5f5f5;
+    --crm-content-block: #e6ecff;
+    --line-block: #fff;
+    --icons-crm: #557dfc;
+    --text-status: rgba(0, 0, 0, 0.35);
+    --text-link: #557dfc;
+    --data-time: #686868;
+    --submit-color: #557dfc;
+    --text-line-block: #fff;
+    --text-crm: #000;
+    --checkbox: #000;
+    --submenu-bg: #2c4ebb;
+    --line-bottom-bg: #e6eaf7;
+    --btn-bg: #f5f4f4;
+    --tabs-link: #f5f5f5;
+    --tabs-link-text: #fff;
+    --tabs-link-text-active: #000;
+
+    /* ====== Display ====== */
+    --light-logo: block;
+    --night-logo: none;
+    --rolled-logo: none;
+
+    /* ====== Transition ====== */
+    --tran-03: all 0.2s ease;
+    --tran-03: all 0.3s ease;
+    --tran-04: all 0.3s ease;
+    --tran-05: all 0.3s ease;
+
+    /* ====== Shadow ====== */
+    --thead-shadow: #e7e7e7;
+    --btn-shadow-1: rgb(90 90 90 / 26%);
+    --btn-shadow-2: rgb(255 255 255 / 50%);
+    --btn-shadow-3: rgb(48 48 50 / 41%);
+    --btn-shadow-4: rgb(255 255 255 / 50%);
+}
+
+body.dark {
+    --body-color: #18191a;
+    --sidebar-color: #242526;
+    --primary-color: #3a3b3c;
+    --primary-color-light: #3a3b3c;
+    --toggle-color: #fff;
+    --text-color: #ccc;
+    --light-logo: none;
+    --night-logo: block;
+    --home-text-color: #fff;
+    --content-block: #484848;
+    --line-block: #242526;
+    --icons-crm: #fff;
+    --text-status: rgba(255, 255, 255, 0.35);
+    --data-time: #fff;
+    --crm-content-block: #484848;
+    --submit-color: #484848;
+    --text-line-block: #242526;
+    --text-crm: #fff;
+    --checkbox: #557dfc;
+    --submenu-bg: #2f3030;
+    --line-bottom-bg: #2d2d2e;
+    --btn-bg: #242526;
+    --tabs-link: #484848;
+    --tabs-link-text: #fff;
+    --tabs-link-text-active: #fff;
+
+    /* ====== Shadow ====== */
+    --thead-shadow: #353a3e;
+    --btn-shadow-1: rgb(14 14 14 / 26%);
+    --btn-shadow-2: rgb(24 25 26);
+    /* --btn-shadow-2: rgb(53 77 102); */
+    /* --btn-shadow-3: rgb(48 48 50 / 41%);
+    --btn-shadow-4: rgb(41 41 42); */
+    --btn-shadow-3: rgb(0 0 0 / 40%);
+    --btn-shadow-4: rgb(0 0 0 / 40%);
+
+}

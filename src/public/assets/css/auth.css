@@ -1,0 +1,79 @@
+body {
+    height: 100%;
+}
+
+.wraper-lk-content {
+    background: var(--gradient-3);
+    padding: 20px;
+    border-radius: 8px;
+    margin-top: 20px;
+}
+.wraper-lk-block {
+    margin: 50px 0;
+    padding: 0 10px;
+}
+.wraper-lk-content form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+.wraper-lk-content form .left-block-lk {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+.wraper-lk-content form iframe {
+    margin: 0 auto;
+}
+.wraper-lk-content form #telegram-login-NotificationProxyBot body,
+.wraper-lk-content form iframe button,
+.widget_frame_base.tgme_widget.body_widget_login {
+    width: 100% !important;
+}
+.wraper-lk-content form label {
+    color: #fff;
+    gap: 5px;
+    display: flex;
+    flex-direction: column;
+}
+.wraper-lk-content form .left-block-lk input {
+    border: none;
+    font-size: 16px;
+    padding: 10px;
+    border-radius: 10px;
+}
+/* .wraper-lk-content .btn.button {
+    background: #fff;
+    color: #4D4B77;
+    max-width: 100%;
+} */
+.wraper-lk-content .form-check {
+    display: flex;
+    gap: 10px;
+}
+.wrap-reg-form {
+    gap: 5px;
+    display: flex;
+    flex-direction: column;
+    color: #fff;
+}
+.wraper-lk-content form .form-check label {
+    flex-direction: row;
+}
+.wrap-reg-form a,
+.wraper-lk-content label a {
+    color: #fff;
+    text-decoration: revert;
+    font-size: 16px;
+}
+.wrap-reg-form a:hover,
+.wraper-lk-content label a:hover {
+    text-decoration: none;
+}
+.wrap-reg-form .reg {
+    color: #fff;
+}
+.wrap-reg-form .login-reg {
+    display: flex;
+    justify-content: center;
+}

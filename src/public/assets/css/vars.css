@@ -1,0 +1,58 @@
+* {
+    /* Width */
+    --width-max: 1620px;
+    --width-min: 1200px;
+    --width-max-1: 1100px;
+    --width-max-2: 188px;
+    --width-max-3: 660px;
+    --width-max-4: 310px;
+    --width-346: 346px;
+    --width-332: 332px;
+
+    /* Height */
+    --height: 1179px;
+    --height-1: 232px;
+    --height-2: 154px;
+    --height-3: 85px;
+
+    /* Fonts */
+    --font-medium: 'Roboto Mono', monospace;
+    --font-bold: 'Roboto Mono', monospace;
+
+    /* Fonts size */
+    --h1: 64px;
+    --h4: 24px;
+    --size-20: 20px;
+    --size-40: 40px;
+
+    /* ====== Transition ====== */
+    --tran-03: all 0.3s ease;
+
+    /* Gradient */
+    --gradient-1: linear-gradient(90deg, rgba(114,107,238,1) 0%, rgba(153,149,246,1) 100%);
+    --gradient-2: linear-gradient(180deg, rgba(255,255,255,1) 0%, rgba(255,255,255,1) 50%, rgba(236,236,236,1) 50%, rgba(236,236,236,1) 100%);
+    --gradient-3: linear-gradient(87.8deg, #726BEE -2.84%, #9995F6 126.07%), #F4F4F4;
+
+    /* Gaps */
+    --gap-1: 113px;
+    --gap-2: 30%;
+    --gap-3: 0;
+    --gap-4: 0;
+    --gap-5: 40px;
+
+    /* Display */
+    --none: none;
+    --flex: flex;
+
+    /* Flex-direction */
+    --row: row;
+
+    /* Padding */
+    --padding-0: 0;
+    --padding-0-9: 0 9%;
+    --padding-0-9-all: 0 9%;
+    --padding-8-30: 0 8px 0 30px;
+
+    /* Margin */
+    --margin-0: 0;
+}

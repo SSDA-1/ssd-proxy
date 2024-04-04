@@ -1,0 +1,132 @@
+.project-show,
+.project-edit {
+    display: flex;
+}
+.content-block .general .content {
+    padding: 20px;
+    background-color: var(--line-block);
+    border-radius: 15px;
+}
+.content-block .general .content p,
+.content-block .general .content a,
+.content-block .general .content span {
+    color: var(--home-text-color) !important;
+}
+.content-block .general .content ol,
+.content-block .general .content ul {
+    padding: 0 20px;
+}
+.project-show .content-block .project-edit .content-block {
+    margin-right: 20px;
+    margin-bottom: 20px;
+    padding: 20px;
+}
+.project-show .form-group,
+.project-edit .form-group {
+    margin-left: 20px;
+}
+.project-show .general .pull-left h4,
+.project-edit .general .pull-left h4 {
+    padding: 0px 10px 20px 10px;
+    font-size: 18px;
+}
+
+.project-show > .form-group-detail strong,
+.project-edit > .form-group-detail strong,
+.form-group strong {
+    font-weight: 500;
+    font-size: 18px;
+}
+.project-show .form-group .website-adm,
+.project-show .form-group .ftp-sftp-ssh,
+.project-show .form-group .bd-poduct,
+.project-show .form-group .host-poduct,
+.project-edit .form-group .website-adm,
+.project-edit .form-group .ftp-sftp-ssh,
+.project-edit .form-group .bd-poduct,
+.project-edit .form-group .host-poduct {
+    background-color: var(--content-block);
+    border-radius: 15px;
+    max-width: 400px;
+    padding: 20px;
+}
+.project-show .form-group h4,
+.project-edit .form-group h4,
+.project-edit .who-is-entrusted h4 {
+    padding: 10px 10px 20px 0px;
+    margin: 0;
+    font-size: 18px;
+}
+.button-copy {
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 25px;
+    background-color: var(--sidebar-color);
+    color: var(--text-color);
+    transition: var(--tran-03);
+    padding: 0 15px;
+    border-radius: 0 10px 10px 0;
+    margin-top: -10px;
+    margin-bottom: -10px;
+    font-size: 18px;
+    font-weight: 700;
+    border: 0;
+    height: 46px;
+    cursor: pointer;
+}
+
+/* Проекты */
+
+.project-show .form-group .ftp-sftp-ssh,
+.project-show .form-group .bd-poduct,
+.project-show .form-group .host-poduct,
+.project-edit .form-group .ftp-sftp-ssh,
+.project-edit .form-group .bd-poduct,
+.project-edit .form-group .host-poduct {
+    margin-top: 30px;
+}
+
+.project-show .form-group .website-adm .website-adm-content div,
+.project-show .form-group .ftp-sftp-ssh .ftp-sftp-ssh-content div,
+.project-show .form-group .bd-poduct .bd-poduct-content div,
+.project-show .form-group .host-poduct .host-poduct-content div {
+    background-color: var(--line-block);
+    border-radius: 10px;
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 0 10px 10px;
+    margin-top: 5px;
+    margin-bottom: 10px;
+    height: 46px;
+}
+
+.project-show .form-group .website-adm .website-adm-content div:last-child,
+.project-show .form-group .ftp-sftp-ssh .ftp-sftp-ssh-content div:last-child,
+.project-show .form-group .bd-poduct .bd-poduct-content div:last-child,
+.project-show .form-group .host-poduct .host-poduct-content div:last-child {
+    margin-bottom: 0px;
+}
+
+.project-show .form-group .website-adm .website-adm-content div span,
+.project-show .form-group .ftp-sftp-ssh .ftp-sftp-ssh-content div span,
+.project-show .form-group .bd-poduct .bd-poduct-content div span,
+.project-show .form-group .host-poduct .host-poduct-content div span {
+    font-size: 18px;
+    overflow: hidden;
+}
+
+/* редактирование */
+.project-edit .who-is-entrusted {
+    margin-bottom: 30px;
+}
+.project-edit .who-is-entrusted-content {
+    display: flex;
+}
+.project-edit .general .content,
+.project-edit .website-adm-content,
+.project-edit .ftp-sftp-ssh-content,
+.project-edit .bd-poduct-content,
+.project-edit .host-poduct-content {
+    display: flex;
+    flex-direction: column;
+}

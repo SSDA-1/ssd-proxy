@@ -1,0 +1,434 @@
+/* ===== Стили для Модалки ===== */
+.overlay {
+  opacity: 0;
+  visibility: hidden;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(41, 38, 85, 0.7);
+  z-index: 20;
+  transition: .3s all;
+}
+
+.modal {
+  opacity: 0;
+  visibility: hidden;
+  width: 100%;
+  max-width: 664px;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 30;
+  /* Должен быть выше чем у подложки*/
+  box-shadow: 0 3px 10px -.5px rgba(0, 0, 0, .2);
+  text-align: center;
+  padding: 20px 20px;
+  transition: 0.3s all;
+  box-sizing: border-box;
+  font-family: var(--montserrat-regular);
+  font-size: 20px;
+  background: var(--gradient-3);
+  border-radius: 12px;
+  gap: 40px;
+  display: flex;
+  flex-direction: column;
+}
+.modal .wrap-btn-modal .btn:hover {
+  border: 1px solid #fff;
+  color: #fff;
+  background-color: rgba(255, 255, 255, 0.1);
+}
+.modal.proxy {
+  border-radius: 0;
+  top: 0;
+  left: auto;
+  right: 0;
+  transform: unset;
+  background: #fff;
+  height: 100%;
+  overflow: auto;
+  margin-top: 0;
+  justify-content: normal;
+  align-items: normal;
+}
+.modal .title,
+.modal .massage {
+  color: #fff;
+}
+.wrap-title {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.proxy .wrap-title p {
+  color: #2B2B2B;
+  font-size: 24px;
+  font-weight: bold;
+  /* font-family: var(--font-bold); */
+}
+.proxy .wrap-title img {
+  cursor: pointer;
+}
+.wrap-title p {
+  color: #fff;
+}
+.wrap-title svg {
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+  filter: brightness(0) invert(1);
+}
+.payment-systems ul {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+.payment-systems ul a,
+.payment-systems ul label {
+  width: 194px;
+  min-height: 76px;
+  background-color: #fff;
+  border-radius: 7px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  /* font-family: var(--font-bold); */
+  font-weight: bold;
+}
+.payment-systems ul label img {
+  object-fit: contain;
+  max-width: 186px;
+  border-radius: 7px;
+}
+.modal .payment-form {
+  gap: 40px;
+  display: flex;
+  flex-direction: column;
+}
+.modal.active,
+.overlay.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+
+.crypt .payment-systems {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  position: relative;
+}
+.crypt .payment-systems p {
+  color: #fff;
+}
+.crypt .payment-systems .qrCode {
+  background: #fff;
+  width: 130px;
+  height: 130px;
+  position: absolute;
+  right: 40px;
+  top: -60px;
+  border-radius: 12px;
+}
+.wrap-btn-modal {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: var(--row);
+  gap: 20px;
+}
+.wrap-btn-modal.attention {
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 10px;
+  background-color: rgba(255, 0, 0, 0.3);
+  border-radius: 12px;
+  padding: 15px 20px;
+}
+.wrap-btn-modal.attention h2 {
+  color: #fff;
+  font-size: 20px;
+}
+.wrap-btn-modal.attention p {
+  font-size: 16px;
+  color: #fff;
+  text-align: left;
+}
+.wrap-btn-modal p {
+  color: #fff;
+  font-size: 20px;
+}
+.wrap-btn-modal .sum {
+  background-color: #FFEA00;
+  color: #2B2B2B;
+  font-size: 16px;
+  font-weight: bold;
+  /* font-family: var(--font-bold); */
+  border-radius: 8px;
+  padding: 12px 20px;
+  min-width: 100px;
+}
+.warp-card,
+.message,
+.warp-card label {
+  display: flex;
+}
+.warp-card {
+  gap: 20px;
+}
+.message,
+.warp-card label {
+  flex-direction: column;
+  align-items: flex-start;
+  color: #fff;
+  gap: 5px;
+}
+.radio {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 5px;
+}
+.wrap-radio {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+.radio p,
+.radio label {
+  color: #fff;
+}
+.radio label {
+  cursor: pointer;
+}
+.radio label input {
+  margin-right: 5px;
+}
+.wrap-wallet .label-card,
+.wrap-wallet .label-wallet,
+.wrap-wallet .label-name-wallet,
+.wrap-wallet .label-usdt,
+.wrap-wallet  .label-capitalist {
+  display: none;
+}
+.wrap-wallet.cards .label-card,
+.wrap-wallet.usdt .label-usdt,
+.wrap-wallet.capitalist .label-capitalist {
+  display: flex;
+}
+.wrap-wallet.wallets .label-wallet,
+.wrap-wallet.wallets .label-name-wallet {
+  display: flex;
+}
+
+.message textarea {
+  width: 100%;
+}
+.modal .conclusion {
+  gap: 20px;
+}
+.wrap-btn-modal input,
+.warp-card input.card,
+.message textarea {
+  min-width: 100px;
+  border: 1px solid #D9D9D9;
+  padding: 12px;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: bold;
+  /* font-family: var(--font-bold); */
+  background: unset;
+  color: #fff;
+}
+.wrap-btn-modal input::placeholder,
+.warp-card input.card::placeholder,
+.message textarea::placeholder {
+  color: #fff;
+}
+.wrap-btn-modal .btn.button {
+  background: #fff;
+  color: #4D4B77;
+}
+.wrap-btn-modal p,
+.wrap-btn-modal .sum,
+.wrap-btn-modal input {
+  width: 100%;
+}
+
+.wrap-btn-modal .btn_with_bg {
+  background-color: var(--color-blue);
+  font-size: 20px;
+  font-family: var(--montserrat-regular);
+  color: #fff;
+  width: 70px;
+  height: 25px;
+  margin-right: 20px;
+}
+
+.wrap-btn-modal .btn_with_bg:last-child {
+  margin-right: 0;
+}
+
+/* proxy modal */
+.modal.proxy .wrap-modal-proxy {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+.modal.proxy table {
+  background: var(--gradient-3);
+  border-radius: 16px;
+  padding: 8px 8px;
+  border-spacing: 12px;
+}
+.modal.proxy table td {
+  color: #fff;
+  font-size: 14px;
+  font-weight: 300;
+}
+.modal.proxy table td.flex {
+  display: flex;
+  gap: 8px;
+}
+.modal.proxy .modal-table-div.dop-ip {
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 20px;
+}
+.modal.proxy .settings-form {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 20px;
+}
+.modal.proxy .settings-form .settings,
+.modal.proxy .settings-form .data {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 15px;
+  width: 100%;
+}
+.modal.proxy .settings-form label {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 8px;
+  font-size: 16px;
+  max-width: 310px;
+  width: 100%;
+}
+.modal.proxy .settings-form h3 {
+  font-size: 20px;
+}
+.modal.proxy .settings-form select,
+.modal.proxy .settings-form input {
+  font-size: 16px;
+  font-weight: bold;
+  /* font-family: var(--font-bold); */
+  border: 1px solid #D9D9D9;
+  border-radius: 8px;
+  padding: 10px 12px;
+  width: 100%;
+}
+.modal.proxy .settings-form .wrap-btn {
+  display: flex;
+  width: 100%;
+  max-width: 310px;
+  gap: 40px;
+}
+.modal.proxy .settings-form .btn.button:first-child {
+  background: unset;
+  color: #4D4B77;
+  border: 1px solid #4D4B77;
+  max-width: 105px;
+}
+.modal.proxy .settings-form .btn.button {
+  width: 100%;
+}
+
+.modal.extend {
+  background-color: #F8F6FB;
+  padding: 30px;
+  border-radius: 15px;
+}
+.modal.extend .title {
+  display: flex;
+  justify-content: space-between;
+
+}
+.modal.extend .textWrap {
+  gap: 20px;
+}
+.modal.extend .textWrap p {
+  font-size: 16px;
+  text-align: start;
+  margin-bottom: 20px;
+}
+.modal.extend select {
+  max-width: 100%;
+  width: 100%;
+  height: 50px;
+  border: 1px solid #D9D9D9;
+  padding: 10px 12px;
+  border-radius: 10px;
+  font-size: 16px;
+  font-weight: bold;
+  flex: 1;
+  /* font-family: var(--font-bold); */
+  /* margin-bottom: 20px; */
+}
+.modal.extend .buttonFormWrap {
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.modal.extend .btn.button {
+  border-radius: 10px;
+  max-width: 100%;
+  width: 100%;
+  flex: 1;
+}
+.modal.extend .btn.button,
+.modal.notifications .btn.button {
+  /* background: #fff;
+  color: #4D4B77; */
+  width: 180px;
+}
+.modal.notifications .btn.button {
+  max-width: 100%;
+}
+.buttonFormWrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.modal.notifications .textWrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+  gap: 10px;
+}
+.modal.notifications .body {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+.modal.notifications .massage {
+  /* margin: 20px 0; */
+  color: #fff;
+}
+.modal.notifications .buttonFormWrap {
+  gap: 10px;
+}
+.js-modal-close {
+  cursor: pointer;
+}
