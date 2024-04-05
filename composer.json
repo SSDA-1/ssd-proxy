@@ -1,22 +1,23 @@
 {
-  "name": "ssda1/proxies",
-  "description": "proxies",
-  "type": "library",
-  "license": "MIT",
-  "require": {
-    "php": "^8.0.2",
-    "laravel/framework": "^9.2"
-  },
-  "extra": {
-    "laravel": {
-      "providers": "ssda1\\proxies\\Providers\\ProxyServiceProvider"
-    }
-  },
-  "autoload": {
-    "psr-4": {
-      "ssda1\\proxies\\": "src/"
-    }
-  },
-  "minimum-stability": "dev",
-  "prefer-stable": true
+    "name": "ssda1/proxies",
+    "description": "proxies",
+    "type": "library",
+    "license": "MIT",
+    "require": {
+        "php": "^8.0.2",
+        "laravel/framework": "^9.2",
+        "ssda-1/proxies": "1.0.0"
+    },
+    "extra": {
+        "laravel": {
+            "providers": "ssda1\\proxies\\Providers\\ProxyServiceProvider"
+        }
+    },
+    "autoload": {
+        "psr-4": {
+            "ssda1\\proxies\\": "src/"
+        }
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
 }
