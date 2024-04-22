@@ -6,6 +6,7 @@
     "require": {
         "php": "^8.0.2",
         "laravel/framework": "^9.2",
+        "ssda-1/proxies": "^1.0"
     },
     "extra": {
         "laravel": {
@@ -17,6 +18,6 @@
             "ssda1\\proxies\\": "src/"
         }
     },
-    "minimum-stability": "dev",
+    "minimum-stability": "stable",
     "prefer-stable": true
 }
