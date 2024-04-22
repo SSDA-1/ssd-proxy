@@ -1,6 +1,6 @@
 <?php
 
-namespace ssd\proxies\Models;
+namespace ssda1\proxies\Models;
 
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
