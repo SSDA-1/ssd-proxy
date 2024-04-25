@@ -7,7 +7,7 @@ use ssda1\proxies\Models\Menu;
 use ssda1\proxies\Models\Server;
 use ssda1\proxies\Models\Partner;
 use ssda1\proxies\Models\Reviews;
-use ssda1\proxiesApp\Models\Advantag;
+use ssda1\proxies\Models\Advantag;
 use ssda1\proxies\Models\siteSetting;
 use ssda1\proxies\Models\SettingNotices;
 use ssda1\proxies\Models\TariffSettings;

@@ -85,8 +85,8 @@
         </div>
     </div> --}}
     @include(
-        'templates.' .
-            (new App\Http\Controllers\TemplateController())->getUserTemplateDirectory() .
+        'proxies::templates.' .
+            (new ssda1\proxies\Http\Controllers\TemplateController())->getUserTemplateDirectory() .
             '.layouts.mob-menu')
     {{-- <div class="wrap mob">
         <div class="menu-btn">

@@ -44,22 +44,6 @@ Route::get('/locale/{language}', function ($language) {
     return redirect()->back();
 })->name('locale');
 
-/*Route::get('/modelControl/{name}', function ($name) {
-    Artisan::call('make:model '.$name.' -cm');
-
-    return "Контроллер $name и модель созданы ";
-});*/
-/*Route::get('/migration/{name}', function ($name) {
-    Artisan::call('make:migration '.$name);
-
-    return "Контроллер $name и модель созданы ";
-});*/
-/*Route::get('/migrate', function () {
-    Artisan::call('migrate');
-
-    return "Миграция выполнена";
-});*/
-
 Route::post('/get/endpay', [ssda1\proxies\Http\Controllers\PaymentController::class, 'PaymentBalanceDoneWebhook'])->name('PaymentBalanceDoneWebhook')->withoutMiddleware(['web', 'csrf']);
 
 Route::post('/telegram/webhook', [ssda1\proxies\Http\Controllers\TelegramController::class, 'webhook'])->middleware('throttle:60,1')
@@ -73,7 +57,7 @@ Route::get('/usdtchecker/check/{id}', [ssda1\proxies\Http\Controllers\PaymentCon
 Route::get('/usdtchecker/success', [ssda1\proxies\Http\Controllers\PaymentController::class, 'chackUSDTSuccess']);
 
 Route::get('trouble-with-payment', function () {
-    return view('trouble-with-payment');
+    return view('proxies::trouble-with-payment');
 });
 
 Route::get('/fetch/proxy/changeip/{proxy}/{proxy2}', [ssda1\proxies\Http\Controllers\AjaxController::class, 'changeIP'])->name('changeGetIP');
@@ -92,7 +76,7 @@ Route::group(['middleware' => ['subscription']], function () {
         $servers = ssda1\proxies\Models\Server::all();
         $serversCountry = $servers->pluck('country')->toArray();
 
-        return view('home', [
+        return view('proxies::home', [
             'settingModel' => $settingModel,
             'serversCountry' => $serversCountry
         ]);
@@ -115,7 +99,7 @@ Route::group(['middleware' => ['auth']], function () use ($templates) {
     Route::post('/fetch/save/email', [ssda1\proxies\Http\Controllers\UserController::class, 'saveEmail'])->name('saveEmail');
 
     Route::get('lk', function () {
-        return view('admin.lk.index');
+        return view('proxies::admin.lk.index');
     })->name('lk');
     Route::get('buy-proxy', function () {
         $settingModel = ssda1\proxies\Models\SettingKraken::find(1);
@@ -123,22 +107,22 @@ Route::group(['middleware' => ['auth']], function () use ($templates) {
         $servers = ssda1\proxies\Models\Server::all();
         $serversCountry = $servers->pluck('country')->toArray();
 
-        return view('admin.lk.buy-proxy', [
+        return view('proxies::admin.lk.buy-proxy', [
             'settingModel' => $settingModel,
             'serversCountry' => $serversCountry
         ]);
     });
     Route::get('replenishment', function () {
-        return view('admin.lk.replenishment');
+        return view('proxies::admin.lk.replenishment');
     });
     Route::get('help', function () use ($templates) {
-        return view($templates. 'pages.support.sups');
+        return view('proxies::' . $templates . 'pages.support.sups');
     });
     Route::get('training-center', function () {
-        return view('admin.lk.training-center');
+        return view('proxies::admin.lk.training-center');
     });
     Route::get('partners', function () {
-        return view('admin.lk.partners');
+        return view('proxies::admin.lk.partners');
     });
 
 
@@ -205,13 +189,13 @@ Route::group(['middleware' => ['auth', 'subscription', 'permission:admin-panel']
     Route::resource('faq-adm', 'ssda1\proxies\Http\Controllers\FaqController')->only(['index', 'create', 'store', 'edit', 'update', 'destroy']);
     Route::resource('port', 'ssda1\proxies\Http\Controllers\ModemController')->only(['create', 'store', 'edit', 'update', 'destroy']);
     Route::get('notice', function () {
-        return view('admin.notice.index');
+        return view('proxies::admin.notice.index');
     });
 
     Route::prefix('admin')->group(function () {
         // РЕФЕРАЛКА
         Route::get('ref-stat', function () {
-            return view('admin.referrals.stat');
+            return view('proxies::admin.referrals.stat');
         });
         // ===========
         Route::resource('support', 'ssda1\proxies\Http\Controllers\SupportController')->only(['index', 'show', 'create', 'store', 'update', 'destroy']);
@@ -236,7 +220,7 @@ Route::group(['middleware' => ['auth', 'subscription', 'permission:admin-panel']
         $startOfSubscription = (new \ssda1\proxies\Http\Controllers\SsdaController())->getInfoFromSsda()->getStartOfSubscription();
         $endOfSubscription = (new \ssda1\proxies\Http\Controllers\SsdaController())->getInfoFromSsda()->getEndOfSubscriptionFormatted();
         $nameOfSubscription = (new \ssda1\proxies\Http\Controllers\SsdaController())->getInfoFromSsda()->getNameOfSubscription();
-        return view('admin.home', compact(
+        return view('proxies::admin.home', compact(
             'chart',
             'statistics',
             'countKraken',

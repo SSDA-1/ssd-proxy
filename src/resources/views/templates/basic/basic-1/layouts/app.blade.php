@@ -46,19 +46,19 @@
             Request::is('training-center') ||
             Request::is('partners'))
         @include(
-            'templates.' .
-                (new App\Http\Controllers\TemplateController())->getUserTemplateDirectory() .
+            'proxies::templates.' .
+                (new ssda1\proxies\Http\Controllers\TemplateController())->getUserTemplateDirectory() .
                 '.layouts.head-lk')
     @else
         @include(
-            'templates.' .
-                (new App\Http\Controllers\TemplateController())->getUserTemplateDirectory() .
+            'proxies::templates.' .
+                (new ssda1\proxies\Http\Controllers\TemplateController())->getUserTemplateDirectory() .
                 '.layouts.head')
     @endif
 
     @if (config('license.key'))
         @yield('content')
-        @include('templates.' . (new App\Http\Controllers\TemplateController())->getUserTemplateDirectory() . '.layouts.footer')
+        @include('proxies::templates.' . (new ssda1\proxies\Http\Controllers\TemplateController())->getUserTemplateDirectory() . '.layouts.footer')
         @yield('modal')
         <div class="overlay js-overlay-modal"></div>
     @else

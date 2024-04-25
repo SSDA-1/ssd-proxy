@@ -81,14 +81,8 @@ class ProxyServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        //$this->loadCommandsFrom(__DIR__.'/../Console');
         $this->loadMigrationsFrom(__DIR__.'/../database/migrations');
-        //$this->loadControllersFrom(__DIR__.'/../Http/Controllers');
-        //$this->loadMiddlewareFrom(__DIR__.'/../Http/Middleware');
         $this->loadTranslationsFrom(__DIR__.'/../lang', 'proxies');
-       // $this->loadModelsFrom(__DIR__.'/../Models');
-        //$this->loadNotificationsFrom(__DIR__.'/../Notifications');
-        //$this->loadProvidersFrom(__DIR__.'/../Providers');
         $this->loadViewsFrom(__DIR__.'/../resources/views', 'proxies');
         $this->loadRoutesFrom(__DIR__.'/../routes/web.php');
 
@@ -109,8 +103,7 @@ class ProxyServiceProvider extends ServiceProvider
         ]);
 
         $this->publishes([
-            __DIR__.'/../public' => public_path(),
-            'public'
+            __DIR__.'/../public' => public_path('public/vendor/proxies'), 'public'
         ]);
     }
 }

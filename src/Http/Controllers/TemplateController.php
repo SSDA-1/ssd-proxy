@@ -144,7 +144,7 @@ class TemplateController extends Controller
         if (isset($template)) {
             return $template->directory;
         } else {
-            return 'proxies::basic.basic-1';
+            return 'basic.basic-1';
         }
     }
 }

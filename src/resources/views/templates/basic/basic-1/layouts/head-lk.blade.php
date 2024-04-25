@@ -29,8 +29,8 @@
             </a>
         @endguest
         @include(
-            'templates.' .
-                (new App\Http\Controllers\TemplateController())->getUserTemplateDirectory() .
+            'proxies::templates.' .
+                (new ssda1\proxies\Http\Controllers\TemplateController())->getUserTemplateDirectory() .
                 '.layouts.mob-menu')
     </div>
     <div class="title">

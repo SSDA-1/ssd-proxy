@@ -1,4 +1,4 @@
-@extends('templates.' . (new App\Http\Controllers\TemplateController())->getUserTemplateDirectory() . '.layouts.app')
+@extends('proxies::templates.' . (new ssda1\proxies\Http\Controllers\TemplateController())->getUserTemplateDirectory() . '.layouts.app')
 @section('style')
     <link rel="stylesheet" href="{{ asset('assets/css/auth.css') }}">
 @endsection
