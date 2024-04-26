@@ -81,9 +81,9 @@ class ProxyServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        $this->loadMigrationsFrom(__DIR__.'/database/migrations');
-        $this->loadTranslationsFrom(__DIR__.'/lang', 'proxies');
-        $this->loadViewsFrom(__DIR__.'/resources/views', 'proxies');
-        $this->loadRoutesFrom(__DIR__.'/routes/web.php');
+        $this->loadMigrationsFrom(__DIR__.'/../database/migrations');
+        $this->loadTranslationsFrom(__DIR__.'/../lang', 'proxies');
+        $this->loadViewsFrom(__DIR__.'/../resources/views', 'proxies');
+        $this->loadRoutesFrom(__DIR__.'/../routes/web.php');
     }
 }
