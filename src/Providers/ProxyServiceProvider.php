@@ -85,25 +85,5 @@ class ProxyServiceProvider extends ServiceProvider
         $this->loadTranslationsFrom(__DIR__.'/../lang', 'proxies');
         $this->loadViewsFrom(__DIR__.'/../resources/views', 'proxies');
         $this->loadRoutesFrom(__DIR__.'/../routes/web.php');
-
-        $this->publishes([
-            __DIR__.'/../database/migrations' => database_path('migrations'),
-        ], 'migrations');
-
-        $this->publishes([
-            __DIR__.'/../lang' => resource_path('lang/vendor/proxies'),
-        ], 'translations');
-
-        $this->publishes([
-            __DIR__.'/../resources/views' => resource_path('views/vendor/proxies'),
-        ]);
-
-        $this->publishes([
-            __DIR__.'/../config/license.php' => config_path('license.php'),
-        ]);
-
-        $this->publishes([
-            __DIR__.'/../public' => public_path('public/vendor/proxies'), 'public'
-        ]);
     }
 }
