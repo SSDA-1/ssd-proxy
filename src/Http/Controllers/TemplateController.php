@@ -137,7 +137,7 @@ class TemplateController extends Controller
     public function getUserTemplateDirectory(): string
     {
         try {
-            $template = Template::where('is_active', 1)->firstOrFail();
+            //$template = Template::where('is_active', 1)->firstOrFail();
         } catch (ModelNotFoundException $exception) {
         }
 
