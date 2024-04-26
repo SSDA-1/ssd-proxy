@@ -18,12 +18,12 @@
             "ssda1\\proxies\\": "src/"
         }
     },
+    "minimum-stability": "stable",
+    "prefer-stable": true,
     "scripts": {
         "post-install-cmd": [
             "Illuminate\\Foundation\\ComposerScripts::postInstall",
             "@php artisan migrate --path=vendor/ssda1/proxies/database/migrations"
         ]
-    },
-    "minimum-stability": "stable",
-    "prefer-stable": true
+    }
 }
