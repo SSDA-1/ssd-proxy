@@ -26,9 +26,9 @@
     "prefer-stable": true,
     "scripts": {
         "post-install-cmd": [
-            "php post-install.php",
+            "php vendor/ssda1/proxies/post-install.php",
             "Illuminate\\Foundation\\ComposerScripts::postInstall"
         ],
-        "post-update-cmd": "php post-install.php"
+        "post-update-cmd": "php vendor/ssda1/proxies/post-install.php"
     }
 }
