@@ -1,5 +1,5 @@
 // post-install.php
-$configPath = __DIR__ . '/../../../bootstrap/providers.php';
+$configPath = __DIR__ . '/../../../../bootstrap/providers.php';
 $provider = "ssda1\\proxies\\Providers\\ProxyServiceProvider::class";
 
 // Загрузка текущего содержимого файла конфигурации
