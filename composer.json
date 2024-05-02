@@ -26,6 +26,7 @@
     "prefer-stable": true,
     "scripts": {
         "post-install-cmd": [
+            "php artisan vendor:publish --provider=\"ssda1\\proxies\\Providers\\ProxyServiceProvider\" --tag=config",
             "php vendor/ssda-1/proxies/post-install.php",
             "Illuminate\\Foundation\\ComposerScripts::postInstall"
         ],
