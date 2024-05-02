@@ -10,7 +10,9 @@
     },
     "extra": {
         "laravel": {
-            "providers": "ssda1\\proxies\\Providers\\ProxyServiceProvider"
+            "providers": [
+                "ssda1\\proxies\\Providers\\ProxyServiceProvider"
+            ]
         }
     },
     "autoload": {
