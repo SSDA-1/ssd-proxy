@@ -1,18 +1,18 @@
 <?php
 
-namespace ssda1\proxies\Providers;
+namespace Ssda1\proxies\Providers;
 
-use ssda1\proxies\Service\BetatransferService;
-use ssda1\proxies\Service\CapitalistService;
-use ssda1\proxies\Service\ExportPortsService;
-use ssda1\proxies\Service\FreeKassaService;
-use ssda1\proxies\Service\KrakenService;
-use ssda1\proxies\Service\ProcessLogService;
-use ssda1\proxies\Service\ProxyGlobalService;
-use ssda1\proxies\Service\ProxyStatusService;
-use ssda1\proxies\Service\QiwiService;
-use ssda1\proxies\Service\ServerStatusService;
-use ssda1\proxies\Service\UsdtcheckerService;
+use Ssda1\proxies\Service\BetatransferService;
+use Ssda1\proxies\Service\CapitalistService;
+use Ssda1\proxies\Service\ExportPortsService;
+use Ssda1\proxies\Service\FreeKassaService;
+use Ssda1\proxies\Service\KrakenService;
+use Ssda1\proxies\Service\ProcessLogService;
+use Ssda1\proxies\Service\ProxyGlobalService;
+use Ssda1\proxies\Service\ProxyStatusService;
+use Ssda1\proxies\Service\QiwiService;
+use Ssda1\proxies\Service\ServerStatusService;
+use Ssda1\proxies\Service\UsdtcheckerService;
 
 use Illuminate\Support\ServiceProvider;
 
