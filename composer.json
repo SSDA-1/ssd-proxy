@@ -10,7 +10,7 @@
     "extra": {
         "laravel": {
             "providers": [
-                "ssda1\\proxies\\Providers\\ProxyServiceProvider"
+                "Illuminate\Support\ServiceProvider\\ProxyServiceProvider"
             ]
         }
     },
