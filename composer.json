@@ -17,7 +17,7 @@
     },
     "autoload": {
         "psr-4": {
-            "ssda1\\proxies\\": "src"
+            "ssda1\\proxies\\": "src/"
         }
     },
     "minimum-stability": "stable",
