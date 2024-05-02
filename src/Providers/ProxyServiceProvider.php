@@ -25,7 +25,7 @@ class ProxyServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        $this->loadMigrationsFrom(DIR.'/../../database/migrations');
+        $this->loadMigrationsFrom(__DIR__.'/../../database/migrations');
 
         $this->app->bind('betatransfer-service', function () {
             return new BetatransferService();
