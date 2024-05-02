@@ -17,11 +17,8 @@
     },
     "autoload": {
         "psr-4": {
-            "ssda1\\proxies\\": "src/"
-        },
-        "files": [
-            "Providers/ProxyServiceProvider.php"
-        ]
+            "ssda1\\proxies\\": "src"
+        }
     },
     "minimum-stability": "stable",
     "prefer-stable": true,
