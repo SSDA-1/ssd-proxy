@@ -5,8 +5,7 @@
     "license": "MIT",
     "require": {
         "php": "^8.0.2",
-        "laravel/framework": "*",
-        "ssda-1/proxies": "^1.0"
+        "laravel/framework": "*"
     },
     "extra": {
         "laravel": {
