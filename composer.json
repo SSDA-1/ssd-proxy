@@ -19,7 +19,7 @@
             "ssda1\\proxies\\": "src/"
         },
         "files": [
-            "Providers/ProxyServiceProvider.php"
+            "src/Providers/ProxyServiceProvider.php"
         ]
     },
     "minimum-stability": "stable",
