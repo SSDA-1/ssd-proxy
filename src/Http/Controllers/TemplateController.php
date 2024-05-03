@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace ssda1\proxies\Http\Controllers;
+namespace Ssda1\proxies\Http\Controllers;
 
 use ssda1\proxies\Models\Template;
 use ssda1\proxies\Models\User;
