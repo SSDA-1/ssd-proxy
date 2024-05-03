@@ -1,5 +1,5 @@
 {
-    "name": "ssda1/proxies",
+    "name": "ssda-1/proxies",
     "description": "proxies",
     "type": "library",
     "license": "MIT",
@@ -16,7 +16,7 @@
     },
     "autoload": {
         "psr-4": {
-            "ssda1\\proxies\\": "src/"
+            "Ssda1\\proxies\\": "src"
         },
         "files": [
             "src/Providers/ProxyServiceProvider.php"
