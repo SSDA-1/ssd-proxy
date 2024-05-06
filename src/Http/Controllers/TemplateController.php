@@ -135,11 +135,12 @@ class TemplateController extends Controller
      */
     public function getUserTemplateDirectory(): string
     {
-        try {
-            $template = Template::where('is_active', 1)->firstOrFail();
-            return $template->directory;
-        } catch (ModelNotFoundException $exception) {
-            return 'basic.basic-1';
+        if (Schema::hasTable('templates')) {
+            $template = Template::where('is_active', 1)->first();
+            if ($template) {
+                return $template->directory;
+            }
         }
+        return 'basic.basic-1';
     }
 }
