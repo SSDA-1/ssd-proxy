@@ -1,12 +1,11 @@
 <?php
 
-namespace ssda1\proxies\Http\Controllers;
+namespace Ssda1\proxies\Http\Controllers;
 
-use ssda1\proxies\Models\Server;
-use ssda1\proxies\Models\Advantag;
-use ssda1\proxies\Models\SettingKraken;
-use ssda1\proxies\Service\ProcessLogService;
-use ssda1\proxies\Service\ProxyStatusService;
+use Ssda1\proxies\Models\Server;
+use Ssda1\proxies\Models\SettingKraken;
+use Ssda1\proxies\Service\ProcessLogService;
+use Ssda1\proxies\Service\ProxyStatusService;
 
 use Illuminate\Http\Request;
 use Illuminate\Contracts\View\View;

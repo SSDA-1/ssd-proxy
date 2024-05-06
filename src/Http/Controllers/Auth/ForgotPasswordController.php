@@ -1,8 +1,8 @@
 <?php
 
-namespace ssda1\proxies\Http\Controllers\Auth;
+namespace Ssda1\proxies\Http\Controllers\Auth;
 
-use ssda1\proxies\Http\Controllers\Controller;
+use Ssda1\proxies\Http\Controllers\Controller;
 
 use Illuminate\Foundation\Auth\SendsPasswordResetEmails;
 

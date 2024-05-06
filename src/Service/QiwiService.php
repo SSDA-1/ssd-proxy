@@ -1,9 +1,9 @@
 <?php
 
-namespace ssda1\proxies\Service;
+namespace Ssda1\proxies\Service;
 
-use ssda1\proxies\Models\HistoryOperation;
-use ssda1\proxies\Models\siteSetting;
+use Ssda1\proxies\Models\HistoryOperation;
+use Ssda1\proxies\Models\siteSetting;
 
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Http;

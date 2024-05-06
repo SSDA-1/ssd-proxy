@@ -1,11 +1,10 @@
 <?php
 
-namespace ssda1\proxies\Http\Controllers;
+namespace Ssda1\proxies\Http\Controllers;
 
-use ssda1\proxies\Models\Promocode;
-use ssda1\proxies\Models\ProcessLog;
-use ssda1\proxies\Models\TariffSettings;
-use ssda1\proxies\Service\ProcessLogService;
+use Ssda1\proxies\Models\Promocode;
+use Ssda1\proxies\Models\TariffSettings;
+use Ssda1\proxies\Service\ProcessLogService;
 
 use Illuminate\Http\Request;
 use Illuminate\Http\RedirectResponse;

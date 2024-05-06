@@ -1,6 +1,6 @@
 <?php
 
-namespace ssda1\proxies\Providers;
+namespace Ssda1\proxies\Providers;
 
 use Illuminate\Support\ServiceProvider;
 

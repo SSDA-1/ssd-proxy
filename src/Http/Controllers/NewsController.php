@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace ssda1\proxies\Http\Controllers;
+namespace Ssda1\proxies\Http\Controllers;
 
-use ssda1\proxies\Models\News;
-use ssda1\proxies\Service\ProcessLogService;
+use Ssda1\proxies\Models\News;
+use Ssda1\proxies\Service\ProcessLogService;
 
 use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Contracts\View\Factory;

@@ -1,9 +1,9 @@
 <?php
 
-namespace ssda1\proxies\Http\Controllers;
+namespace Ssda1\proxies\Http\Controllers;
 
-use ssda1\proxies\Models\Reviews;
-use ssda1\proxies\Service\ProcessLogService;
+use Ssda1\proxies\Models\Reviews;
+use Ssda1\proxies\Service\ProcessLogService;
 
 use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Contracts\View\Factory;

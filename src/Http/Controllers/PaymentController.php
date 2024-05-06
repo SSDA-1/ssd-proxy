@@ -1,19 +1,18 @@
 <?php
 
-namespace ssda1\proxies\Http\Controllers;
+namespace Ssda1\proxies\Http\Controllers;
 
-use ssda1\proxies\Models\WithdrawalRequest;
-use ssda1\proxies\Models\HistoryOperation;
-use ssda1\proxies\Models\User;
-use ssda1\proxies\Models\Referral;
-use ssda1\proxies\Models\SettingKraken;
-use ssda1\proxies\Models\siteSetting;
-use ssda1\proxies\Service\QiwiService;
-use ssda1\proxies\Service\UsdtcheckerService;
-use ssda1\proxies\Service\BetatransferService;
-use ssda1\proxies\Service\CapitalistService;
-use ssda1\proxies\Service\FreeKassaService;
-use ssda1\proxies\Service\ProcessLogService;
+use Ssda1\proxies\Models\WithdrawalRequest;
+use Ssda1\proxies\Models\HistoryOperation;
+use Ssda1\proxies\Models\User;
+use Ssda1\proxies\Models\Referral;
+use Ssda1\proxies\Models\siteSetting;
+use Ssda1\proxies\Service\QiwiService;
+use Ssda1\proxies\Service\UsdtcheckerService;
+use Ssda1\proxies\Service\BetatransferService;
+use Ssda1\proxies\Service\CapitalistService;
+use Ssda1\proxies\Service\FreeKassaService;
+use Ssda1\proxies\Service\ProcessLogService;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;

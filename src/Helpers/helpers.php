@@ -1,13 +1,13 @@
 <?php
 
-use ssda1\proxies\Models\User;
-use ssda1\proxies\Models\Modem;
-use ssda1\proxies\Models\Proxy;
-use ssda1\proxies\Models\SettingNotices;
-use ssda1\proxies\Models\SettingKraken;
-use ssda1\proxies\Models\HistoryOperation;
-use ssda1\proxies\Models\Server;
-use ssda1\proxies\Service\KrakenService;
+use Ssda1\proxies\Models\User;
+use Ssda1\proxies\Models\Modem;
+use Ssda1\proxies\Models\Proxy;
+use Ssda1\proxies\Models\SettingNotices;
+use Ssda1\proxies\Models\SettingKraken;
+use Ssda1\proxies\Models\HistoryOperation;
+use Ssda1\proxies\Models\Server;
+use Ssda1\proxies\Service\KrakenService;
 
 use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\Mail;

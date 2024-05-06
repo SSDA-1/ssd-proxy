@@ -1,11 +1,11 @@
 <?php
 
-namespace ssda1\proxies\Http\Controllers;
+namespace Ssda1\proxies\Http\Controllers;
 
-use ssda1\proxies\Models\SettingNotices;
-use ssda1\proxies\Models\Notice;
-use ssda1\proxies\Models\User;
-use ssda1\proxies\Notifications\Telegram;
+use Ssda1\proxies\Models\SettingNotices;
+use Ssda1\proxies\Models\Notice;
+use Ssda1\proxies\Models\User;
+use Ssda1\proxies\Notifications\Telegram;
 
 use Illuminate\Http\Request;
 use Illuminate\Contracts\View\View;

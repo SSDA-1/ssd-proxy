@@ -1,20 +1,19 @@
 <?php
 
-namespace ssda1\proxies\Http\Controllers;
+namespace Ssda1\proxies\Http\Controllers;
 
-use ssda1\proxies\Models\User;
-use ssda1\proxies\Models\Modem;
-use ssda1\proxies\Models\Proxy;
-use ssda1\proxies\Models\Server;
-use ssda1\proxies\Models\Promocode;
-use ssda1\proxies\Models\ProcessLog;
-use ssda1\proxies\Models\CountPairsProxyDiscount;
-use ssda1\proxies\Models\SettingKraken;
-use ssda1\proxies\Models\TariffSettings;
-use ssda1\proxies\Models\CountDaysDiscount;
-use ssda1\proxies\Models\CountProxyDiscount;
-use ssda1\proxies\Service\ProcessLogService;
-use ssda1\proxies\Service\ProxyGlobalService;
+use Ssda1\proxies\Models\User;
+use Ssda1\proxies\Models\Modem;
+use Ssda1\proxies\Models\Proxy;
+use Ssda1\proxies\Models\Server;
+use Ssda1\proxies\Models\Promocode;
+use Ssda1\proxies\Models\CountPairsProxyDiscount;
+use Ssda1\proxies\Models\SettingKraken;
+use Ssda1\proxies\Models\TariffSettings;
+use Ssda1\proxies\Models\CountDaysDiscount;
+use Ssda1\proxies\Models\CountProxyDiscount;
+use Ssda1\proxies\Service\ProcessLogService;
+use Ssda1\proxies\Service\ProxyGlobalService;
 
 use Illuminate\Http\Request;
 use Illuminate\Contracts\View\View;

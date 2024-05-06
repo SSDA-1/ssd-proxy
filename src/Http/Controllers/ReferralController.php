@@ -1,14 +1,12 @@
 <?php
 
-namespace ssda1\proxies\Http\Controllers;
+namespace Ssda1\proxies\Http\Controllers;
 
-use ssda1\proxies\Models\Referral;
-use ssda1\proxies\Models\HistoryOperation;
-use ssda1\proxies\Models\Advantag;
-use ssda1\proxies\Models\SettingKraken;
-use ssda1\proxies\Models\siteSetting;
-use ssda1\proxies\Models\User;
-use ssda1\proxies\Models\WithdrawalRequest;
+use Ssda1\proxies\Models\Referral;
+use Ssda1\proxies\Models\HistoryOperation;
+use Ssda1\proxies\Models\siteSetting;
+use Ssda1\proxies\Models\User;
+use Ssda1\proxies\Models\WithdrawalRequest;
 
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;

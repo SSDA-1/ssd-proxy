@@ -4,9 +4,8 @@ declare(strict_types=1);
 
 namespace Ssda1\proxies\Http\Controllers;
 
-use ssda1\proxies\Models\Template;
-use ssda1\proxies\Models\User;
-use ssda1\proxies\Service\ProcessLogService;
+use Ssda1\proxies\Models\Template;
+use Ssda1\proxies\Service\ProcessLogService;
 
 use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Contracts\View\Factory;
@@ -137,7 +136,7 @@ class TemplateController extends Controller
     public function getUserTemplateDirectory(): string
     {
         try {
-            //$template = Template::where('is_active', 1)->firstOrFail();
+            $template = Template::where('is_active', 1)->firstOrFail();
         } catch (ModelNotFoundException $exception) {
         }
 

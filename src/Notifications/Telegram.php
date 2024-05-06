@@ -1,6 +1,6 @@
 <?php
 
-namespace ssda1\proxies\Notifications;
+namespace Ssda1\proxies\Notifications;
 
 use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;

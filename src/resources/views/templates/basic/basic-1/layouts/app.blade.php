@@ -47,18 +47,18 @@
             Request::is('partners'))
         @include(
             'proxies::templates.' .
-                (new ssda1\proxies\Http\Controllers\TemplateController())->getUserTemplateDirectory() .
+                (new Ssda1\proxies\Http\Controllers\TemplateController())->getUserTemplateDirectory() .
                 '.layouts.head-lk')
     @else
         @include(
             'proxies::templates.' .
-                (new ssda1\proxies\Http\Controllers\TemplateController())->getUserTemplateDirectory() .
+                (new Ssda1\proxies\Http\Controllers\TemplateController())->getUserTemplateDirectory() .
                 '.layouts.head')
     @endif
 
     @if (config('license.key'))
         @yield('content')
-        @include('proxies::templates.' . (new ssda1\proxies\Http\Controllers\TemplateController())->getUserTemplateDirectory() . '.layouts.footer')
+        @include('proxies::templates.' . (new Ssda1\proxies\Http\Controllers\TemplateController())->getUserTemplateDirectory() . '.layouts.footer')
         @yield('modal')
         <div class="overlay js-overlay-modal"></div>
     @else

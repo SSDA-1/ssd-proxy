@@ -30,7 +30,7 @@
         @endguest
         @include(
             'proxies::templates.' .
-                (new ssda1\proxies\Http\Controllers\TemplateController())->getUserTemplateDirectory() .
+                (new Ssda1\proxies\Http\Controllers\TemplateController())->getUserTemplateDirectory() .
                 '.layouts.mob-menu')
     </div>
     <div class="title">

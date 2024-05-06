@@ -1,8 +1,8 @@
 <?php
 
-namespace ssda1\proxies\Http\Controllers;
+namespace Ssda1\proxies\Http\Controllers;
 
-use ssda1\proxies\Models\WithdrawalRequest;
+use Ssda1\proxies\Models\WithdrawalRequest;
 
 use Illuminate\Http\Request;
 use Illuminate\Contracts\Foundation\Application;

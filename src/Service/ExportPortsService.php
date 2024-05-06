@@ -1,12 +1,10 @@
 <?php
 
-namespace ssda1\proxies\Service;
+namespace Ssda1\proxies\Service;
 
-use ssda1\proxies\Models\HistoryOperation;
-use ssda1\proxies\Models\siteSetting;
-use ssda1\proxies\Models\Modem;
-use ssda1\proxies\Models\User;
-use ssda1\proxies\Models\Proxy;
+use Ssda1\proxies\Models\Modem;
+use Ssda1\proxies\Models\User;
+use Ssda1\proxies\Models\Proxy;
 
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;

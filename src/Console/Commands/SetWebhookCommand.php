@@ -1,6 +1,6 @@
 <?php
 
-namespace ssda1\proxies\Console\Commands;
+namespace Ssda1\proxies\Console\Commands;
 
 use Illuminate\Console\Command;
 use Telegram\Bot\Laravel\Facades\Telegram;
