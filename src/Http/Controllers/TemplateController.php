@@ -137,12 +137,8 @@ class TemplateController extends Controller
     {
         try {
             $template = Template::where('is_active', 1)->firstOrFail();
-        } catch (ModelNotFoundException $exception) {
-        }
-
-        if (isset($template)) {
             return $template->directory;
-        } else {
+        } catch (ModelNotFoundException $exception) {
             return 'basic.basic-1';
         }
     }
