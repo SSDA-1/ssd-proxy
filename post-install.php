@@ -1,6 +1,6 @@
 // post-install.php
 $configPath = __DIR__ . '/../../../../bootstrap/providers.php';
-$provider = "ssda1\\proxies\\Providers\\ProxyServiceProvider::class";
+$provider = "Ssda1\\proxies\\Providers\\ProxyServiceProvider::class";
 
 $config = file_get_contents($configPath);
 
