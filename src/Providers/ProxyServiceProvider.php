@@ -18,6 +18,7 @@ use Ssda1\proxies\Http\Middleware\SetLanguage;
 
 use Illuminate\Foundation\Http\Kernel;
 use Illuminate\Support\ServiceProvider;
+use Illuminate\Support\Facades\Artisan;
 
 class ProxyServiceProvider extends ServiceProvider
 {
@@ -29,6 +30,7 @@ class ProxyServiceProvider extends ServiceProvider
     public function register()
     {
         $this->loadMigrationsFrom(__DIR__.'/../database/migrations');
+        Artisan::call('migrate');
         $this->loadTranslationsFrom(__DIR__.'/../lang', 'proxies');
         $this->loadViewsFrom(__DIR__.'/../resources/views', 'proxies');
 
