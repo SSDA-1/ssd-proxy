@@ -28,8 +28,8 @@ class ProxyServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        $this->app->make(Kernel::class)->pushMiddlewareToGroup('web', SetLanguage::class);
-        $this->app->make(Kernel::class)->addRouteMiddleware('subscription', RedirectIfProblematicSubscription::class);
+        $this->app[Kernel::class]->appendMiddlewareToGroup('web', SetLanguage::class);
+        $this->app[Kernel::class]->aliasMiddleware('subscription', RedirectIfProblematicSubscription::class);
 
         $this->app->register(AppServiceProvider::class);
         $this->app->register(HelpersLoaderProvider::class);
