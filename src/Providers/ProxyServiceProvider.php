@@ -13,7 +13,10 @@ use Ssda1\proxies\Service\ProxyStatusService;
 use Ssda1\proxies\Service\QiwiService;
 use Ssda1\proxies\Service\ServerStatusService;
 use Ssda1\proxies\Service\UsdtcheckerService;
+use Ssda1\proxies\Http\Middleware\RedirectIfProblematicSubscription;
+use Ssda1\proxies\Http\Middleware\SetLanguage;
 
+use Illuminate\Foundation\Http\Kernel;
 use Illuminate\Support\ServiceProvider;
 
 class ProxyServiceProvider extends ServiceProvider
@@ -29,6 +32,13 @@ class ProxyServiceProvider extends ServiceProvider
         $this->loadTranslationsFrom(__DIR__.'/../lang', 'proxies');
         $this->loadViewsFrom(__DIR__.'/../resources/views', 'proxies');
         $this->loadRoutesFrom(__DIR__.'/../routes/web.php');
+
+        $this->app->register(AppServiceProvider::class);
+        $this->app->register(HelpersLoaderProvider::class);
+        $this->app->register(RouteServiceProvider::class);
+
+        $this->app->make(Kernel::class)->pushMiddlewareToGroup('web', SetLanguage::class);
+        $this->app->make(Kernel::class)->addRouteMiddleware('subscription', RedirectIfProblematicSubscription::class);
 
         $this->app->bind('betatransfer-service', function () {
             return new BetatransferService();
@@ -82,8 +92,6 @@ class ProxyServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        $this->publishes([
-            __DIR__.'/../database/migrations' => database_path('migrations'),
-        ], 'migrations');
+       //
     }
 }
