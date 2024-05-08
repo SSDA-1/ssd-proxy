@@ -27,10 +27,7 @@
     "scripts": {
         "post-install-cmd": [
             "php artisan vendor:publish --provider=\"ssda-1\\proxies\\Providers\\ProxyServiceProvider\" --tag=config",
-            "php artisan migrate --path=vendor/ssda-1/proxies/src/database/migrations",
-            "php vendor/ssda-1/proxies/post-install.php",
-            "Illuminate\\Foundation\\ComposerScripts::postInstall"
-        ],
-        "post-update-cmd": "php vendor/ssda-1/proxies/post-install.php"
+            "php artisan migrate --path=vendor/ssda-1/proxies/src/database/migrations"
+        ]
     }
 }
