@@ -28,17 +28,17 @@ class ProxyServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        $this->loadMigrationsFrom(__DIR__.'/../database/migrations');
-        $this->loadTranslationsFrom(__DIR__.'/../lang', 'proxies');
-        $this->loadViewsFrom(__DIR__.'/../resources/views', 'proxies');
-        $this->loadRoutesFrom(__DIR__.'/../routes/web.php');
+        $this->app->make(Kernel::class)->pushMiddlewareToGroup('web', SetLanguage::class);
+        $this->app->make(Kernel::class)->addRouteMiddleware('subscription', RedirectIfProblematicSubscription::class);
 
         $this->app->register(AppServiceProvider::class);
         $this->app->register(HelpersLoaderProvider::class);
         $this->app->register(RouteServiceProvider::class);
 
-        $this->app->make(Kernel::class)->pushMiddlewareToGroup('web', SetLanguage::class);
-        $this->app->make(Kernel::class)->addRouteMiddleware('subscription', RedirectIfProblematicSubscription::class);
+        $this->loadMigrationsFrom(__DIR__.'/../database/migrations');
+        $this->loadTranslationsFrom(__DIR__.'/../lang', 'proxies');
+        $this->loadViewsFrom(__DIR__.'/../resources/views', 'proxies');
+        $this->loadRoutesFrom(__DIR__.'/../routes/web.php');
 
         $this->app->bind('betatransfer-service', function () {
             return new BetatransferService();

@@ -23,11 +23,5 @@
         ]
     },
     "minimum-stability": "stable",
-    "prefer-stable": true,
-    "scripts": {
-        "post-install-cmd": [
-            "php artisan vendor:publish --provider=\"ssda-1\\proxies\\Providers\\ProxyServiceProvider\" --tag=config",
-            "php artisan migrate --path=vendor/ssda-1/proxies/src/database/migrations"
-        ]
-    }
+    "prefer-stable": true
 }
