@@ -29,7 +29,7 @@ class ProxyServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        /*$this->app->register(AppServiceProvider::class);
+        $this->app->register(AppServiceProvider::class);
         $this->app->register(HelpersLoaderProvider::class);
         $this->app->register(RouteServiceProvider::class);
 
@@ -75,7 +75,7 @@ class ProxyServiceProvider extends ServiceProvider
 
         $this->app->bind('usdtchecker-service', function () {
             return new UsdtcheckerService();
-        });*/
+        });
     }
 
     /**
@@ -90,7 +90,7 @@ class ProxyServiceProvider extends ServiceProvider
         $this->loadViewsFrom(__DIR__.'/../resources/views', 'proxies');
         $this->loadRoutesFrom(__DIR__.'/../routes/web.php');
 
-        /*$this->app[Kernel::class]->prependMiddlewareToGroup('web', SetLanguage::class);
-        $this->app[Kernel::class]->aliasMiddleware('subscription', RedirectIfProblematicSubscription::class);*/
+        /*$this->app[Kernel::class]->prependMiddlewareToGroup('web', SetLanguage::class);*/
+        $this->app[Kernel::class]->aliasMiddleware('subscription', RedirectIfProblematicSubscription::class);
     }
 }
