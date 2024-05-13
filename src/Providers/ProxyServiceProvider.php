@@ -33,9 +33,6 @@ class ProxyServiceProvider extends ServiceProvider
         $this->app->register(HelpersLoaderProvider::class);
         $this->app->register(RouteServiceProvider::class);
 
-        $this->app[Kernel::class]->prependMiddlewareToGroup('web', SetLanguage::class);
-        $this->app[Kernel::class]->aliasMiddleware('subscription', RedirectIfProblematicSubscription::class);
-
         $this->app->bind('betatransfer-service', function () {
             return new BetatransferService();
         });
@@ -92,5 +89,8 @@ class ProxyServiceProvider extends ServiceProvider
         $this->loadTranslationsFrom(__DIR__.'/../lang', 'proxies');
         $this->loadViewsFrom(__DIR__.'/../resources/views', 'proxies');
         $this->loadRoutesFrom(__DIR__.'/../routes/web.php');
+
+        $this->app[Kernel::class]->prependMiddlewareToGroup('web', SetLanguage::class);
+        $this->app[Kernel::class]->aliasMiddleware('subscription', RedirectIfProblematicSubscription::class);
     }
 }
