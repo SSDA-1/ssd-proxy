@@ -32,10 +32,14 @@ class ProxyServiceProvider extends ServiceProvider
         $this->loadMigrationsFrom(__DIR__.'/../database/migrations');
         $this->loadTranslationsFrom(__DIR__.'/../lang', 'proxies');
         $this->loadViewsFrom(__DIR__.'/../resources/views', 'proxies');
+        $this->loadRoutesFrom(__DIR__.'/../routes/web.php');
 
         $this->app->register(AppServiceProvider::class);
         $this->app->register(HelpersLoaderProvider::class);
         $this->app->register(RouteServiceProvider::class);
+
+        $this->app[Kernel::class]->prependMiddlewareToGroup('web', SetLanguage::class);
+        $this->app[Kernel::class]->aliasMiddleware('subscription', RedirectIfProblematicSubscription::class);
 
         $this->app->bind('betatransfer-service', function () {
             return new BetatransferService();
@@ -89,9 +93,6 @@ class ProxyServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        $this->loadRoutesFrom(__DIR__.'/../routes/web.php');
-
-        $this->app[Kernel::class]->middlewareGroup('web', [SetLanguage::class]);
-        $this->app[Kernel::class]->aliasMiddleware('subscription', RedirectIfProblematicSubscription::class);
+        //
     }
 }
