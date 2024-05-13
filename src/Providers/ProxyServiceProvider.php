@@ -2,6 +2,9 @@
 
 namespace Ssda1\proxies\Providers;
 
+use Ssda1\proxies\Console\Commands\EndProxyCron;
+use Ssda1\proxies\Console\Commands\SendProxyExpirationNotifications;
+use Ssda1\proxies\Console\Commands\SetWebhookCommand;
 use Ssda1\proxies\Service\BetatransferService;
 use Ssda1\proxies\Service\CapitalistService;
 use Ssda1\proxies\Service\ExportPortsService;
@@ -90,7 +93,6 @@ class ProxyServiceProvider extends ServiceProvider
         $this->loadTranslationsFrom(__DIR__.'/../lang', 'proxies');
         $this->loadViewsFrom(__DIR__.'/../resources/views', 'proxies');
         $this->loadRoutesFrom(__DIR__.'/../routes/web.php');
-        $this->loadCssFrom(__DIR__.'/../resources/css', 'proxies');
 
         $router->middlewareGroup('web', [
             SetLanguage::class,
@@ -98,8 +100,20 @@ class ProxyServiceProvider extends ServiceProvider
 
         $router->aliasMiddleware('subscription', RedirectIfProblematicSubscription::class);
 
+        $this->app->booted(function () {
+            $this->loadCss(url(__DIR__.'/../resources/css/styles.css'));
+        });
+
         $this->publishes([
             __DIR__.'/public' => public_path('/../public'),
         ], 'proxies-public');
+
+        if ($this->app->runningInConsole()) {
+            $this->commands([
+                EndProxyCron::class,
+                SendProxyExpirationNotifications::class,
+                SetWebhookCommand::class
+            ]);
+        }
     }
 }
