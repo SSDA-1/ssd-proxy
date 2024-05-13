@@ -91,7 +91,7 @@ class ProxyServiceProvider extends ServiceProvider
     {
         $this->loadRoutesFrom(__DIR__.'/../routes/web.php');
 
-        $this->app[Kernel::class]->prependMiddlewareToGroup('web', SetLanguage::class);
+        $this->app[Kernel::class]->middlewareGroup('web', [SetLanguage::class]);
         $this->app[Kernel::class]->aliasMiddleware('subscription', RedirectIfProblematicSubscription::class);
     }
 }
