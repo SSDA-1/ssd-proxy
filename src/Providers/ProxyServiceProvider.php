@@ -100,10 +100,6 @@ class ProxyServiceProvider extends ServiceProvider
 
         $router->aliasMiddleware('subscription', RedirectIfProblematicSubscription::class);
 
-        $this->app->booted(function () {
-            $this->loadCss(url(__DIR__.'/../resources/css/styles.css'));
-        });
-
         $this->publishes([
             __DIR__.'/public' => public_path('/../public'),
         ], 'proxies-public');
