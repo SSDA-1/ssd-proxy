@@ -30,7 +30,6 @@ class ProxyServiceProvider extends ServiceProvider
     public function register()
     {
         $this->loadMigrationsFrom(__DIR__.'/../database/migrations');
-        Artisan::call('migrate');
         $this->loadTranslationsFrom(__DIR__.'/../lang', 'proxies');
         $this->loadViewsFrom(__DIR__.'/../resources/views', 'proxies');
 
