@@ -97,5 +97,9 @@ class ProxyServiceProvider extends ServiceProvider
         ]);
 
         $router->aliasMiddleware('subscription', RedirectIfProblematicSubscription::class);
+
+        $this->app->booted(function () {
+            $this->loadCss(url(__DIR__.'/../resources/css/app.css'));
+        });
     }
 }
