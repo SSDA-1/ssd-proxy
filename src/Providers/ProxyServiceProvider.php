@@ -29,11 +29,6 @@ class ProxyServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        $this->loadMigrationsFrom(__DIR__.'/../database/migrations');
-        $this->loadTranslationsFrom(__DIR__.'/../lang', 'proxies');
-        $this->loadViewsFrom(__DIR__.'/../resources/views', 'proxies');
-        $this->loadRoutesFrom(__DIR__.'/../routes/web.php');
-
         $this->app->register(AppServiceProvider::class);
         $this->app->register(HelpersLoaderProvider::class);
         $this->app->register(RouteServiceProvider::class);
@@ -93,6 +88,9 @@ class ProxyServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        //
+        $this->loadMigrationsFrom(__DIR__.'/../database/migrations');
+        $this->loadTranslationsFrom(__DIR__.'/../lang', 'proxies');
+        $this->loadViewsFrom(__DIR__.'/../resources/views', 'proxies');
+        $this->loadRoutesFrom(__DIR__.'/../routes/web.php');
     }
 }
