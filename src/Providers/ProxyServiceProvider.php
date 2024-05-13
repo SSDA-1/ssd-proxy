@@ -19,6 +19,7 @@ use Ssda1\proxies\Http\Middleware\SetLanguage;
 use Illuminate\Foundation\Http\Kernel;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Facades\Artisan;
+use Illuminate\Routing\Router;
 
 class ProxyServiceProvider extends ServiceProvider
 {
@@ -83,14 +84,20 @@ class ProxyServiceProvider extends ServiceProvider
      *
      * @return void
      */
-    public function boot()
+    public function boot(Router $router)
     {
         $this->loadMigrationsFrom(__DIR__.'/../database/migrations');
         $this->loadTranslationsFrom(__DIR__.'/../lang', 'proxies');
         $this->loadViewsFrom(__DIR__.'/../resources/views', 'proxies');
         $this->loadRoutesFrom(__DIR__.'/../routes/web.php');
 
-        /*$this->app[Kernel::class]->prependMiddlewareToGroup('web', SetLanguage::class);*/
-        $this->app[Kernel::class]->aliasMiddleware('subscription', RedirectIfProblematicSubscription::class);
+        $router->middlewareGroup('web', [
+            SetLanguage::class,
+        ]);
+
+        $router->aliasMiddleware('subscription', RedirectIfProblematicSubscription::class);
+
+        /*$this->app[Kernel::class]->prependMiddlewareToGroup('web', SetLanguage::class);
+        $this->app[Kernel::class]->aliasMiddleware('subscription', RedirectIfProblematicSubscription::class);*/
     }
 }
