@@ -90,14 +90,12 @@ class ProxyServiceProvider extends ServiceProvider
         $this->loadTranslationsFrom(__DIR__.'/../lang', 'proxies');
         $this->loadViewsFrom(__DIR__.'/../resources/views', 'proxies');
         $this->loadRoutesFrom(__DIR__.'/../routes/web.php');
+        $this->loadCssFrom(__DIR__.'/../resources/css', 'proxies');
 
         $router->middlewareGroup('web', [
             SetLanguage::class,
         ]);
 
         $router->aliasMiddleware('subscription', RedirectIfProblematicSubscription::class);
-
-        /*$this->app[Kernel::class]->prependMiddlewareToGroup('web', SetLanguage::class);
-        $this->app[Kernel::class]->aliasMiddleware('subscription', RedirectIfProblematicSubscription::class);*/
     }
 }
