@@ -12,6 +12,6 @@ class ProjectStatusController extends Controller
 {
   public function getStatus()
   {
-      return ProjectStatus::find(1)->value('is_domain_active');
+      return ProjectStatus::find(1)->value('is_domain_active') ?? 0;
   }
 }

@@ -38,8 +38,6 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        //session(['locale' => 'ru']);
-
         $mainReviews = Reviews::all();
         View::share('reviewsSite', $mainReviews);
 
@@ -87,11 +85,5 @@ class AppServiceProvider extends ServiceProvider
 
         $partners = Partner::all();
         View::share('partners', $partners);
-
-        // Date::setLocale(config('app.locale'));
-
-        // View::composer('*', function ($view) {
-        //     $view->with(compact('mainMenu'));
-        // });
     }
 }
