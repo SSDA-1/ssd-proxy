@@ -3,7 +3,7 @@
 @section('content')
 
 <div class="wraper-faq-block">
-    <h1>@lang('phrases.САМЫЕ ЧАСТОЗАДАВАЕМЫЕ ВОПРОСЫ')</h1>
+    <h1>@lang('proxies::phrases.САМЫЕ ЧАСТОЗАДАВАЕМЫЕ ВОПРОСЫ')</h1>
     <div class="faq-block">
 
         @php

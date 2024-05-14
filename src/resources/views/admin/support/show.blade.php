@@ -3,25 +3,25 @@
 @section('content')
     <div class="header-page">
         <div class="title-page">
-            <h2>@lang('phrases.Тех. Поддержка - Обращение') #{{ $support->id }}</h2>
+            <h2>@lang('proxies::phrases.Тех. Поддержка - Обращение') #{{ $support->id }}</h2>
         </div>
         <div class="buttons">
             <form action="{{ route('closeSupp') }}" method="POST" data-fetch="none">
                 @csrf
                 <input type="hidden" name="id" value="{{ $support->id }}">
-                <button type="submit" class="btn btn-delite"><span>@lang('phrases.Закрыть обращение')</span></button>
+                <button type="submit" class="btn btn-delite"><span>@lang('proxies::phrases.Закрыть обращение')</span></button>
             </form>
             <a class="btn btn-success" href="{{ route('support.index') }}"><i class="bx bx-left-arrow-alt icon"></i>
-                @lang('phrases.Назад')</a>
+                @lang('proxies::phrases.Назад')</a>
         </div>
     </div>
 
     <div class="block-background chat">
         <div class="bodyDialog" id="bodyDialog">
-            <div class="topLine">@lang('phrases.Обращение') #{{ $support->id }} @if ($support->status == 0)
-                    <span style="color:green;">@lang('phrases.Открыт')</span>
+            <div class="topLine">@lang('proxies::phrases.Обращение') #{{ $support->id }} @if ($support->status == 0)
+                    <span style="color:green;">@lang('proxies::phrases.Открыт')</span>
                 @else
-                    <span style="color:red;">@lang('phrases.Закрыт')</span>
+                    <span style="color:red;">@lang('proxies::phrases.Закрыт')</span>
                 @endif
             </div>
             <div class="midleLine" id="messBody">
@@ -54,7 +54,7 @@
             </div>
             {!! Form::close() !!}
             <div class="bottomLine close">
-                @lang('phrases.Обращение закрыто')
+                @lang('proxies::phrases.Обращение закрыто')
             </div>
         </div>
     </div>

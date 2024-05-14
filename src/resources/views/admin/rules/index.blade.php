@@ -3,7 +3,7 @@
 @section('content')
 <div class="header-page">
     <div class="title-page">
-        <h2>@lang('phrases.Правила сайта')</h2>
+        <h2>@lang('proxies::phrases.Правила сайта')</h2>
     </div>
 </div>
 
@@ -18,8 +18,8 @@
         <thead>
             <tr class="tr-name">
                 <th>No</th>
-                <th>@lang('phrases.Текст')</th>
-                <th>@lang('phrases.Действие')</th>
+                <th>@lang('proxies::phrases.Текст')</th>
+                <th>@lang('proxies::phrases.Действие')</th>
             </tr>
         </thead>
         <tbody>

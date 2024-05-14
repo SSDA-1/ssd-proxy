@@ -7,7 +7,7 @@
 @section('content')
     <div class="header-page">
         <div class="title-page">
-            <h2>@lang('phrases.Редактирование преимущества'): {{ $advantag->title }}</h2>
+            <h2>@lang('proxies::phrases.Редактирование преимущества'): {{ $advantag->title }}</h2>
         </div>
         <div class="buttons">
             <a class="btn btn-success" href="{{ route('advantag.index') }}"><i class="bx bx-left-arrow-alt icon"></i> @lang('phrases.Назад')</a>
@@ -16,7 +16,7 @@
 
     @if (count($errors) > 0)
         <div class="alert alert-danger block-background">
-            <strong>@lang('phrases.Упс')!</strong> @lang('phrases.Были некоторые проблемы с вашим вводом').<br><br>
+            <strong>@lang('proxies::phrases.Упс')!</strong> @lang('proxies::phrases.Были некоторые проблемы с вашим вводом').<br><br>
             <ul>
                 @foreach ($errors->all() as $error)
                     <li>{{ $error }}</li>
@@ -32,18 +32,18 @@
         <div class="block-background basement-form">
             <div class="row">
                 <div class="field">
-                    <div class="title-field">@lang('phrases.Название'):</div>
+                    <div class="title-field">@lang('proxies::phrases.Название'):</div>
                     <input type="text" name="title" value="{{ $advantag->title }}" class="input-text"
                            placeholder="@lang('phrases.Название')">
                 </div>
                 <div class="field">
-                    <div class="title-field">@lang('phrases.Иконка'):</div>
+                    <div class="title-field">@lang('proxies::phrases.Иконка'):</div>
                     <input type="file" name="image" value="{{ $advantag->image }}" class="input-text">
                 </div>
             </div>
             <div class="row">
                 <div class="field list">
-                    <div class="title-field">@lang('phrases.Текст'):</div>
+                    <div class="title-field">@lang('proxies::phrases.Текст'):</div>
                     {!! Form::textarea('body', $advantag->description, [
                         'class' => 'select-multiple',
                         'id' => 'summernote',
@@ -53,14 +53,14 @@
             </div>
             <div class="row">
                 <div class="field">
-                    <div class="title-field">@lang('phrases.Название')_en:</div>
+                    <div class="title-field">@lang('proxies::phrases.Название')_en:</div>
                     <input type="text" name="title_en" value="{{ $advantag->title_en }}" class="input-text"
-                           placeholder="@lang('phrases.Название')">
+                           placeholder="@lang('proxies::phrases.Название')">
                 </div>
             </div>
             <div class="row">
                 <div class="field list">
-                    <div class="title-field">@lang('phrases.Текст')_en:</div>
+                    <div class="title-field">@lang('proxies::phrases.Текст')_en:</div>
                     {!! Form::textarea('body', $advantag->description_en, [
                         'class' => 'select-multiple',
                         'id' => 'summernote2',
@@ -70,7 +70,7 @@
             </div>
         </div>
         <div class="footer-block">
-            <button type="submit" class="btn btn-primary">@lang('phrases.Сохранить')</button>
+            <button type="submit" class="btn btn-primary">@lang('proxies::phrases.Сохранить')</button>
         </div>
     </form>
 

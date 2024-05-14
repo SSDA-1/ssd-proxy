@@ -78,16 +78,16 @@ personal-area
     @include('admin.lk.menu')
     <div class="lk-content">
         <div class="wrap-title">
-            <h1>@lang('phrases.Техническая поддержка')</h1>
+            <h1>@lang('proxies::phrases.Техническая поддержка')</h1>
         </div>
         <div class="wrap-support">
             <div class="pastAppeals">
                 <div class="warp-Appeals" id="element">
-                    <h2>@lang('phrases.Прошлые обращения')</h2>
+                    <h2>@lang('proxies::phrases.Прошлые обращения')</h2>
                     {{-- {{print($supportsList)}} --}}
                     @foreach ($supportsList as $item)
                         <div class="cardAppeals ">
-                            <a href="/support/{{$item->id}}" style="text-decoration: unset;"><h3>@lang('phrases.Обращение') #{{$item->id}} @if ($item->status == 0) <span style="color:green;">Открыт</span> @else <span style="color:red;">Закрыт</span> @endif<span>{{$item->lastsuppmassage ? \Carbon\Carbon::createFromFormat('Y-m-d H:i:s', $item->lastsuppmassage->updated_at)->format('d.m.Y') : '' }}</span></h3>
+                            <a href="/support/{{$item->id}}" style="text-decoration: unset;"><h3>@lang('proxies::phrases.Обращение') #{{$item->id}} @if ($item->status == 0) <span style="color:green;">Открыт</span> @else <span style="color:red;">Закрыт</span> @endif<span>{{$item->lastsuppmassage ? \Carbon\Carbon::createFromFormat('Y-m-d H:i:s', $item->lastsuppmassage->updated_at)->format('d.m.Y') : '' }}</span></h3>
                             <div class="text">{{$item->lastsuppmassage ? $item->lastsuppmassage->massage : '' }}</div></a>
                         </div>
                     @endforeach
@@ -97,14 +97,14 @@ personal-area
                         <div class="text">Аааа... Я не могу купить прокси, памагите...</div>
                     </div> --}}
                 </div>
-                <a href="/newsupport" class="main_btn btn" id="dialog_btn">@lang('phrases.Новое обращение')</a>
+                <a href="/newsupport" class="main_btn btn" id="dialog_btn">@lang('proxies::phrases.Новое обращение')</a>
             </div>
             <div class="bodyDialog" id="bodyDialog">
                 <div class="midleLine" style="display: flex;align-items: center;justify-content: center;">
-                    <p>@lang('phrases.Выберите или создайте новое обращение')</p>
+                    <p>@lang('proxies::phrases.Выберите или создайте новое обращение')</p>
                 </div>
                 <div class="bottomLine close">
-                    @lang('phrases.Обращение закрыто')
+                    @lang('proxies::phrases.Обращение закрыто')
                 </div>
             </div>
         </div>

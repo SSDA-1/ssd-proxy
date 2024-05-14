@@ -2,17 +2,17 @@
 @section('content')
     <div class="header-page">
         <div class="title-page">
-            <h2>@lang('phrases.Основные настройки прокси')</h2>
+            <h2>@lang('proxies::phrases.Основные настройки прокси')</h2>
         </div>
         <div class="buttons">
             <a class="btn btn-success" href="{{ route('proxy.index') }}"><i class="bx bx-left-arrow-alt icon"></i>
-                @lang('phrases.Назад')</a>
+                @lang('proxies::phrases.Назад')</a>
         </div>
     </div>
 
     @if (count($errors) > 0)
         <div class="alert alert-danger block-background">
-            <strong>@lang('phrases.Упс')!</strong> @lang('phrases.Были некоторые проблемы с вашим вводом').<br><br>
+            <strong>@lang('proxies::phrases.Упс')!</strong> @lang('proxies::phrases.Были некоторые проблемы с вашим вводом').<br><br>
             <ul>
                 @foreach ($errors->all() as $error)
                     <li>{{ $error }}</li>
@@ -24,17 +24,17 @@
 
     <div class="settings-tabs">
         <div class="tabs__nav background">
-            <button class="tabs__btn tabs__btn_active first">@lang('phrases.Сервера')</button>
-            <button class="tabs__btn">@lang('phrases.Настройки')</button>
-            <button class="tabs__btn">@lang('phrases.Система покупки')</button>
-            <button class="tabs__btn last">@lang('phrases.Акции и скидки')</button>
+            <button class="tabs__btn tabs__btn_active first">@lang('proxies::phrases.Сервера')</button>
+            <button class="tabs__btn">@lang('proxies::phrases.Настройки')</button>
+            <button class="tabs__btn">@lang('proxies::phrases.Система покупки')</button>
+            <button class="tabs__btn last">@lang('proxies::phrases.Акции и скидки')</button>
         </div>
         <div class="tabs__content block-background">
             {{-- Сервера --}}
             <div class="tabs__pane tabs__pane_show flex-block">
                 <div class="footer-block not-radius">
                     <div class="row title-block proxy">
-                        <h2>@lang('phrases.Список Серверов')</h2>
+                        <h2>@lang('proxies::phrases.Список Серверов')</h2>
                         <a class="btn btn-success" href="{{ route('servers.create') }}"><span>+</span></a>
                     </div>
                 </div>
@@ -42,9 +42,9 @@
                     <thead>
                         <tr class="tr-name">
                             <th>ID</th>
-                            <th>@lang('phrases.Название')</th>
-                            <th>@lang('phrases.Страна')</th>
-                            <th>@lang('phrases.Адрес')</th>
+                            <th>@lang('proxies::phrases.Название')</th>
+                            <th>@lang('proxies::phrases.Страна')</th>
+                            <th>@lang('proxies::phrases.Адрес')</th>
                             <th></th>
                         </tr>
                     </thead>
@@ -76,7 +76,7 @@
                                     <a class="btn btn-action" href="{{ route('servers.edit', $server->id) }}"><i
                                             class="fa-regular fa-pen-to-square"></i></a>
                                     {{-- <button type="submit" class="btn btn-danger"><i class="fa-solid fa-bullseye"></i></button> --}}
-                                    <button type="submit" data-title="@lang('phrases.Вы точно хотите удалить Порт с сайта')? <br> Ps: @lang('phrases.В системе Кракен его нужно удалить вручную')"
+                                    <button type="submit" data-title="@lang('proxies::phrases.Вы точно хотите удалить Порт с сайта')? <br> Ps: @lang('proxies::phrases.В системе Кракен его нужно удалить вручную')"
                                         data-fetch="yes" data-action="{{ route('servers.destroy', $server->id) }}"
                                         data-modal="del" class="btn btn-danger"><i class="fa-solid fa-trash"></i></button>
 
@@ -84,7 +84,7 @@
                             </tr>
                         @empty
                             <tr>
-                                <td colspan="11" class="absent">@lang('phrases.Записи отсутствуют')</td>
+                                <td colspan="11" class="absent">@lang('proxies::phrases.Записи отсутствуют')</td>
                             </tr>
                         @endforelse
                     </tbody>
@@ -101,7 +101,7 @@
                     <div class="row">
                         <div class="field">
                             <div class="wrap-input title">
-                                <label for="highload1" class="title-field">@lang('phrases.Тарифная система'):</label>
+                                <label for="highload1" class="title-field">@lang('proxies::phrases.Тарифная система'):</label>
                                 <input type="checkbox" id="highload1" name="tariff_system" class="tariff-system"
                                     {{ $tariffSetting->type_tariff ? 'checked' : '' }}>
                                 <label for="highload1" data-onlabel="" data-offlabel="" class="lb1"></label>
@@ -111,13 +111,13 @@
                     <div class="row">
                         <div class="field">
                             <label for="type-proxy" class="title-field"
-                                style="text-align: left;">@lang('phrases.Типы прокси'):</label>
+                                style="text-align: left;">@lang('proxies::phrases.Типы прокси'):</label>
                             <select name="type-proxy" id="type-proxy" class="input-text">
-                                <option value="general" @if ($tariffSetting->type_proxy == 'general') selected @endif>@lang('phrases.Общие')
+                                <option value="general" @if ($tariffSetting->type_proxy == 'general') selected @endif>@lang('proxies::phrases.Общие')
                                 </option>
-                                <option value="private" @if ($tariffSetting->type_proxy == 'private') selected @endif>@lang('phrases.Приватные')
+                                <option value="private" @if ($tariffSetting->type_proxy == 'private') selected @endif>@lang('proxies::phrases.Приватные')
                                 </option>
-                                <option value="all" @if ($tariffSetting->type_proxy == 'all') selected @endif>@lang('phrases.Общие и Приватные')
+                                <option value="all" @if ($tariffSetting->type_proxy == 'all') selected @endif>@lang('proxies::phrases.Общие и Приватные')
                                 </option>
                             </select>
                         </div>
@@ -126,7 +126,7 @@
                     <div class="row">
                         <div class="field">
                             <label for="country-default" class="title-field"
-                                style="text-align: left;">@lang('phrases.Страна по умолчанию'):</label>
+                                style="text-align: left;">@lang('proxies::phrases.Страна по умолчанию'):</label>
                             <select name="country-default" id="country-default" class="input-text">
                                 @foreach ($tariffCountries as $tariffCountry)
                                     <option value="{{ $tariffCountry }}" selected>{{$tariffCountry}}</option>
@@ -151,7 +151,7 @@
                     {{-- СЮДА ПОДСТАВЬ ЗНАЧЕНИЕ ИЗ БД!!! --}}
                     <div class="row padding-20">
                         <div class="field">
-                            <h3>@lang('phrases.Настройки тарифов')</h3>
+                            <h3>@lang('proxies::phrases.Настройки тарифов')</h3>
                         </div>
                         <div class="field">
                             <select name="language" id="language" class="input-text">
@@ -160,7 +160,7 @@
                             </select>
                         </div>
                         <div class="field">
-                            <div class="btn btn-primary addRates" style="height: 45px">@lang('phrases.Добавить тариф')</div>
+                            <div class="btn btn-primary addRates" style="height: 45px">@lang('proxies::phrases.Добавить тариф')</div>
                         </div>
                     </div>
                     <div class="row rates padding-20">
@@ -169,26 +169,26 @@
                                 <input type="hidden" name="id" value="{{ $key }}">
                                 <input type="hidden" name="lang_{{ $key }}" value="{{ $tariff['lang'] }}">
                                 <input type="text" name="name_{{ $key }}" value="{{ $tariff['name'] }}"
-                                    class="input-text" placeholder="@lang('phrases.Название')">
+                                    class="input-text" placeholder="@lang('proxies::phrases.Название')">
                                 <div class="properties">
                                     @foreach ($tariff['properties'] as $key2 => $property)
                                         @if ($key2 != 0)
                                             <div class="wrap-input numberFormat">
                                                 <span class="delProperty"><i class="fa-solid fa-trash"></i></span>
                                                 <input type="text" name="properties_{{ $key }}[]"
-                                                    value="{{ $property }}" placeholder="@lang('phrases.Свойство')"
+                                                    value="{{ $property }}" placeholder="@lang('proxies::phrases.Свойство')"
                                                     class="input-text">
                                             </div>
                                         @else
                                             <input type="text" name="properties_{{ $key }}[]"
                                                 value="{{ $property }}" class="input-text"
-                                                placeholder="@lang('phrases.Свойство')">
+                                                placeholder="@lang('proxies::phrases.Свойство')">
                                         @endif
                                     @endforeach
-                                    <div class="addProperty">+ @lang('phrases.Добавить свойство')</div>
+                                    <div class="addProperty">+ @lang('proxies::phrases.Добавить свойство')</div>
                                 </div>
                                 <input type="number" name="period_{{ $key }}" value="{{ $tariff['period'] }}"
-                                    min="1" class="input-text" placeholder="@lang('phrases.Срок')">
+                                    min="1" class="input-text" placeholder="@lang('proxies::phrases.Срок')">
                                 <div class="wrap-countries" data-id="{{ $key }}">
                                     @foreach ($tariff['country'] as $key2 => $country)
                                         <div class="countries">
@@ -199,26 +199,26 @@
                                             </select>
                                             <input type="number" name="cost-general_{{ $key }}[]"
                                                 value="{{ $tariff['general_price'][$key2] }}" min="1"
-                                                class="input-text" placeholder="@lang('phrases.Цена') @lang('phrases.Общие')">
+                                                class="input-text" placeholder="@lang('proxies::phrases.Цена') @lang('proxies::phrases.Общие')">
                                             <input type="number" name="cost-private_{{ $key }}[]"
                                                 value="{{ $tariff['private_price'][$key2] }}" min="1"
-                                                class="input-text" placeholder="@lang('phrases.Цена') @lang('phrases.Приватные')">
+                                                class="input-text" placeholder="@lang('proxies::phrases.Цена') @lang('proxies::phrases.Приватные')">
                                             @if ($key2 != 0)
-                                                <div class="delCountry">@lang('phrases.Удалить страну')</div>
+                                                <div class="delCountry">@lang('proxies::phrases.Удалить страну')</div>
                                             @else
-                                                <div class="addCountry">+ @lang('phrases.Добавить страну')</div>
+                                                <div class="addCountry">+ @lang('proxies::phrases.Добавить страну')</div>
                                             @endif
                                         </div>
                                     @endforeach
                                 </div>
                                 @if ($key != 1)
-                                    <div class="delRate btn btn-primary">@lang('phrases.Удалить тариф')</div>
+                                    <div class="delRate btn btn-primary">@lang('proxies::phrases.Удалить тариф')</div>
                                 @endif
                             </div>
                         @endforeach
                     </div>
                     <div class="footer-block not-radius">
-                        <button type="submit" class="btn btn-primary">@lang('phrases.Сохранить')</button>
+                        <button type="submit" class="btn btn-primary">@lang('proxies::phrases.Сохранить')</button>
                     </div>
                 </form>
 
@@ -234,12 +234,12 @@
                         hidden="" class="country-default">
                     <div class="row padding-20">
                         <div class="field">
-                            <div class="title-field">@lang('phrases.Дней') (@lang('phrases.Максимальный срок')):</div>
+                            <div class="title-field">@lang('proxies::phrases.Дней') (@lang('proxies::phrases.Максимальный срок')):</div>
                             <input type="number" class="input-text" placeholder="30" name="max_days"
                                 value="{{ $tariffSetting->max_days }}">
                         </div>
                         <div class="field wrap-btn">
-                            <div class="btn btn-primary addPrices">@lang('phrases.Добавить тариф')</div>
+                            <div class="btn btn-primary addPrices">@lang('proxies::phrases.Добавить тариф')</div>
                         </div>
                     </div>
 
@@ -248,7 +248,7 @@
                             <div class="row price">
                                 <div class="field type-proxy" data-type="general"
                                     @if (!in_array($tariffSetting->type_proxy, ['general', 'all'])) disabled="disabled" @endif>
-                                    <div class="title-field">@lang('phrases.Цена за 1 день (Общие прокси)'):</div>
+                                    <div class="title-field">@lang('proxies::phrases.Цена за 1 день (Общие прокси)'):</div>
                                     <div class="wrap-input numberFormat">
                                         <span>$</span>
                                         <input type="number" class="input-text" placeholder="0" name="general_price[]"
@@ -257,14 +257,14 @@
                                 </div>
                                 <div class="field type-proxy" data-type="private"
                                     @if (!in_array($tariffSetting->type_proxy, ['private', 'all'])) disabled="disabled" @endif>
-                                    <div class="title-field">@lang('phrases.Цена за 1 день (Приватные прокси)'):</div>
+                                    <div class="title-field">@lang('proxies::phrases.Цена за 1 день (Приватные прокси)'):</div>
                                     <div class="wrap-input numberFormat">
                                         <span>$</span><input type="number" class="input-text" placeholder="0"
                                             name="private_price[]" value="{{ $day['private_price'] }}">
                                     </div>
                                 </div>
                                 <div class="field">
-                                    <div class="title-field">@lang('phrases.Для страны'):</div>
+                                    <div class="title-field">@lang('proxies::phrases.Для страны'):</div>
                                     <select class="input-text" name="country[]">
                                         @foreach ($tariffCountries as $tariffCountry)
                                             <option value="{{ $tariffCountry }}" selected>{{$tariffCountry}}</option>
@@ -273,7 +273,7 @@
                                 </div>
                                 @if ($key != 0)
                                     <div class="field wrap-btn">
-                                        <div class="delPrice btn btn-primary">@lang('phrases.Удалить тариф')</div>
+                                        <div class="delPrice btn btn-primary">@lang('proxies::phrases.Удалить тариф')</div>
                                     </div>
                                 @endif
                             </div>
@@ -281,7 +281,7 @@
                     </div>
 
                     <div class="footer-block not-radius">
-                        <button type="submit" class="btn btn-primary">@lang('phrases.Сохранить')</button>
+                        <button type="submit" class="btn btn-primary">@lang('proxies::phrases.Сохранить')</button>
                     </div>
                 </form>
             </div>
@@ -293,14 +293,14 @@
                     {{-- Скидка на количество --}}
                     <div class="footer-block not-radius">
                         <div class="row title-block proxy">
-                            <h2>@lang('phrases.Скидка на кол-во прокси (Скидка в процентах)'):</h2>
-                            <button type="submit" class="btn btn-primary">@lang('phrases.Сохранить')</button>
+                            <h2>@lang('proxies::phrases.Скидка на кол-во прокси (Скидка в процентах)'):</h2>
+                            <button type="submit" class="btn btn-primary">@lang('proxies::phrases.Сохранить')</button>
                             {{-- <div class="btn btn-success addQuantityDiscount"><span>+</span></div> --}}
                         </div>
                         <div class="row">
                             <div class="field">
                                 <div class="wrap-input title">
-                                    <label for="highload3" class="title-field">@lang('phrases.Скидка суммируется с другими')?</label>
+                                    <label for="highload3" class="title-field">@lang('proxies::phrases.Скидка суммируется с другими')?</label>
                                     <input type="checkbox" id="highload3" name="proxy_discount" class=""
                                         {{ $tariffSetting->proxy_discount ? 'checked' : '' }}>
                                     <label for="highload3" data-onlabel="" data-offlabel="" class="lb1"></label>
@@ -314,10 +314,10 @@
                             <thead>
                                 <tr class="tr-name">
                                     <th>№</th>
-                                    <th>@lang('phrases.От скольки пар прокси')</th>
-                                    <th>@lang('phrases.Скидка')</th>
-                                    <th>@lang('phrases.Тип прокси')</th>
-                                    <th>@lang('phrases.Страна')</th>
+                                    <th>@lang('proxies::phrases.От скольки пар прокси')</th>
+                                    <th>@lang('proxies::phrases.Скидка')</th>
+                                    <th>@lang('proxies::phrases.Тип прокси')</th>
+                                    <th>@lang('proxies::phrases.Страна')</th>
                                     <th></th>
                                 </tr>
                             </thead>
@@ -327,11 +327,11 @@
                                         <th>{{ $countProxyDiscount->id }}</th>
                                         <td>{{ $countProxyDiscount->proxy }}</td>
                                         <td>{{ $countProxyDiscount->discount }}%</td>
-                                        <td>{{ $countProxyDiscount->type == 'general' ? trans('phrases.Общие') : ($countProxyDiscount->type == 'private' ? trans('phrases.Приватные') : trans('phrases.Общие и Приватные')) }}
+                                        <td>{{ $countProxyDiscount->type == 'general' ? trans('proxies::phrases.Общие') : ($countProxyDiscount->type == 'private' ? trans('proxies::phrases.Приватные') : trans('proxies::phrases.Общие и Приватные')) }}
                                         </td>
                                         <td>{{ $countProxyDiscount->country }}</td>
                                         <td class="dayst">
-                                            <button type="button" data-title="@lang('phrases.Вы точно хотите удалить скидку')?" data-fetch="yes"
+                                            <button type="button" data-title="@lang('proxies::phrases.Вы точно хотите удалить скидку')?" data-fetch="yes"
                                                 data-action="{{ route('countproxydiscount.destroy', $countProxyDiscount->id) }}"
                                                 data-modal="del" class="btn btn-danger">
                                                 <i class="fa-solid fa-trash"></i>
@@ -343,23 +343,23 @@
                         </table>
                         <div class="row group discount">
                             <div class="field">
-                                <div class="title-field">@lang('phrases.От скольки пар прокси')</div>
+                                <div class="title-field">@lang('proxies::phrases.От скольки пар прокси')</div>
                                 <input type="text" class="input-text" placeholder="3" name="proxy">
                             </div>
                             <div class="field">
-                                <div class="title-field">@lang('phrases.Процент скидки')</div>
+                                <div class="title-field">@lang('proxies::phrases.Процент скидки')</div>
                                 <input type="text" class="input-text" placeholder="10" name="discount">
                             </div>
                             <div class="field">
-                                <div class="title-field">@lang('phrases.Для типа прокси')</div>
+                                <div class="title-field">@lang('proxies::phrases.Для типа прокси')</div>
                                 <select name="type-proxy" id="type-proxy" class="input-text">
-                                    <option value="general" selected>@lang('phrases.Общие')</option>
-                                    <option value="private">@lang('phrases.Приватные')</option>
-                                    <option value="all">@lang('phrases.Общие и Приватные')</option>
+                                    <option value="general" selected>@lang('proxies::phrases.Общие')</option>
+                                    <option value="private">@lang('proxies::phrases.Приватные')</option>
+                                    <option value="all">@lang('proxies::phrases.Общие и Приватные')</option>
                                 </select>
                             </div>
                             <div class="field">
-                                <div class="title-field">@lang('phrases.Для страны')</div>
+                                <div class="title-field">@lang('proxies::phrases.Для страны')</div>
                                 <select class="input-text" name="country">
                                     @foreach ($tariffCountries as $tariffCountry)
                                         <option value="{{ $tariffCountry }}" selected>{{$tariffCountry}}</option>
@@ -375,14 +375,14 @@
                     {{-- Скидка на срок --}}
                     <div class="footer-block not-radius">
                         <div class="row title-block proxy">
-                            <h2>@lang('phrases.Скидка на кол-во дней (Скидка в процентах)'):</h2>
-                            <button type="submit" class="btn btn-primary">@lang('phrases.Сохранить')</button>
+                            <h2>@lang('proxies::phrases.Скидка на кол-во дней (Скидка в процентах)'):</h2>
+                            <button type="submit" class="btn btn-primary">@lang('proxies::phrases.Сохранить')</button>
                             {{-- <div class="btn btn-success addDiscountDuration"><span>+</span></div> --}}
                         </div>
                         <div class="row">
                             <div class="field">
                                 <div class="wrap-input title">
-                                    <label for="highload4" class="title-field">@lang('phrases.Скидка суммируется с другими')?</label>
+                                    <label for="highload4" class="title-field">@lang('proxies::phrases.Скидка суммируется с другими')?</label>
                                     <input type="checkbox" id="highload4" name="days_discount" class=""
                                         {{ $tariffSetting->days_discount ? 'checked' : '' }}>
                                     <label for="highload4" data-onlabel="" data-offlabel="" class="lb1"></label>
@@ -396,10 +396,10 @@
                             <thead>
                                 <tr class="tr-name">
                                     <th>№</th>
-                                    <th>@lang('phrases.От скольки дней')</th>
-                                    <th>@lang('phrases.Скидка')</th>
-                                    <th>@lang('phrases.Тип прокси')</th>
-                                    <th>@lang('phrases.Страна')</th>
+                                    <th>@lang('proxies::phrases.От скольки дней')</th>
+                                    <th>@lang('proxies::phrases.Скидка')</th>
+                                    <th>@lang('proxies::phrases.Тип прокси')</th>
+                                    <th>@lang('proxies::phrases.Страна')</th>
                                     <th></th>
                                 </tr>
                             </thead>
@@ -409,11 +409,11 @@
                                         <th>{{ $countDaysDiscount->id }}</th>
                                         <td>{{ $countDaysDiscount->days }}</td>
                                         <td>{{ $countDaysDiscount->discount }}%</td>
-                                        <td>{{ $countDaysDiscount->type == 'general' ? trans('phrases.Общие') : ($countProxyDiscount->type == 'private' ? trans('phrases.Приватные') : trans('phrases.Общие и Приватные')) }}
+                                        <td>{{ $countDaysDiscount->type == 'general' ? trans('proxies::phrases.Общие') : ($countProxyDiscount->type == 'private' ? trans('proxies::phrases.Приватные') : trans('proxies::phrases.Общие и Приватные')) }}
                                         </td>
                                         <td>{{ $countDaysDiscount->country }}</td>
                                         <td class="dayst">
-                                            <button type="button" data-title="@lang('phrases.Вы точно хотите удалить скидку')?" data-fetch="yes"
+                                            <button type="button" data-title="@lang('proxies::phrases.Вы точно хотите удалить скидку')?" data-fetch="yes"
                                                 data-action="{{ route('countdaysdiscount.destroy', $countDaysDiscount->id) }}"
                                                 data-modal="del" class="btn btn-danger">
                                                 <i class="fa-solid fa-trash"></i>
@@ -425,23 +425,23 @@
                         </table>
                         <div class="row group duration">
                             <div class="field">
-                                <div class="title-field">@lang('phrases.От скольки дней')</div>
+                                <div class="title-field">@lang('proxies::phrases.От скольки дней')</div>
                                 <input type="text" class="input-text" placeholder="3" name="days">
                             </div>
                             <div class="field">
-                                <div class="title-field">@lang('phrases.Процент скидки')</div>
+                                <div class="title-field">@lang('proxies::phrases.Процент скидки')</div>
                                 <input type="text" class="input-text" placeholder="10" name="discount">
                             </div>
                             <div class="field">
-                                <div class="title-field">@lang('phrases.Для типа прокси')</div>
+                                <div class="title-field">@lang('proxies::phrases.Для типа прокси')</div>
                                 <select name="type-proxy" id="type-proxy" class="input-text">
-                                    <option value="general" selected>@lang('phrases.Общие')</option>
-                                    <option value="private">@lang('phrases.Приватные')</option>
-                                    <option value="all">@lang('phrases.Общие и Приватные')</option>
+                                    <option value="general" selected>@lang('proxies::phrases.Общие')</option>
+                                    <option value="private">@lang('proxies::phrases.Приватные')</option>
+                                    <option value="all">@lang('proxies::phrases.Общие и Приватные')</option>
                                 </select>
                             </div>
                             <div class="field">
-                                <div class="title-field">@lang('phrases.Для страны')</div>
+                                <div class="title-field">@lang('proxies::phrases.Для страны')</div>
                                 <select class="input-text" name="country">
                                     @foreach ($tariffCountries as $tariffCountry)
                                         <option value="{{ $tariffCountry }}" selected>{{$tariffCountry}}</option>
@@ -458,13 +458,13 @@
 
                     <div class="footer-block not-radius">
                         <div class="row title-block proxy">
-                            <h2>@lang('phrases.Промокоды'):</h2>
-                            <button type="submit" class="btn btn-primary">@lang('phrases.Сохранить')</button>
+                            <h2>@lang('proxies::phrases.Промокоды'):</h2>
+                            <button type="submit" class="btn btn-primary">@lang('proxies::phrases.Сохранить')</button>
                         </div>
                         <div class="row">
                             <div class="field">
                                 <div class="wrap-input title">
-                                    <label for="highload5" class="title-field">@lang('phrases.Скидка суммируется с другими')?</label>
+                                    <label for="highload5" class="title-field">@lang('proxies::phrases.Скидка суммируется с другими')?</label>
                                     <input type="checkbox" id="highload5" name="promocode_discount" class=""
                                         {{ $tariffSetting->promocode_discount ? 'checked' : '' }}>
                                     <label for="highload5" data-onlabel="" data-offlabel="" class="lb1"></label>
@@ -475,32 +475,32 @@
                     <div class="padding-20">
                         <div class="row">
                             <div class="field">
-                                <div class="title-field">@lang('phrases.Срок действия')</div>
+                                <div class="title-field">@lang('proxies::phrases.Срок действия')</div>
                                 <input type="text" class="input-text" placeholder="3" name="date_end">
                             </div>
                             <div class="field">
-                                <div class="title-field">@lang('phrases.Количество активаций')</div>
+                                <div class="title-field">@lang('proxies::phrases.Количество активаций')</div>
                                 <input type="text" class="input-text" placeholder="10" name="max_activated">
                             </div>
                             <div class="field">
-                                <div class="title-field">@lang('phrases.Размер скидки (в %)')</div>
+                                <div class="title-field">@lang('proxies::phrases.Размер скидки (в %)')</div>
                                 <input type="text" class="input-text" placeholder="10" name="discount">
                             </div>
                             <div class="field">
-                                <div class="title-field">@lang('phrases.Мин. кол-во прокси')</div>
+                                <div class="title-field">@lang('proxies::phrases.Мин. кол-во прокси')</div>
                                 <input type="text" class="input-text" placeholder="10" name="min_quantity">
                             </div>
                             <div class="field">
-                                <div class="title-field">@lang('phrases.Мин. срок аренды')</div>
+                                <div class="title-field">@lang('proxies::phrases.Мин. срок аренды')</div>
                                 <input type="text" class="input-text" placeholder="10" name="min_rent">
                             </div>
                             <div class="field">
-                                <label for="highload2" class="title-field">@lang('phrases.Многоразовый')</label>
+                                <label for="highload2" class="title-field">@lang('proxies::phrases.Многоразовый')</label>
                                 <input type="checkbox" id="highload2" name="multi_activating" class="">
                                 <label for="highload2" data-onlabel="" data-offlabel="" class="lb1"></label>
                             </div>
                             <div class="field">
-                                <div class="title-field">@lang('phrases.Промокод')</div>
+                                <div class="title-field">@lang('proxies::phrases.Промокод')</div>
                                 <div class="wrap-input numberFormat promo">
                                     <span class="generate-code"><i class="fa-solid fa-shuffle"></i></span>
                                     <input type="text" name="name" placeholder="PROXY23" class="input-text code">
@@ -514,14 +514,14 @@
                     <thead>
                         <tr class="tr-name">
                             <th>№</th>
-                            <th>@lang('phrases.Срок действия')</th>
-                            <th>@lang('phrases.Кол-во активаций')</th>
-                            <th>@lang('phrases.Скидка')</th>
-                            <th>@lang('phrases.Мин. кол-во прокси')</th>
-                            <th>@lang('phrases.Мин. срок аренды')</th>
-                            <th>@lang('phrases.Многоразовый')</th>
-                            <th>@lang('phrases.Промокод')</th>
-                            <th>@lang('phrases.Активный')</th>
+                            <th>@lang('proxies::phrases.Срок действия')</th>
+                            <th>@lang('proxies::phrases.Кол-во активаций')</th>
+                            <th>@lang('proxies::phrases.Скидка')</th>
+                            <th>@lang('proxies::phrases.Мин. кол-во прокси')</th>
+                            <th>@lang('proxies::phrases.Мин. срок аренды')</th>
+                            <th>@lang('proxies::phrases.Многоразовый')</th>
+                            <th>@lang('proxies::phrases.Промокод')</th>
+                            <th>@lang('proxies::phrases.Активный')</th>
                             <th></th>
                         </tr>
                     </thead>
@@ -534,11 +534,11 @@
                                 <td>{{ $promocode->discount }}%</td>
                                 <td>{{ $promocode->min_quantity }}</td>
                                 <td>{{ $promocode->min_rent }}</td>
-                                <td>{{ $promocode->multi_activating ? trans('phrases.Да') : trans('phrases.Нет') }}</td>
+                                <td>{{ $promocode->multi_activating ? trans('proxies::phrases.Да') : trans('proxies::phrases.Нет') }}</td>
                                 <td>{{ $promocode->name }}</td>
-                                <td>{{ $promocode->is_active ? trans('phrases.Да') : trans('phrases.Нет') }}</td>
+                                <td>{{ $promocode->is_active ? trans('proxies::phrases.Да') : trans('proxies::phrases.Нет') }}</td>
                                 <td class="dayst">
-                                    <button type="submit" data-title="@lang('phrases.Вы точно хотите удалить промокод')?" data-fetch="yes"
+                                    <button type="submit" data-title="@lang('proxies::phrases.Вы точно хотите удалить промокод')?" data-fetch="yes"
                                         data-action="{{ route('promocodes.destroy', $promocode->id) }}" data-modal="del"
                                         class="btn btn-danger">
                                         <i class="fa-solid fa-trash"></i>
@@ -555,14 +555,14 @@
                     {{-- Скидка на покупку и продление --}}
                     <div class="footer-block not-radius">
                         <div class="row title-block proxy">
-                            <h2>@lang('phrases.Скидка на покупку и продление'):</h2>
-                            <button type="submit" class="btn btn-primary">@lang('phrases.Сохранить')</button>
+                            <h2>@lang('proxies::phrases.Скидка на покупку и продление'):</h2>
+                            <button type="submit" class="btn btn-primary">@lang('proxies::phrases.Сохранить')</button>
                             {{-- <div class="btn btn-success addDiscountDuration"><span>+</span></div> --}}
                         </div>
                         <div class="row">
                             <div class="field">
                                 <div class="wrap-input title">
-                                    <label for="highload6" class="title-field">@lang('phrases.Скидка суммируется с другими')?</label>
+                                    <label for="highload6" class="title-field">@lang('proxies::phrases.Скидка суммируется с другими')?</label>
                                     <input type="checkbox" id="highload6" name="proxy_pairs_discount" class=""
                                         {{ $tariffSetting->proxy_pairs_discount ? 'checked' : '' }}>
                                     <label for="highload6" data-onlabel="" data-offlabel="" class="lb1"></label>
@@ -576,9 +576,9 @@
                             <thead>
                                 <tr class="tr-name">
                                     <th>№</th>
-                                    <th>@lang('phrases.От кол-ва активных пар прокси')</th>
-                                    <th>@lang('phrases.Скидка на продление')</th>
-                                    <th>@lang('phrases.Скидка на покупку')</th>
+                                    <th>@lang('proxies::phrases.От кол-ва активных пар прокси')</th>
+                                    <th>@lang('proxies::phrases.Скидка на продление')</th>
+                                    <th>@lang('proxies::phrases.Скидка на покупку')</th>
                                     <th></th>
                                 </tr>
                             </thead>
@@ -590,7 +590,7 @@
                                         <td>{{ $countPairsProxyDiscount->discount_buy }}%</td>
                                         <td>{{ $countPairsProxyDiscount->discount_extension }}%</td>
                                         <td class="dayst">
-                                            <button type="button" data-title="@lang('phrases.Вы точно хотите удалить скидку')?" data-fetch="yes"
+                                            <button type="button" data-title="@lang('proxies::phrases.Вы точно хотите удалить скидку')?" data-fetch="yes"
                                                 data-action="{{ route('countpairsproxydiscount.destroy', $countPairsProxyDiscount->id) }}"
                                                 data-modal="del" class="btn btn-danger">
                                                 <i class="fa-solid fa-trash"></i>
@@ -602,15 +602,15 @@
                         </table>
                         <div class="row group duration">
                             <div class="field">
-                                <div class="title-field">@lang('phrases.От кол-ва активных пар прокси')</div>
+                                <div class="title-field">@lang('proxies::phrases.От кол-ва активных пар прокси')</div>
                                 <input type="text" class="input-text" placeholder="3" name="count_pairs">
                             </div>
                             <div class="field">
-                                <div class="title-field">@lang('phrases.Скидка на покупку')</div>
+                                <div class="title-field">@lang('proxies::phrases.Скидка на покупку')</div>
                                 <input type="text" class="input-text" placeholder="10" name="discount_buy">
                             </div>
                             <div class="field">
-                                <div class="title-field">@lang('phrases.Скидка на продление')</div>
+                                <div class="title-field">@lang('proxies::phrases.Скидка на продление')</div>
                                 <input type="text" class="input-text" placeholder="10" name="discount_extension">
                             </div>
                         </div>
@@ -716,20 +716,20 @@
                 // Создаем структуру нового тарифа
                 let newHTML = `
                     <div class="field type-proxy" data-type="general" ${typeProx == 'private' ? 'disabled="disabled"' : '' }>
-                        <div class="title-field">@lang('phrases.Цена за 1 день (Общие прокси)'):</div>
+                        <div class="title-field">@lang('proxies::phrases.Цена за 1 день (Общие прокси)'):</div>
                         <div class="wrap-input numberFormat">
                             <span>$</span>
                             <input type="number" class="input-text" placeholder="0" name="general_price[]" value="">
                         </div>
                     </div>
                     <div class="field type-proxy" data-type="private" ${typeProx == 'general' ? 'disabled="disabled"' : '' }>
-                        <div class="title-field">@lang('phrases.Цена за 1 день (Приватные прокси)'):</div>
+                        <div class="title-field">@lang('proxies::phrases.Цена за 1 день (Приватные прокси)'):</div>
                         <div class="wrap-input numberFormat">
                             <span>$</span><input type="number" class="input-text" placeholder="0" name="private_price[]" value="">
                         </div>
                     </div>
                     <div class="field">
-                        <div class="title-field">@lang('phrases.Для страны'):</div>
+                        <div class="title-field">@lang('proxies::phrases.Для страны'):</div>
                         <select class="input-text" name="country[]">`;
                     tariffCountries.forEach(tariffCountry => {
                         newHTML += `<option value="${ tariffCountry }" selected>${tariffCountry}</option>`;
@@ -738,7 +738,7 @@
                         </select>
                     </div>
                     <div class="field wrap-btn">
-                        <div class="delPrice btn btn-primary">@lang('phrases.Удалить тариф')</div>
+                        <div class="delPrice btn btn-primary">@lang('proxies::phrases.Удалить тариф')</div>
                     </div>
                 `;
 
@@ -821,12 +821,12 @@
             let newHTML = `
                 <input type="hidden" name="id" value="${rateIdCounter}">
                 <input type="hidden" name="lang_${rateIdCounter}" value="${selectElement.value}">
-                <input type="text" name="name_${rateIdCounter}" value="" class="input-text" placeholder="@lang('phrases.Название')">
+                <input type="text" name="name_${rateIdCounter}" value="" class="input-text" placeholder="@lang('proxies::phrases.Название')">
                 <div class="properties">
-                    <input type="text" name="properties_${rateIdCounter}[]" value="" class="input-text" placeholder="@lang('phrases.Свойство')">
-                    <div class="addProperty">+ @lang('phrases.Добавить свойство')</div>
+                    <input type="text" name="properties_${rateIdCounter}[]" value="" class="input-text" placeholder="@lang('proxies::phrases.Свойство')">
+                    <div class="addProperty">+ @lang('proxies::phrases.Добавить свойство')</div>
                 </div>
-                <input type="number" name="period_${rateIdCounter}" value="" min="1" class="input-text" placeholder="@lang('phrases.Срок')">
+                <input type="number" name="period_${rateIdCounter}" value="" min="1" class="input-text" placeholder="@lang('proxies::phrases.Срок')">
                 <div class="wrap-countries" data-id="${rateIdCounter}">
                     <div class="countries">
                         <select class="input-text" name="country_${rateIdCounter}[]">
@@ -836,12 +836,12 @@
             });
             newHTML += `
                         </select>
-                        <input type="number" name="cost-general_${rateIdCounter}[]" value="" min="1" class="input-text" placeholder="@lang('phrases.Цена') @lang('phrases.Общие')">
-                        <input type="number" name="cost-private_${rateIdCounter}[]" value="" min="1" class="input-text" placeholder="@lang('phrases.Цена') @lang('phrases.Приватные')">
-                        <div class="addCountry">+ @lang('phrases.Добавить страну')</div>
+                        <input type="number" name="cost-general_${rateIdCounter}[]" value="" min="1" class="input-text" placeholder="@lang('proxies::phrases.Цена') @lang('proxies::phrases.Общие')">
+                        <input type="number" name="cost-private_${rateIdCounter}[]" value="" min="1" class="input-text" placeholder="@lang('proxies::phrases.Цена') @lang('proxies::phrases.Приватные')">
+                        <div class="addCountry">+ @lang('proxies::phrases.Добавить страну')</div>
                     </div>
                 </div>
-                <div class="delRate btn btn-primary">@lang('phrases.Удалить тариф')</div>
+                <div class="delRate btn btn-primary">@lang('proxies::phrases.Удалить тариф')</div>
             `;
             newRate.innerHTML = newHTML;
             rateContainer.appendChild(newRate);
@@ -869,7 +869,7 @@
             propertyInput.type = 'text';
             propertyInput.name = 'properties_' + id + '[]'; // Подставляем ID тарифа - свойства
             propertyInput.value = '';
-            propertyInput.placeholder = '@lang('phrases.Свойство')';
+            propertyInput.placeholder = '@lang('proxies::phrases.Свойство')';
             propertyInput.classList.add('input-text');
 
             propertyContainer.appendChild(deletePropertyButton);
@@ -901,7 +901,7 @@
             generalPriceInput.value = '';
             generalPriceInput.min = '1';
             generalPriceInput.className = 'input-text';
-            generalPriceInput.placeholder = '@lang('phrases.Цена') @lang('phrases.Общие')';
+            generalPriceInput.placeholder = '@lang('proxies::phrases.Цена') @lang('proxies::phrases.Общие')';
 
             const privatePriceInput = document.createElement('input');
             privatePriceInput.type = 'number';
@@ -909,11 +909,11 @@
             privatePriceInput.value = '';
             privatePriceInput.min = '1';
             privatePriceInput.className = 'input-text';
-            privatePriceInput.placeholder = '@lang('phrases.Цена') @lang('phrases.Приватные')';
+            privatePriceInput.placeholder = '@lang('proxies::phrases.Цена') @lang('proxies::phrases.Приватные')';
 
             const deleteCountryButton = document.createElement('div');
             deleteCountryButton.className = 'delCountry';
-            deleteCountryButton.textContent = '@lang('phrases.Удалить страну')';
+            deleteCountryButton.textContent = '@lang('proxies::phrases.Удалить страну')';
             deleteCountryButton.addEventListener('click', function() {
                 const parentOfCountryContainer = countryContainer.parentElement;
                 if (parentOfCountryContainer) {

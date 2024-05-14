@@ -7,16 +7,16 @@
 @section('content')
     <div class="header-page">
         <div class="title-page">
-            <h2>@lang('phrases.Редактирование вопроса'): {{ $faq_adm->question }}</h2>
+            <h2>@lang('proxies::phrases.Редактирование вопроса'): {{ $faq_adm->question }}</h2>
         </div>
         <div class="buttons">
-            <a class="btn btn-success" href="{{ route('faq-adm.index') }}"><i class="bx bx-left-arrow-alt icon"></i> @lang('phrases.Назад')</a>
+            <a class="btn btn-success" href="{{ route('faq-adm.index') }}"><i class="bx bx-left-arrow-alt icon"></i> @lang('proxies::phrases.Назад')</a>
         </div>
     </div>
 
     @if (count($errors) > 0)
         <div class="alert alert-danger block-background">
-            <strong>@lang('phrases.Упс')!</strong> @lang('phrases.Были некоторые проблемы с вашим вводом').<br><br>
+            <strong>@lang('proxies::phrases.Упс')!</strong> @lang('proxies::phrases.Были некоторые проблемы с вашим вводом').<br><br>
             <ul>
                 @foreach ($errors->all() as $error)
                     <li>{{ $error }}</li>
@@ -31,14 +31,14 @@
         <div class="block-background basement-form">
             <div class="row">
                 <div class="field">
-                    <div class="title-field">@lang('phrases.Вопрос'):</div>
+                    <div class="title-field">@lang('proxies::phrases.Вопрос'):</div>
                     <input type="text" name="question" value="{{ $faq_adm->question }}" class="input-text"
-                        placeholder="@lang('phrases.Вопрос')">
+                        placeholder="@lang('proxies::phrases.Вопрос')">
                 </div>
             </div>
             <div class="row">
                 <div class="field list">
-                    <div class="title-field">@lang('phrases.Ответ'):</div>
+                    <div class="title-field">@lang('proxies::phrases.Ответ'):</div>
                     {!! Form::textarea('body', $faq_adm->answer, [
                         'class' => 'select-multiple',
                         'id' => 'summernote',
@@ -48,13 +48,13 @@
             </div>
             <div class="row">
                 <div class="field">
-                    <div class="title-field">@lang('phrases.Вопрос')_en:</div>
+                    <div class="title-field">@lang('proxies::phrases.Вопрос')_en:</div>
                     <input type="text" value="{{ $faq_adm->question_en }}" name="question_en" class="input-text">
                 </div>
             </div>
             <div class="row">
                 <div class="field list">
-                    <div class="title-field">@lang('phrases.Ответ')_en:</div>
+                    <div class="title-field">@lang('proxies::phrases.Ответ')_en:</div>
                     {!! Form::textarea('body', $faq_adm->answer_en, [
                         'class' => 'select-multiple',
                         'id' => 'summernote2',
@@ -64,7 +64,7 @@
             </div>
         </div>
         <div class="footer-block">
-            <button type="submit" class="btn btn-primary">@lang('phrases.Сохранить')</button>
+            <button type="submit" class="btn btn-primary">@lang('proxies::phrases.Сохранить')</button>
         </div>
     </form>
 

@@ -47,9 +47,9 @@
 
     <div class="notifications invisible">
         <div class="notification">
-            <div class="title-notification">@lang('phrases.Уведомление')</div>
-            <div class="text-notification">@lang('phrases.Текст уведомления')</div>
-            <a href="" class="link-notification">@lang('phrases.Подробнее')</a>
+            <div class="title-notification">@lang('proxies::phrases.Уведомление')</div>
+            <div class="text-notification">@lang('proxies::phrases.Текст уведомления')</div>
+            <a href="" class="link-notification">@lang('proxies::phrases.Подробнее')</a>
         </div>
     </div>
 

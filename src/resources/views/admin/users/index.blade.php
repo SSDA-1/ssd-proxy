@@ -3,11 +3,11 @@
 @section('content')
     <div class="header-page">
         <div class="title-page">
-            <h2>@lang('phrases.Управление пользователями')</h2>
+            <h2>@lang('proxies::phrases.Управление пользователями')</h2>
         </div>
         <div class="buttons">
             {{-- <a class="btn btn-success" data-title="Вы точно хотите экспортировать прокси с системы Кракен?" data-fetch="yes" data-action="{{ route('exportUsers') }}" data-modal="exportusers"  style="background-color: #607cd5;margin-right: 15px;letter-spacing: 1.15px;font-size: 14px;padding: 10px 25px;display: flex;justify-content: center;align-items: center;" href="#"><span>Экспортировать с Кракена</span></a> --}}
-            <a class="btn btn-success" href="{{ route('users.create') }}"> @lang('phrases.Создать нового пользователя')</a>
+            <a class="btn btn-success" href="{{ route('users.create') }}"> @lang('proxies::phrases.Создать нового пользователя')</a>
         </div>
     </div>
 
@@ -19,27 +19,27 @@
 
     <div class="block-background">
         <div class="title-block">
-            <h3>@lang('phrases.Список пользователей')</h3>
+            <h3>@lang('proxies::phrases.Список пользователей')</h3>
         </div>
         <div class="row"></div>
 
         <form id="search-form">
             <div class="row" style="justify-content: space-between">
-                <input type="text" name="query" placeholder="@lang('phrases.Поиск пользователей')" class="input-text"
+                <input type="text" name="query" placeholder="@lang('proxies::phrases.Поиск пользователей')" class="input-text"
                     style="max-width: 90%">
-                <button type="submit" class="btn btn-primary">@lang('phrases.Искать')</button>
+                <button type="submit" class="btn btn-primary">@lang('proxies::phrases.Искать')</button>
             </div>
         </form>
 
         <table class="table table-bordered" id="user-table">
             <tr>
                 <th>No</th>
-                <th>@lang('phrases.Имя')</th>
+                <th>@lang('proxies::phrases.Имя')</th>
                 <th>Email</th>
-                <th>@lang('phrases.Телеграмм')</th>
-                <th>@lang('phrases.Баланс')</th>
-                <th>@lang('phrases.Роль')</th>
-                <th width="280px">@lang('phrases.Действие')</th>
+                <th>@lang('proxies::phrases.Телеграмм')</th>
+                <th>@lang('proxies::phrases.Баланс')</th>
+                <th>@lang('proxies::phrases.Роль')</th>
+                <th width="280px">@lang('proxies::phrases.Действие')</th>
             </tr>
             <tbody id="user-table-body">
                 @foreach ($data as $key => $user)
@@ -71,7 +71,7 @@
                                     class="fa-regular fa-pen-to-square"></i></a>
                             @can('user-delete')
                                 <button type="submit"
-                                    data-title="@lang('phrases.Вы точно хотите удалить Пользователя с сайта')? <br> Ps: @lang('phrases.В системе Кракен его нужно удалить вручную')"
+                                    data-title="@lang('proxies::phrases.Вы точно хотите удалить Пользователя с сайта')? <br> Ps: @lang('proxies::phrases.В системе Кракен его нужно удалить вручную')"
                                     data-action="{{ route('users.destroy', $user->id) }}" data-modal="del"
                                     class="btn btn-danger"><i class="fa-solid fa-trash"></i></button>
                             @endcan

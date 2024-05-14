@@ -3,10 +3,10 @@
     <div class="header-page">
         <div class="page-title">
             <div class="pull-left">
-                <h2>@lang('phrases.Покупка шаблона')</h2>
+                <h2>@lang('proxies::phrases.Покупка шаблона')</h2>
             </div>
             <div class="pull-right">
-                <a class="btn btn-success" href="{{ route('template-management') }}"> @lang('phrases.Назад')</a>
+                <a class="btn btn-success" href="{{ route('template-management') }}"> @lang('proxies::phrases.Назад')</a>
             </div>
         </div>
     </div>

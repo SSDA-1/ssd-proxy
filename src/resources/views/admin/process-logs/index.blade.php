@@ -3,7 +3,7 @@
 @section('content')
     <div class="header-page">
         <div class="title-page">
-            <h2>@lang('phrases.Управление Логами')</h2>
+            <h2>@lang('proxies::phrases.Управление Логами')</h2>
         </div>
     </div>
 
@@ -15,23 +15,23 @@
 
     <div class="block-background">
         <div class="title-block">
-            <h3>@lang('phrases.Список логов')</h3>
+            <h3>@lang('proxies::phrases.Список логов')</h3>
         </div>
         <div class="row"></div>
 
         <table class="table table-bordered">
             <tr>
                 <th>No</th>
-                <th>@lang('phrases.Название')</th>
-                <th>@lang('phrases.Описание')</th>
-                <th>@lang('phrases.Дата')</th>
+                <th>@lang('proxies::phrases.Название')</th>
+                <th>@lang('proxies::phrases.Описание')</th>
+                <th>@lang('proxies::phrases.Дата')</th>
             </tr>
             <tbody>
             @foreach ($data as $key => $log)
                 <tr>
                     <td>{{ $log->id }}</td>
-                    <td>@lang('phrases.' . $log->name)</td>
-                    <td>@lang('phrases.' . $log->description)</td>
+                    <td>@lang('proxies::phrases.' . $log->name)</td>
+                    <td>@lang('proxies::phrases.' . $log->description)</td>
                     <td>{{ $log->created_at }}</td>
                 </tr>
             @endforeach

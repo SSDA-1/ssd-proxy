@@ -10,7 +10,7 @@
                 @endif
             @endforeach
             <div class="footer__language">
-                <div class="footer__language-text">@lang('phrases.Язык'):</div>
+                <div class="footer__language-text">@lang('proxies::phrases.Язык'):</div>
                 <div class="footer__language">
                     @if (App::isLocale('en'))
                         <a href="{{ route('locale', ['language' => 'ru']) }}" class="footer__language-summary">RU</a>
@@ -21,7 +21,7 @@
             </div>
         </nav>
         @guest
-            <div class="btn header__private-btn">@lang('phrases.Личный кабинет')</div>
+            <div class="btn header__private-btn">@lang('proxies::phrases.Личный кабинет')</div>
         @else
             <a class="avatar" href="/control-panel">
                 {{-- <img src="/assets/img/avatar.png"> --}}
@@ -34,7 +34,7 @@
                 '.layouts.mob-menu')
     </div>
     <div class="title">
-        <h1>@lang('phrases.Личный кабинет')</h1>
+        <h1>@lang('proxies::phrases.Личный кабинет')</h1>
     </div>
 </header>
 
@@ -58,9 +58,9 @@
     }
 </style>
 <div class="modal crypt" data-modal="crypt">
-    <div class="done"> @lang('phrases.Спасибо, оплата прошла, одновите страницу') </div>
+    <div class="done"> @lang('proxies::phrases.Спасибо, оплата прошла, одновите страницу') </div>
     <div class="wrap-title">
-        <p class="modal__title">@lang('phrases.Пополнение баланса через Крипту')</p>
+        <p class="modal__title">@lang('proxies::phrases.Пополнение баланса через Крипту')</p>
         <!--   Svg иконка для закрытия окна  -->
         <svg class="modal__cross js-modal-close" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
             <path
@@ -69,15 +69,15 @@
     </div>
     {!! Form::open(['method' => 'POST', 'route' => 'PaymentPlusMoney', 'class' => 'payment-form']) !!}
     <div class="payment-systems">
-        <p>@lang('phrases.Отправьте') <span id="amountUSDTChecker">5.910215</span> USDT TRC-20 @lang('phrases.на адрес'):</p>
+        <p>@lang('proxies::phrases.Отправьте') <span id="amountUSDTChecker">5.910215</span> USDT TRC-20 @lang('proxies::phrases.на адрес'):</p>
         <p id="adressUSDTChecker">TrshdhHJHsbdD5DAd6DFAew48dDSAc4D</p>
         <div class="qrCode">
 
         </div>
     </div>
     <div class="wrap-btn-modal attention">
-        <h2>@lang('phrases.ВНИМАНИЕ')!</h2>
-        <p>@lang('phrases.Оплатить счёт необходимо в течении 10 минут отправив точную сумму').</p>
+        <h2>@lang('proxies::phrases.ВНИМАНИЕ')!</h2>
+        <p>@lang('proxies::phrases.Оплатить счёт необходимо в течении 10 минут отправив точную сумму').</p>
     </div>
     {!! Form::close() !!}
 </div>

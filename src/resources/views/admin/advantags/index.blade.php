@@ -3,10 +3,10 @@
 @section('content')
 <div class="header-page">
     <div class="title-page">
-        <h2>@lang('phrases.Преимущества')</h2>
+        <h2>@lang('proxies::phrases.Преимущества')</h2>
     </div>
     <div class="buttons">
-        <a class="btn btn-success" href="{{ route('advantag.create') }}">@lang('phrases.Добавить')</a>
+        <a class="btn btn-success" href="{{ route('advantag.create') }}">@lang('proxies::phrases.Добавить')</a>
     </div>
 </div>
 
@@ -18,15 +18,15 @@
 
 <div class="block-background">
     <div class="title-block">
-        <h3>@lang('phrases.Список преимуществ')</h3>
+        <h3>@lang('proxies::phrases.Список преимуществ')</h3>
     </div>
     <table class="table table-bordered">
         <thead>
             <tr class="tr-name">
                 <th>No</th>
-                <th>@lang('phrases.Название')</th>
-                <th>@lang('phrases.Описание')</th>
-                <th>@lang('phrases.Действие')</th>
+                <th>@lang('proxies::phrases.Название')</th>
+                <th>@lang('proxies::phrases.Описание')</th>
+                <th>@lang('proxies::phrases.Действие')</th>
             </tr>
         </thead>
         <tbody>

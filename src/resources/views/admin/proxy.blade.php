@@ -4,10 +4,10 @@
 
     <div class="header-page">
         <div class="title-page">
-            <h2>@lang('phrases.Прокси')</h2>
+            <h2>@lang('proxies::phrases.Прокси')</h2>
         </div>
         <div class="buttons">
-            <a class="btn btn-success" href="{{ route('proxySetting') }}">@lang('phrases.Настройки')</a>
+            <a class="btn btn-success" href="{{ route('proxySetting') }}">@lang('proxies::phrases.Настройки')</a>
         </div>
     </div>
 
@@ -19,14 +19,14 @@
 
     <div class="title-block proxy">
         <div class="title-page">
-            <h2>@lang('phrases.Список портов')</h2>
+            <h2>@lang('proxies::phrases.Список портов')</h2>
         </div>
         <div class="buttons" style="display: flex;">
-            <a class="btn btn-success" data-title="@lang('phrases.Вы точно хотите импортировать порты с системы Кракен? Выберите сервер') "
+            <a class="btn btn-success" data-title="@lang('proxies::phrases.Вы точно хотите импортировать порты с системы Кракен? Выберите сервер') "
                 data-fetch="yes" data-action="{{ route('exportPorts') }}" data-modal="exportports"
                 data-servers="{{ $servers }}"
                 style="width: 100%;margin-right: 15px;letter-spacing: 1.15px;font-size: 14px;padding: 10px 25px;"
-                href="#"><span>@lang('phrases.Импортировать порты')</span></a>
+                href="#"><span>@lang('proxies::phrases.Импортировать порты')</span></a>
             <a class="btn btn-success" href="{{ route('port.create') }}"><span>+</span></a>
         </div>
     </div>
@@ -46,9 +46,9 @@
 
             <form id="search-form" class="padding-20" style="padding-bottom: 0">
                 <div class="row" style="justify-content: space-between">
-                    <input type="text" name="query" placeholder="@lang('phrases.Поиск пользователей')" class="input-text"
+                    <input type="text" name="query" placeholder="@lang('proxies::phrases.Поиск пользователей')" class="input-text"
                         style="max-width: 90%">
-                    <button type="submit" class="btn btn-primary">@lang('phrases.Искать')</button>
+                    <button type="submit" class="btn btn-primary">@lang('proxies::phrases.Искать')</button>
                 </div>
             </form>
             @foreach ($serversId as $key => $item)
@@ -57,18 +57,18 @@
                         <thead>
                             <tr class="tr-name">
                                 <th>ID</th>
-                                <th>@lang('phrases.Название')</th>
-                                <th>@lang('phrases.Статус')</th>
-                                <th>@lang('phrases.Пользователи')</th>
+                                <th>@lang('proxies::phrases.Название')</th>
+                                <th>@lang('proxies::phrases.Статус')</th>
+                                <th>@lang('proxies::phrases.Пользователи')</th>
                                 <th>Telegram</th>
-                                <th>@lang('phrases.Дата окончания')</th>
+                                <th>@lang('proxies::phrases.Дата окончания')</th>
                                 {{-- <th>Тип сети</th> --}}
                                 {{-- <th>TCP отпечаток</th> --}}
-                                <th>@lang('phrases.Тип смены ip')</th>
-                                <th>@lang('phrases.Интервал смены ip')</th>
-                                <th>@lang('phrases.Тип')</th>
-                                <th>@lang('phrases.Макс. человек')</th>
-                                <th>@lang('phrases.Действие')</th>
+                                <th>@lang('proxies::phrases.Тип смены ip')</th>
+                                <th>@lang('proxies::phrases.Интервал смены ip')</th>
+                                <th>@lang('proxies::phrases.Тип')</th>
+                                <th>@lang('proxies::phrases.Макс. человек')</th>
+                                <th>@lang('proxies::phrases.Действие')</th>
                             </tr>
                         </thead>
                         <tbody class="proxy-table-body" data-server="{{ $item->id }}">
@@ -80,7 +80,7 @@
                                     <tr id="modem_{{ $port->id }}">
                                         <td>{{ $port->id_kraken }}</td>
                                         <td>{{ $port->name }}</td>
-                                        <td>{{ $port->active == 1 ? trans('phrases.Активный') : trans('phrases.Не активный') }}</td>
+                                        <td>{{ $port->active == 1 ? trans('proxies::phrases.Активный') : trans('proxies::phrases.Не активный') }}</td>
                                         <td>
                                             @forelse ($port->proxys as $proxy)
                                                 @if ($loop->iteration % 2 == 0)
@@ -88,7 +88,7 @@
                                                         href="/users/{{ $proxy->user->id }}/edit">{{ $proxy->user->name }}</a><br>
                                                 @endif
                                             @empty
-                                                @lang('phrases.Порт пустой')
+                                                @lang('proxies::phrases.Порт пустой')
                                             @endforelse
                                         </td>
                                         <td>
@@ -109,8 +109,8 @@
                                             @endforelse
                                         </td>
                                         <td>{{ $port->reconnect_type }}</td>
-                                        <td>{{ $port->reconnect_interval }} @lang('phrases.сек')</td>
-                                        <td>{{ $port->type_pay == 'private' ? trans('phrases.Приватный') : trans('phrases.Общий') }}</td>
+                                        <td>{{ $port->reconnect_interval }} @lang('proxies::phrases.сек')</td>
+                                        <td>{{ $port->type_pay == 'private' ? trans('proxies::phrases.Приватный') : trans('proxies::phrases.Общий') }}</td>
                                         <td>{{ $port->proxycount }} / {{ $port->max_users }}</td>
                                         <td class="dayst">
                                             <a class="btn btn-action" href="{{ route('port.edit', $port->id) }}"><i
@@ -118,7 +118,7 @@
                                             <button type="submit" class="btn btn-danger"><i
                                                     class="fa-solid fa-bullseye"></i></button>
                                             <button type="submit"
-                                                data-title="@lang('phrases.Вы точно хотите удалить Порт с сайта')? <br> Ps: @lang('phrases.В системе Кракен его нужно удалить вручную')"
+                                                data-title="@lang('proxies::phrases.Вы точно хотите удалить Порт с сайта')? <br> Ps: @lang('proxies::phrases.В системе Кракен его нужно удалить вручную')"
                                                 data-fetch="yes" data-action="{{ route('port.destroy', $port->id) }}"
                                                 data-modal="del" class="btn btn-danger"><i
                                                     class="fa-solid fa-trash"></i></button>
@@ -127,7 +127,7 @@
                                 @endif
                             @empty
                                 <tr>
-                                    <td colspan="13" class="absent">@lang('phrases.Записи отсутствуют')</td>
+                                    <td colspan="13" class="absent">@lang('proxies::phrases.Записи отсутствуют')</td>
                                 </tr>
                             @endforelse
                         </tbody>
@@ -142,19 +142,19 @@
 
     <div class="title-block proxy">
         <div class="title-page">
-            <h2>@lang('phrases.Список прокси')</h2>
+            <h2>@lang('proxies::phrases.Список прокси')</h2>
         </div>
         <div class="buttons" style="display: flex;flex: 1;justify-content: flex-end;">
-            <a class="btn btn-success edit-button" data-title="<b>@lang('phrases.Добавление времени')</b>" data-fetch="yes"
+            <a class="btn btn-success edit-button" data-title="<b>@lang('proxies::phrases.Добавление времени')</b>" data-fetch="yes"
                 data-action="{{ route('exportProxy') }}" data-modal="editcheckproxy"
-                style="display: none;width: auto;margin-right: 15px;letter-spacing: 1.15px;font-size: 14px;padding: 10px 25px;background-color: #557dfc;">@lang('phrases.Добавить')
+                style="display: none;width: auto;margin-right: 15px;letter-spacing: 1.15px;font-size: 14px;padding: 10px 25px;background-color: #557dfc;">@lang('proxies::phrases.Добавить')
                 время</a>
             <a class="btn btn-success"
-                data-title="<b>@lang('phrases.Перед импортом прокси импортируйте порты, настройте их тип (Общий/Приватный) и укажите количество человек на порт').</b><br> @lang('phrases.Вы точно хотите импортировать прокси с системы Кракен')?"
+                data-title="<b>@lang('proxies::phrases.Перед импортом прокси импортируйте порты, настройте их тип (Общий/Приватный) и укажите количество человек на порт').</b><br> @lang('proxies::phrases.Вы точно хотите импортировать прокси с системы Кракен')?"
                 data-fetch="yes" data-action="{{ route('exportProxy') }}" data-servers="{{ $servers }}"
                 data-modal="exportproxy"
                 style="width: auto;margin-right: 15px;letter-spacing: 1.15px;font-size: 14px;padding: 10px 25px;"
-                href="#"><span>@lang('phrases.Импортировать прокси')</span></a>
+                href="#"><span>@lang('proxies::phrases.Импортировать прокси')</span></a>
             <a class="btn btn-success" href="{{ route('proxy.create') }}"><span>+</span></a>
         </div>
     </div>
@@ -174,13 +174,13 @@
                             <tr class="tr-name">
                                 <th></th>
                                 <th>ID</th>
-                                <th>@lang('phrases.Тип прокси')</th>
-                                <th>@lang('phrases.Состояние прокси')</th>
+                                <th>@lang('proxies::phrases.Тип прокси')</th>
+                                <th>@lang('proxies::phrases.Состояние прокси')</th>
                                 <th>IP</th>
-                                <th>@lang('phrases.Порт')</th>
-                                <th>@lang('phrases.Пользователь')</th>
-                                <th>@lang('phrases.Действителен до')</th>
-                                <th>@lang('phrases.Действие')</th>
+                                <th>@lang('proxies::phrases.Порт')</th>
+                                <th>@lang('proxies::phrases.Пользователь')</th>
+                                <th>@lang('proxies::phrases.Действителен до')</th>
+                                <th>@lang('proxies::phrases.Действие')</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -190,7 +190,7 @@
                                         <td><input type="checkbox" class="proxy-checkbox" value="{{ $proxy->id }}"></td>
                                         <td>{{ $proxy->id }}</td>
                                         <td>{{ $proxy->type }}</td>
-                                        <td>{{ $proxy->active == 1 ? trans('phrases.Активный') : trans('phrases.Не активный') }}</td>
+                                        <td>{{ $proxy->active == 1 ? trans('proxies::phrases.Активный') : trans('proxies::phrases.Не активный') }}</td>
                                         <td>{{ $proxy->type }}://{{ $proxy->login_user_proxy_kraken ?: $proxy->user->kraken_username }}:{{ $proxy->password_user_proxy_kraken ?: $proxy->user->kraken_username }}@<?php echo parse_url($proxy->modem->server->data['url'], PHP_URL_HOST); ?>:{{ $proxy->number_proxy }}
                                         </td>
                                         <td>{{ $proxy->modem->name }}</td>
@@ -199,7 +199,7 @@
                                         <td class="dayst">
                                             <a class="btn btn-action" href="{{ route('proxy.edit', $proxy->id) }}"><i
                                                     class="fa-regular fa-pen-to-square"></i></a>
-                                            <button type="submit" data-title="@lang('phrases.Вы точно хотите удалить прокси')?"
+                                            <button type="submit" data-title="@lang('proxies::phrases.Вы точно хотите удалить прокси')?"
                                                 data-fetch="yes" data-action="{{ route('proxy.destroy', $proxy->id) }}"
                                                 data-modal="del" class="btn btn-danger"><i
                                                     class="fa-solid fa-trash"></i></button>
@@ -213,7 +213,7 @@
                                 @endif
                             @empty
                                 <tr>
-                                    <td colspan="9" class="absent">@lang('phrases.Записи отсутствуют')</td>
+                                    <td colspan="9" class="absent">@lang('proxies::phrases.Записи отсутствуют')</td>
                                 </tr>
                             @endforelse
                         </tbody>

@@ -3,10 +3,10 @@
 @section('content')
     <div class="header-page">
         <div class="title-page">
-            <h2>@lang('phrases.Название новости'): {{ $news->name }}</h2>
+            <h2>@lang('proxies::phrases.Название новости'): {{ $news->name }}</h2>
         </div>
         <div class="buttons">
-            <a class="btn btn-success" href="{{ route('news.index') }}"><i class="bx bx-left-arrow-alt icon"></i> @lang('phrases.Назад')</a>
+            <a class="btn btn-success" href="{{ route('news.index') }}"><i class="bx bx-left-arrow-alt icon"></i> @lang('proxies::phrases.Назад')</a>
         </div>
     </div>
 
@@ -14,30 +14,30 @@
         <div class="block-background">
             <div class="row">
                 <div class="field">
-                    <div class="title-field">@lang('phrases.Название'):</div>
+                    <div class="title-field">@lang('proxies::phrases.Название'):</div>
                     <div class="input-text">{{ $news->name }}</div>
                 </div>
                 <div class="field">
-                    <div class="title-field">@lang('phrases.Категория'):</div>
+                    <div class="title-field">@lang('proxies::phrases.Категория'):</div>
                     <div class="input-text">
                         @if ($news->category == 1)
-                            @lang('phrases.Новости')
+                            @lang('proxies::phrases.Новости')
                         @elseif($news->category == 2)
-                            @lang('phrases.Полезное')
+                            @lang('proxies::phrases.Полезное')
                         @elseif($news->category == 3)
-                            @lang('phrases.О прокси')
+                            @lang('proxies::phrases.О прокси')
                         @endif
                     </div>
                 </div>
 
                 <div class="field">
-                    <div class="title-field">@lang('phrases.Автор'):</div>
+                    <div class="title-field">@lang('proxies::phrases.Автор'):</div>
                     <div class="input-text">{{ $news->author }}</div>
                 </div>
             </div>
             <div class="row full" style="max-height: calc(100% - 95px);">
                 <div class="field">
-                    <div class="title-field">@lang('phrases.Текст'):</div>
+                    <div class="title-field">@lang('proxies::phrases.Текст'):</div>
                     <div class="input-text full">{!! $news->detail !!}</div>
                 </div>
             </div>
@@ -46,19 +46,19 @@
         <div class="block-background">
             <div class="row">
                 <div class="field">
-                    <div class="title-field">@lang('phrases.Обложка') <span>(@lang('phrases.так же отобразится внутри новости'))</span>:</div>
+                    <div class="title-field">@lang('proxies::phrases.Обложка') <span>(@lang('proxies::phrases.так же отобразится внутри новости'))</span>:</div>
                     <div class="input-text"><img src="{{ $news->images }}" class="cover"></div>
                 </div>
             </div>
             <div class="row">
                 <div class="field">
-                    <div class="title-field">@lang('phrases.Дата публикации'):</div>
+                    <div class="title-field">@lang('proxies::phrases.Дата публикации'):</div>
                     <div class="input-text">{{ $news->created_at }}</div>
                 </div>
             </div>
             <div class="row">
                 <div class="field">
-                    <div class="title-field">@lang('phrases.Дата обновления'):</div>
+                    <div class="title-field">@lang('proxies::phrases.Дата обновления'):</div>
                     <div class="input-text">{{ $news->updated_at }}</div>
                 </div>
             </div>

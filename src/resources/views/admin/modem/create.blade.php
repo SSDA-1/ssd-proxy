@@ -3,16 +3,16 @@
 @section('content')
     <div class="header-page">
         <div class="title-page">
-            <h2>@lang('phrases.Создание нового порта')</h2>
+            <h2>@lang('proxies::phrases.Создание нового порта')</h2>
         </div>
         <div class="buttons">
-            <a class="btn btn-success" href="{{ route('proxy.index') }}"><i class="bx bx-left-arrow-alt icon"></i> @lang('phrases.Назад')</a>
+            <a class="btn btn-success" href="{{ route('proxy.index') }}"><i class="bx bx-left-arrow-alt icon"></i> @lang('proxies::phrases.Назад')</a>
         </div>
     </div>
 
     @if (count($errors) > 0)
         <div class="alert alert-danger block-background">
-            <strong>@lang('phrases.Упс')!</strong> @lang('phrases.Были некоторые проблемы с вашим вводом').<br><br>
+            <strong>@lang('proxies::phrases.Упс')!</strong> @lang('proxies::phrases.Были некоторые проблемы с вашим вводом').<br><br>
             <ul>
                 @foreach ($errors->all() as $error)
                     <li>{{ $error }}</li>
@@ -25,46 +25,46 @@
     <div class="block-background basement-form">
         <div class="row">
             <div class="field">
-                <div class="title-field">@lang('phrases.Наименование порта'):</div>
-                {!! Form::text('name', null, ['placeholder' => trans('phrases.Наименование'), 'class' => 'input-text']) !!}
+                <div class="title-field">@lang('proxies::phrases.Наименование порта'):</div>
+                {!! Form::text('name', null, ['placeholder' => trans('proxies::phrases.Наименование'), 'class' => 'input-text']) !!}
             </div>
         </div>
         <div class="row">
             <div class="field">
-                <div class="title-field">@lang('phrases.Сетевой интерфейс'):</div>
+                <div class="title-field">@lang('proxies::phrases.Сетевой интерфейс'):</div>
                 {!! Form::select('interface', $freeInterface, 2, ['class' => 'select-multiple', 'required' => 'required']) !!}
             </div>
             <div class="field">
-                <div class="title-field">@lang('phrases.Модель модема'):</div>
+                <div class="title-field">@lang('proxies::phrases.Модель модема'):</div>
                 {!! Form::select('model', $modelModems, 2, ['class' => 'select-multiple']) !!}
             </div>
             <div class="field">
-                <div class="title-field">@lang('phrases.Сервер'):</div>
+                <div class="title-field">@lang('proxies::phrases.Сервер'):</div>
                 {!! Form::select('server', $servers, 0, array('class' => 'select-multiple')) !!}
             </div>
         </div>
         <div class="row">
             <div class="field">
-                <div class="title-field">​@lang('phrases.Тип смены ip'):</div>
+                <div class="title-field">​@lang('proxies::phrases.Тип смены ip'):</div>
                 {!! Form::select(
                     'changeip',
-                    ['time' => trans('phrases.По времени'), 'link' => trans('phrases.По ссылке'), 'time_link' => trans('phrases.По времени и ссылке')],
+                    ['time' => trans('proxies::phrases.По времени'), 'link' => trans('proxies::phrases.По ссылке'), 'time_link' => trans('proxies::phrases.По времени и ссылке')],
                     'time_link',
                     ['class' => 'select-multiple'],
                 ) !!}
             </div>
             <div class="field">
-                <div class="title-field">@lang('phrases.Блокировать изменение типа IP'):</div>
-                {!! Form::select('locked_ip_type_change', ['0' => trans('phrases.Нет'), '1' => trans('phrases.Да')], null, ['class' => 'input-text']) !!}
+                <div class="title-field">@lang('proxies::phrases.Блокировать изменение типа IP'):</div>
+                {!! Form::select('locked_ip_type_change', ['0' => trans('proxies::phrases.Нет'), '1' => trans('proxies::phrases.Да')], null, ['class' => 'input-text']) !!}
             </div>
             <div class="field">
-                <div class="title-field">@lang('phrases.Время смены'):</div>
+                <div class="title-field">@lang('proxies::phrases.Время смены'):</div>
                 {!! Form::text('reconnect_interval', 120, ['placeholder' => '0', 'class' => 'input-text']) !!}
             </div>
         </div>
         <div class="row">
             <div class="field">
-                <div class="title-field">@lang('phrases.Доступ к порту'):</div>
+                <div class="title-field">@lang('proxies::phrases.Доступ к порту'):</div>
                 {!! Form::select('user', $users, 2, [
                     'multiple' => 'multiple',
                     'name' => 'userapi[]',
@@ -74,17 +74,17 @@
         </div>
         <div class="row">
             <div class="field">
-                <div class="title-field">@lang('phrases.Тип порта'):</div>
-                {!! Form::select('typepay', ['private' =>  trans('phrases.Приватный'), 'general' => trans('phrases.Общий')], 2, ['class' => 'input-text']) !!}
+                <div class="title-field">@lang('proxies::phrases.Тип порта'):</div>
+                {!! Form::select('typepay', ['private' =>  trans('proxies::phrases.Приватный'), 'general' => trans('proxies::phrases.Общий')], 2, ['class' => 'input-text']) !!}
             </div>
             <div class="field">
-                <div class="title-field">@lang('phrases.Количество человек на порт'):</div>
+                <div class="title-field">@lang('proxies::phrases.Количество человек на порт'):</div>
                 {!! Form::number('usercount', 1, ['readonly' => 'readonly', 'placeholder' => '0', 'class' => 'input-text']) !!}
             </div>
         </div>
     </div>
     <div class="footer-block">
-        <button type="submit" class="btn btn-primary">@lang('phrases.Сохранить')</button>
+        <button type="submit" class="btn btn-primary">@lang('proxies::phrases.Сохранить')</button>
     </div>
 
     {!! Form::close() !!}

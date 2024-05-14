@@ -7,17 +7,17 @@
 @section('content')
     <div class="header-page">
         <div class="title-page">
-            <h2>@lang('phrases.Редактирование отзыва') {{ $reviews_adm->name }}</h2>
+            <h2>@lang('proxies::phrases.Редактирование отзыва') {{ $reviews_adm->name }}</h2>
         </div>
         <div class="buttons">
             <a class="btn btn-success" href="{{ route('reviews-adm.index') }}"><i class="bx bx-left-arrow-alt icon"></i>
-                @lang('phrases.Назад')</a>
+                @lang('proxies::phrases.Назад')</a>
         </div>
     </div>
 
     @if (count($errors) > 0)
         <div class="alert alert-danger block-background">
-            <strong>@lang('phrases.Упс')!</strong> @lang('phrases.Были некоторые проблемы с вашим вводом').<br><br>
+            <strong>@lang('proxies::phrases.Упс')!</strong> @lang('proxies::phrases.Были некоторые проблемы с вашим вводом').<br><br>
             <ul>
                 @foreach ($errors->all() as $error)
                     <li>{{ $error }}</li>
@@ -39,26 +39,26 @@
         <div class="block-background basement-form">
             <div class="row">
                 <div class="field">
-                    <div class="title-field">@lang('phrases.Имя'):</div>
+                    <div class="title-field">@lang('proxies::phrases.Имя'):</div>
                     <input type="text" name="name" value="{{ $reviews_adm->name }}" class="input-text"
                         placeholder="Имя">
                 </div>
             </div>
             <div class="row">
                 <div class="field">
-                    <div class="title-field">@lang('phrases.Ссылка на источник'):</div>
-                    <input type="text" placeholder="@lang('phrases.Ссылка')" name="link" class="input-text"
+                    <div class="title-field">@lang('proxies::phrases.Ссылка на источник'):</div>
+                    <input type="text" placeholder="@lang('proxies::phrases.Ссылка')" name="link" class="input-text"
                         value="{{ $reviews_adm->link }}">
                 </div>
                 <div class="field">
-                    <div class="title-field">@lang('phrases.Имя ссылки'):</div>
-                    <input type="text" placeholder="@lang('phrases.Имя ссылки')" name="linkName" class="input-text"
+                    <div class="title-field">@lang('proxies::phrases.Имя ссылки'):</div>
+                    <input type="text" placeholder="@lang('proxies::phrases.Имя ссылки')" name="linkName" class="input-text"
                         value="{{ $reviews_adm->linkName }}">
                 </div>
             </div>
             <div class="row">
                 <div class="field list">
-                    <div class="title-field">@lang('phrases.Отзыв'):</div>
+                    <div class="title-field">@lang('proxies::phrases.Отзыв'):</div>
                     {!! Form::textarea('body', $reviews_adm->description, [
                         'class' => 'select-multiple',
                         'id' => 'summernote',
@@ -68,14 +68,14 @@
             </div>
             <div class="row">
                 <div class="field">
-                    <div class="title-field">@lang('phrases.Имя')_en:</div>
+                    <div class="title-field">@lang('proxies::phrases.Имя')_en:</div>
                     <input type="text" name="name_en" value="{{ $reviews_adm->name_en }}" class="input-text"
-                           placeholder="@lang('phrases.Имя')">
+                           placeholder="@lang('proxies::phrases.Имя')">
                 </div>
             </div>
             <div class="row">
                 <div class="field list">
-                    <div class="title-field">@lang('phrases.Отзыв')_en:</div>
+                    <div class="title-field">@lang('proxies::phrases.Отзыв')_en:</div>
                     {!! Form::textarea('body', $reviews_adm->description_en, [
                         'class' => 'select-multiple',
                         'id' => 'summernote2',
@@ -88,7 +88,7 @@
         <div class="block-background basement-form">
             <div class="row">
                 <div class="field">
-                    <div class="title-field">@lang('phrases.Аватар') <span>(@lang('phrases.иконка пользователя'))</span>:</div>
+                    <div class="title-field">@lang('proxies::phrases.Аватар') <span>(@lang('proxies::phrases.иконка пользователя'))</span>:</div>
                     @if ($reviews_adm->avatar)
                         <img src="{{ $reviews_adm->avatar }}" id="logoFile" class="cover">
                     @endif
@@ -102,7 +102,7 @@
         </div>
     </div>
     <div class="footer-block">
-        <button type="submit" class="btn btn-primary">@lang('phrases.Сохранить')</button>
+        <button type="submit" class="btn btn-primary">@lang('proxies::phrases.Сохранить')</button>
     </div>
     {!! Form::close() !!}
 

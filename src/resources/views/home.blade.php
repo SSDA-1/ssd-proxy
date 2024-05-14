@@ -51,27 +51,27 @@
 
     <section class="proxy center proxy__fotter" style="margin-top: 35px;">
         <div class="proxy__title proxy__title-footter">
-            <h2>@lang('phrases.Ads-proxy удобный и качественный сервис прокси')</h2>
+            <h2>@lang('proxies::phrases.Ads-proxy удобный и качественный сервис прокси')</h2>
         </div>
         <div class="proxy__blocks">
 
             <div class="proxy__left-body">
                 <div class="proxy__subtitle">
                     <h2>
-                        @lang('phrases.Автоматизированная система выдаст вам новый прокси менее чем за 60 секунд. Да, это так просто и быстро')
+                        @lang('proxies::phrases.Автоматизированная система выдаст вам новый прокси менее чем за 60 секунд. Да, это так просто и быстро')
                     </h2>
                 </div>
 
                 <div class="proxy__ul-block">
                     <ul class="proxy__ul">
-                        <li class="proxy__li">@lang('phrases.Безлимитный интернет')</li>
-                        <li class="proxy__li">@lang('phrases.Смена IP по времени или по ссылке')</li>
-                        <li class="proxy__li">@lang('phrases.Высокие скорости для комфортной работы')</li>
+                        <li class="proxy__li">@lang('proxies::phrases.Безлимитный интернет')</li>
+                        <li class="proxy__li">@lang('proxies::phrases.Смена IP по времени или по ссылке')</li>
+                        <li class="proxy__li">@lang('proxies::phrases.Высокие скорости для комфортной работы')</li>
                     </ul>
                     <ul class="proxy__ul">
-                        <li class="proxy__li">@lang('phrases.Приватные прокси только в 1 руки')</li>
-                        <li class="proxy__li">@lang('phrases.Протоколы') <br>socks5/http(s)</li>
-                        <li class="proxy__li">@lang('phrases.Подключение') <br>@lang('phrases.без впн')</li>
+                        <li class="proxy__li">@lang('proxies::phrases.Приватные прокси только в 1 руки')</li>
+                        <li class="proxy__li">@lang('proxies::phrases.Протоколы') <br>socks5/http(s)</li>
+                        <li class="proxy__li">@lang('proxies::phrases.Подключение') <br>@lang('proxies::phrases.без впн')</li>
                     </ul>
                 </div>
             </div>
@@ -83,9 +83,9 @@
                         <div class="proxy__application-form">
                             <ul class="proxy__application-ul">
                                 <li class="proxy__application-li">
-                                    <div class="proxy__application-text">@lang('phrases.Гео'):</div>
+                                    <div class="proxy__application-text">@lang('proxies::phrases.Гео'):</div>
                                     <div class="proxy__application-countries">
-                                        <div class="proxy__application-country">@lang('phrases.Казахстан')</div>
+                                        <div class="proxy__application-country">@lang('proxies::phrases.Казахстан')</div>
                                         <div class="proxy__application-countryFlag">
                                             <img src="{{ asset('assets/img/kz.svg') }}" alt="flag">
                                         </div>
@@ -93,7 +93,7 @@
 
                                 </li>
                                 <li class="proxy__application-li">
-                                    <div class="proxy__application-text">@lang('phrases.Количество'):</div>
+                                    <div class="proxy__application-text">@lang('proxies::phrases.Количество'):</div>
                                     <div class="proxy__application-count">
                                         <div class="proxy__decrease"></div>
                                         <input class="proxy__application-quantity" type="text" name="count"
@@ -114,7 +114,7 @@
                                                 @endphp
                                                 <option value="{{ $key }}" class="proxy__application-choice"
                                                         {{ $key == 1 ? 'selected' : '' }}>
-                                                    {{ $tariff['period'] }} @lang('phrases.дней') -
+                                                    {{ $tariff['period'] }} @lang('proxies::phrases.дней') -
                                                     @if ($tariffSettings->type_proxy == 'general')
                                                         {{ $tariff['general_price'][$countryKey] }} $
                                                     @elseif($tariffSettings->type_proxy == 'private')
@@ -131,17 +131,17 @@
                                         @for ($monthI = 5; $monthI <= $tariffSettings->max_days; $monthI++)
                                             @if ($monthI == 5)
                                                 <option value="{{ $monthI }}" data-sale="">{{ $monthI }}
-                                                    @lang('phrases.дней')
+                                                    @lang('proxies::phrases.дней')
                                                 </option>
                                             @elseif($monthI % 10 == 0 and $monthI <= 30)
                                                 <option value="{{ $monthI }}" data-sale="" data-sale-count="">
                                                     {{ $monthI }}
-                                                    @lang('phrases.дней')
+                                                    @lang('proxies::phrases.дней')
                                                 </option>
                                             @elseif($monthI % 30 == 0)
                                                 <option value="{{ $monthI }}" data-sale="" data-sale-count="">
                                                     {{ $monthI }}
-                                                    @lang('phrases.дней')
+                                                    @lang('proxies::phrases.дней')
                                                 </option>
                                             @endif
                                         @endfor
@@ -160,12 +160,12 @@
 
                             @auth
                                 @if (Str::startsWith(Auth::user()->email, '@'))
-                                    <div class="btn nomail" data-modal="nomail" style="width: 100%;">@lang('phrases.Купить прокси')</div>
+                                    <div class="btn nomail" data-modal="nomail" style="width: 100%;">@lang('proxies::phrases.Купить прокси')</div>
                                 @else
-                                    <button type="submit" class="btn" style="width: 100%;">@lang('phrases.Купить прокси')</button>
+                                    <button type="submit" class="btn" style="width: 100%;">@lang('proxies::phrases.Купить прокси')</button>
                                 @endif
                             @else
-                                <a href="/login" class="btn" style="width: 100%;">@lang('phrases.Купить прокси')</a>
+                                <a href="/login" class="btn" style="width: 100%;">@lang('proxies::phrases.Купить прокси')</a>
                             @endauth
 
                         </div>
@@ -179,7 +179,7 @@
     {{-- <!-- Тарифы блок --> --}}
     <section class="tariff center">
         <div class="tariff__title">
-            <h2>@lang('phrases.Тарифы')</h2>
+            <h2>@lang('proxies::phrases.Тарифы')</h2>
         </div>
         @if ($tariffSettings->type_tariff)
             <div class="tariff__blocks">
@@ -192,7 +192,7 @@
                                 </figcaption>
                             @endif
                             <figcaption class="tariff__price subtitle">
-                                <span class="days">{{ $tariff['period'] }}</span> @lang('phrases.дней') -
+                                <span class="days">{{ $tariff['period'] }}</span> @lang('proxies::phrases.дней') -
                                 @php
                                     $countryKey = array_search($tariffSettings->default_country, $tariff['country']);
                                 @endphp
@@ -221,7 +221,7 @@
                                             {{-- Страна --}}
                                             @if (count($tariff['country']) == 1)
                                                 <li class="proxy__application-li">
-                                                    <div class="proxy__application-text">@lang('phrases.Гео'):</div>
+                                                    <div class="proxy__application-text">@lang('proxies::phrases.Гео'):</div>
                                                     <div class="proxy__application-countries">
                                                         <input type="hidden" name="country"
                                                                value="{{ $tariffSettings->default_country }}"
@@ -240,7 +240,7 @@
                                                 </li>
                                             @else
                                                 <li class="proxy__application-li">
-                                                    <div class="proxy__application-text">@lang('phrases.Гео'):</div>
+                                                    <div class="proxy__application-text">@lang('proxies::phrases.Гео'):</div>
                                                     <div class="proxy__application-countries btn-submenu">
                                                         <input type="hidden" name="country"
                                                                value="{{ $tariffSettings->default_country }}"
@@ -269,12 +269,12 @@
                                             {{-- Типы прокси --}}
                                             @if ($tariffSettings->type_proxy == 'all')
                                                 <li class="proxy__application-li">
-                                                    <div class="proxy__application-text">@lang('phrases.Тип'):</div>
+                                                    <div class="proxy__application-text">@lang('proxies::phrases.Тип'):</div>
                                                     <div class="proxy__application-count type_proxy">
                                                         <div class="proxy__application-country">
                                                             <select name="type" class="type__proxy type__proxy__day">
-                                                                <option value="general">@lang('phrases.Общие')</option>
-                                                                <option value="private">@lang('phrases.Приватные')</option>
+                                                                <option value="general">@lang('proxies::phrases.Общие')</option>
+                                                                <option value="private">@lang('proxies::phrases.Приватные')</option>
                                                             </select>
                                                         </div>
                                                     </div>
@@ -289,7 +289,7 @@
 
                                             {{-- Количество --}}
                                             <li class="proxy__application-li">
-                                                <div class="proxy__application-text">@lang('phrases.Количество'):</div>
+                                                <div class="proxy__application-text">@lang('proxies::phrases.Количество'):</div>
                                                 <div class="proxy__application-count">
                                                     <div class="proxy__decrease"></div>
                                                     <input class="proxy__application-quantity q_d" type="text"
@@ -300,10 +300,10 @@
 
                                             {{-- Промокод --}}
                                             <li class="proxy__application-li">
-                                                <div class="proxy__application-text">@lang('phrases.Промокод'):</div>
+                                                <div class="proxy__application-text">@lang('proxies::phrases.Промокод'):</div>
                                                 <div class="proxy__application-count">
                                                     <input class="promocode" type="text" name="promo"
-                                                           placeholder="@lang('phrases.Промокод')" data-id="{{ $key }}">
+                                                           placeholder="@lang('proxies::phrases.Промокод')" data-id="{{ $key }}">
                                                 </div>
                                             </li>
                                         </ul>
@@ -312,12 +312,12 @@
                                     <div class="proxy__application-btn">
                                         @auth
                                             @if (Str::startsWith(Auth::user()->email, '@'))
-                                                <div class="btn nomail" data-modal="nomail" style="width: 100%;">@lang('phrases.Купить прокси')</div>
+                                                <div class="btn nomail" data-modal="nomail" style="width: 100%;">@lang('proxies::phrases.Купить прокси')</div>
                                             @else
-                                                <button type="submit" class="btn" style="width: 100%;">@lang('phrases.Купить прокси')</button>
+                                                <button type="submit" class="btn" style="width: 100%;">@lang('proxies::phrases.Купить прокси')</button>
                                             @endif
                                         @else
-                                            <a href="/login" class="btn" style="width: 100%;">@lang('phrases.Купить прокси')</a>
+                                            <a href="/login" class="btn" style="width: 100%;">@lang('proxies::phrases.Купить прокси')</a>
                                         @endauth
 
                                     </div>
@@ -334,7 +334,7 @@
                   data-tariff="1">
                 {{-- <div class="wrap-cost-days tariff__block" data-tariff="1"> --}}
                 <div class="wrap-cost-days ">
-                    <div class="sum">@lang('phrases.Стоимость') <span class="cost cost_day"></span> $ / <span class="days"></span>
+                    <div class="sum">@lang('proxies::phrases.Стоимость') <span class="cost cost_day"></span> $ / <span class="days"></span>
                         дней</div>
                 </div>
                 <div class="wrap-days-tariff">
@@ -342,24 +342,24 @@
                     <select name="month" id="" class="proxy__application-li amount_days">
                         @for ($monthI = 5; $monthI <= $tariffSettings->max_days; $monthI++)
                             @if ($monthI == 5)
-                                <option value="{{ $monthI }}" data-sale="">{{ $monthI }} @lang('phrases.дней')
+                                <option value="{{ $monthI }}" data-sale="">{{ $monthI }} @lang('proxies::phrases.дней')
                                 </option>
                             @elseif($monthI % 10 == 0 and $monthI <= 30)
                                 <option value="{{ $monthI }}" data-sale="" data-sale-count="">
                                     {{ $monthI }}
-                                    @lang('phrases.дней')
+                                    @lang('proxies::phrases.дней')
                                 </option>
                             @elseif($monthI % 30 == 0)
                                 <option value="{{ $monthI }}" data-sale="" data-sale-count="">
                                     {{ $monthI }}
-                                    @lang('phrases.дней')
+                                    @lang('proxies::phrases.дней')
                                 </option>
                             @endif
                         @endfor
                     </select>
                     {{-- Количество --}}
                     <div class="proxy__application-li">
-                        <div class="proxy__application-text">@lang('phrases.Количество'):</div>
+                        <div class="proxy__application-text">@lang('proxies::phrases.Количество'):</div>
                         <div class="proxy__application-count">
                             <div class="proxy__decrease"></div>
                             <input class="proxy__application-quantity q_d" type="text" name="count" min="1"
@@ -370,8 +370,8 @@
                     {{-- Тип --}}
                     @if ($tariffSettings->type_proxy == 'all')
                         <select name="type" class="type__proxy__day proxy__application-li">
-                            <option value="general">@lang('phrases.Общие')</option>
-                            <option value="private">@lang('phrases.Приватные')</option>
+                            <option value="general">@lang('proxies::phrases.Общие')</option>
+                            <option value="private">@lang('proxies::phrases.Приватные')</option>
                         </select>
                     @elseif($tariffSettings->type_proxy == 'general')
                         <input type="hidden" name="type" value="general" class="type__proxy__day" hidden>
@@ -387,7 +387,7 @@
                         @endforeach
                     </select>
                     {{-- Промокод --}}
-                    <input class="promocode proxy__application-li" type="text" name="promo" placeholder="@lang('phrases.Промокод')"
+                    <input class="promocode proxy__application-li" type="text" name="promo" placeholder="@lang('proxies::phrases.Промокод')"
                            data-id="1">
 
 
@@ -395,12 +395,12 @@
                     <div class="proxy__application-btn ">
                         @auth
                             @if (Str::startsWith(Auth::user()->email, '@'))
-                                <div class="btn nomail" data-modal="nomail">@lang('phrases.Купить прокси')</div>
+                                <div class="btn nomail" data-modal="nomail">@lang('proxies::phrases.Купить прокси')</div>
                             @else
-                                <button type="submit" class="btn">@lang('phrases.Купить прокси')</button>
+                                <button type="submit" class="btn">@lang('proxies::phrases.Купить прокси')</button>
                             @endif
                         @else
-                            <a href="/login" class="btn" style="width: 100%;">@lang('phrases.Купить прокси')</a>
+                            <a href="/login" class="btn" style="width: 100%;">@lang('proxies::phrases.Купить прокси')</a>
                         @endauth
                     </div>
                 </div>
@@ -412,21 +412,21 @@
     {{-- <!-- Для чего подходят прокси ads-proxy --> --}}
     <section class="ads-proxy center">
         <div class="ads-proxy__title">
-            <h2>@lang('phrases.Для чего подходят прокси ads-proxy')</h2>
+            <h2>@lang('proxies::phrases.Для чего подходят прокси ads-proxy')</h2>
         </div>
         <div class="ads-proxy__blocks">
             <div class="ads-proxy__left">
                 <div class="ads-proxy__block ads-proxy__traffic">
                     <div class="ads-proxy__subtitle">
-                        <h2>@lang('phrases.Для работы с трафиком')</h2>
+                        <h2>@lang('proxies::phrases.Для работы с трафиком')</h2>
                     </div>
                     <div class="ads-proxy__text">
-                        @lang('phrases.Прокси прекрасно подходят для работы со всеми видами трафика')
+                        @lang('proxies::phrases.Прокси прекрасно подходят для работы со всеми видами трафика')
                     </div>
                 </div>
                 <div class="ads-proxy__block ads-proxy__source">
                     <div class="ads-proxy__subtitle">
-                        <h2>@lang('phrases.Любые источники')</h2>
+                        <h2>@lang('proxies::phrases.Любые источники')</h2>
                     </div>
                     <div class="ads-proxy__text">
                         Facebook tik-tok google yandex
@@ -434,10 +434,10 @@
                 </div>
                 <div class="ads-proxy__block ads-proxy__marketing">
                     <div class="ads-proxy__subtitle">
-                        <h2>@lang('phrases.SEO и маркетинг')</h2>
+                        <h2>@lang('proxies::phrases.SEO и маркетинг')</h2>
                     </div>
                     <div class="ads-proxy__text">
-                        @lang('phrases.Комфортная работа со своими проектами')
+                        @lang('proxies::phrases.Комфортная работа со своими проектами')
                     </div>
                 </div>
 
@@ -447,33 +447,33 @@
             <div class="ads-proxy__right">
                 <div class="ads-proxy__block ads-proxy__account">
                     <div class="ads-proxy__subtitle">
-                        <h2>@lang('phrases.Регистрация аккаунтов')</h2>
+                        <h2>@lang('proxies::phrases.Регистрация аккаунтов')</h2>
                     </div>
                     <div class="ads-proxy__text">
-                        @lang('phrases.Без ограничений по гео и колличеству регистарций')
+                        @lang('proxies::phrases.Без ограничений по гео и колличеству регистарций')
                     </div>
                 </div>
                 <div class="ads-proxy__block ads-proxy__ananim">
                     <div class="ads-proxy__subtitle">
-                        <h2>@lang('phrases.Анонимное использование')</h2>
+                        <h2>@lang('proxies::phrases.Анонимное использование')</h2>
                     </div>
                     <div class="ads-proxy__text">
-                        @lang('phrases.Пользуйтесь прокси для любых ваших задач')
+                        @lang('proxies::phrases.Пользуйтесь прокси для любых ваших задач')
                     </div>
                 </div>
                 <div class="ads-proxy__block ads-proxy__mobile btns-block">
                     <div class="ads-proxy__subtitle">
-                        <h2>@lang('phrases.Попробуйте Ads-proxy')</h2>
+                        <h2>@lang('proxies::phrases.Попробуйте Ads-proxy')</h2>
                         <div class="ads-proxy__text">
-                            @lang('phrases.Приватные, быстрые мобильные прокси')
+                            @lang('proxies::phrases.Приватные, быстрые мобильные прокси')
                         </div>
                     </div>
                     <div class="ads-proxy__block-btn">
-                        <a href="/#proxy" class="btn ads-proxy__btn">@lang('phrases.Купить') &nbsp<span>@lang('phrases.прокси')</span></a>
+                        <a href="/#proxy" class="btn ads-proxy__btn">@lang('proxies::phrases.Купить') &nbsp<span>@lang('proxies::phrases.прокси')</span></a>
                         @auth
-                            <a href="/lk" class="btn ads-proxy__btn">@lang('phrases.Личный кабинет')</a>
+                            <a href="/lk" class="btn ads-proxy__btn">@lang('proxies::phrases.Личный кабинет')</a>
                         @else
-                            <a href="/login" class="btn ads-proxy__btn">@lang('phrases.Личный кабинет')</a>
+                            <a href="/login" class="btn ads-proxy__btn">@lang('proxies::phrases.Личный кабинет')</a>
                         @endauth
                     </div>
                     <a name="advantages"></a>
@@ -485,47 +485,47 @@
     {{-- <!-- Почему ads-proxy - удобно? --> --}}
     <section class="advantages center">
         <div class="advantages__title">
-            <h2>@lang('phrases.Почему ads-proxy - удобно')?</h2>
+            <h2>@lang('proxies::phrases.Почему ads-proxy - удобно')?</h2>
         </div>
         <div class="advantages__blocks">
             <div class="advantages__block">
                 <div class="advantages__block-body">
-                    <h3>@lang('phrases.Приватный канал')</h3>
-                    <p>@lang('phrases.При покупке прокси с ним работаете только вы, мы выдаем строго один прокси в одни руки')</p>
+                    <h3>@lang('proxies::phrases.Приватный канал')</h3>
+                    <p>@lang('proxies::phrases.При покупке прокси с ним работаете только вы, мы выдаем строго один прокси в одни руки')</p>
 
                 </div>
             </div>
             <div class="advantages__block">
                 <div class="advantages__block-body">
-                    <h3>@lang('phrases.Скорость')</h3>
-                    <p>@lang('phrases.Для комфортоной работы с любым источником траффика')</p>
+                    <h3>@lang('proxies::phrases.Скорость')</h3>
+                    <p>@lang('proxies::phrases.Для комфортоной работы с любым источником траффика')</p>
                 </div>
             </div>
             <div class="advantages__block">
                 <div class="advantages__block-body">
-                    <h3>@lang('phrases.Смена IP')</h3>
-                    <p>@lang('phrases.Смена ip по ссылке или времни, можно выбрать в личной кабинете, как вам будет удобнее')!</p>
+                    <h3>@lang('proxies::phrases.Смена IP')</h3>
+                    <p>@lang('proxies::phrases.Смена ip по ссылке или времни, можно выбрать в личной кабинете, как вам будет удобнее')!</p>
                 </div>
             </div>
             <div class="advantages__block">
                 <div class="advantages__block-body">
-                    <h3>@lang('phrases.Протоколы')
+                    <h3>@lang('proxies::phrases.Протоколы')
                     </h3>
-                    <p>@lang('phrases.Socks 5 или http(s) два самых удобных и распростроненных протокола')</p>
+                    <p>@lang('proxies::phrases.Socks 5 или http(s) два самых удобных и распростроненных протокола')</p>
                 </div>
             </div>
             <div class="advantages__block">
                 <div class="advantages__block-body">
-                    <h3>@lang('phrases.Подключение')
+                    <h3>@lang('proxies::phrases.Подключение')
                     </h3>
-                    <p>@lang('phrases.Наш сервис поддерживате подключение без VPN, покупаете и пользуетесь без ограничений')!</p>
+                    <p>@lang('proxies::phrases.Наш сервис поддерживате подключение без VPN, покупаете и пользуетесь без ограничений')!</p>
                 </div>
             </div>
             <div class="advantages__block">
                 <div class="advantages__block-body">
-                    <h3>@lang('phrases.Качественная поддержка')
+                    <h3>@lang('proxies::phrases.Качественная поддержка')
                     </h3>
-                    <p>@lang('phrases.Всегда придем на помощь и все расскажем, поможем с настройкой и работой прокси')!</p>
+                    <p>@lang('proxies::phrases.Всегда придем на помощь и все расскажем, поможем с настройкой и работой прокси')!</p>
                 </div>
             </div>
         </div>
@@ -534,7 +534,7 @@
     {{-- <!-- как все работает --> --}}
     <section class="instruction center">
         <div class="instruction__title">
-            <h2>@lang('phrases.Как все работает')</h2>
+            <h2>@lang('proxies::phrases.Как все работает')</h2>
         </div>
         <div class="instruction__blocks">
             <div class="instruction__left">
@@ -542,7 +542,7 @@
                     <img src="/assets/img/seting.png" alt="img">
                 </div>
                 <div class="instruction__link">
-                    <p>@lang('phrases.Наш') <a href="#">@lang('phrases.софт')</a></p>
+                    <p>@lang('proxies::phrases.Наш') <a href="#">@lang('proxies::phrases.софт')</a></p>
                 </div>
 
             </div>
@@ -552,7 +552,7 @@
                         <img src="/assets/img/map.png" alt="img">
                     </div>
                     <div class="instruction__link">
-                        <p>@lang('phrases.Наш') <a href="#">@lang('phrases.впн')</a></p>
+                        <p>@lang('proxies::phrases.Наш') <a href="#">@lang('proxies::phrases.впн')</a></p>
                     </div>
                 </div>
                 <div class="instruction__center-bot">
@@ -560,7 +560,7 @@
                         <img src="/assets/img/sistem.png" alt="img">
                     </div>
                     <div class="instruction__link">
-                        <p>@lang('phrases.Наши') <a href="#">@lang('phrases.сервера')</a></p>
+                        <p>@lang('proxies::phrases.Наши') <a href="#">@lang('proxies::phrases.сервера')</a></p>
                     </div>
                 </div>
 
@@ -571,8 +571,8 @@
                     <img src="/assets/img/window.png" alt="img">
                 </div>
                 <div class="instruction__link">
-                    <p>@lang('phrases.Наш сервис')</p>
-                    <p>@lang('phrases.и') @lang('phrases.Ваш') <a href="#">@lang('phrases.доступ к прокси')!</a></p>
+                    <p>@lang('proxies::phrases.Наш сервис')</p>
+                    <p>@lang('proxies::phrases.и') @lang('proxies::phrases.Ваш') <a href="#">@lang('proxies::phrases.доступ к прокси')!</a></p>
                 </div>
 
             </div>
@@ -584,16 +584,16 @@
     <a name="how-to-use"></a>
     <section class="rule center">
         <div class="rule__title">
-            <h2>@lang('phrases.Как пользоваться прокси')</h2>
+            <h2>@lang('proxies::phrases.Как пользоваться прокси')</h2>
         </div>
         <div class="rule__body">
             <div class="rule__left">
                 <ul class="rule__left-ul">
-                    <li><span>1</span>@lang('phrases.Регистрируетесь на сайте ads-proxy.com')</li>
-                    <li><span>2</span>@lang('phrases.Пополняете баланс и выбираете тариф')</li>
-                    <li><span>3</span>@lang('phrases.В вашем кабинете появится прокси в двух протоколах socks5 и http(s)')</li>
-                    <li><span>4</span>@lang('phrases.Сменить айпи можно по полученной ссылке')</li>
-                    <li><span>5</span>@lang('phrases.Посмотрите видео как настроить прокси и гайд лайн по личному кабинету')</li>
+                    <li><span>1</span>@lang('proxies::phrases.Регистрируетесь на сайте ads-proxy.com')</li>
+                    <li><span>2</span>@lang('proxies::phrases.Пополняете баланс и выбираете тариф')</li>
+                    <li><span>3</span>@lang('proxies::phrases.В вашем кабинете появится прокси в двух протоколах socks5 и http(s)')</li>
+                    <li><span>4</span>@lang('proxies::phrases.Сменить айпи можно по полученной ссылке')</li>
+                    <li><span>5</span>@lang('proxies::phrases.Посмотрите видео как настроить прокси и гайд лайн по личному кабинету')</li>
                 </ul>
             </div>
             <div class="rule__right">
@@ -609,14 +609,14 @@
     <section class="answers center">
         <a name="FAQ"></a>
         <div class="answers__title">
-            <h2>@lang('phrases.Ответы на частозадаваемые вопросы')</h2>
+            <h2>@lang('proxies::phrases.Ответы на частозадаваемые вопросы')</h2>
         </div>
         <div class="answers__body">
             @foreach ($mainFaq as $faq)
                 <details class="answers__details">
-                    <summary class="answers__summary">@lang('phrases.'.$faq->question)</summary>
+                    <summary class="answers__summary">@lang('proxies::phrases.'.$faq->question)</summary>
                     <div class="answers__text">
-                        <p>{!! trans('phrases.'.$faq->answer) !!}</p>
+                        <p>{!! trans('proxies::phrases.'.$faq->answer) !!}</p>
                     </div>
                 </details>
             @endforeach
@@ -626,7 +626,7 @@
     {{-- <!-- Реферальная программа --> --}}
     <section class="referral center">
         <div class="referral__title">
-            <h2>@lang('phrases.Реферальная программа')</h2>
+            <h2>@lang('proxies::phrases.Реферальная программа')</h2>
         </div>
         <div class="referral__blocks">
             <div class="referral__blocks-left">
@@ -636,41 +636,41 @@
                 <div class="referral__content">
                     <figure class="referral__content-text">
                         <div class="referral__subtitle">
-                            <h3>@lang('phrases.Привлекай клиентов, и зарабатывай')!</h3>
+                            <h3>@lang('proxies::phrases.Привлекай клиентов, и зарабатывай')!</h3>
                         </div>
                         <div class="referral__text">
-                            <p>@lang('phrases.Стань нашим партнером и получай доход со всех заказов приведенных клиентов').</p>
+                            <p>@lang('proxies::phrases.Стань нашим партнером и получай доход со всех заказов приведенных клиентов').</p>
                         </div>
                     </figure>
                     <figure class="referral__content-text">
                         <div class="referral__subtitle">
-                            <h3>@lang('phrases.Стабильный заработок')!</h3>
+                            <h3>@lang('proxies::phrases.Стабильный заработок')!</h3>
                         </div>
                         <div class="referral__text">
-                            <p>@lang('phrases.Ответы на частозадаваемые вопросы').</p>
+                            <p>@lang('proxies::phrases.Ответы на частозадаваемые вопросы').</p>
                         </div>
                     </figure>
                     <figure class="referral__content-text">
                         <div class="referral__subtitle">
-                            <h3>@lang('phrases.Не обязательно быть покупателем наших прокси')!</h3>
+                            <h3>@lang('proxies::phrases.Не обязательно быть покупателем наших прокси')!</h3>
                         </div>
                         <div class="referral__text">
-                            <p>@lang('phrases.Для участия в реферальной программе не обязательно быть покупателем наших прокси').</p>
+                            <p>@lang('proxies::phrases.Для участия в реферальной программе не обязательно быть покупателем наших прокси').</p>
                         </div>
                     </figure>
                     <figure class="referral__content-text">
                         <div class="referral__subtitle">
-                            <h3>@lang('phrases.Статистика и рекламные материалы')</h3>
+                            <h3>@lang('proxies::phrases.Статистика и рекламные материалы')</h3>
                         </div>
                         <div class="referral__text">
-                            <p>@lang('phrases.В личном кабинете, в разделе «Реферальная программа»').</p>
+                            <p>@lang('proxies::phrases.В личном кабинете, в разделе «Реферальная программа»').</p>
                         </div>
                     </figure>
 
                 </div>
                 <div class="referral__btn">
-                    <a href="/referral" class="btn">@lang('phrases.Присоединиться')</a>
-                    <a href="/lk" class="btn">@lang('phrases.Личный кабинет')</a>
+                    <a href="/referral" class="btn">@lang('proxies::phrases.Присоединиться')</a>
+                    <a href="/lk" class="btn">@lang('proxies::phrases.Личный кабинет')</a>
                 </div>
             </div>
         </div>
@@ -680,28 +680,28 @@
     {{-- <!-- Ads-proxy удобный и качественный сервис прокси. --> --}}
     <section class="proxy center proxy__fotter">
         <div class="proxy__title proxy__title-footter">
-            <h2>@lang('phrases.Ads-proxy удобный и качественный сервис прокси')</h2>
+            <h2>@lang('proxies::phrases.Ads-proxy удобный и качественный сервис прокси')</h2>
         </div>
         <div class="proxy__blocks">
 
             <div class="proxy__left-body">
                 <div class="proxy__subtitle">
                     <h2>
-                        @lang('phrases.Автоматизированная система выдаст')!
+                        @lang('proxies::phrases.Автоматизированная система выдаст')!
                     </h2>
                 </div>
 
                 <div class="proxy__ul-block">
                     <ul class="proxy__ul">
-                        <li class="proxy__li">@lang('phrases.Безлимитный интернет')
+                        <li class="proxy__li">@lang('proxies::phrases.Безлимитный интернет')
                         </li>
-                        <li class="proxy__li">@lang('phrases.Смена IP по времени или по ссылке')</li>
-                        <li class="proxy__li">@lang('phrases.Высокие скорости для комфортной работы')</li>
+                        <li class="proxy__li">@lang('proxies::phrases.Смена IP по времени или по ссылке')</li>
+                        <li class="proxy__li">@lang('proxies::phrases.Высокие скорости для комфортной работы')</li>
                     </ul>
                     <ul class="proxy__ul">
-                        <li class="proxy__li">@lang('phrases.Приватные прокси только в 1 руки')</li>
-                        <li class="proxy__li">@lang('phrases.Протоколы') <br>socks5/http(s)</li>
-                        <li class="proxy__li">@lang('phrases.Подключение') <br>@lang('phrases.без впн')</li>
+                        <li class="proxy__li">@lang('proxies::phrases.Приватные прокси только в 1 руки')</li>
+                        <li class="proxy__li">@lang('proxies::phrases.Протоколы') <br>socks5/http(s)</li>
+                        <li class="proxy__li">@lang('proxies::phrases.Подключение') <br>@lang('proxies::phrases.без впн')</li>
                     </ul>
                 </div>
             </div>
@@ -1263,10 +1263,10 @@
                 <div></div>
                 <div class="buttonFormWrap">
                     <a class="main_btn closeModal dopButt btn button" href="/support">
-                        @lang('phrases.Обратится в тех поддержку')
+                        @lang('proxies::phrases.Обратится в тех поддержку')
                     </a>
                     <a class="close closeModal btn button modal__cross js-modal-close" href="#">
-                        @lang('phrases.Окей')
+                        @lang('proxies::phrases.Окей')
                     </a>
                 </div>
             </div>
@@ -1279,7 +1279,7 @@
             <div class="body">
                 <div class="textWrap">
                     <i class="fa fa-exclamation-triangle"></i>
-                    <div class="title"> @lang('phrases.Для продолжения необходимо ввести Email и повторить попытку')</div>
+                    <div class="title"> @lang('proxies::phrases.Для продолжения необходимо ввести Email и повторить попытку')</div>
                     <i class="fa fa-exclamation-triangle"></i>
                 </div>
                 <div class="massage"></div>
@@ -1287,7 +1287,7 @@
                 <div class="buttonFormWrap">
                     <form action="" id="emailForm">
                         <input type="email" name="email" id="email">
-                        <button type="submit"> @lang('phrases.Сохранить')</button>
+                        <button type="submit"> @lang('proxies::phrases.Сохранить')</button>
                     </form>
                 </div>
             </div>
@@ -1300,7 +1300,7 @@
             <div class="body">
                 {!! Form::open(['method' => 'POST', 'route' => 'controlExtend']) !!}
                 <div class="textWrap">
-                    <div class="title"> @lang('phrases.Продлить прокси') <span class="numberProxyText"></span></div>
+                    <div class="title"> @lang('proxies::phrases.Продлить прокси') <span class="numberProxyText"></span></div>
                     <div class="massage">
                         @if ($tariffSettings->type_tariff)
                             <select name="idt">
@@ -1310,7 +1310,7 @@
                                     @endphp
                                     <option value="{{ $key }}" class="proxy__application-choice"
                                             {{ $key == 1 ? 'selected' : '' }}>
-                                        {{ $tariff['period'] }}  @lang('phrases.дней') -
+                                        {{ $tariff['period'] }}  @lang('proxies::phrases.дней') -
                                         @if ($tariffSettings->type_proxy == 'general')
                                             {{ $tariff['general_price'][$countryKey] }} $
                                         @elseif($tariffSettings->type_proxy == 'private')
@@ -1326,17 +1326,17 @@
                                 @for ($monthI = 5; $monthI <= $tariffSettings->max_days; $monthI++)
                                     @if ($monthI == 5)
                                         <option value="{{ $monthI }}" data-sale="">{{ $monthI }}
-                                            @lang('phrases.дней')
+                                            @lang('proxies::phrases.дней')
                                         </option>
                                     @elseif($monthI % 10 == 0 and $monthI <= 30)
                                         <option value="{{ $monthI }}" data-sale="" data-sale-count="">
                                             {{ $monthI }}
-                                            @lang('phrases.дней')
+                                            @lang('proxies::phrases.дней')
                                         </option>
                                     @elseif($monthI % 30 == 0)
                                         <option value="{{ $monthI }}" data-sale="" data-sale-count="">
                                             {{ $monthI }}
-                                            @lang('phrases.дней')
+                                            @lang('proxies::phrases.дней')
                                         </option>
                                     @endif
                                 @endfor
@@ -1349,7 +1349,7 @@
                 <div></div>
                 <div class="buttonFormWrap">
                     <button class="main_btn">
-                        @lang('phrases.Продлить')
+                        @lang('proxies::phrases.Продлить')
                     </button>
                 </div>
                 {!! Form::close() !!}

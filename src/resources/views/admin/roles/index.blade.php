@@ -3,11 +3,11 @@
 @section('content')
     <div class="header-page">
         <div class="title-page">
-            <h2>@lang('phrases.Управление ролями')</h2>
+            <h2>@lang('proxies::phrases.Управление ролями')</h2>
         </div>
         <div class="buttons">
             @can('role-create')
-                <a class="btn btn-success" href="{{ route('roles.create') }}">@lang('phrases.Создать новую роль')</a>
+                <a class="btn btn-success" href="{{ route('roles.create') }}">@lang('proxies::phrases.Создать новую роль')</a>
             @endcan
         </div>
     </div>
@@ -20,13 +20,13 @@
 
     <div class="block-background">
         <div class="title-block">
-            <h3>@lang('phrases.Список ролей')</h3>
+            <h3>@lang('proxies::phrases.Список ролей')</h3>
         </div>
         <table class="table table-bordered">
             <tr>
                 <th>No</th>
-                <th>@lang('phrases.Имя')</th>
-                <th width="280px">@lang('phrases.Действие')</th>
+                <th>@lang('proxies::phrases.Имя')</th>
+                <th width="280px">@lang('proxies::phrases.Действие')</th>
             </tr>
             @if ($roles->isNotEmpty())
                 @foreach ($roles as $key => $role)
@@ -49,7 +49,7 @@
                     </tr>
                 @endforeach
             @else
-                <td colspan="3" class="absent">@lang('phrases.Записи отсутствуют')</td>
+                <td colspan="3" class="absent">@lang('proxies::phrases.Записи отсутствуют')</td>
             @endif
         </table>
     </div>

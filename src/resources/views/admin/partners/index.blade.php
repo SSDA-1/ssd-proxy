@@ -3,10 +3,10 @@
 @section('content')
     <div class="header-page">
         <div class="title-page">
-            <h2>@lang('phrases.Партнеры')</h2>
+            <h2>@lang('proxies::phrases.Партнеры')</h2>
         </div>
         <div class="buttons">
-            <a class="btn btn-success" href="{{ route('partners.create') }}">@lang('phrases.Добавить')</a>
+            <a class="btn btn-success" href="{{ route('partners.create') }}">@lang('proxies::phrases.Добавить')</a>
         </div>
     </div>
 
@@ -18,17 +18,17 @@
 
     <div class="block-background">
         <div class="title-block">
-            <h3>@lang('phrases.Список партнеров')</h3>
+            <h3>@lang('proxies::phrases.Список партнеров')</h3>
         </div>
         <table class="table table-bordered">
             <thead>
             <tr class="tr-name">
                 <th>No</th>
-                <th>@lang('phrases.Название')</th>
-                <th>@lang('phrases.Скидка')</th>
-                <th>@lang('phrases.Промокод')</th>
-                <th>@lang('phrases.Ссылка')</th>
-                <th>@lang('phrases.Действие')</th>
+                <th>@lang('proxies::phrases.Название')</th>
+                <th>@lang('proxies::phrases.Скидка')</th>
+                <th>@lang('proxies::phrases.Промокод')</th>
+                <th>@lang('proxies::phrases.Ссылка')</th>
+                <th>@lang('proxies::phrases.Действие')</th>
             </tr>
             </thead>
             <tbody>

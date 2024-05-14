@@ -3,10 +3,10 @@
 @section('content')
     <div class="header-page">
         <div class="title-page">
-            <h2>@lang('phrases.Меню')</h2>
+            <h2>@lang('proxies::phrases.Меню')</h2>
         </div>
         <div class="buttons">
-            <a class="btn btn-success" href="{{ route('menu.create') }}">@lang('phrases.Добавить пункт')</a>
+            <a class="btn btn-success" href="{{ route('menu.create') }}">@lang('proxies::phrases.Добавить пункт')</a>
         </div>
     </div>
 
@@ -18,7 +18,7 @@
 
     <div class="block-background bottom-indent">
         <div class="title-block">
-            <h3>@lang('phrases.Верхнее и мобильное меню')</h3>
+            <h3>@lang('proxies::phrases.Верхнее и мобильное меню')</h3>
             <span class="closeOpen mobUp"><i class='bx bx-chevron-down open1'></i><i
                     class='bx bx-chevron-up close1 no'></i></span>
         </div>
@@ -26,9 +26,9 @@
             <thead>
                 <tr class="tr-name">
                     <th>No</th>
-                    <th>@lang('phrases.Название')</th>
-                    <th>@lang('phrases.Ссылка')</th>
-                    <th>@lang('phrases.Действие')</th>
+                    <th>@lang('proxies::phrases.Название')</th>
+                    <th>@lang('proxies::phrases.Ссылка')</th>
+                    <th>@lang('proxies::phrases.Действие')</th>
                 </tr>
             </thead>
             <tbody>
@@ -60,7 +60,7 @@
     @endphp
     <div class="block-background bottom-indent">
         <div class="title-block">
-            <h3>@lang('phrases.Подвал сайта')</h3>
+            <h3>@lang('proxies::phrases.Подвал сайта')</h3>
             <span class="closeOpen footerMenu"><i class='bx bx-chevron-down open2'></i><i
                     class='bx bx-chevron-up close2 no'></i></span>
         </div>
@@ -68,9 +68,9 @@
             <thead>
                 <tr class="tr-name">
                     <th>No</th>
-                    <th>@lang('phrases.Название')</th>
-                    <th>@lang('phrases.Ссылка')</th>
-                    <th>@lang('phrases.Действие')</th>
+                    <th>@lang('proxies::phrases.Название')</th>
+                    <th>@lang('proxies::phrases.Ссылка')</th>
+                    <th>@lang('proxies::phrases.Действие')</th>
                 </tr>
             </thead>
             <tbody>
@@ -102,7 +102,7 @@
     @endphp
     <div class="block-background bottom-indent">
         <div class="title-block">
-            <h3>@lang('phrases.Социальные сети')</h3>
+            <h3>@lang('proxies::phrases.Социальные сети')</h3>
             <span class="closeOpen socMenu"><i class='bx bx-chevron-down open3'></i><i
                 class='bx bx-chevron-up close3 no'></i></span>
         </div>
@@ -110,9 +110,9 @@
             <thead>
                 <tr class="tr-name">
                     <th>No</th>
-                    <th>@lang('phrases.Название')</th>
-                    <th>@lang('phrases.Ссылка')</th>
-                    <th>@lang('phrases.Действие')</th>
+                    <th>@lang('proxies::phrases.Название')</th>
+                    <th>@lang('proxies::phrases.Ссылка')</th>
+                    <th>@lang('proxies::phrases.Действие')</th>
                 </tr>
             </thead>
             <tbody>

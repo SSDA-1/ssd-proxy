@@ -8,7 +8,7 @@
             </span>
 
             <div class="text logo-text">
-                <span class="name">@lang('phrases.Привет'), </span>
+                <span class="name">@lang('proxies::phrases.Привет'), </span>
                 <span class="profession"> {{ Auth::user()->name }}</span>
             </div>
         </div>
@@ -28,7 +28,7 @@
                 <li class="nav-link">
                     <a href="/admin-panel">
                         <i class='bx bx-home-alt icon'></i>
-                        <span class="text nav-text">@lang('phrases.Дашборд')</span>
+                        <span class="text nav-text">@lang('proxies::phrases.Дашборд')</span>
                     </a>
                 </li>
 
@@ -36,37 +36,37 @@
                 <li class="nav-link sub-close">
                     <a href="#" class="sub-link">
                         <i class='bx bx-notepad icon'></i>
-                        <span class="text nav-text">@lang('phrases.Сайт')</span>
+                        <span class="text nav-text">@lang('proxies::phrases.Сайт')</span>
                     </a>
                     <ul class="submenu-close">
                         <li class="nav-link">
                             <a href="/admin/advantag">
                                 <i class='bx bx-wallet icon'></i>
-                                <span class="text nav-text">@lang('phrases.Преимущества')</span>
+                                <span class="text nav-text">@lang('proxies::phrases.Преимущества')</span>
                             </a>
                         </li>
                         <li class="nav-link">
                             <a href="/admin/rules">
                                 <i class='bx bx-wallet icon'></i>
-                                <span class="text nav-text">@lang('phrases.Правила сайта')</span>
+                                <span class="text nav-text">@lang('proxies::phrases.Правила сайта')</span>
                             </a>
                         </li>
                         <li class="nav-link">
                             <a href="/admin/partners">
                                 <i class='bx bx-wallet icon'></i>
-                                <span class="text nav-text">@lang('phrases.Партнеры')</span>
+                                <span class="text nav-text">@lang('proxies::phrases.Партнеры')</span>
                             </a>
                         </li>
                         <li class="nav-link">
                             <a href="{{ route('news.index') }}">
                                 <i class='bx bx-notepad icon'></i>
-                                <span class="text nav-text">@lang('phrases.Блог')</span>
+                                <span class="text nav-text">@lang('proxies::phrases.Блог')</span>
                             </a>
                         </li>
                         <li class="nav-link">
                             <a href="{{ route('menu.index') }}">
                                 <i class='bx bx-menu icon'></i>
-                                <span class="text nav-text">@lang('phrases.Меню')</span>
+                                <span class="text nav-text">@lang('proxies::phrases.Меню')</span>
                             </a>
                         </li>
                         <li class="nav-link">
@@ -78,7 +78,7 @@
                         <li class="nav-link">
                             <a href="{{ route('reviews-adm.index') }}">
                                 <i class='bx bx-wallet icon'></i>
-                                <span class="text nav-text">@lang('phrases.Отзывы')</span>
+                                <span class="text nav-text">@lang('proxies::phrases.Отзывы')</span>
                             </a>
                         </li>
                     </ul>
@@ -88,7 +88,7 @@
                 <li class="nav-link">
                     <a href="{{ route('proxy.index') }}">
                         <i class='bx bx-collapse icon'></i>
-                        <span class="text nav-text">@lang('phrases.Прокси')</span>
+                        <span class="text nav-text">@lang('proxies::phrases.Прокси')</span>
                     </a>
                 </li>
 
@@ -96,19 +96,19 @@
                 <li class="nav-link sub-close">
                     <a href="#" class="sub-link">
                         <i class='bx bx-notepad icon'></i>
-                        <span class="text nav-text">@lang('phrases.Реф. система')</span>
+                        <span class="text nav-text">@lang('proxies::phrases.Реф. система')</span>
                     </a>
                     <ul class="submenu-close">
                         <li class="nav-link">
                             <a href="{{route('withdrawalrequest.index')}}">
                                 <i class='bx bx-notepad icon'></i>
-                                <span class="text nav-text">@lang('phrases.Заявки на вывод')</span>
+                                <span class="text nav-text">@lang('proxies::phrases.Заявки на вывод')</span>
                             </a>
                         </li>
                         <li class="nav-link">
                             <a href="/admin/statistics/withdrawalrequest">
                                 <i class='bx bx-menu icon'></i>
-                                <span class="text nav-text">@lang('phrases.Статистика')</span>
+                                <span class="text nav-text">@lang('proxies::phrases.Статистика')</span>
                             </a>
                         </li>
                     </ul>
@@ -118,14 +118,14 @@
                 <li class="nav-link">
                     <a href="{{ route('users.index') }}">
                         <i class='bx bx-user icon'></i>
-                        <span class="text nav-text">@lang('phrases.Пользователи')</span>
+                        <span class="text nav-text">@lang('proxies::phrases.Пользователи')</span>
                     </a>
                 </li>
 
                 <li class="nav-link">
                     <a href="{{ route('roles.index') }}">
                         <i class='bx bx-layer icon'></i>
-                        <span class="text nav-text">@lang('phrases.Роли')</span>
+                        <span class="text nav-text">@lang('proxies::phrases.Роли')</span>
                     </a>
                 </li>
 
@@ -139,13 +139,13 @@
                 <li class="nav-link">
                     <a href="{{ route('allSettingSite') }}">
                         <i class='bx bx-cog icon'></i>
-                        <span class="text nav-text">@lang('phrases.Настройки')</span>
+                        <span class="text nav-text">@lang('proxies::phrases.Настройки')</span>
                     </a>
                 </li>
                <li class="nav-link">
                     <a href="{{ route('logs.index') }}">
                         <i class='bx bx-cog icon'></i>
-                        <span class="text nav-text">@lang('phrases.Логи')</span>
+                        <span class="text nav-text">@lang('proxies::phrases.Логи')</span>
                     </a>
                 </li>
             </ul>
@@ -155,14 +155,14 @@
             <li class="nav-link">
                 <a href="/admin/support">
                     <i class='bx bx-support icon'></i>
-                    <span class="text nav-text">@lang('phrases.Тех. поддержка')</span>
+                    <span class="text nav-text">@lang('proxies::phrases.Тех. поддержка')</span>
                 </a>
             </li>
             <li class="">
                 <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
                     <i class='bx bx-log-out icon'></i>
-                    <span class="text nav-text">@lang('phrases.Выход')</span>
+                    <span class="text nav-text">@lang('proxies::phrases.Выход')</span>
                 </a>
                 <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                     @csrf
@@ -174,7 +174,7 @@
                     <i class='bx bx-moon icon moon'></i>
                     <i class='bx bx-sun icon sun'></i>
                 </div>
-                <span class="mode-text text">@lang('phrases.Ночь')</span>
+                <span class="mode-text text">@lang('proxies::phrases.Ночь')</span>
 
                 <div class="toggle-switch">
                     <span class="switch"></span>

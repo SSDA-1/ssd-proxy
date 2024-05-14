@@ -3,7 +3,7 @@
 @section('content')
     <div class="header-page">
         <div class="title-page">
-            <h2>@lang('phrases.Шаблоны')</h2>
+            <h2>@lang('proxies::phrases.Шаблоны')</h2>
         </div>
         {{-- <div class="buttons">
             <a class="btn btn-success" href="{{ route('create-template') }}"> Добавить Шаблон</a>
@@ -34,7 +34,7 @@
                 </div>
                 <div class="row">
                     <div class="field">
-                        <div class="template-name">@lang('phrases.Стоимость'): {{ $template->cost }}</div>
+                        <div class="template-name">@lang('proxies::phrases.Стоимость'): {{ $template->cost }}</div>
                     </div>
                 </div>
                 <div class="row">
@@ -43,7 +43,7 @@
                             @foreach ($user_templates as $temp)
                                 @if ($temp->id == $template->id)
                                     @if ($temp->pivot->is_active == 1)
-                                        <p class="btn btn-template stirring">@lang('phrases.Активен')</p>
+                                        <p class="btn btn-template stirring">@lang('proxies::phrases.Активен')</p>
                                     @else
                                         {!! Form::open([
                                             'method' => 'UPDATE',
@@ -51,15 +51,15 @@
                                             'route' => ['change-template', $template->id],
                                             'style' => 'display:inline',
                                         ]) !!}
-                                        <button type="submit" class="btn btn-template stirring">@lang('phrases.Активировать')</button>
+                                        <button type="submit" class="btn btn-template stirring">@lang('proxies::phrases.Активировать')</button>
                                         {!! Form::close() !!}
                                     @endif
                                 @endif
                             @endforeach
                         @else
-                            <a href="{{ route('buy-template', $template->id) }}" class="btn btn-template">@lang('phrases.Купить')</a>
+                            <a href="{{ route('buy-template', $template->id) }}" class="btn btn-template">@lang('proxies::phrases.Купить')</a>
                         @endif
-                        <a href="{{ route('show-template', $template->id) }}" class="btn btn-template">@lang('phrases.Подробнее')</a>
+                        <a href="{{ route('show-template', $template->id) }}" class="btn btn-template">@lang('proxies::phrases.Подробнее')</a>
 
                     </div>
                 </div>

@@ -4,16 +4,16 @@
 
     <div class="header-page">
         <div class="title-page">
-            <h2>@lang('phrases.Редактирование роли'): {{ $role->name }}</h2>
+            <h2>@lang('proxies::phrases.Редактирование роли'): {{ $role->name }}</h2>
         </div>
         <div class="buttons">
-            <a class="btn btn-success" href="{{ route('roles.index') }}">@lang('phrases.Назад')</a>
+            <a class="btn btn-success" href="{{ route('roles.index') }}">@lang('proxies::phrases.Назад')</a>
         </div>
     </div>
 
     @if (count($errors) > 0)
         <div class="alert alert-danger block-background">
-            <strong>@lang('phrases.Упс')!</strong> @lang('phrases.Были некоторые проблемы с вашим вводом').<br><br>
+            <strong>@lang('proxies::phrases.Упс')!</strong> @lang('proxies::phrases.Были некоторые проблемы с вашим вводом').<br><br>
             <ul>
                 @foreach ($errors->all() as $error)
                     <li>{{ $error }}</li>
@@ -27,14 +27,14 @@
     <div class="block-background basement-form">
         <div class="row">
             <div class="field">
-                <div class="title-field">@lang('phrases.Имя'):</div>
+                <div class="title-field">@lang('proxies::phrases.Имя'):</div>
                 {!! Form::text('name', null, ['placeholder' => 'Name', 'class' => 'input-text']) !!}
             </div>
         </div>
 
         <div class="row">
             <div class="field list">
-                <div class="title-field">@lang('phrases.Разрешение'):</div>
+                <div class="title-field">@lang('proxies::phrases.Разрешение'):</div>
                 <div class="list-check">
                     @foreach ($permission as $value)
                         <div class="checkbox">
@@ -48,7 +48,7 @@
 
     </div>
     <div class="footer-block">
-        <button type="submit" class="btn btn-primary">@lang('phrases.Сохранить')</button>
+        <button type="submit" class="btn btn-primary">@lang('proxies::phrases.Сохранить')</button>
     </div>
     {!! Form::close() !!}
 

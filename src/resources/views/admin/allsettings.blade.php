@@ -3,7 +3,7 @@
 @section('content')
     <div class="header-page">
         <div class="title-page">
-            <h2>@lang('phrases.Настройки сайта')</h2>
+            <h2>@lang('proxies::phrases.Настройки сайта')</h2>
         </div>
     </div>
 
@@ -15,11 +15,11 @@
 
     <div class="settings-tabs">
         <div class="tabs__nav background">
-            <button class="tabs__btn tabs__btn_active first">@lang('phrases.Основные')</button>
-            <button class="tabs__btn">@lang('phrases.СЕО')</button>
-            <button class="tabs__btn">@lang('phrases.Платёжные системы')</button>
-            <button class="tabs__btn">@lang('phrases.Уведомления')</button>
-            <button class="tabs__btn last">@lang('phrases.Реферальная система')</button>
+            <button class="tabs__btn tabs__btn_active first">@lang('proxies::phrases.Основные')</button>
+            <button class="tabs__btn">@lang('proxies::phrases.СЕО')</button>
+            <button class="tabs__btn">@lang('proxies::phrases.Платёжные системы')</button>
+            <button class="tabs__btn">@lang('proxies::phrases.Уведомления')</button>
+            <button class="tabs__btn last">@lang('proxies::phrases.Реферальная система')</button>
         </div>
         <div class="tabs__content block-background">
             <div class="tabs__pane tabs__pane_show flex-block">
@@ -29,26 +29,26 @@
                     <div class="padding-20">
                         <div class="row">
                             <div class="field">
-                                <h3>@lang('phrases.Основные')</h3>
+                                <h3>@lang('proxies::phrases.Основные')</h3>
                             </div>
                         </div>
                         <div class="row">
                             <div class="field">
-                                <div class="title-field">@lang('phrases.Название сайта'):</div>
-                                <input type="text" placeholder="@lang('phrases.Название сайта')" name="name_site"
+                                <div class="title-field">@lang('proxies::phrases.Название сайта'):</div>
+                                <input type="text" placeholder="@lang('proxies::phrases.Название сайта')" name="name_site"
                                     value="{{ $siteSettingModel->name }}" class="input-text">
                             </div>
                         </div>
                         <div class="row">
                             <div class="field">
-                                <div class="title-field">@lang('phrases.Фавикон'):</div>
+                                <div class="title-field">@lang('proxies::phrases.Фавикон'):</div>
                                 <div class="wrap-input">
                                     <input type="file" placeholder="icon" name="icon" value=""
                                         @if ($siteSettingModel->icon) class="input-text copy" @else class="input-text" @endif>
                                     @if ($siteSettingModel->icon)
-                                        <button type="submit" data-title="@lang('phrases.Вы точно хотите удалить Иконку сайта')?"
+                                        <button type="submit" data-title="@lang('proxies::phrases.Вы точно хотите удалить Иконку сайта')?"
                                             data-action="{{ route('delimageSetting') }}" data-type="icon" data-modal="del"
-                                            class="btn-input-delite">@lang('phrases.Удалить')</button>
+                                            class="btn-input-delite">@lang('proxies::phrases.Удалить')</button>
                                     @endif
                                 </div>
                             </div>
@@ -59,14 +59,14 @@
                                 </div>
                             @endif
                             <div class="field">
-                                <div class="title-field">@lang('phrases.Логотип Сайта (вместо названия)'):</div>
+                                <div class="title-field">@lang('proxies::phrases.Логотип Сайта (вместо названия)'):</div>
                                 <div class="wrap-input">
                                     <input type="file" placeholder="logo" name="logo" value=""
                                         @if ($siteSettingModel->logo) class="input-text copy" @else class="input-text" @endif>
                                     @if ($siteSettingModel->logo)
-                                        <button type="submit" data-title="@lang('phrases.Вы точно хотите удалить Логотип')?"
+                                        <button type="submit" data-title="@lang('proxies::phrases.Вы точно хотите удалить Логотип')?"
                                             data-action="{{ route('delimageSetting') }}" data-modal="del" data-type="logo"
-                                            class="btn-input-delite">@lang('phrases.Удалить')</button>
+                                            class="btn-input-delite">@lang('proxies::phrases.Удалить')</button>
                                     @endif
                                 </div>
                             </div>
@@ -95,14 +95,14 @@
                                     value="{{ $siteSettingModel->skype }}" class="input-text">
                             </div>
                             <div class="field">
-                                <div class="title-field">@lang('phrases.Адрес'):</div>
-                                <input type="text" placeholder="@lang('phrases.Адрес')" name="address"
+                                <div class="title-field">@lang('proxies::phrases.Адрес'):</div>
+                                <input type="text" placeholder="@lang('proxies::phrases.Адрес')" name="address"
                                     value="{{ $siteSettingModel->address }}" class="input-text">
                             </div>
                         </div>
                         <div class="row">
                             <div class="field">
-                                <h3>@lang('phrases.Сотрудничество')</h3>
+                                <h3>@lang('proxies::phrases.Сотрудничество')</h3>
                             </div>
                         </div>
                         <div class="row">
@@ -117,14 +117,14 @@
                                     value="{{ $siteSettingModel->cooperation_email }}" class="input-text">
                             </div>
                             <div class="field">
-                                <div class="title-field">@lang('phrases.Телефон'):</div>
+                                <div class="title-field">@lang('proxies::phrases.Телефон'):</div>
                                 <input type="text" placeholder="+7 (000) 000 00-00" name="cooperation_tel"
                                     value="{{ $siteSettingModel->cooperation_tel }}" class="input-text">
                             </div>
                         </div>
                     </div>
                     <div class="footer-block">
-                        <button type="submit" class="btn btn-primary">@lang('phrases.Сохранить')</button>
+                        <button type="submit" class="btn btn-primary">@lang('proxies::phrases.Сохранить')</button>
                     </div>
                 </form>
             </div>
@@ -134,26 +134,26 @@
                     <div class="padding-20">
                         <div class="row">
                             <div class="field">
-                                <h3>@lang('phrases.СЕО')</h3>
+                                <h3>@lang('proxies::phrases.СЕО')</h3>
                             </div>
                         </div>
                         <div class="row">
                             <div class="field">
-                                <div class="title-field">@lang('phrases.Описание сайта'):</div>
-                                <input type="text" placeholder="@lang('phrases.Описание сайта')" name="ceo_desc" class="input-text"
+                                <div class="title-field">@lang('proxies::phrases.Описание сайта'):</div>
+                                <input type="text" placeholder="@lang('proxies::phrases.Описание сайта')" name="ceo_desc" class="input-text"
                                     value="{{ $siteSettingModel->ceo_desc }}">
                             </div>
                         </div>
                         <div class="row">
                             <div class="field">
-                                <div class="title-field">@lang('phrases.Ключевые слова сайта (Указывать через запятую)'):</div>
-                                <input type="text" placeholder="@lang('phrases.Сайт, Продажа проксей, прокси')" class="input-text"
+                                <div class="title-field">@lang('proxies::phrases.Ключевые слова сайта (Указывать через запятую)'):</div>
+                                <input type="text" placeholder="@lang('proxies::phrases.Сайт, Продажа проксей, прокси')" class="input-text"
                                     name="ceo_keywords" value="{{ $siteSettingModel->ceo_keywords }}">
                             </div>
                         </div>
                     </div>
                     <div class="footer-block not-radius">
-                        <button type="submit" class="btn btn-primary">@lang('phrases.Сохранить')</button>
+                        <button type="submit" class="btn btn-primary">@lang('proxies::phrases.Сохранить')</button>
                     </div>
                 </form>
                 <form action="{{ route('ceoSettingsSiteSave') }}" method="POST">
@@ -161,24 +161,24 @@
                     <div class="padding-20">
                         <div class="row">
                             <div class="field">
-                                <h3>@lang('phrases.Метрики')</h3>
+                                <h3>@lang('proxies::phrases.Метрики')</h3>
                             </div>
                         </div>
                         <div class="row">
                             <div class="field">
                                 <div class="title-field">Google:</div>
-                                <textarea name="google_m" id="" cols="30" rows="10" class="textarea" placeholder="@lang('phrases.Код метрики')">{{ $siteSettingModel->google_m }}</textarea>
+                                <textarea name="google_m" id="" cols="30" rows="10" class="textarea" placeholder="@lang('proxies::phrases.Код метрики')">{{ $siteSettingModel->google_m }}</textarea>
                             </div>
                         </div>
                         <div class="row">
                             <div class="field">
                                 <div class="title-field">Yandex:</div>
-                                <textarea name="yandex_m" id="" cols="30" rows="10" class="textarea" placeholder="@lang('phrases.Код метрики')">{{ $siteSettingModel->yandex_m }}</textarea>
+                                <textarea name="yandex_m" id="" cols="30" rows="10" class="textarea" placeholder="@lang('proxies::phrases.Код метрики')">{{ $siteSettingModel->yandex_m }}</textarea>
                             </div>
                         </div>
                     </div>
                     <div class="footer-block">
-                        <button type="submit" class="btn btn-primary">@lang('phrases.Сохранить')</button>
+                        <button type="submit" class="btn btn-primary">@lang('proxies::phrases.Сохранить')</button>
                     </div>
                 </form>
             </div>
@@ -188,12 +188,12 @@
                     <div class="padding-20">
                         <div class="row">
                             <div class="field">
-                                <h3>@lang('phrases.Платёжные системы')</h3>
+                                <h3>@lang('proxies::phrases.Платёжные системы')</h3>
                             </div>
                         </div>
                         <div class="row">
                             <div class="field">
-                                <div class="title-field">@lang('phrases.Минимальная сумма пополнения')</div>
+                                <div class="title-field">@lang('proxies::phrases.Минимальная сумма пополнения')</div>
                                 <input type="number" name="min_replenishment_amount"
                                     value="{{ $siteSettingModel->min_replenishment_amount }}" class="input-text">
                             </div>
@@ -211,13 +211,13 @@
                             </div>
                             <div class="row">
                                 <div class="field">
-                                    <input type="text" placeholder="@lang('phrases.Публичный ключ')" name="qiwi_public"
+                                    <input type="text" placeholder="@lang('proxies::phrases.Публичный ключ')" name="qiwi_public"
                                         class="input-text" value="{{ $siteSettingModel->qiwi_public }}">
                                 </div>
                             </div>
                             <div class="row">
                                 <div class="field">
-                                    <input type="text" placeholder="@lang('phrases.Приватный ключ')" name="qiwi_private"
+                                    <input type="text" placeholder="@lang('proxies::phrases.Приватный ключ')" name="qiwi_private"
                                         class="input-text" value="{{ $siteSettingModel->qiwi_private }}">
                                 </div>
                             </div>
@@ -235,13 +235,13 @@
                             </div>
                             <div class="row">
                                 <div class="field">
-                                    <input type="text" placeholder="@lang('phrases.Публичный ключ')" name="youmoney_public"
+                                    <input type="text" placeholder="@lang('proxies::phrases.Публичный ключ')" name="youmoney_public"
                                         class="input-text" value="{{ $siteSettingModel->youmoney_public }}">
                                 </div>
                             </div>
                             <div class="row">
                                 <div class="field">
-                                    <input type="text" placeholder="@lang('phrases.Приватный ключ')" name="youmoney_private"
+                                    <input type="text" placeholder="@lang('proxies::phrases.Приватный ключ')" name="youmoney_private"
                                         class="input-text" value="{{ $siteSettingModel->youmoney_private }}">
                                 </div>
                             </div>
@@ -259,13 +259,13 @@
                             </div>
                             <div class="row">
                                 <div class="field">
-                                    <input type="text" placeholder="@lang('phrases.ID магазина')" name="freekassa_id"
+                                    <input type="text" placeholder="@lang('proxies::phrases.ID магазина')" name="freekassa_id"
                                         class="input-text" value="{{ $siteSettingModel->freekassa_id }}">
                                 </div>
                             </div>
                             <div class="row">
                                 <div class="field">
-                                    <input type="text" placeholder="@lang('phrases.Приватный ключ')" name="freekassa_secret"
+                                    <input type="text" placeholder="@lang('proxies::phrases.Приватный ключ')" name="freekassa_secret"
                                         class="input-text" value="{{ $siteSettingModel->freekassa_secret }}">
                                 </div>
                             </div>
@@ -283,13 +283,13 @@
                             </div>
                             <div class="row">
                                 <div class="field">
-                                    <input type="text" placeholder="@lang('phrases.Публичный ключ')" name="betatransfer_public"
+                                    <input type="text" placeholder="@lang('proxies::phrases.Публичный ключ')" name="betatransfer_public"
                                         class="input-text" value="{{ $siteSettingModel->betatransfer_public }}">
                                 </div>
                             </div>
                             <div class="row">
                                 <div class="field">
-                                    <input type="text" placeholder="@lang('phrases.Приватный ключ')" name="betatransfer_secret"
+                                    <input type="text" placeholder="@lang('proxies::phrases.Приватный ключ')" name="betatransfer_secret"
                                         class="input-text" value="{{ $siteSettingModel->betatransfer_secret }}">
                                 </div>
                             </div>
@@ -307,13 +307,13 @@
                             </div>
                             <div class="row">
                                 <div class="field">
-                                    <input type="text" placeholder="@lang('phrases.ID магазина')" name="capitalist_id"
+                                    <input type="text" placeholder="@lang('proxies::phrases.ID магазина')" name="capitalist_id"
                                         class="input-text" value="{{ $siteSettingModel->capitalist_id }}">
                                 </div>
                             </div>
                             <div class="row">
                                 <div class="field">
-                                    <input type="text" placeholder="@lang('phrases.Приватный ключ')" name="capitalist_secret"
+                                    <input type="text" placeholder="@lang('proxies::phrases.Приватный ключ')" name="capitalist_secret"
                                         class="input-text" value="{{ $siteSettingModel->capitalist_secret }}">
                                 </div>
                             </div>
@@ -331,13 +331,13 @@
                             </div>
                             <div class="row">
                                 <div class="field">
-                                    <input type="text" placeholder="@lang('phrases.Token магазина')" name="usdtchecker_token"
+                                    <input type="text" placeholder="@lang('proxies::phrases.Token магазина')" name="usdtchecker_token"
                                         class="input-text" value="{{ $siteSettingModel->usdtchecker_token }}">
                                 </div>
                             </div>
                             <div class="row">
                                 <div class="field">
-                                    <input type="text" placeholder="@lang('phrases.Приватный ключ') (Secret Key)"
+                                    <input type="text" placeholder="@lang('proxies::phrases.Приватный ключ') (Secret Key)"
                                         name="usdtchecker_secret" class="input-text"
                                         value="{{ $siteSettingModel->usdtchecker_secret }}">
                                 </div>
@@ -346,7 +346,7 @@
                         <div class="row">
                             <div class="field">
                                 <div class="wrap-input title">
-                                    <div class="title-field">@lang('phrases.Тестовая оплата'):</div>
+                                    <div class="title-field">@lang('proxies::phrases.Тестовая оплата'):</div>
                                     <input type="checkbox" id="demopay" name="demo_pay"
                                         {{ $siteSettingModel->demo_pay == 1 ? 'checked' : '' }}>
                                     <label for="demopay" data-onlabel="" data-offlabel="" class="lb1"></label>
@@ -355,7 +355,7 @@
                         </div>
                     </div>
                     <div class="footer-block">
-                        <button type="submit" class="btn btn-primary">@lang('phrases.Сохранить')</button>
+                        <button type="submit" class="btn btn-primary">@lang('proxies::phrases.Сохранить')</button>
                     </div>
                 </form>
             </div>
@@ -365,7 +365,7 @@
                     <div class="padding-20">
                         <div class="row">
                             <div class="field">
-                                <h3>@lang('phrases.Уведомления')</h3>
+                                <h3>@lang('proxies::phrases.Уведомления')</h3>
                             </div>
                         </div>
                         <div class="row group">
@@ -377,7 +377,7 @@
                                             @if ($settingNotice->telegram_token)
                                                 <a href="https://api.telegram.org/bot{{ $settingNotice->telegram_token }}/setWebhook?url=https://{!! $_SERVER['HTTP_HOST'] !!}/telegram/webhook"
                                                     class="btn btn-primary"
-                                                    style="position: relative;top: -9px;">@lang('phrases.Активировать бота')</a>
+                                                    style="position: relative;top: -9px;">@lang('proxies::phrases.Активировать бота')</a>
                                             @endif
                                             <input type="checkbox" id="telegram" name="telegram_check"
                                                 {{ $settingNotice->telegram_check == 1 ? 'checked' : '' }}>
@@ -389,11 +389,11 @@
                             </div>
                             <div class="row">
                                 <div class="field">
-                                    <input type="text" placeholder="@lang('phrases.Токен бота')" name="telegram_token"
+                                    <input type="text" placeholder="@lang('proxies::phrases.Токен бота')" name="telegram_token"
                                         class="input-text" value="{{ $settingNotice->telegram_token }}">
                                 </div>
                                 <div class="field">
-                                    <input type="text" placeholder="@lang('phrases.Ссылка на бота')" name="telegram_link"
+                                    <input type="text" placeholder="@lang('proxies::phrases.Ссылка на бота')" name="telegram_link"
                                         class="input-text" value="{{ $settingNotice->telegram_link }}">
                                 </div>
                             </div>
@@ -402,7 +402,7 @@
                             <div class="row">
                                 <div class="field">
                                     <div class="wrap-input title">
-                                        <div class="title-field">@lang('phrases.Сторонняя почта'):</div>
+                                        <div class="title-field">@lang('proxies::phrases.Сторонняя почта'):</div>
                                         <input type="checkbox" id="third_email" name="third_email"
                                             {{ $settingNotice->third_email == 1 ? 'checked' : '' }}>
                                         <label for="third_email" data-onlabel="" data-offlabel=""
@@ -443,7 +443,7 @@
                         </div>
                     </div>
                     <div class="footer-block">
-                        <button type="submit" class="btn btn-primary">@lang('phrases.Сохранить')</button>
+                        <button type="submit" class="btn btn-primary">@lang('proxies::phrases.Сохранить')</button>
                     </div>
                 </form>
             </div>
@@ -453,21 +453,21 @@
                     <div class="padding-20">
                         <div class="row">
                             <div class="field">
-                                <h3>@lang('phrases.Реферальная система')</h3>
+                                <h3>@lang('proxies::phrases.Реферальная система')</h3>
                             </div>
                         </div>
                         <div class="row group">
                             <div class="row">
                                 <div class="field">
                                     <div class="wrap-input title">
-                                        <div class="title-field">@lang('phrases.Процент от пополнения'):</div>
+                                        <div class="title-field">@lang('proxies::phrases.Процент от пополнения'):</div>
                                     </div>
                                     <input type="number" placeholder="0" name="deposit_percentage" class="input-text"
                                         value="{{ $siteSettingModel->deposit_percentage }}">
                                 </div>
                                 <div class="field">
                                     <div class="wrap-input title">
-                                        <div class="title-field">@lang('phrases.Минимальная сумма вывода'):</div>
+                                        <div class="title-field">@lang('proxies::phrases.Минимальная сумма вывода'):</div>
                                     </div>
                                     <input type="number" placeholder="0" name="minimum_withdrawal_amount"
                                         class="input-text" value="{{ $siteSettingModel->minimum_withdrawal_amount }}">
@@ -479,7 +479,7 @@
                             <div class="row">
                                 <div class="field">
                                     <div class="wrap-input title">
-                                        <div class="title-field">@lang('phrases.Рекламные материалы'):</div>
+                                        <div class="title-field">@lang('proxies::phrases.Рекламные материалы'):</div>
                                     </div>
                                 </div>
                             </div>
@@ -495,7 +495,7 @@
                             <div class="row">
                                 <div class="field">
                                     <div class="wrap-input title">
-                                        <div class="title-field">@lang('phrases.Карта'):</div>
+                                        <div class="title-field">@lang('proxies::phrases.Карта'):</div>
                                         <input type="checkbox" id="card" name="card_output"
                                             {{ $siteSettingModel->card_output == 1 ? 'checked' : '' }}>
                                         <label for="card" data-onlabel="" data-offlabel="" class="lb1"></label>
@@ -506,7 +506,7 @@
                         <div class="row">
                             <div class="field">
                                 <div class="wrap-input title">
-                                    <div class="title-field">@lang('phrases.Электронный кошелёк'):</div>
+                                    <div class="title-field">@lang('proxies::phrases.Электронный кошелёк'):</div>
                                     <input type="checkbox" id="ecash" name="ecash_output"
                                         {{ $siteSettingModel->ecash_output == 1 ? 'checked' : '' }}>
                                     <label for="ecash" data-onlabel="" data-offlabel="" class="lb1"></label>
@@ -526,7 +526,7 @@
                         <div class="row">
                             <div class="field">
                                 <div class="wrap-input title">
-                                    <div class="title-field">@lang('phrases.Электронный кошелёк'):</div>
+                                    <div class="title-field">@lang('proxies::phrases.Электронный кошелёк'):</div>
                                     <input type="checkbox" id="capitalist" name="capitalist_output"
                                         {{ $siteSettingModel->capitalist_output == 1 ? 'checked' : '' }}>
                                     <label for="capitalist" data-onlabel="" data-offlabel="" class="lb1"></label>
@@ -536,7 +536,7 @@
                         <div class="row">
                             <div class="field">
                                 <div class="wrap-input title">
-                                    <div class="title-field">@lang('phrases.Раздельный баланс'):</div>
+                                    <div class="title-field">@lang('proxies::phrases.Раздельный баланс'):</div>
                                     <input type="checkbox" id="balance_enebled" name="referral_balance_enabled"
                                         {{ $siteSettingModel->referral_balance_enabled == 1 ? 'checked' : '' }}>
                                     <label for="balance_enebled" data-onlabel="" data-offlabel=""
@@ -546,7 +546,7 @@
                         </div>
                     </div>
                     <div class="footer-block">
-                        <button type="submit" class="btn btn-primary">@lang('phrases.Сохранить')</button>
+                        <button type="submit" class="btn btn-primary">@lang('proxies::phrases.Сохранить')</button>
                     </div>
                 </form>
             </div>

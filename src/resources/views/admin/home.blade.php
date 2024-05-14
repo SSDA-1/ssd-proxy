@@ -25,18 +25,18 @@
             <div class="block-background">
                 <div class="row">
                     <div class="field">
-                        <h3>@lang('phrases.Информация о подписке')</h3>
+                        <h3>@lang('proxies::phrases.Информация о подписке')</h3>
                     </div>
                 </div>
                 <div class="row">
                     <div class="field">
-                        <div><b>@lang('phrases.Подписка'): </b> {{ $nameOfSubscription }}</div>
-                        <div><b>@lang('phrases.Активна'): </b> @lang('phrases.Бессрочно')</div>
+                        <div><b>@lang('proxies::phrases.Подписка'): </b> {{ $nameOfSubscription }}</div>
+                        <div><b>@lang('proxies::phrases.Активна'): </b> @lang('proxies::phrases.Бессрочно')</div>
                     </div>
                 </div>
                 <div class="row">
                     <div class="field">
-                        <a class="btn btn-primary">@lang('phrases.Продлить')</a>
+                        <a class="btn btn-primary">@lang('proxies::phrases.Продлить')</a>
                     </div>
                 </div>
             </div>
@@ -44,21 +44,21 @@
             <div class="block-background"> 
                 <div class="row">
                     <div class="field">
-                        <h3>@lang('phrases.Статистика по портам/прокси')</h3>
+                        <h3>@lang('proxies::phrases.Статистика по портам/прокси')</h3>
                     </div>
                 </div>
                 <div class="row">
                     <div class="field">
-                        <div><b>@lang('phrases.Серверов'):</b> {{ $countKraken }} / {{ $totalAmountKraken }}</div>
-                        <div><b>@lang('phrases.Портов'):</b> {{ $countModems }} / @lang('phrases.Не ограничено')</div>
-                        <div><b>@lang('phrases.Портов занято'):</b> {{ $countModemsByFilledUsers }} / {{ $countModems }}</div>
-                        <div><b>@lang('phrases.Всего пар прокси'): </b> {{ $countProxies / 2 }}</div>
-                        <div><b>@lang('phrases.Пар прокси на паузе'): </b> {{ $getProxiesPause / 2 }}</div>
+                        <div><b>@lang('proxies::phrases.Серверов'):</b> {{ $countKraken }} / {{ $totalAmountKraken }}</div>
+                        <div><b>@lang('proxies::phrases.Портов'):</b> {{ $countModems }} / @lang('proxies::phrases.Не ограничено')</div>
+                        <div><b>@lang('proxies::phrases.Портов занято'):</b> {{ $countModemsByFilledUsers }} / {{ $countModems }}</div>
+                        <div><b>@lang('proxies::phrases.Всего пар прокси'): </b> {{ $countProxies / 2 }}</div>
+                        <div><b>@lang('proxies::phrases.Пар прокси на паузе'): </b> {{ $getProxiesPause / 2 }}</div>
                     </div>
                 </div>
                 <div class="row">
                     <div class="field">
-                        <a href="{{ route('proxy.index') }}" class="btn btn-primary">@lang('phrases.Список портов')</a>
+                        <a href="{{ route('proxy.index') }}" class="btn btn-primary">@lang('proxies::phrases.Список портов')</a>
                     </div>
                 </div>
             </div>
@@ -66,26 +66,26 @@
 
         <div class="block-background box-column-2 max-width-750 width-100 h-500">
             <div class="title-block">
-                <h3>@lang('phrases.Статистика по продажам прокси')</h3>
+                <h3>@lang('proxies::phrases.Статистика по продажам прокси')</h3>
                 <div class="row">
                     <div class="field">
-                        <button id="btnYear" type="button" class="btn btn-primary">@lang('phrases.По годам')</button>
+                        <button id="btnYear" type="button" class="btn btn-primary">@lang('proxies::phrases.По годам')</button>
                     </div>
                     <div class="field">
-                        <button id="btnMonth" type="button" class="btn btn-primary">@lang('phrases.По месяцам')</button>
+                        <button id="btnMonth" type="button" class="btn btn-primary">@lang('proxies::phrases.По месяцам')</button>
                     </div>
                     <div class="field">
-                        <button id="btnDay" type="button" class="btn btn-primary">@lang('phrases.По дням')</button>
+                        <button id="btnDay" type="button" class="btn btn-primary">@lang('proxies::phrases.По дням')</button>
                     </div>
                 </div>
             </div>
             <div class="table table-bordered" id="table-sell">
                 <div class="row table-row">
                     <div class="cell">ID</div>
-                    <div class="cell">@lang('phrases.Дата и время')</div>
-                    <div class="cell">@lang('phrases.Кол-во продаж')</div>
-                    <div class="cell">@lang('phrases.Сумма')</div>
-                    <div class="cell">@lang('phrases.Действие')</div>
+                    <div class="cell">@lang('proxies::phrases.Дата и время')</div>
+                    <div class="cell">@lang('proxies::phrases.Кол-во продаж')</div>
+                    <div class="cell">@lang('proxies::phrases.Сумма')</div>
+                    <div class="cell">@lang('proxies::phrases.Действие')</div>
                 </div>
 
                 @foreach ($statistics as $key => $statistic)
@@ -107,11 +107,11 @@
                         <thead>
                             <tr class="tr-name">
                                 <th>ID</th>
-                                <th>@lang('phrases.Кто купил')</th>
-                                <th>@lang('phrases.Во сколько')</th>
-                                <th>@lang('phrases.Кол-во')</th>
-                                <th>@lang('phrases.Сумму')</th>
-                                <th>@lang('phrases.Срок')</th>
+                                <th>@lang('proxies::phrases.Кто купил')</th>
+                                <th>@lang('proxies::phrases.Во сколько')</th>
+                                <th>@lang('proxies::phrases.Кол-во')</th>
+                                <th>@lang('proxies::phrases.Сумму')</th>
+                                <th>@lang('proxies::phrases.Срок')</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -134,16 +134,16 @@
 
         <div class="block-background box-column-2 max-width-750 width-100">
             <div class="title-block">
-                <h3>@lang('phrases.Статистика по серверам')</h3>
+                <h3>@lang('proxies::phrases.Статистика по серверам')</h3>
             </div>
             <table class="table table-bordered">
                 <thead>
                     <tr class="tr-name">
                         <th>ID</th>
-                        <th>@lang('phrases.Название сервера')</th>
-                        <th>@lang('phrases.Страна сервера')</th>
-                        <th>@lang('phrases.Занято/Свободно')</th>
-                        <th>@lang('phrases.Статус')</th>
+                        <th>@lang('proxies::phrases.Название сервера')</th>
+                        <th>@lang('proxies::phrases.Страна сервера')</th>
+                        <th>@lang('proxies::phrases.Занято/Свободно')</th>
+                        <th>@lang('proxies::phrases.Статус')</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -177,7 +177,7 @@
                         </tr>
                     @empty
                         <tr>
-                            <td>@lang('phrases.Нет ни одного сервера')</td>
+                            <td>@lang('proxies::phrases.Нет ни одного сервера')</td>
                             <td></td>
                             <td></td>
                             <td></td>
@@ -265,10 +265,10 @@
             container.innerHTML = '';
             let html = `<div class="row table-row">
                             <div class="cell">ID</div>
-                            <div class="cell">@lang('phrases.Дата и время')</div>
-                            <div class="cell">@lang('phrases.Кол-во продаж')</div>
-                            <div class="cell">@lang('phrases.Сумма')</div>
-                            <div class="cell">@lang('phrases.Действие')</div>
+                            <div class="cell">@lang('proxies::phrases.Дата и время')</div>
+                            <div class="cell">@lang('proxies::phrases.Кол-во продаж')</div>
+                            <div class="cell">@lang('proxies::phrases.Сумма')</div>
+                            <div class="cell">@lang('proxies::phrases.Действие')</div>
                         </div>`;
 
             for (const year in data) {
@@ -321,11 +321,11 @@
                                     <thead>
                                         <tr class="tr-name">
                                             <th>ID</th>
-                                            <th>@lang('phrases.Кто купил')</th>
-                                            <th>@lang('phrases.Во сколько')</th>
-                                            <th>@lang('phrases.Кол-во')</th>
-                                            <th>@lang('phrases.Сумму')</th>
-                                            <th>@lang('phrases.Срок')</th>
+                                            <th>@lang('proxies::phrases.Кто купил')</th>
+                                            <th>@lang('proxies::phrases.Во сколько')</th>
+                                            <th>@lang('proxies::phrases.Кол-во')</th>
+                                            <th>@lang('proxies::phrases.Сумму')</th>
+                                            <th>@lang('proxies::phrases.Срок')</th>
                                         </tr>
                                     </thead>
                                     <tbody>`;
@@ -365,10 +365,10 @@
             container.innerHTML = '';
             let html = `<div class="row table-row">
                             <div class="cell">ID</div>
-                            <div class="cell">@lang('phrases.Дата и время')</div>
-                            <div class="cell">@lang('phrases.Кол-во продаж')</div>
-                            <div class="cell">@lang('phrases.Сумма')</div>
-                            <div class="cell">@lang('phrases.Действие')</div>
+                            <div class="cell">@lang('proxies::phrases.Дата и время')</div>
+                            <div class="cell">@lang('proxies::phrases.Кол-во продаж')</div>
+                            <div class="cell">@lang('proxies::phrases.Сумма')</div>
+                            <div class="cell">@lang('proxies::phrases.Действие')</div>
                         </div>`;
 
             for (const month in data) { // Года
@@ -404,11 +404,11 @@
                                     <thead>
                                         <tr class="tr-name">
                                             <th>ID</th>
-                                            <th>@lang('phrases.Кто купил')</th>
-                                            <th>@lang('phrases.Во сколько')</th>
-                                            <th>@lang('phrases.Кол-во')</th>
-                                            <th>@lang('phrases.Сумму')</th>
-                                            <th>@lang('phrases.Срок')</th>
+                                            <th>@lang('proxies::phrases.Кто купил')</th>
+                                            <th>@lang('proxies::phrases.Во сколько')</th>
+                                            <th>@lang('proxies::phrases.Кол-во')</th>
+                                            <th>@lang('proxies::phrases.Сумму')</th>
+                                            <th>@lang('proxies::phrases.Срок')</th>
                                         </tr>
                                     </thead>
                                     <tbody>`;
@@ -444,10 +444,10 @@
             container.innerHTML = '';
             let html = `<div class="row table-row">
                             <div class="cell">ID</div>
-                            <div class="cell">@lang('phrases.Дата и время')</div>
-                            <div class="cell">@lang('phrases.Кол-во продаж')</div>
-                            <div class="cell">@lang('phrases.Сумма')</div>
-                            <div class="cell">@lang('phrases.Действие')</div>
+                            <div class="cell">@lang('proxies::phrases.Дата и время')</div>
+                            <div class="cell">@lang('proxies::phrases.Кол-во продаж')</div>
+                            <div class="cell">@lang('proxies::phrases.Сумма')</div>
+                            <div class="cell">@lang('proxies::phrases.Действие')</div>
                         </div>`;
 
                 for (const date in data) { // Месяца
@@ -467,11 +467,11 @@
                                     <thead>
                                         <tr class="tr-name">
                                             <th>ID</th>
-                                            <th>@lang('phrases.Кто купил')</th>
-                                            <th>@lang('phrases.Во сколько')</th>
-                                            <th>@lang('phrases.Кол-во')</th>
-                                            <th>@lang('phrases.Сумму')</th>
-                                            <th>@lang('phrases.Срок')</th>
+                                            <th>@lang('proxies::phrases.Кто купил')</th>
+                                            <th>@lang('proxies::phrases.Во сколько')</th>
+                                            <th>@lang('proxies::phrases.Кол-во')</th>
+                                            <th>@lang('proxies::phrases.Сумму')</th>
+                                            <th>@lang('proxies::phrases.Срок')</th>
                                         </tr>
                                     </thead>
                                     <tbody>`;

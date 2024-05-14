@@ -6,11 +6,11 @@
     <nav class="header__nav">
         @foreach ($menusSite as $menu1)
             @if ($menu1->type_menu == 1)
-                <a href="{{ $menu1->link }}" class="header__link">@lang('phrases.' . $menu1->name)</a>
+                <a href="{{ $menu1->link }}" class="header__link">@lang('proxies::phrases.' . $menu1->name)</a>
             @endif
         @endforeach
         <div class="footer__language" style="align-items: center; padding: 0;">
-            <div class="footer__language-text">@lang('phrases.Язык'):</div>
+            <div class="footer__language-text">@lang('proxies::phrases.Язык'):</div>
             <div class="footer__language" style="padding: 0;">
                 @if (App::isLocale('en'))
                     <a href="{{ route('locale', ['language' => 'ru']) }}" class="footer__language-summary">RU</a>
@@ -37,9 +37,9 @@
         @endforeach
     </div>
     @guest
-        <a href="/login" class="btn header__private-btn none no-hover">@lang('phrases.Войти')</a>
+        <a href="/login" class="btn header__private-btn none no-hover">@lang('proxies::phrases.Войти')</a>
     @else
-        <a href="/lk" class="btn header__private-btn none no-hover">@lang('phrases.Личный кабинет')</a>
+        <a href="/lk" class="btn header__private-btn none no-hover">@lang('proxies::phrases.Личный кабинет')</a>
     @endguest
     {{-- <div class="menu-btn" id="nav-icon1">
         <span></span>

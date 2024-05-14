@@ -5,16 +5,16 @@
 <div class="header-page">
     <div class="page-title">
         <div class="pull-left">
-            <h2>@lang('phrases.Техническая поддержка')</h2>
+            <h2>@lang('proxies::phrases.Техническая поддержка')</h2>
         </div>
         <div class="pull-right">
-            <a class="btn btn-success" href="{{ route('roles.index') }}">@lang('phrases.Написать')</a>
+            <a class="btn btn-success" href="{{ route('roles.index') }}">@lang('proxies::phrases.Написать')</a>
         </div>
     </div>
 </div>
 @if (count($errors) > 0)
 <div class="alert alert-danger">
-    <strong>@lang('phrases.Упс')!</strong> @lang('phrases.Были некоторые проблемы с вашим вводом').<br><br>
+    <strong>@lang('proxies::phrases.Упс')!</strong> @lang('proxies::phrases.Были некоторые проблемы с вашим вводом').<br><br>
     <ul>
         @foreach ($errors->all() as $error)
         <li>{{ $error }}</li>
@@ -28,17 +28,17 @@
         <thead>
             <tr class="tr-name">
                 <th>No</th>
-                <th>@lang('phrases.Тема')</th>
-                <th>@lang('phrases.Дата создания')</th>
-                <th>@lang('phrases.Дата изменения')</th>
-                <th>@lang('phrases.Статус')</th>
-                <th>@lang('phrases.Действие')</th>
+                <th>@lang('proxies::phrases.Тема')</th>
+                <th>@lang('proxies::phrases.Дата создания')</th>
+                <th>@lang('proxies::phrases.Дата изменения')</th>
+                <th>@lang('proxies::phrases.Статус')</th>
+                <th>@lang('proxies::phrases.Действие')</th>
             </tr>
         </thead>
         <tbody>
 
                     <tr>
-                        <td colspan="6" style="text-align: center">@lang('phrases.Записи отсутствуют')</td>
+                        <td colspan="6" style="text-align: center">@lang('proxies::phrases.Записи отсутствуют')</td>
                         {{-- <td></td>
                         <td></td>
                         <td></td>

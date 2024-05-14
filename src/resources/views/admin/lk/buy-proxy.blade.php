@@ -25,7 +25,7 @@ personal-area
                                         </figcaption>
                                     @endif
                                     <figcaption class="tariff__price subtitle">
-                                        <span class="days">{{ $tariff['period'] }}</span> @lang('phrases.дней') -
+                                        <span class="days">{{ $tariff['period'] }}</span> @lang('proxies::phrases.дней') -
                                         @php
                                             $countryKey = array_search($tariffSettings->default_country, $tariff['country']);
                                         @endphp
@@ -57,7 +57,7 @@ personal-area
                                                     {{-- Страна --}}
                                                     @if (count($tariff['country']) == 1)
                                                         <li class="proxy__application-li">
-                                                            <div class="proxy__application-text">@lang('phrases.Гео'):</div>
+                                                            <div class="proxy__application-text">@lang('proxies::phrases.Гео'):</div>
                                                             <div class="proxy__application-countries">
                                                                 <input type="hidden" name="country"
                                                                        value="{{ $tariffSettings->default_country }}"
@@ -76,7 +76,7 @@ personal-area
                                                         </li>
                                                     @else
                                                         <li class="proxy__application-li">
-                                                            <div class="proxy__application-text">@lang('phrases.Гео'):</div>
+                                                            <div class="proxy__application-text">@lang('proxies::phrases.Гео'):</div>
                                                             <div class="proxy__application-countries btn-submenu">
                                                                 <input type="hidden" name="country"
                                                                        value="{{ $tariffSettings->default_country }}"
@@ -105,12 +105,12 @@ personal-area
                                                     {{-- Типы прокси --}}
                                                     @if ($tariffSettings->type_proxy == 'all')
                                                         <li class="proxy__application-li">
-                                                            <div class="proxy__application-text">@lang('phrases.Тип'):</div>
+                                                            <div class="proxy__application-text">@lang('proxies::phrases.Тип'):</div>
                                                             <div class="proxy__application-count type_proxy">
                                                                 <div class="proxy__application-country">
                                                                     <select name="type" class="type__proxy type__proxy__day">
-                                                                        <option value="general">@lang('phrases.Общие')</option>
-                                                                        <option value="private">@lang('phrases.Приватные')</option>
+                                                                        <option value="general">@lang('proxies::phrases.Общие')</option>
+                                                                        <option value="private">@lang('proxies::phrases.Приватные')</option>
                                                                     </select>
                                                                 </div>
                                                             </div>
@@ -125,7 +125,7 @@ personal-area
 
                                                     {{-- Количество --}}
                                                     <li class="proxy__application-li">
-                                                        <div class="proxy__application-text">@lang('phrases.Количество'):</div>
+                                                        <div class="proxy__application-text">@lang('proxies::phrases.Количество'):</div>
                                                         <div class="proxy__application-count">
                                                             <div class="proxy__decrease"></div>
                                                             <input class="proxy__application-quantity q_d" type="text"
@@ -136,10 +136,10 @@ personal-area
 
                                                     {{-- Промокод --}}
                                                     <li class="proxy__application-li">
-                                                        <div class="proxy__application-text">@lang('phrases.Промокод'):</div>
+                                                        <div class="proxy__application-text">@lang('proxies::phrases.Промокод'):</div>
                                                         <div class="proxy__application-count">
                                                             <input class="promocode" type="text" name="promo"
-                                                                   placeholder="@lang('phrases.Промокод')" data-id="{{ $key }}">
+                                                                   placeholder="@lang('proxies::phrases.Промокод')" data-id="{{ $key }}">
                                                         </div>
                                                     </li>
                                                 </ul>
@@ -148,13 +148,13 @@ personal-area
                                             <div class="proxy__application-btn">
                                                 @if (Str::startsWith(Auth::user()->email, '@'))
                                                     <div class="btn nomail" data-modal="nomail" style="width: 100%;">
-                                                        @lang('phrases.Купить прокси')</div>
+                                                        @lang('proxies::phrases.Купить прокси')</div>
                                                 {{--@elseif(Auth::user()->telegram_chat_id === null)
                                                     <div class="btn nomail" data-modal="nomail" style="width: 100%;">
-                                                        @lang('phrases.Купить прокси')</div>--}}
+                                                        @lang('proxies::phrases.Купить прокси')</div>--}}
                                                 @else
                                                     <button type="submit" class="btn"
-                                                            style="width: 100%;">@lang('phrases.Купить прокси')</button>
+                                                            style="width: 100%;">@lang('proxies::phrases.Купить прокси')</button>
                                                 @endif
                                             </div>
                                         </div>
@@ -169,9 +169,9 @@ personal-area
                         data-tariff="1">
                         {{-- <div class="wrap-cost-days tariff__block" data-tariff="1"> --}}
                         <div class="wrap-cost-days ">
-                            <div class="sum">@lang('phrases.Стоимость') <span class="cost cost_day"></span> $ / <span
+                            <div class="sum">@lang('proxies::phrases.Стоимость') <span class="cost cost_day"></span> $ / <span
                                     class="days"></span>
-                                @lang('phrases.дней')</div>
+                                @lang('proxies::phrases.дней')</div>
                         </div>
                         <div class="wrap-days-tariff">
                             {{-- Срок --}}
@@ -179,24 +179,24 @@ personal-area
                                 @for ($monthI = 5; $monthI <= $tariffSettings->max_days; $monthI++)
                                     @if ($monthI == 5)
                                         <option value="{{ $monthI }}" data-sale="">{{ $monthI }}
-                                            @lang('phrases.дней')
+                                            @lang('proxies::phrases.дней')
                                         </option>
                                     @elseif($monthI % 10 == 0 and $monthI <= 30)
                                         <option value="{{ $monthI }}" data-sale="" data-sale-count="">
                                             {{ $monthI }}
-                                            @lang('phrases.дней')
+                                            @lang('proxies::phrases.дней')
                                         </option>
                                     @elseif($monthI % 30 == 0)
                                         <option value="{{ $monthI }}" data-sale="" data-sale-count="">
                                             {{ $monthI }}
-                                            @lang('phrases.дней')
+                                            @lang('proxies::phrases.дней')
                                         </option>
                                     @endif
                                 @endfor
                             </select>
                             {{-- Количество --}}
                             <div class="proxy__application-li">
-                                <div class="proxy__application-text">@lang('phrases.Количество'):</div>
+                                <div class="proxy__application-text">@lang('proxies::phrases.Количество'):</div>
                                 <div class="proxy__application-count">
                                     <div class="proxy__decrease"></div>
                                     <input class="proxy__application-quantity q_d" type="text" name="count"
@@ -207,8 +207,8 @@ personal-area
                             {{-- Тип --}}
                             @if ($tariffSettings->type_proxy == 'all')
                                 <select name="type" class="type__proxy__day proxy__application-li">
-                                    <option value="general">@lang('phrases.Общие')</option>
-                                    <option value="private">@lang('phrases.Приватные')</option>
+                                    <option value="general">@lang('proxies::phrases.Общие')</option>
+                                    <option value="private">@lang('proxies::phrases.Приватные')</option>
                                 </select>
                             @elseif($tariffSettings->type_proxy == 'general')
                                 <input type="hidden" name="type" value="general" class="type__proxy__day" hidden>
@@ -225,15 +225,15 @@ personal-area
                             </select>
                             {{-- Промокод --}}
                             <input class="promocode proxy__application-li" type="text" name="promo"
-                                placeholder="@lang('phrases.Промокод')Промокод" data-id="1">
+                                placeholder="@lang('proxies::phrases.Промокод')Промокод" data-id="1">
 
 
 
                             <div class="proxy__application-btn ">
                                 @if (Str::startsWith(Auth::user()->email, '@'))
-                                    <div class="btn nomail" data-modal="nomail">@lang('phrases.Купить прокси')</div>
+                                    <div class="btn nomail" data-modal="nomail">@lang('proxies::phrases.Купить прокси')</div>
                                 @else
-                                    <button type="submit" class="btn">@lang('phrases.Купить прокси')</button>
+                                    <button type="submit" class="btn">@lang('proxies::phrases.Купить прокси')</button>
                                 @endif
                             </div>
                         </div>
@@ -246,12 +246,12 @@ personal-area
                 @php($i = 0)
                 @if ($countProxyGeneralDiscounts->count() >= 1)
                     <div class="info">
-                        @lang('phrases.Акция при покупке от')
+                        @lang('proxies::phrases.Акция при покупке от')
                         @foreach ($countProxyGeneralDiscounts as $key => $item)
                             @if ($i < 2)
-                                {{ $item->proxy }} @lang('phrases.портов') @lang('phrases.скидка') {{ $item->discount }}%
+                                {{ $item->proxy }} @lang('proxies::phrases.портов') @lang('proxies::phrases.скидка') {{ $item->discount }}%
                                 @if ($key === 0 && $countProxyGeneralDiscounts->count() >= 2)
-                                    @lang('phrases.от')
+                                    @lang('proxies::phrases.от')
                                 @endif
                             @endif
                             @php($i++)
@@ -262,12 +262,12 @@ personal-area
                 @php($i = 0)
                 @if ($countDaysGeneralDiscounts->count() >= 1)
                     <div class="info">
-                        @lang('phrases.Акция при покупке от')
+                        @lang('proxies::phrases.Акция при покупке от')
                         @foreach ($countDaysGeneralDiscounts as $key => $item)
                             @if ($i < 2 && $item->type == 'general')
-                                {{ $item->days }} @lang('phrases.дней') @lang('phrases.скидка') {{ $item->discount }}%
+                                {{ $item->days }} @lang('proxies::phrases.дней') @lang('proxies::phrases.скидка') {{ $item->discount }}%
                                 @if ($key === 0 && $countDaysGeneralDiscounts->count() >= 2)
-                                    @lang('phrases.от')
+                                    @lang('proxies::phrases.от')
                                 @endif
                             @endif
                             @php($i++)
@@ -278,12 +278,12 @@ personal-area
                 @php($i = 0)
                 @if ($countProxyGeneralDiscounts->count() >= 1)
                     <div class="info">
-                        @lang('phrases.Акция при покупке от')
+                        @lang('proxies::phrases.Акция при покупке от')
                         @foreach ($countProxyPrivateDiscounts as $key => $item)
                             @if ($i < 2)
-                                {{ $item->proxy }} @lang('phrases.портов') @lang('phrases.скидка') {{ $item->discount }}%
+                                {{ $item->proxy }} @lang('proxies::phrases.портов') @lang('proxies::phrases.скидка') {{ $item->discount }}%
                                 @if ($key === 0 && $countProxyPrivateDiscounts->count() >= 2)
-                                    @lang('phrases.от')
+                                    @lang('proxies::phrases.от')
                                 @endif
                             @endif
                             @php($i++)
@@ -294,12 +294,12 @@ personal-area
                 @php($i = 0)
                 @if ($countDaysPrivateDiscounts->count() >= 1)
                     <div class="info">
-                        @lang('phrases.Акция при покупке от')
+                        @lang('proxies::phrases.Акция при покупке от')
                         @foreach ($countDaysPrivateDiscounts as $key => $item)
                             @if ($i < 2 && $item->type == 'private')
-                                {{ $item->days }} @lang('phrases.дней') @lang('phrases.скидка') {{ $item->discount }}%
+                                {{ $item->days }} @lang('proxies::phrases.дней') @lang('proxies::phrases.скидка') {{ $item->discount }}%
                                 @if ($key === 0 && $countDaysPrivateDiscounts->count() >= 2)
-                                    @lang('phrases.от')
+                                    @lang('proxies::phrases.от')
                                 @endif
                             @endif
                             @php($i++)
@@ -310,12 +310,12 @@ personal-area
                 @php($i = 0)
                 @if ($countProxyAllDiscounts->count() >= 1)
                     <div class="info">
-                        @lang('phrases.Акция при покупке от')
+                        @lang('proxies::phrases.Акция при покупке от')
                         @foreach ($countProxyAllDiscounts as $key => $item)
                             @if ($i < 2)
-                                {{ $item->proxy }} @lang('phrases.скидка') @lang('phrases.скидка') {{ $item->discount }}%
+                                {{ $item->proxy }} @lang('proxies::phrases.скидка') @lang('proxies::phrases.скидка') {{ $item->discount }}%
                                 @if ($key === 0 && $countProxyAllDiscounts->count() >= 2)
-                                    @lang('phrases.от')
+                                    @lang('proxies::phrases.от')
                                 @endif
                             @endif
                             @php($i++)
@@ -326,12 +326,12 @@ personal-area
                 @php($i = 0)
                 @if ($countDaysAllDiscounts->count() >= 1)
                     <div class="info">
-                        @lang('phrases.Акция при покупке от')
+                        @lang('proxies::phrases.Акция при покупке от')
                         @foreach ($countDaysAllDiscounts as $key => $item)
                             @if ($i < 2 && $item->type == 'all')
-                                {{ $item->days }} @lang('phrases.дней') @lang('phrases.скидка') {{ $item->discount }}%
+                                {{ $item->days }} @lang('proxies::phrases.дней') @lang('proxies::phrases.скидка') {{ $item->discount }}%
                                 @if ($key === 0 && $countDaysAllDiscounts->count() >= 2)
-                                    @lang('phrases.от')
+                                    @lang('proxies::phrases.от')
                                 @endif
                             @endif
                             @php($i++)
@@ -358,10 +358,10 @@ personal-area
                 <div></div>
                 <div class="buttonFormWrap">
                     <a class="btn" href="/help" style="width: 100%;">
-                        @lang('phrases.Обратится в тех поддержку')
+                        @lang('proxies::phrases.Обратится в тех поддержку')
                     </a>
                     <a class="btn" id="myProxy" href="/control-panel" style="width: 100%;">
-                        @lang('phrases.Мои прокси')
+                        @lang('proxies::phrases.Мои прокси')
                     </a>
                 </div>
             </div>
@@ -376,11 +376,11 @@ personal-area
                     {{-- <i class="fa fa-check-circle"></i> --}}
                     <i class="fa fa-exclamation-triangle"></i>
                     @if (Str::startsWith(Auth::user()->email, '@') /*&& Auth::user()->telegram_chat_id === Null*/)
-                    <div class="title">@lang('phrases.Для продолжения необходимо ввести Email и привязать свой телеграмм, затем повторить попытку')</div>
+                    <div class="title">@lang('proxies::phrases.Для продолжения необходимо ввести Email и привязать свой телеграмм, затем повторить попытку')</div>
                     @elseif (Str::startsWith(Auth::user()->email, '@'))
-                    <div class="title">@lang('phrases.Для продолжения необходимо ввести Email и повторить попытку')</div>
+                    <div class="title">@lang('proxies::phrases.Для продолжения необходимо ввести Email и повторить попытку')</div>
                     {{--@elseif (Auth::user()->telegram_chat_id === Null)
-                    <div class="title">@lang('phrases.Для продолжения необходимо привязать свой телеграмм и повторить попытку')</div>
+                    <div class="title">@lang('proxies::phrases.Для продолжения необходимо привязать свой телеграмм и повторить попытку')</div>
                         --}}
                     @endif
                     <i class="fa fa-exclamation-triangle"></i>
@@ -390,9 +390,9 @@ personal-area
                 <div class="buttonFormWrap" style="margin-top: 30px">
                     <form action="" id="emailForm" class="form-email">
                         {{--@if (Auth::user()->telegram_chat_id === Null)
-                            <span style="font-size: 14px; color: #fff;">@lang('phrases.для получения id chata перейдите к боту') <a
+                            <span style="font-size: 14px; color: #fff;">@lang('proxies::phrases.для получения id chata перейдите к боту') <a
                                     style="font-size: 14px; text-decoration: underline; color: #fff;" href="{{ $tgData->telegram_link }}"
-                                    target="_blanck">{{ $tgData->telegram_link }}</a> @lang('phrases.и напишите /start либо нажмите кнопку')</span>
+                                    target="_blanck">{{ $tgData->telegram_link }}</a> @lang('proxies::phrases.и напишите /start либо нажмите кнопку')</span>
                             <input type="number" name="telegram_chat_id" id="telegram" class="input-lk"
                                 placeholder="0000000" required>
                         @endif--}}
@@ -400,7 +400,7 @@ personal-area
                         @if (Str::startsWith(Auth::user()->email, '@'))
                             <input type="email" name="email" id="email" class="input-lk" placeholder="Email" required>
                         @endif
-                        <button type="submit" class="btn">@lang('phrases.Сохранить')</button>
+                        <button type="submit" class="btn">@lang('proxies::phrases.Сохранить')</button>
                     </form>
                 </div>
             </div>
@@ -413,26 +413,26 @@ personal-area
             <div class="body">
                 {!! Form::open(['method' => 'POST', 'route' => 'controlExtend']) !!}
                 <div class="textWrap">
-                    <div class="title">@lang('phrases.Продлить прокси ')<span class="numberProxyText"></span></div>
+                    <div class="title">@lang('proxies::phrases.Продлить прокси ')<span class="numberProxyText"></span></div>
                     <div class="massage">
                         <select name="month">
                             @for ($monthI = 7; $monthI <= $settingModel->proxy_mounth; $monthI++)
                                 @if ($monthI == 7)
                                     <option value="{{ $monthI }}" data-sale="">{{ $monthI }}
-                                        @lang('phrases.дней')
+                                        @lang('proxies::phrases.дней')
                                     </option>
                                 @elseif($monthI % 20 == 0 and $monthI <= 30)
                                     <option value="{{ $monthI }}"
                                         data-sale="{{ $settingModel->proxy_two_sel_period }}"
                                         data-sale-count="{{ $settingModel->proxy_two_sel_count }}">{{ $monthI }}
-                                        @lang('phrases.дней')
+                                        @lang('proxies::phrases.дней')
                                     </option>
                                 @elseif($monthI % 30 == 0)
                                     <option value="{{ $monthI }}"
                                         data-sale="{{ $settingModel->proxy_three_sel_period }}"
                                         data-sale-count="{{ $settingModel->proxy_three_sel_count }}">
                                         {{ $monthI }}
-                                        @lang('phrases.дней')
+                                        @lang('proxies::phrases.дней')
                                     </option>
                                 @endif
                             @endfor
@@ -443,7 +443,7 @@ personal-area
                 <div></div>
                 <div class="buttonFormWrap">
                     <button class="main_btn">
-                        @lang('phrases.Продлить')
+                        @lang('proxies::phrases.Продлить')
                     </button>
                 </div>
                 {!! Form::close() !!}

@@ -12,12 +12,12 @@
                 <span></span>
             </div>
             <div class="title-menu text-gradient">
-                @lang('phrases.Меню')
+                @lang('proxies::phrases.Меню')
             </div>
         </div>
         @guest
             <div class="auth">
-                <a href="/login" class="btn header__private-btn">@lang('phrases.Войти')</a>
+                <a href="/login" class="btn header__private-btn">@lang('proxies::phrases.Войти')</a>
             </div>
         @endguest
         @auth
@@ -29,16 +29,16 @@
                             {{ Auth::user()->name }}
                         </a>
                     </li>
-                    <li><a href="/lk">@lang('phrases.Профиль')</a></li>
-                    <li><a href="/control-panel">@lang('phrases.Панель управления')</a></li>
+                    <li><a href="/lk">@lang('proxies::phrases.Профиль')</a></li>
+                    <li><a href="/control-panel">@lang('proxies::phrases.Панель управления')</a></li>
                     @can('admin-panel')
-                        <li><a href="/admin-panel">@lang('phrases.Панель администратора')</a></li>
+                        <li><a href="/admin-panel">@lang('proxies::phrases.Панель администратора')</a></li>
                     @endcan
                     <li class="line"></li>
                     <li><a href="{{ route('logout') }}"
                             onclick="event.preventDefault();
         document.getElementById('logout-form').submit();">
-                            <img src="/assets/img/log-out.svg">@lang('phrases.Выйти')
+                            <img src="/assets/img/log-out.svg">@lang('proxies::phrases.Выйти')
                         </a>
                     </li>
                 </ul>

@@ -2,7 +2,7 @@
 @section('content')
 <div class="header-page">
     <div class="title-page">
-        <h2>@lang('phrases.Реферальная система')</h2>
+        <h2>@lang('proxies::phrases.Реферальная система')</h2>
     </div>
     <div class="buttons">
     </div>
@@ -16,24 +16,24 @@
 
 <div class="block-background">
     <div class="title-block">
-        <h3>@lang('phrases.Заявки на вывод')</h3>
+        <h3>@lang('proxies::phrases.Заявки на вывод')</h3>
     </div>
     <table class="table table-bordered">
         <thead>
             <tr class="tr-name">
                 <th>№</th>
                 <th>Email</th>
-                <th>@lang('phrases.Дата заявки')</th>
-                <th>@lang('phrases.Дата выполнения')</th>
-                <th>@lang('phrases.Статус заявки')</th>
-                <th>@lang('phrases.Сумма')</th>
-                <th>@lang('phrases.Действия')</th>
+                <th>@lang('proxies::phrases.Дата заявки')</th>
+                <th>@lang('proxies::phrases.Дата выполнения')</th>
+                <th>@lang('proxies::phrases.Статус заявки')</th>
+                <th>@lang('proxies::phrases.Сумма')</th>
+                <th>@lang('proxies::phrases.Действия')</th>
             </tr>
         </thead>
         <tbody>
             @forelse($withdrawalRequest as $request)
                 @php
-                $status = $request->status == 0 ? trans('phrases.Активна') : ($request->status == 1 ? trans('phrases.В работе') : trans('phrases.Выполнена'))
+                $status = $request->status == 0 ? trans('proxies::phrases.Активна') : ($request->status == 1 ? trans('proxies::phrases.В работе') : trans('proxies::phrases.Выполнена'))
                 @endphp
                 <tr>
                     <td>{{ $request->id }}</td>

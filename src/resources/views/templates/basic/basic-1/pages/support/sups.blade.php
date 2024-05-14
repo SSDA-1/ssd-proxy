@@ -70,8 +70,8 @@ personal-area
                 <li>
                     <a class="link-help" href="https://t.me/Adsproxysupport" target="_blanlk">
                         <div class="link-text">
-                            <div class="title">@lang('phrases.Живая связь с нами 24/7'):</div>
-                            <div class="text">@lang('phrases.Мы ответим вам в течении 1 минуты')</div>
+                            <div class="title">@lang('proxies::phrases.Живая связь с нами 24/7'):</div>
+                            <div class="text">@lang('proxies::phrases.Мы ответим вам в течении 1 минуты')</div>
                         </div>
                         <img src="{{ asset('assets/img/telegramm.png') }}">
                     </a>
@@ -79,8 +79,8 @@ personal-area
                 <li>
                     <a class="link-help" href="https://t.me/adsproxychannel" target="_blanlk">
                         <div class="link-text">
-                            <div class="title">@lang('phrases.Чат')</div>
-                            <div class="text">@lang('phrases.Присоединяйтесь! Здесь вы сможете пообщаться с нами и с участниками группы')
+                            <div class="title">@lang('proxies::phrases.Чат')</div>
+                            <div class="text">@lang('proxies::phrases.Присоединяйтесь! Здесь вы сможете пообщаться с нами и с участниками группы')
                             </div>
                         </div>
                         <img src="{{ asset('assets/img/chat.png') }}">
@@ -88,10 +88,10 @@ personal-area
                 </li>
                 <li class="link-help">
                     <div class="link-text">
-                        <div class="title">@lang('phrases.Сотрудничество')</div>
+                        <div class="title">@lang('proxies::phrases.Сотрудничество')</div>
                         <div class="text">
                             <a href="mailto:{{$settingsData->cooperation_email}}">
-                                <span>@lang('phrases.Почта'): </span>{{$settingsData->cooperation_email}}
+                                <span>@lang('proxies::phrases.Почта'): </span>{{$settingsData->cooperation_email}}
                             </a>
                             <a href="https://t.me/{{$settingsData->cooperation_tg}}" target="_blanlk">
                                 <span>Telegram: </span>{{'@'.$settingsData->cooperation_tg}}
@@ -103,8 +103,8 @@ personal-area
                 <li>
                     <a class="link-help" href="/support">
                         <div class="link-text">
-                            <div class="title">@lang('phrases.Тех. поддержка на сайте'):</div>
-                            <div class="text">@lang('phrases.Всегда ответим, но не всегда быстро')</div>
+                            <div class="title">@lang('proxies::phrases.Тех. поддержка на сайте'):</div>
+                            <div class="text">@lang('proxies::phrases.Всегда ответим, но не всегда быстро')</div>
                         </div>
                         <img src="{{ asset('assets/img/help.png') }}">
                     </a>

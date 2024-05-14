@@ -236,19 +236,19 @@ personal-area
     @include('admin.lk.menu')
     <div class="lk-content">
         <div class="wrap-title">
-            <h1>@lang('phrases.Техническая поддержка')</h1>
+            <h1>@lang('proxies::phrases.Техническая поддержка')</h1>
         </div>
         <div class="wrap-support">
             <div class="pastAppeals">
                 <div class="warp-Appeals" id="element">
-                    <h2>@lang('phrases.Прошлые обращения')</h2>
+                    <h2>@lang('proxies::phrases.Прошлые обращения')</h2>
                     @foreach ($supportsList as $item)
                         <div class="cardAppeals {{$id == $item->id ? 'action' : ''}}">
-                            <a href="/support/{{$item->id}}" style="text-decoration: unset;"><h3>@lang('phrases.Обращение')
+                            <a href="/support/{{$item->id}}" style="text-decoration: unset;"><h3>@lang('proxies::phrases.Обращение')
                                     #{{$item->id}} @if ($item->status == 0)
-                                        <span style="color:green;">@lang('phrases.Открыт')</span>
+                                        <span style="color:green;">@lang('proxies::phrases.Открыт')</span>
                                     @else
-                                        <span style="color:red;">@lang('phrases.Закрыт')</span>
+                                        <span style="color:red;">@lang('proxies::phrases.Закрыт')</span>
                                     @endif
                                     <span>{{$item->lastsuppmassage ? \Carbon\Carbon::createFromFormat('Y-m-d H:i:s', $item->lastsuppmassage->updated_at)->format('d.m.Y') : '' }}</span>
                                 </h3>
@@ -257,16 +257,16 @@ personal-area
                         </div>
                     @endforeach
                 </div>
-                <div class="main_btn btn" id="dialog_btn">@lang('phrases.Новое обращение')</div>
+                <div class="main_btn btn" id="dialog_btn">@lang('proxies::phrases.Новое обращение')</div>
             </div>
             <div class="bodyDialog" id="bodyDialog">
                 {{--{{ dd($support) }}--}}
 
                 @if($support)
-                    <div class="topLine">@lang('phrases.Обращение') #{{$id}} @if ($support->status == 0)
-                            <span style="color:green;">@lang('phrases.Открыт')</span>
+                    <div class="topLine">@lang('proxies::phrases.Обращение') #{{$id}} @if ($support->status == 0)
+                            <span style="color:green;">@lang('proxies::phrases.Открыт')</span>
                         @else
-                            <span style="color:red;">@lang('phrases.Закрыт')</span>
+                            <span style="color:red;">@lang('proxies::phrases.Закрыт')</span>
                         @endif</div>
                     <div class="midleLine" id="messBody">
                         @foreach ($support->AllSupportMassage as $message)
@@ -308,7 +308,7 @@ personal-area
                     </div>
                     {!! Form::close() !!}
                     <div class="bottomLine close">
-                        @lang('phrases.Обращение закрыто')
+                        @lang('proxies::phrases.Обращение закрыто')
                     </div>
                 @endif
             </div>

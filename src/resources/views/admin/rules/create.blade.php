@@ -5,16 +5,16 @@
 @section('content')
     <div class="header-page">
         <div class="title-page">
-            <h2>@lang('phrases.Правила сайта')</h2>
+            <h2>@lang('proxies::phrases.Правила сайта')</h2>
         </div>
         <div class="buttons">
-            <a class="btn btn-success" href="{{ route('rules.index') }}"><i class="bx bx-left-arrow-alt icon"></i> @lang('phrases.Назад')</a>
+            <a class="btn btn-success" href="{{ route('rules.index') }}"><i class="bx bx-left-arrow-alt icon"></i> @lang('proxies::phrases.Назад')</a>
         </div>
     </div>
 
     @if (count($errors) > 0)
         <div class="alert alert-danger block-background">
-            <strong>@lang('phrases.Упс')!</strong> @lang('phrases.Были некоторые проблемы с вашим вводом').<br><br>
+            <strong>@lang('proxies::phrases.Упс')!</strong> @lang('proxies::phrases.Были некоторые проблемы с вашим вводом').<br><br>
             <ul>
                 @foreach ($errors->all() as $error)
                     <li>{{ $error }}</li>
@@ -28,7 +28,7 @@
         <div class="block-background basement-form">
             <div class="row">
                 <div class="field list">
-                    <div class="title-field">@lang('phrases.Текст'):</div>
+                    <div class="title-field">@lang('proxies::phrases.Текст'):</div>
                     {!! Form::textarea('body', null, [
                         'class' => 'select-multiple',
                         'id' => 'summernote',
@@ -40,7 +40,7 @@
         <div class="block-background basement-form">
             <div class="row">
                 <div class="field list">
-                    <div class="title-field">@lang('phrases.Текст')_en:</div>
+                    <div class="title-field">@lang('proxies::phrases.Текст')_en:</div>
                     {!! Form::textarea('body', null, [
                         'class' => 'select-multiple',
                         'id' => 'summernote2',
@@ -50,7 +50,7 @@
             </div>
         </div>
         <div class="footer-block">
-            <button type="submit" class="btn btn-primary">@lang('phrases.Сохранить')</button>
+            <button type="submit" class="btn btn-primary">@lang('proxies::phrases.Сохранить')</button>
         </div>
     </form>
 @endsection
@@ -58,7 +58,7 @@
     <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.js"></script>
     <script>
         $('#summernote').summernote({
-            placeholder: '@lang('phrases.Правила сайта')',
+            placeholder: '@lang('proxies::phrases.Правила сайта')',
             tabsize: 2,
             height: 120,
             toolbar: [
@@ -72,7 +72,7 @@
             ]
         });
         $('#summernote2').summernote({
-            placeholder: '@lang('phrases.Правила сайта')',
+            placeholder: '@lang('proxies::phrases.Правила сайта')',
             tabsize: 2,
             height: 120,
             toolbar: [

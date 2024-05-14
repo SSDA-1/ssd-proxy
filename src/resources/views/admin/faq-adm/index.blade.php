@@ -6,7 +6,7 @@
         <h2>FAQ</h2>
     </div>
     <div class="buttons">
-        <a class="btn btn-success" href="{{ route('faq-adm.create') }}">@lang('phrases.Добавить вопрос')</a>
+        <a class="btn btn-success" href="{{ route('faq-adm.create') }}">@lang('proxies::phrases.Добавить вопрос')</a>
     </div>
 </div>
 
@@ -18,15 +18,15 @@
 
 <div class="block-background">
     <div class="title-block">
-        <h3>@lang('phrases.Список вопросов')</h3>
+        <h3>@lang('proxies::phrases.Список вопросов')</h3>
     </div>
     <table class="table table-bordered">
         <thead>
             <tr class="tr-name">
                 <th>No</th>
-                <th>@lang('phrases.Вопрос')</th>
-                <th>@lang('phrases.Ответ')</th>
-                <th>@lang('phrases.Действие')</th>
+                <th>@lang('proxies::phrases.Вопрос')</th>
+                <th>@lang('proxies::phrases.Ответ')</th>
+                <th>@lang('proxies::phrases.Действие')</th>
             </tr>
         </thead>
         <tbody> 
@@ -57,7 +57,7 @@
             </tr>
             @endforeach
             @else
-            <td colspan="4" class="absent">@lang('phrases.Записи отсутствуют')</td>
+            <td colspan="4" class="absent">@lang('proxies::phrases.Записи отсутствуют')</td>
             @endif
         </tbody>
     </table>

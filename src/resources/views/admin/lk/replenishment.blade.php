@@ -13,22 +13,22 @@ personal-area
         <div class="lk-content">
             <div class="wrap-form form-payment">
                 <div class="wrap-title">
-                    <h3>@lang('phrases.Пополнение баланса')</h3>
+                    <h3>@lang('proxies::phrases.Пополнение баланса')</h3>
                 </div>
                 {!! Form::open(['method' => 'POST', 'route' => 'PaymentPlusMoney', 'class' => 'payment-form balance']) !!}
                 <div class="wrap-btn-modal balance">
-                    <label for="balance">@lang('phrases.Введите сумму пополнения')</label>
+                    <label for="balance">@lang('proxies::phrases.Введите сумму пополнения')</label>
                     <div class="amont-sum">
                         <div class="inp-sum">
                             <input type="text" name="balance" id="balance" placeholder="$ 100" style="color: black"
                                 min="{{ $settingsData->min_replenishment_amount }}" />
-                            <span>@lang('phrases.Минимальная сумма пополнения') ${{ $settingsData->min_replenishment_amount }}</span>
+                            <span>@lang('proxies::phrases.Минимальная сумма пополнения') ${{ $settingsData->min_replenishment_amount }}</span>
                         </div>
-                        <button class="btn no-hover">@lang('phrases.Пополнить')</button>
+                        <button class="btn no-hover">@lang('proxies::phrases.Пополнить')</button>
                     </div>
                 </div>
                 <div class="payment-systems">
-                    <div class="title">@lang('phrases.Выберите способ оплаты')</div>
+                    <div class="title">@lang('proxies::phrases.Выберите способ оплаты')</div>
                     <ul>
                         @if ($settingsData->qiwi_pay > 0)
                             <li>
@@ -50,7 +50,7 @@ personal-area
                             <li>
                                 <input type="radio" name="gateway" id="demo" value="demo" class="custom-radio">
                                 <label for="demo">
-                                    <span>@lang('phrases.Демо пополнение')</span>
+                                    <span>@lang('proxies::phrases.Демо пополнение')</span>
                                 </label>
                             </li>
                         @endif
@@ -116,9 +116,9 @@ personal-area
                 }
             </style>
             <div class="modal crypt" data-modal="crypt">
-                <div class="done"> @lang('phrases.Спасибо, оплата прошла, одновите страницу') </div>
+                <div class="done"> @lang('proxies::phrases.Спасибо, оплата прошла, одновите страницу') </div>
                 <div class="wrap-title">
-                    <p class="modal__title">@lang('phrases.Пополнение баланса через Крипту')</p>
+                    <p class="modal__title">@lang('proxies::phrases.Пополнение баланса через Крипту')</p>
                     <!--   Svg иконка для закрытия окна  -->
                     <svg class="modal__cross js-modal-close" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
                         <path
@@ -127,15 +127,15 @@ personal-area
                 </div>
                 {!! Form::open(['method' => 'POST', 'route' => 'PaymentPlusMoney', 'class' => 'payment-form']) !!}
                 <div class="payment-systems">
-                    <p>@lang('phrases.Отправьте') <span id="amountUSDTChecker">5.910215</span> USDT TRC-20 @lang('phrases.на адрес'):</p>
+                    <p>@lang('proxies::phrases.Отправьте') <span id="amountUSDTChecker">5.910215</span> USDT TRC-20 @lang('proxies::phrases.на адрес'):</p>
                     <p id="adressUSDTChecker">TrshdhHJHsbdD5DAd6DFAew48dDSAc4D</p>
                     <div class="qrCode">
 
                     </div>
                 </div>
                 <div class="wrap-btn-modal attention">
-                    <h2>@lang('phrases.ВНИМАНИЕ')!</h2>
-                    <p>@lang('phrases.Оплатить счёт необходимо в течении 10 минут отправив точную сумму').</p>
+                    <h2>@lang('proxies::phrases.ВНИМАНИЕ')!</h2>
+                    <p>@lang('proxies::phrases.Оплатить счёт необходимо в течении 10 минут отправив точную сумму').</p>
                 </div>
                 {!! Form::close() !!}
             </div>
@@ -155,7 +155,7 @@ personal-area
             var value = parseInt(balanceInput.value);
 
             if (value < {{ $settingsData->min_replenishment_amount }}) {
-                balanceInput.setCustomValidity("@lang('phrases.Значение не может быть ниже') {{ $settingsData->min_replenishment_amount }}");
+                balanceInput.setCustomValidity("@lang('proxies::phrases.Значение не может быть ниже') {{ $settingsData->min_replenishment_amount }}");
             } else {
                 balanceInput.setCustomValidity(""); // Сбросить сообщение об ошибке
             }

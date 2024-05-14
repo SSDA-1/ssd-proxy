@@ -14,9 +14,9 @@
             <section class="lk3">
                 <div class="wrap">
                     <div class="wrap-btn action-proxy">
-                        <div class="btn js-open-modal disabled" data-modal="extendAll">@lang('phrases.Продлить прокси')</div>
-                        <div class="btn js-open-modal disabled" data-modal="rotationAll">@lang('phrases.Ротация')</div>
-                        <div class="btn disabled" id="changeIpAll">@lang('phrases.Смена IP')</div>
+                        <div class="btn js-open-modal disabled" data-modal="extendAll">@lang('proxies::phrases.Продлить прокси')</div>
+                        <div class="btn js-open-modal disabled" data-modal="rotationAll">@lang('proxies::phrases.Ротация')</div>
+                        <div class="btn disabled" id="changeIpAll">@lang('proxies::phrases.Смена IP')</div>
                         <form action="/fetch/multi/download/time" method="POST" class="" data-fetch="none">
                             {{--  id="downloadAll" --}}
                             @csrf
@@ -32,15 +32,15 @@
                             <div class="cell box1" style="width: fit-content"><input type="checkbox"
                                     class="proxy-checkbox-all"></div>
                             <div class="row">
-                                <div class="cell">@lang('phrases.Статус')</div>
-                                <div class="cell">IP @lang('phrases.Порт')</div>
-                                <div class="cell">@lang('phrases.Логин') @lang('phrases.Пароль')</div>
-                                <div class="cell">@lang('phrases.Протокол Гео')</div>
-                                <div class="cell">@lang('phrases.Смена IP')</div>
-                                <div class="cell">@lang('phrases.Ротация')</div>
-                                <div class="cell">@lang('phrases.Период')</div>
+                                <div class="cell">@lang('proxies::phrases.Статус')</div>
+                                <div class="cell">IP @lang('proxies::phrases.Порт')</div>
+                                <div class="cell">@lang('proxies::phrases.Логин') @lang('proxies::phrases.Пароль')</div>
+                                <div class="cell">@lang('proxies::phrases.Протокол Гео')</div>
+                                <div class="cell">@lang('proxies::phrases.Смена IP')</div>
+                                <div class="cell">@lang('proxies::phrases.Ротация')</div>
+                                <div class="cell">@lang('proxies::phrases.Период')</div>
                             </div>
-                            <div class="cell box1">@lang('phrases.Действия')</div>
+                            <div class="cell box1">@lang('proxies::phrases.Действия')</div>
                         </div>
                         <div class="tbody">
                             @inject('proxyStatusService', 'App\Service\ProxyStatusService')
@@ -99,7 +99,7 @@
                                                         <div class="status off" data-modem="{{ $proxy->modem->id }}"
                                                             data-type="{{ $proxy->type }}"
                                                             data-login="{{ $proxy->login_user_proxy_kraken }}">
-                                                            @lang('phrases.Не отвечает')</div>
+                                                            @lang('proxies::phrases.Не отвечает')</div>
                                                     @endif
                                                 </div>
                                                 @if ($password_user_proxy == null)
@@ -130,12 +130,12 @@
                                                     data-href="{{ $settingModel->integration_ip }}:8000/api/devices/modem/reconnect?token={{ $tokenUser }}&id={{ $proxy->modem->id_kraken }}">
                                                     @if ($proxy->modem->locked_ip_type_change == 1)
                                                         @if ($proxy->modem->reconnect_type_fake == 'time_link')
-                                                            @lang('phrases.По времени') @lang('phrases.и')
+                                                            @lang('proxies::phrases.По времени') @lang('proxies::phrases.и')
                                                             <a href="#get" id="" class="my-link"
                                                                 style="color: #DA5583;"
                                                                 data-id="{{ $proxy->modem->id }}"
                                                                 data-proxy="{{ $proxy->id - 1 }}"
-                                                                data-proxy2="{{ $proxy->id }}">@lang('phrases.ссылке')</a>
+                                                                data-proxy2="{{ $proxy->id }}">@lang('proxies::phrases.ссылке')</a>
                                                             {{-- <div class="copyLink" data-text="Копировать"
                                                                 style="display: inline-block;">
                                                                 <img src="/assets/img/copy.svg" class="copy "
@@ -143,12 +143,12 @@
                                                                     data-link="{{ route('changeGetIP', ['proxy' => $idFirstRow - 1, 'proxy2' => $idFirstRow]) }}" />
                                                             </div> --}}
                                                         @elseif ($proxy->modem->reconnect_type_fake == 'time')
-                                                            @lang('phrases.По времени')
+                                                            @lang('proxies::phrases.По времени')
                                                         @elseif ($proxy->modem->reconnect_type_fake == 'link')
                                                             <a href="#get" data-id="" class="copy-link my-link"
                                                                 id="{{ $proxy->modem->id }}" style="color: #DA5583;"
                                                                 data-proxy="{{ $proxy->id - 1 }}"
-                                                                data-proxy2="{{ $proxy->id }}">@lang('phrases.По ссылке')</a>
+                                                                data-proxy2="{{ $proxy->id }}">@lang('proxies::phrases.По ссылке')</a>
 
                                                             {{-- <div class="copyLink" data-text="Копировать"
                                                                 style="display: inline-block;">
@@ -159,12 +159,12 @@
                                                         @endif
                                                     @else
                                                         @if ($proxy->modem->reconnect_type == 'time_link')
-                                                            @lang('phrases.По времени') @lang('phrases.и')
+                                                            @lang('proxies::phrases.По времени') @lang('proxies::phrases.и')
                                                             <a href="#get" id="" class="copy-link my-link"
                                                                 style="color: #DA5583;"
                                                                 data-id="{{ $proxy->modem->id }}"
                                                                 data-proxy="{{ $proxy->id - 1 }}"
-                                                                data-proxy2="{{ $proxy->id }}">@lang('phrases.ссылке')</a>
+                                                                data-proxy2="{{ $proxy->id }}">@lang('proxies::phrases.ссылке')</a>
                                                             {{-- <div class="copyLink" data-text="Копировать"
                                                                 style="display: inline-block;">
                                                                 <img src="/assets/img/copy.svg" class="copy "
@@ -172,13 +172,13 @@
                                                                     data-link="{{ route('changeGetIP', ['proxy' => $idFirstRow - 1, 'proxy2' => $idFirstRow]) }}" />
                                                             </div> --}}
                                                         @elseif ($proxy->modem->reconnect_type == 'time')
-                                                            @lang('phrases.По времени')
+                                                            @lang('proxies::phrases.По времени')
                                                         @elseif ($proxy->modem->reconnect_type == 'link')
                                                             <a href="#get" data-id=""
                                                                 class="copy-link my-link"
                                                                 id="{{ $proxy->modem->id }}" style="color: #DA5583;"
                                                                 data-proxy="{{ $proxy->id - 1 }}"
-                                                                data-proxy2="{{ $proxy->id }}">@lang('phrases.По ссылке')</a>
+                                                                data-proxy2="{{ $proxy->id }}">@lang('proxies::phrases.По ссылке')</a>
 
                                                             {{-- <div class="copyLink" data-text="Копировать"
                                                                 style="display: inline-block;">
@@ -197,7 +197,7 @@
                                                     </div>
                                                 @else
                                                     <div class="cell ifname">
-                                                        {{ $proxy->modem->reconnect_interval . ' ' }}@lang('phrases.секунд')
+                                                        {{ $proxy->modem->reconnect_interval . ' ' }}@lang('proxies::phrases.секунд')
                                                     </div>
                                                 @endif
 
@@ -233,7 +233,7 @@
                                                         <div class="status off" data-modem="{{ $proxy->modem->id }}"
                                                             data-type="{{ $proxy->type }}"
                                                             data-login="{{ $proxy->login_user_proxy_kraken }}">
-                                                            @lang('phrases.Не отвечает')</div>
+                                                            @lang('proxies::phrases.Не отвечает')</div>
                                                     @endif
                                                 </div>
                                                 @if ($password_user_proxy == null)
@@ -265,7 +265,7 @@
                                                                 <span class="copy btn reboot"
                                                                     data-target="link{{ $idFirstRow }}"
                                                                     data-link="{{ route('changeGetIP', ['proxy' => $idFirstRow - 1, 'proxy2' => $idFirstRow]) }}">
-                                                                    @lang('phrases.Ссылка для смены IP')</span>
+                                                                    @lang('proxies::phrases.Ссылка для смены IP')</span>
                                                             </div>
                                                         @elseif ($proxy->modem->reconnect_type_fake == 'link')
                                                             <div class="copyLink btnstup" data-text="Копировать"
@@ -273,7 +273,7 @@
                                                                 <span class="copy btn reboot"
                                                                     data-target="link{{ $idFirstRow }}"
                                                                     data-link="{{ route('changeGetIP', ['proxy' => $idFirstRow - 1, 'proxy2' => $idFirstRow]) }}">
-                                                                    @lang('phrases.Ссылка для смены IP')</span>
+                                                                    @lang('proxies::phrases.Ссылка для смены IP')</span>
                                                             </div>
                                                         @endif
                                                     @else
@@ -283,7 +283,7 @@
                                                                 <span class="copy btn reboot"
                                                                     data-target="link{{ $idFirstRow }}"
                                                                     data-link="{{ route('changeGetIP', ['proxy' => $idFirstRow - 1, 'proxy2' => $idFirstRow]) }}">
-                                                                    @lang('phrases.Ссылка для смены IP')</span>
+                                                                    @lang('proxies::phrases.Ссылка для смены IP')</span>
                                                             </div>
                                                         @elseif ($proxy->modem->reconnect_type == 'link')
                                                             <div class="copyLink btnstup" data-text="Копировать"
@@ -291,7 +291,7 @@
                                                                 <span class="copy btn reboot"
                                                                     data-target="link{{ $idFirstRow }}"
                                                                     data-link="{{ route('changeGetIP', ['proxy' => $idFirstRow - 1, 'proxy2' => $idFirstRow]) }}">
-                                                                    @lang('phrases.Ссылка для смены IP')</span>
+                                                                    @lang('proxies::phrases.Ссылка для смены IP')</span>
                                                             </div>
                                                         @endif
                                                     @endif
@@ -327,7 +327,7 @@
                                             </a>
                                             <div type="submit" class="btn reboot" name="reboot"
                                                 style="width: 100%;" data-id="{{ $proxy->modem->id }}">
-                                                @lang('phrases.Перезагрузить')
+                                                @lang('proxies::phrases.Перезагрузить')
                                             </div>
                                         </div>
 
@@ -340,16 +340,16 @@
                         @elseif($error)
                             @if ($error == 'Undefined array key "key"')
                                 <div class="group" style="align-items: center; justify-content: center; gap: 10px;">
-                                    @lang('phrases.Возникла проблема с интеграцией пользователя') <a href="/support">@lang('phrases.тех поддержка')</a>
+                                    @lang('proxies::phrases.Возникла проблема с интеграцией пользователя') <a href="/support">@lang('proxies::phrases.тех поддержка')</a>
                                 </div>
                             @else
                                 <div class="group" style="align-items: center; justify-content: center; gap: 10px;">
-                                    {{ $error }} <a href="/support">@lang('phrases.тех поддержка')</a>
+                                    {{ $error }} <a href="/support">@lang('proxies::phrases.тех поддержка')</a>
                                 </div>
                             @endif
                         @else
                             <div class="group" style="align-items: center; justify-content: center; gap: 10px;">
-                                @lang('phrases.Тут будут ваши прокси')
+                                @lang('proxies::phrases.Тут будут ваши прокси')
                             </div>
                         @endif
                     </div>
@@ -367,7 +367,7 @@
     {{-- Редактирование прокси --}}
     <div class="modal proxy" data-modal="proxy">
         <div class="wrap-title">
-            <p class="modal__title">@lang('phrases.Редактирование прокси')</p>
+            <p class="modal__title">@lang('proxies::phrases.Редактирование прокси')</p>
             <img src="/assets/img/cross.svg" class="modal__cross js-modal-close" />
         </div>
         <div class="wrap-modal-proxy"></div>
@@ -379,7 +379,7 @@
             <div class="body">
                 {!! Form::open(['method' => 'POST', 'route' => 'controlExtend']) !!}
                 <div class="textWrap">
-                    <div class="title">@lang('phrases.Продлить прокси')
+                    <div class="title">@lang('proxies::phrases.Продлить прокси')
                         <span class="numberProxyText"></span>
                         <img src="{{ asset('assets/img/close_ring_light.svg') }}" class="js-modal-close">
                     </div>
@@ -399,7 +399,7 @@
                                     @endphp
                                     <option value="{{ $key }}" class="proxy__application-choice"
                                         {{ $key == 1 ? 'selected' : '' }}>
-                                        {{ $tariff['period'] }} @lang('phrases.дней') -
+                                        {{ $tariff['period'] }} @lang('proxies::phrases.дней') -
                                         @if ($tariffSettings->type_proxy == 'general')
                                             {{ $tariff['general_price'][$countryKey] }} $
                                         @elseif($tariffSettings->type_proxy == 'private')
@@ -416,24 +416,24 @@
                             @for ($monthI = 5; $monthI <= $tariffSettings->max_days; $monthI++)
                                 @if ($monthI == 5)
                                     <option value="{{ $monthI }}" data-sale="">{{ $monthI }}
-                                        @lang('phrases.дней')
+                                        @lang('proxies::phrases.дней')
                                     </option>
                                 @elseif($monthI % 10 == 0 and $monthI <= 30)
                                     <option value="{{ $monthI }}" data-sale="" data-sale-count="">
                                         {{ $monthI }}
-                                        @lang('phrases.дней')
+                                        @lang('proxies::phrases.дней')
                                     </option>
                                 @elseif($monthI % 30 == 0)
                                     <option value="{{ $monthI }}" data-sale="" data-sale-count="">
                                         {{ $monthI }}
-                                        @lang('phrases.дней')
+                                        @lang('proxies::phrases.дней')
                                     </option>
                                 @endif
                             @endfor
                         </select>
                     @endif
                     <button class="btn button">
-                        @lang('phrases.Продлить')
+                        @lang('proxies::phrases.Продлить')
                     </button>
                 </div>
                 {!! Form::close() !!}
@@ -447,7 +447,7 @@
             <div class="body">
                 {!! Form::open(['method' => 'POST', 'route' => 'multiControlExtendProxy']) !!}
                 <div class="textWrap">
-                    <div class="title">@lang('phrases.Продлить прокси')
+                    <div class="title">@lang('proxies::phrases.Продлить прокси')
                         <span class="numberProxyText"></span>
                         <img src="{{ asset('assets/img/close_ring_light.svg') }}" class="js-modal-close">
                     </div>
@@ -467,7 +467,7 @@
                                     @endphp
                                     <option value="{{ $key }}" class="proxy__application-choice"
                                         {{ $key == 1 ? 'selected' : '' }}>
-                                        {{ $tariff['period'] }} @lang('phrases.дней') -
+                                        {{ $tariff['period'] }} @lang('proxies::phrases.дней') -
                                         @if ($tariffSettings->type_proxy == 'general')
                                             {{ $tariff['general_price'][$countryKey] }} $
                                         @elseif($tariffSettings->type_proxy == 'private')
@@ -484,24 +484,24 @@
                             @for ($monthI = 5; $monthI <= $tariffSettings->max_days; $monthI++)
                                 @if ($monthI == 5)
                                     <option value="{{ $monthI }}" data-sale="">{{ $monthI }}
-                                        @lang('phrases.дней')
+                                        @lang('proxies::phrases.дней')
                                     </option>
                                 @elseif($monthI % 10 == 0 and $monthI <= 30)
                                     <option value="{{ $monthI }}" data-sale="" data-sale-count="">
                                         {{ $monthI }}
-                                        @lang('phrases.дней')
+                                        @lang('proxies::phrases.дней')
                                     </option>
                                 @elseif($monthI % 30 == 0)
                                     <option value="{{ $monthI }}" data-sale="" data-sale-count="">
                                         {{ $monthI }}
-                                        @lang('phrases.дней')
+                                        @lang('proxies::phrases.дней')
                                     </option>
                                 @endif
                             @endfor
                         </select>
                     @endif
                     <button class="btn button">
-                        @lang('phrases.Продлить')
+                        @lang('proxies::phrases.Продлить')
                     </button>
                 </div>
                 {!! Form::close() !!}
@@ -515,7 +515,7 @@
             <div class="body">
                 {!! Form::open(['method' => 'POST', 'route' => 'multiChangeTimeIP']) !!}
                 <div class="textWrap">
-                    <div class="title">@lang('phrases.Ротация IP')
+                    <div class="title">@lang('proxies::phrases.Ротация IP')
                         <span class="numberProxyText"></span>
                         <img src="{{ asset('assets/img/close_ring_light.svg') }}" class="js-modal-close">
                     </div>
@@ -529,7 +529,7 @@
                     <input type="number" placeholder="10 секунд" min="60" name="time" class="input-lk"
                         style="max-height: 50px; max-width: 375px;">
                     <button class="btn button">
-                        @lang('phrases.Изменить')
+                        @lang('proxies::phrases.Изменить')
                     </button>
                 </div>
                 {!! Form::close() !!}
@@ -543,7 +543,7 @@
             <div class="body">
                 {!! Form::open(['method' => 'POST', 'route' => ['autopayProxy', 0]]) !!}
                 <div class="textWrap">
-                    <div class="title">@lang('phrases.Автопродление прокси')
+                    <div class="title">@lang('proxies::phrases.Автопродление прокси')
                         <span class="numberProxyText"></span>
                         <img src="{{ asset('assets/img/close_ring_light.svg') }}" class="js-modal-close">
                     </div>
@@ -563,7 +563,7 @@
                                     @endphp
                                     <option value="{{ $key }}" class="proxy__application-choice"
                                         {{ $key == 1 ? 'selected' : '' }}>
-                                        {{ $tariff['period'] }} @lang('phrases.дней') -
+                                        {{ $tariff['period'] }} @lang('proxies::phrases.дней') -
                                         @if ($tariffSettings->type_proxy == 'general')
                                             {{ $tariff['general_price'][$countryKey] }} $
                                         @elseif($tariffSettings->type_proxy == 'private')
@@ -580,24 +580,24 @@
                             @for ($monthI = 5; $monthI <= $tariffSettings->max_days; $monthI++)
                                 @if ($monthI == 5)
                                     <option value="{{ $monthI }}" data-sale="">{{ $monthI }}
-                                        @lang('phrases.дней')
+                                        @lang('proxies::phrases.дней')
                                     </option>
                                 @elseif($monthI % 10 == 0 and $monthI <= 30)
                                     <option value="{{ $monthI }}" data-sale="" data-sale-count="">
                                         {{ $monthI }}
-                                        @lang('phrases.дней')
+                                        @lang('proxies::phrases.дней')
                                     </option>
                                 @elseif($monthI % 30 == 0)
                                     <option value="{{ $monthI }}" data-sale="" data-sale-count="">
                                         {{ $monthI }}
-                                        @lang('phrases.дней')
+                                        @lang('proxies::phrases.дней')
                                     </option>
                                 @endif
                             @endfor
                         </select>
                     @endif
                     <button class="btn button">
-                        @lang('phrases.Включить автопродление')
+                        @lang('proxies::phrases.Включить автопродление')
                     </button>
                 </div>
                 {!! Form::close() !!}
@@ -611,9 +611,9 @@
             <div class="body">
                 {!! Form::open(['method' => 'POST', 'route' => 'controlExtend']) !!}
                 <div class="textWrap">
-                    <div class="title">@lang('phrases.Перезагрузка') <span class="numberProxyText"></span></div>
+                    <div class="title">@lang('proxies::phrases.Перезагрузка') <span class="numberProxyText"></span></div>
                     <div class="massage">
-                        @lang('phrases.Успешно выполнена')
+                        @lang('proxies::phrases.Успешно выполнена')
                     </div>
                 </div>
                 <div></div>
@@ -628,9 +628,9 @@
             <div class="body">
                 {!! Form::open(['method' => 'POST', 'route' => 'controlExtend']) !!}
                 <div class="textWrap">
-                    <div class="title">@lang('phrases.Смена IP по ссылке') <span class="numberProxyText"></span></div>
+                    <div class="title">@lang('proxies::phrases.Смена IP по ссылке') <span class="numberProxyText"></span></div>
                     <div class="massage">
-                        @lang('phrases.Успешно выполнена')
+                        @lang('proxies::phrases.Успешно выполнена')
                     </div>
                 </div>
                 <div></div>
@@ -652,10 +652,10 @@
                 <div></div>
                 <div class="buttonFormWrap">
                     <a class="main_btn closeModal dopButt btn button" href="/support">
-                        @lang('phrases.Обратится в тех поддержку')
+                        @lang('proxies::phrases.Обратится в тех поддержку')
                     </a>
                     <a class="close closeModal btn button modal__cross js-modal-close" href="#">
-                        @lang('phrases.Окей')
+                        @lang('proxies::phrases.Окей')
                     </a>
                 </div>
             </div>

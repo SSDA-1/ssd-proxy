@@ -18,9 +18,9 @@ personal-area
                 <div class="answers__body">
                     @foreach ($mainFaq as $faq)
                         <details class="answers__details">
-                            <summary class="answers__summary">@lang('phrases.' . $faq->question)</summary>
+                            <summary class="answers__summary">@lang('proxies::phrases.' . $faq->question)</summary>
                             <div class="answers__text">
-                                <p>{!! trans('phrases.' . $faq->answer) !!}</p>
+                                <p>{!! trans('proxies::phrases.' . $faq->answer) !!}</p>
                             </div>
                         </details>
                     @endforeach

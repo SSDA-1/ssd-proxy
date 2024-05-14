@@ -3,10 +3,10 @@
 @section('content')
 <div class="header-page">
     <div class="title-page">
-        <h2>@lang('phrases.Новости')</h2>
+        <h2>@lang('proxies::phrases.Новости')</h2>
     </div>
     <div class="buttons">
-        <a class="btn btn-success" href="{{ route('news.create') }}">@lang('phrases.Добавить новость')</a>
+        <a class="btn btn-success" href="{{ route('news.create') }}">@lang('proxies::phrases.Добавить новость')</a>
     </div>
 </div>
 
@@ -18,17 +18,17 @@
 
 <div class="block-background">
     <div class="title-block">
-        <h3>@lang('phrases.Список статей')</h3>
+        <h3>@lang('proxies::phrases.Список статей')</h3>
     </div>
     <table class="table table-bordered">
         <thead>
             <tr class="tr-name">
                 <th>No</th>
-                <th>@lang('phrases.Название')</th>
-                <th>@lang('phrases.Автор')</th>
-                <th>@lang('phrases.Дата публикации')</th>
-                <th>@lang('phrases.Обновлена')</th>
-                <th>@lang('phrases.Действие')</th>
+                <th>@lang('proxies::phrases.Название')</th>
+                <th>@lang('proxies::phrases.Автор')</th>
+                <th>@lang('proxies::phrases.Дата публикации')</th>
+                <th>@lang('proxies::phrases.Обновлена')</th>
+                <th>@lang('proxies::phrases.Действие')</th>
             </tr>
         </thead>
         <tbody>
@@ -54,7 +54,7 @@
             </tr>
             @endforeach
             @else
-            <td colspan="6" class="absent">@lang('phrases.Записи отсутствуют')</td>
+            <td colspan="6" class="absent">@lang('proxies::phrases.Записи отсутствуют')</td>
             @endif
         </tbody>
     </table>

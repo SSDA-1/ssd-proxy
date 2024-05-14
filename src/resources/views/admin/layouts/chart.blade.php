@@ -1,30 +1,30 @@
 <div class="row">
     <div class="field width-100">
-        <div class="title-field statistics">@lang('phrases.Статистика продаж')</div>
+        <div class="title-field statistics">@lang('proxies::phrases.Статистика продаж')</div>
         <canvas id="myChart"></canvas>
     </div>
 </div>
 <div class="row">
     <div class="field">
-        <div class="title-field">@lang('phrases.Введите дату')</div>
+        <div class="title-field">@lang('proxies::phrases.Введите дату')</div>
         <form id="chartForm" method="post" action="{{ route('chartValue') }}">
             @csrf
             <div class="wrap-input">
                 <input type="text" id="datePicker" name="datePicker" value="" class="input-text copy" />
-                <button type="submit" class="btn-input-success">@lang('phrases.Применить')</button>
+                <button type="submit" class="btn-input-success">@lang('proxies::phrases.Применить')</button>
             </div>
         </form>
     </div>
 </div>
 <div class="row">
     <div class="field">
-        <button id="0" type="button" class="btn btn-primary">@lang('phrases.За все время')</button>
+        <button id="0" type="button" class="btn btn-primary">@lang('proxies::phrases.За все время')</button>
     </div>
     <div class="field">
-        <button id="1" type="button" class="btn btn-primary">@lang('phrases.За текущий год')</button>
+        <button id="1" type="button" class="btn btn-primary">@lang('proxies::phrases.За текущий год')</button>
     </div>
     <div class="field">
-        <button id="2" type="button" class="btn btn-primary">@lang('phrases.За текущий месяц')</button>
+        <button id="2" type="button" class="btn btn-primary">@lang('proxies::phrases.За текущий месяц')</button>
     </div>
 </div>
 
