@@ -380,11 +380,13 @@
                     @endif
                     {{-- Страна --}}
                     <select name="country" id="" class="country_day proxy__application-li">
-                        @foreach ($tariffSettings['days_tariff'] as $key2 => $country)
-                            <option value="{{ $country['country'] }}">
-                                {{ $country['country'] }}
-                            </option>
-                        @endforeach
+                        @if(isset($tariffSettings['days_tariff']))
+                            @foreach ($tariffSettings['days_tariff'] as $key2 => $country)
+                                <option value="{{ $country['country'] }}">
+                                    {{ $country['country'] }}
+                                </option>
+                            @endforeach
+                        @endif
                     </select>
                     {{-- Промокод --}}
                     <input class="promocode proxy__application-li" type="text" name="promo" placeholder="@lang('proxies::phrases.Промокод')"
