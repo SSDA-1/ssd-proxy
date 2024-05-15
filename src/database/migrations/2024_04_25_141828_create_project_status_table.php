@@ -22,7 +22,7 @@ return new class extends Migration
             $table->timestamps();
         });
 
-        DB::table('tariff_settings')->insert([
+        DB::table('project_status')->insert([
             ['is_domain_active' => 0, 'created_at' => now(), 'updated_at' => now()],
         ]);
     }
