@@ -30,6 +30,10 @@ return new class extends Migration
             $table->string('third_email_address')->nullable();
             $table->timestamps();
         });
+
+        DB::table('setting_notices')->insert([
+            ['created_at' => now(), 'updated_at' => now()],
+        ]);
     }
 
     /**

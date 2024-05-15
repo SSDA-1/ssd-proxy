@@ -28,6 +28,10 @@ return new class extends Migration
             $table->string('phone')->nullable();
             $table->string('vkontakte')->nullable();
         });
+
+        DB::table('site_settings')->insert([
+            ['created_at' => now(), 'updated_at' => now()],
+        ]);
     }
 
     /**

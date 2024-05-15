@@ -27,6 +27,10 @@ return new class extends Migration
             $table->tinyInteger('promocode_discount')->default(0);
             $table->timestamps();
         });
+
+        DB::table('tariff_settings')->insert([
+            ['created_at' => now(), 'updated_at' => now()],
+        ]);
     }
 
     /**
