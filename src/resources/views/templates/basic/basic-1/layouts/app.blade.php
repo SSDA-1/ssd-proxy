@@ -17,18 +17,18 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
 
     {{-- Styles --}}
-    <link rel="stylesheet" href="{{ asset('assets/css/style.css') }}{{ '?' . time() }}">
-    <link rel="stylesheet" href="{{ asset('assets/css/components.css') }}{{ '?' . time() }}">
-    <link rel="stylesheet" href="{{ asset('assets/css/vars.css') }}">
-    <link rel="stylesheet" href="{{ asset('assets/css/modal.css') }}{{ '?' . time() }}">
+    <link rel="stylesheet" href="/vendor/ssda-1/proxies/assets/css/style.css{{ '?' . time() }}">
+    <link rel="stylesheet" href="/vendor/ssda-1/proxies/assets/css/components.css{{ '?' . time() }}">
+    <link rel="stylesheet" href="/vendor/ssda-1/proxies/assets/css/vars.css">
+    <link rel="stylesheet" href="/vendor/ssda-1/proxies/assets/css/modal.css{{ '?' . time() }}">
     @yield('style')
-    <link rel="stylesheet" href="{{ asset('assets/css/media.css') }}{{ '?' . time() }}">
+    <link rel="stylesheet" href="/vendor/ssda-1/proxies/assets/css/media.css{{ '?' . time() }}">
 
     {{-- Стороннее --}}
     {{-- подключаем CSS-селекта --}}
-    <link rel="stylesheet" href="{{ asset('assets/css/itc-custom-select.css') }}">
+    <link rel="stylesheet" href="/vendor/ssda-1/proxies/assets/css/itc-custom-select.css">
     {{-- подключаем JS-селекта --}}
-    <script src="{{ asset('assets/js/itc-custom-select.js') }}"></script>
+    <script src="/vendor/ssda-1/proxies/assets/js/itc-custom-select.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
 
 </head>
@@ -95,8 +95,8 @@
     </script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"
         integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
-    <script src="{{ asset('assets/js/all.js') }}{{ '?' . time() }}"></script>
-    <script src="{{ asset('assets/js/modal.js') }}{{ '?' . time() }}"></script>
+    <script src="/vendor/ssda-1/proxies/assets/js/all.js{{ '?' . time() }}"></script>
+    <script src="/vendor/ssda-1/proxies/assets/js/modal.js{{ '?' . time() }}"></script>
     @yield('javascript')
     <script>
         const allMenuBtns = document.querySelectorAll('.menu-btn');

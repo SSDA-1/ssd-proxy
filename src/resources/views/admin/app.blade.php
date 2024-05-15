@@ -15,15 +15,15 @@
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
 
     <!-- Styles -->
-    <link rel="stylesheet" href="{{ asset('admin/css/new-style.css') }}{{'?'.time()}}">
+    <link rel="stylesheet" href="/vendor/ssda-1/proxies/admin/css/new-style.css{{'?'.time()}}">
 
-    <link rel="stylesheet" href="{{ asset('admin/css/components.css') }}{{'?'.time()}}">
-    <link rel="stylesheet" href="{{ asset('admin/css/sidebar.css') }}">
-    <link rel="stylesheet" href="{{ asset('admin/css/vars.css') }}">
-    <link rel="stylesheet" href="{{ asset('admin/css/media.css') }}{{'?'.time()}}">
+    <link rel="stylesheet" href="/vendor/ssda-1/proxies/admin/css/components.css{{'?'.time()}}">
+    <link rel="stylesheet" href="/vendor/ssda-1/proxies/admin/css/sidebar.css">
+    <link rel="stylesheet" href="/vendor/ssda-1/proxies/admin/css/vars.css">
+    <link rel="stylesheet" href="/vendor/ssda-1/proxies/admin/css/media.css{{'?'.time()}}">
 
 
-    {{-- <link rel="stylesheet" href="{{ asset('admin/css/style.css') }}"> --}}
+    {{-- <link rel="stylesheet" href="/vendor/ssda-1/proxies/admin/css/style.css"> --}}
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css" />
 
     <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
@@ -54,7 +54,7 @@
     </div>
 
 
-    <script src="{{ asset('admin/js/script.js') }}"></script>
+    <script src="/vendor/ssda-1/proxies/admin/js/script.js"></script>
     @auth
         <script>
             let idUserMode = {{ Auth::user()->id }};
@@ -63,10 +63,10 @@
             let modeUrl = "{{ route('mode') }}";
             let sidebarUrl = "{{ route('sidebarmode') }}";
         </script>
-        <script src="{{ asset('admin/js/modal.js') }}"></script>
+        <script src="/vendor/ssda-1/proxies/admin/js/modal.js"></script>
     @endauth
 
-    <script src="{{ asset('admin/js/mode.js') }}"></script>
+    <script src="/vendor/ssda-1/proxies/admin/js/mode.js"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"
         integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
 
