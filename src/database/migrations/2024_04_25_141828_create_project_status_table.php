@@ -3,6 +3,7 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
+use Illuminate\Support\Facades\DB;
 
 return new class extends Migration
 {
@@ -20,6 +21,10 @@ return new class extends Migration
             $table->tinyInteger('to_delete')->default(0);
             $table->timestamps();
         });
+
+        DB::table('tariff_settings')->insert([
+            ['is_domain_active' => 0, 'created_at' => now(), 'updated_at' => now()],
+        ]);
     }
 
     /**
