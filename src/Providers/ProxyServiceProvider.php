@@ -101,7 +101,7 @@ class ProxyServiceProvider extends ServiceProvider
         $router->aliasMiddleware('subscription', RedirectIfProblematicSubscription::class);
 
         $this->publishes([
-            __DIR__.'/public' => public_path('vendor/ssda-1/proxies'),
+            __DIR__.'/../public' => public_path('vendor/ssda-1/proxies'),
         ], 'public');
 
         if ($this->app->runningInConsole()) {
