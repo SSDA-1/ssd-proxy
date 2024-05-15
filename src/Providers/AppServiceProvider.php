@@ -38,52 +38,97 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        $mainReviews = Reviews::all() ?? collect([]);
+        $mainReviews = collect([]);
+        if (Schema::hasTable('reviews')) {
+            $mainReviews = Reviews::all();
+        }
         View::share('reviewsSite', $mainReviews);
 
-        $mainAdvantag = Advantag::all() ?? collect([]);
+        $mainAdvantag = collect([]);
+        if (Schema::hasTable('advantags')) {
+            $mainAdvantag = Advantag::all();
+        }
         View::share('advantagSite', $mainAdvantag);
 
-        $mainMenu = Menu::all() ?? collect([]);
+        $mainMenu = collect([]);
+        if (Schema::hasTable('menus')) {
+            $mainMenu = Menu::all();
+        }
         View::share('menusSite', $mainMenu);
 
-        $mainFaq = Faq::all() ?? collect([]);
+        $mainFaq = collect([]);
+        if (Schema::hasTable('faqs')) {
+            $mainFaq = Faq::all();
+        }
         View::share('mainFaq', $mainFaq);
 
-        $settingsData = siteSetting::find(1) ?? collect([]);
+        $settingsData = collect([]);
+        if (Schema::hasTable('site_settings')) {
+            $settingsData = siteSetting::find(1) ?? collect([]);
+        }
         View::share('settingsData', $settingsData);
 
-        $server = Server::all() ?? collect([]);
+        $server = collect([]);
+        if (Schema::hasTable('servers')) {
+            $server = Server::all();
+        }
         View::share('server', $server);
 
-        $tgData = settingNotices::find(1) ?? collect([]);
+        $tgData = collect([]);
+        if (Schema::hasTable('setting_notices')) {
+            $tgData = settingNotices::find(1) ?? collect([]);
+        }
         View::share('tgData', $tgData);
 
         // Тарифы
-        $tariffSettings = TariffSettings::find(1) ?? collect([]);
+        $tariffSettings = collect([]);
+        if (Schema::hasTable('tariff_settings')) {
+            $tariffSettings = TariffSettings::find(1) ?? collect([]);
+        }
         View::share('tariffSettings', $tariffSettings);
 
         // Скидка количество прокси
-        $countProxyGeneralDiscounts = CountProxyDiscount::where('type', 'general')->get() ?? collect([]);
+        $countProxyGeneralDiscounts = collect([]);
+        if (Schema::hasTable('count_proxy_discounts')) {
+            $countProxyGeneralDiscounts = CountProxyDiscount::where('type', 'general')->get();
+        }
         View::share('countProxyGeneralDiscounts', $countProxyGeneralDiscounts);
 
-        $countProxyPrivateDiscounts = CountProxyDiscount::where('type', 'private')->get() ?? collect([]);
+        $countProxyPrivateDiscounts = collect([]);
+        if (Schema::hasTable('count_proxy_discounts')) {
+            $countProxyPrivateDiscounts = CountProxyDiscount::where('type', 'private')->get();
+        }
         View::share('countProxyPrivateDiscounts', $countProxyPrivateDiscounts);
 
-        $countProxyAllDiscounts = CountProxyDiscount::where('type', 'all')->get() ?? collect([]);
+        $countProxyAllDiscounts = collect([]);
+        if (Schema::hasTable('count_proxy_discounts')) {
+            $countProxyAllDiscounts = CountProxyDiscount::where('type', 'all')->get();
+        }
         View::share('countProxyAllDiscounts', $countProxyAllDiscounts);
 
         // Скидка количество дней
-        $countDaysGeneralDiscounts = CountDaysDiscount::where('type', 'general')->get() ?? collect([]);
+        $countDaysGeneralDiscounts = collect([]);
+        if (Schema::hasTable('count_days_discounts')) {
+            $countDaysGeneralDiscounts = CountDaysDiscount::where('type', 'general')->get();
+        }
         View::share('countDaysGeneralDiscounts', $countDaysGeneralDiscounts);
 
-        $countDaysPrivateDiscounts = CountDaysDiscount::where('type', 'private')->get() ?? collect([]);
+        $countDaysPrivateDiscounts = collect([]);
+        if (Schema::hasTable('count_days_discounts')) {
+            $countDaysPrivateDiscounts = CountDaysDiscount::where('type', 'private')->get();
+        }
         View::share('countDaysPrivateDiscounts', $countDaysPrivateDiscounts);
 
-        $countDaysAllDiscounts = CountDaysDiscount::where('type', 'all')->get() ?? collect([]);
+        $countDaysAllDiscounts = collect([]);
+        if (Schema::hasTable('count_days_discounts')) {
+            $countDaysAllDiscounts = CountDaysDiscount::where('type', 'all')->get();
+        }
         View::share('countDaysAllDiscounts', $countDaysAllDiscounts);
 
-        $partners = Partner::all() ?? collect([]);
+        $partners = collect([]);
+        if (Schema::hasTable('partners')) {
+            $partners = Partner::all();
+        }
         View::share('partners', $partners);
     }
 }
