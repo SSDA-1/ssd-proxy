@@ -6,4 +6,5 @@
 6. composer require spatie/laravel-permission ^5.5
 7. composer require webpatser/laravel-countries ^1.5
 8. composer require ssda-1/proxies
-9. php artisan vendor:publish --tag=public
+9. php artisan migrate
+10. php artisan vendor:publish --tag=public
