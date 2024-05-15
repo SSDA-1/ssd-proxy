@@ -638,14 +638,23 @@ $data = [
     'Начисление' => 'Accrual',
 ];
 
-$faqs = Ssda1\proxies\Models\Faq::all();
+$faqs = collect([]);
+if (Illuminate\Support\Facades\Schema::hasTable('faqs')) {
+    $faqs = Ssda1\proxies\Models\Faq::all();
+}
 $dataFaqQuestions = $faqs->pluck('question_en', 'question')->toArray();
 $dataFaqAnswers = $faqs->pluck('answer_en', 'answer')->toArray();
 
-$menus = Ssda1\proxies\Models\Menu::all();
+$menus = collect([]);
+if (Illuminate\Support\Facades\Schema::hasTable('faqs')) {
+    $menus = Ssda1\proxies\Models\Menu::all();
+}
 $dataMenus = $menus->pluck('name_en', 'name')->toArray();
 
-$logs = Ssda1\proxies\Models\ProcessLog::all();
+$logs = collect([]);
+if (Illuminate\Support\Facades\Schema::hasTable('faqs')) {
+    $logs = Ssda1\proxies\Models\ProcessLog::all();
+}
 $dataLogNames = $logs->pluck('name_en', 'name')->toArray();
 $dataLogDescriptions = $logs->pluck('description_en', 'description')->toArray();
 
