@@ -38,52 +38,52 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        $mainReviews = Reviews::all();
+        $mainReviews = Reviews::all() ?? collect([]);
         View::share('reviewsSite', $mainReviews);
 
-        $mainAdvantag = Advantag::all();
+        $mainAdvantag = Advantag::all() ?? collect([]);
         View::share('advantagSite', $mainAdvantag);
 
-        $mainMenu = Menu::all();
+        $mainMenu = Menu::all() ?? collect([]);
         View::share('menusSite', $mainMenu);
 
-        $mainFaq = Faq::all();
+        $mainFaq = Faq::all() ?? collect([]);
         View::share('mainFaq', $mainFaq);
 
-        $settingsData = siteSetting::find(1);
+        $settingsData = siteSetting::find(1) ?? collect([]);
         View::share('settingsData', $settingsData);
 
-        $server = Server::all();
+        $server = Server::all() ?? collect([]);
         View::share('server', $server);
 
-        $tgData = settingNotices::find(1);
+        $tgData = settingNotices::find(1) ?? collect([]);
         View::share('tgData', $tgData);
 
         // Тарифы
-        $tariffSettings = TariffSettings::find(1);
+        $tariffSettings = TariffSettings::find(1) ?? collect([]);
         View::share('tariffSettings', $tariffSettings);
 
         // Скидка количество прокси
-        $countProxyGeneralDiscounts = CountProxyDiscount::where('type', 'general')->get();
+        $countProxyGeneralDiscounts = CountProxyDiscount::where('type', 'general')->get() ?? collect([]);
         View::share('countProxyGeneralDiscounts', $countProxyGeneralDiscounts);
 
-        $countProxyPrivateDiscounts = CountProxyDiscount::where('type', 'private')->get();
+        $countProxyPrivateDiscounts = CountProxyDiscount::where('type', 'private')->get() ?? collect([]);
         View::share('countProxyPrivateDiscounts', $countProxyPrivateDiscounts);
 
-        $countProxyAllDiscounts = CountProxyDiscount::where('type', 'all')->get();
+        $countProxyAllDiscounts = CountProxyDiscount::where('type', 'all')->get() ?? collect([]);
         View::share('countProxyAllDiscounts', $countProxyAllDiscounts);
 
         // Скидка количество дней
-        $countDaysGeneralDiscounts = CountDaysDiscount::where('type', 'general')->get();
+        $countDaysGeneralDiscounts = CountDaysDiscount::where('type', 'general')->get() ?? collect([]);
         View::share('countDaysGeneralDiscounts', $countDaysGeneralDiscounts);
 
-        $countDaysPrivateDiscounts = CountDaysDiscount::where('type', 'private')->get();
+        $countDaysPrivateDiscounts = CountDaysDiscount::where('type', 'private')->get() ?? collect([]);
         View::share('countDaysPrivateDiscounts', $countDaysPrivateDiscounts);
 
-        $countDaysAllDiscounts = CountDaysDiscount::where('type', 'all')->get();
+        $countDaysAllDiscounts = CountDaysDiscount::where('type', 'all')->get() ?? collect([]);
         View::share('countDaysAllDiscounts', $countDaysAllDiscounts);
 
-        $partners = Partner::all();
+        $partners = Partner::all() ?? collect([]);
         View::share('partners', $partners);
     }
 }
