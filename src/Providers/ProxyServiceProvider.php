@@ -104,6 +104,10 @@ class ProxyServiceProvider extends ServiceProvider
             __DIR__.'/../public' => public_path('vendor/ssda-1/proxies'),
         ], 'public');
 
+        $this->publishes([
+            __DIR__.'/../config/license.php' => config_path('license.php'),
+        ], 'config');
+
         if ($this->app->runningInConsole()) {
             $this->commands([
                 EndProxyCron::class,
