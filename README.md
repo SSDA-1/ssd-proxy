@@ -8,3 +8,4 @@
 8. composer require ssda-1/proxies
 9. php artisan migrate
 10. php artisan vendor:publish --tag=public
+11. php artisan vendor:publish --tag=config
