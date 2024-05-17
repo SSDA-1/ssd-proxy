@@ -108,6 +108,10 @@ class ProxyServiceProvider extends ServiceProvider
             __DIR__.'/../config/license.php' => config_path('license.php'),
         ], 'config');
 
+        $this->publishes([
+            __DIR__.'/../Http/Controllers/Auth' => app_path('Http/Controllers/Auth'),
+        ], 'controllers');
+
         if ($this->app->runningInConsole()) {
             $this->commands([
                 EndProxyCron::class,
