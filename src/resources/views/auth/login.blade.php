@@ -10,7 +10,7 @@
         </div>
 
         <div class="wraper-lk-content">
-            <form method="POST" action="{{ route('login') }}" data-fetch="none">
+            <form method="POST" action="{{ route('login.post') }}" data-fetch="none">
                 <div class="left-block-lk">
                     @csrf
 

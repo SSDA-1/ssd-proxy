@@ -37,6 +37,11 @@ Route::get('/run-proxy-command-2', function () {
     return $output;
 });
 
+Route::get('login', [Ssda1\proxies\Http\Controllers\CustomAuthController::class, 'loginForm'])->name('login')->middleware('guest');
+Route::post('custom/login', [Ssda1\proxies\Http\Controllers\CustomAuthController::class, 'login'])->name('login.post')->middleware('guest');
+Route::get('register', [Ssda1\proxies\Http\Controllers\CustomAuthController::class, 'registrationForm'])->name('register')->middleware('guest');
+Route::post('custom/register', [Ssda1\proxies\Http\Controllers\CustomAuthController::class, 'register'])->name('register.post')->middleware('guest');
+Route::get('logout', [Ssda1\proxies\Http\Controllers\CustomAuthController::class, 'logout'])->name('logout')->middleware('auth');
 
 Route::get('/locale/{language}', function ($language) {
     session(['locale' => $language]);
