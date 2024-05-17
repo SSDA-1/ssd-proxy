@@ -23,7 +23,9 @@ class CustomAuthController extends Controller
             Session::put('referral_code', $referralCode);
         }
 
-        return view('proxies::auth.login');
+        return view('proxies::auth.login')->withErrors([
+            'error' => 'Неправильное имя пользователя или пароль.'
+        ]);
     }
 
     public function login(Request $request)
@@ -45,7 +47,9 @@ class CustomAuthController extends Controller
 
     public function registrationForm()
     {
-        return view('proxies::auth.register');
+        return view('proxies::auth.register')->withErrors([
+            'error' => 'Неправильное имя пользователя или пароль.'
+        ]);
     }
 
     public function register(Request $request)
@@ -91,7 +95,9 @@ class CustomAuthController extends Controller
 
         Auth::login($user);
 
-        return redirect('/');
+        return redirect('/')->withErrors([
+            'error' => 'Неправильное имя пользователя или пароль.'
+        ]);
     }
 
     public function logout()
