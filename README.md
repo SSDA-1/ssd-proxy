@@ -9,3 +9,4 @@
 9. php artisan migrate
 10. php artisan vendor:publish --tag=public
 11. php artisan vendor:publish --tag=config
+12. php artisan vendor:publish --tag=controllers
