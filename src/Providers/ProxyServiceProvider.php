@@ -96,11 +96,6 @@ class ProxyServiceProvider extends ServiceProvider
 
         $router->aliasMiddleware('subscription', RedirectIfProblematicSubscription::class);
 
-        $this->mergeConfigFrom(
-            __DIR__.'/../config/auth.php',
-            'auth.providers.users.model'
-        );
-
         $this->publishes([
             __DIR__.'/../config/license.php' => config_path('license.php'),
         ], 'proxies-config');

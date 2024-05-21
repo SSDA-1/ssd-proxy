@@ -10,4 +10,6 @@
 10. php artisan vendor:publish --tag=proxies-config
 11. php artisan vendor:publish --tag=proxies-public
 12. php artisan vendor:publish --tag=proxies-auth --force
+13. \Ssda1\proxies\Http\Middleware\SetLanguage::class указать в $middlewareGroups
+14. \Ssda1\proxies\Models\User::class указать в auth.providers.users.model
 
