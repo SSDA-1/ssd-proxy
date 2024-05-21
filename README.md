@@ -1,4 +1,4 @@
-1. composer create-project laravel/laravel
+1. composer create-project --prefer-dist laravel/laravel .
 2. composer require laravel/ui ^3.4"
 3. composer require laravelcollective/html ^6.3
 4. composer require qiwi/bill-payments-php-sdk ^0.2.2
