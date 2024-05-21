@@ -94,31 +94,21 @@ class ProxyServiceProvider extends ServiceProvider
         $this->loadViewsFrom(__DIR__.'/../resources/views', 'proxies');
         $this->loadRoutesFrom(__DIR__.'/../routes/web.php');
 
-        $router->middlewareGroup('web', [
-            SetLanguage::class,
-        ]);
-
         $router->aliasMiddleware('subscription', RedirectIfProblematicSubscription::class);
-
-        $this->publishes([
-            __DIR__.'/../public' => public_path('vendor/ssda-1/proxies'),
-        ], 'proxies-public');
 
         $this->publishes([
             __DIR__.'/../config/license.php' => config_path('license.php'),
         ], 'proxies-config');
 
         $this->publishes([
-            __DIR__.'/../Models/User.php' => app_path('Models/User.php'),
-        ], 'proxies-user');
+            __DIR__.'/../public' => public_path('vendor/ssda-1/proxies'),
+        ], 'proxies-public');
 
         $this->publishes([
+            __DIR__.'/../Http/Controllers/Auth' => app_path('Http/Controllers/Auth'),
+            __DIR__.'/../resources/views/auth' => resource_path('views/auth'),
             __DIR__.'/../routes/web.php' => base_path('routes/web.php'),
-        ], 'proxies-routes');
-
-        $this->publishes([
-            __DIR__.'/Auth' => app_path('Http/Controllers/Auth'),
-        ], 'proxies-controllers');
+        ], 'proxies-auth');
 
         if ($this->app->runningInConsole()) {
             $this->commands([
