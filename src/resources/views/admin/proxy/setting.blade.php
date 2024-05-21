@@ -625,7 +625,7 @@
 
 @section('script')
     {{-- Табы --}}
-    <script src="{{ asset('admin/js/tabs.js') }}{{ '?' . time() }}"></script>
+    <script src="/vendor/ssda-1/proxies/'admin/js/tabs.js{{ '?' . time() }}"></script>
     <script>
         new ItcTabs('.settings-tabs', {}, 'settings-tabs');
     </script>

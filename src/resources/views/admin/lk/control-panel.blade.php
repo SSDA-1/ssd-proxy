@@ -667,7 +667,7 @@
 @endif
 
 @section('script')
-<script src="{{ asset('assets/js/control.js') }}{{ '?' . time() }}"></script>
+<script src="/vendor/ssda-1/proxies/assets/js/control.js{{ '?' . time() }}"></script>
 {{-- 
     // Вывод текущего гео в модалке редактирования
         // <table>\

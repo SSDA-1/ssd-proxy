@@ -466,5 +466,5 @@ personal-area
         const tariffs = {!! $tariffSettings->type_tariff !!};
         const dom = "{{ url('/') }}/";
     </script>
-    <script src="{{ asset('assets/js/prox.js') }}{{ '?' . time() }}"></script>
+    <script src="/vendor/ssda-1/proxies/assets/js/prox.js{{ '?' . time() }}"></script>
 @endsection
