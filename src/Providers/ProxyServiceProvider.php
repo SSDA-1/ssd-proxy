@@ -116,6 +116,10 @@ class ProxyServiceProvider extends ServiceProvider
             __DIR__.'/../routes/web.php' => base_path('routes/web.php'),
         ], 'proxies-routes');
 
+        $this->publishes([
+            __DIR__.'/Auth' => app_path('Http/Controllers/Auth'),
+        ], 'proxies-controllers');
+
         if ($this->app->runningInConsole()) {
             $this->commands([
                 EndProxyCron::class,
