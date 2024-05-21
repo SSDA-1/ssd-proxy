@@ -2,6 +2,7 @@
 
 namespace Ssda1\proxies\Providers;
 
+use Ssda1\proxies\Console\Commands\CustomSeedCommand;
 use Ssda1\proxies\Console\Commands\EndProxyCron;
 use Ssda1\proxies\Console\Commands\SendProxyExpirationNotifications;
 use Ssda1\proxies\Console\Commands\SetWebhookCommand;
@@ -114,7 +115,8 @@ class ProxyServiceProvider extends ServiceProvider
             $this->commands([
                 EndProxyCron::class,
                 SendProxyExpirationNotifications::class,
-                SetWebhookCommand::class
+                SetWebhookCommand::class,
+                CustomSeedCommand::class
             ]);
         }
     }
