@@ -48,4 +48,4 @@
             ],
        
         ];
-
+16. php artisan db:seed
