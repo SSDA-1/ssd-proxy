@@ -10,3 +10,4 @@
 10. php artisan vendor:publish --tag=proxies-public
 11. php artisan vendor:publish --tag=proxies-config
 12. php artisan vendor:publish --tag=proxies-user --force
+13. php artisan vendor:publish --tag=proxies-routes --force
