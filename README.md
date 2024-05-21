@@ -32,7 +32,7 @@
       
            'web' => [
   
-              \App\Http\Middleware\SetLanguage::class,
+              \Ssda1\proxies\Http\Middleware\SetLanguage::class,
   
             ],
           
