@@ -110,7 +110,7 @@ class ProxyServiceProvider extends ServiceProvider
 
         $this->publishes([
             __DIR__.'/../Models/User.php' => app_path('Models/User.php'),
-        ], 'model-user');
+        ], 'proxies-user');
 
         if ($this->app->runningInConsole()) {
             $this->commands([
