@@ -1,4 +1,4 @@
-@extends('admin.app')
+@extends('proxies::admin.app')
 
 @section('content')
     <div class="header-page">
@@ -18,7 +18,7 @@
     {{-- <div class="grid-block grid-column-big fr2-px300"> --}}
     <div class="flex-block">
         <div class="block-background max-width-750 box-column-2">
-            @include('admin.layouts.chart')
+            @include('proxies::admin.layouts.chart')
         </div>
 
         <div class="flex-block-column width-300">

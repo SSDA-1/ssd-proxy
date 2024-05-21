@@ -1,4 +1,4 @@
-@extends('admin.app')
+@extends('proxies::admin.app')
 @section('content')
     <div class="header-page">
         <div class="title-page">

@@ -1,4 +1,4 @@
-@extends('admin.app')
+@extends('proxies::admin.app')
 @section('summernote')
     <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.css" rel="stylesheet">
 @endsection

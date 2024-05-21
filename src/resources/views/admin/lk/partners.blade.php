@@ -1,4 +1,4 @@
-@extends('templates.' . (new App\Http\Controllers\TemplateController())->getUserTemplateDirectory() . '.layouts.app')
+@extends('proxies::templates.' . (new Ssda1\proxies\Http\Controllers\TemplateController())->getUserTemplateDirectory() . '.layouts.app')
 
 @section('style')
     <link rel="stylesheet" href="{{ asset('assets/css/lk.css') }}{{ '?' . time() }}">
@@ -71,7 +71,7 @@
 
 @section('content')
     <div class="lk-block">
-        @include('admin.lk.menu')
+        @include('proxies::admin.lk.menu')
         <div class="lk-content">
             <div class="wrap-title" style="margin-bottom: 40px; padding: 20px 20px 0">
                 <h3>Партнеры и промокоды</h3>

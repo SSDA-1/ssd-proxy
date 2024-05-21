@@ -36,13 +36,13 @@
 <body>
     <div id="app">
 
-        @include('admin.sidebar')
+        @include('proxies::admin.sidebar')
 
         <section class="wrapper">
             <div class="content">@yield('content')</div>
         </section>
         @yield('modal')
-        @include('admin.inc.modal')
+        @include('proxies::admin.inc.modal')
     </div>
 
     <div class="notifications invisible">
