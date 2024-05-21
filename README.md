@@ -47,4 +47,4 @@
             ],
        
         ];
-16. php artisan db:seed
+16. php artisan package:seed
