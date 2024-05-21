@@ -96,15 +96,6 @@ class RegisterController extends Controller
     protected function create(array $data): User
     {
         try {
-            $referrerCode = Str::random(8);
-            $referralCode = null;
-
-            $settingModel = SettingKraken::find(1);
-            // OLD
-            // $ipSetting = $settingModel->integration_ip;
-            // $loginSetting = $settingModel->integration_login;
-            // $passwordSetting = $settingModel->integration_password;
-
             $newUser = User::create([
                 'name' => $data['name'],
                 'email' => $data['email'],
@@ -123,12 +114,11 @@ class RegisterController extends Controller
                 $getUserAddApi = getUserAddApi($userID, $ipSetting, $apiKey, $data['name'], $data['password'], $data['email']);
 
                 // Дополнение: Проверка значения переменной $getUserAddApi
-
             }
+
             if ($getUserAddApi !== true) {
                 $newUser->delete(); // Удаляем созданного пользователя
                 throw new \Exception(serialize($getUserAddApi));
-                // return $getUserAddApi;
             }
         } catch (\Exception $e) {
             // Верните сообщение об ошибке
@@ -139,11 +129,8 @@ class RegisterController extends Controller
         }
 
 
-
-
         if (isset($data['ref'])) {
             $referrer = User::where('referral_code', $data['ref'])->firstOrFail();
-            $referrerCode = $referrer->referral_code;
 
             $referral = new Referral();
             $referral->user_id = $newUser->id;
@@ -156,7 +143,6 @@ class RegisterController extends Controller
             $newUser->save();
 
             $referral->referral_code = $referralCode;
-
             $referral->save();
 
             // Update referrer's stats
@@ -165,12 +151,18 @@ class RegisterController extends Controller
             $referrer->save();
         }
 
-        // try {
-
-        // }catch (\Exception){
-
-        // }
-
         return $newUser;
+    }
+
+    /**
+     * Show the application registration form.
+     *
+     * @return \Illuminate\View\View
+     */
+    public function showRegistrationForm()
+    {
+        return view('auth.register')->withErrors([
+            'error' => 'Неправильное имя пользователя или пароль.'
+        ]);
     }
 }
