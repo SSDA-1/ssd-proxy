@@ -64,7 +64,7 @@ personal-area
         }
     </style>
     <div class="lk-block">
-        @include('admin.lk.menu')
+        @include('proxies::admin.lk.menu')
         <div class="lk-content">
             <ul class="help">
                 <li>

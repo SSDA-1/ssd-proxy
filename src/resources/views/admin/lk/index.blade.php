@@ -56,33 +56,35 @@ personal-area
                     <div class="form">
                         <h3>@lang('proxies::phrases.История движения средств')</h3>
                         <ul>
-                            @foreach (Auth::user()->historyOperation as $operation)
-                                @if ($operation->type != 'buySub')
-                                    <li>
-                                        <div class="date">
-                                            {{ \Carbon\Carbon::parse($operation->created_at, 'GMT')->format('m.d.Y') }}
-                                            в {{ \Carbon\Carbon::parse($operation->created_at, 'GMT')->format('h:s') }}
-                                        </div>
-                                        <div class="type {{ $operation->type == 'minus' ? 'minus' : '' }}">
-                                            <img
-                                                src="/assets/img/{{ $operation->type == 'plus' ? 'iconoir_plus.svg' : ($operation->type == 'minus' ? 'minus.svg' : ($operation->type == 'buySub' ? 'iconoir_plus.svg' : '')) }}" />{{ $operation->amount }}
-                                            $
-                                        </div>
-                                    </li>
-                                @elseif($operation->status != null)
-                                    <li>
-                                        <div class="date">
-                                            {{ \Carbon\Carbon::parse($operation->created_at, 'GMT')->format('m.d.Y') }}
-                                            в {{ \Carbon\Carbon::parse($operation->created_at, 'GMT')->format('h:s') }}
-                                        </div>
-                                        <div class="type {{ $operation->type == 'minus' ? 'minus' : '' }}">
-                                            <img
-                                                src="/assets/img/{{ $operation->type == 'plus' ? 'iconoir_plus.svg' : ($operation->type == 'minus' ? 'minus.svg' : ($operation->type == 'buySub' ? 'iconoir_plus.svg' : '')) }}" />{{ $operation->amount }}
-                                            $
-                                        </div>
-                                    </li>
-                                @endif
-                            @endforeach
+                            @if(!empty(Auth::user()->historyOperation))
+                                @foreach (Auth::user()->historyOperation as $operation)
+                                    @if ($operation->type != 'buySub')
+                                        <li>
+                                            <div class="date">
+                                                {{ \Carbon\Carbon::parse($operation->created_at, 'GMT')->format('m.d.Y') }}
+                                                в {{ \Carbon\Carbon::parse($operation->created_at, 'GMT')->format('h:s') }}
+                                            </div>
+                                            <div class="type {{ $operation->type == 'minus' ? 'minus' : '' }}">
+                                                <img
+                                                    src="/assets/img/{{ $operation->type == 'plus' ? 'iconoir_plus.svg' : ($operation->type == 'minus' ? 'minus.svg' : ($operation->type == 'buySub' ? 'iconoir_plus.svg' : '')) }}" />{{ $operation->amount }}
+                                                $
+                                            </div>
+                                        </li>
+                                    @elseif($operation->status != null)
+                                        <li>
+                                            <div class="date">
+                                                {{ \Carbon\Carbon::parse($operation->created_at, 'GMT')->format('m.d.Y') }}
+                                                в {{ \Carbon\Carbon::parse($operation->created_at, 'GMT')->format('h:s') }}
+                                            </div>
+                                            <div class="type {{ $operation->type == 'minus' ? 'minus' : '' }}">
+                                                <img
+                                                    src="/assets/img/{{ $operation->type == 'plus' ? 'iconoir_plus.svg' : ($operation->type == 'minus' ? 'minus.svg' : ($operation->type == 'buySub' ? 'iconoir_plus.svg' : '')) }}" />{{ $operation->amount }}
+                                                $
+                                            </div>
+                                        </li>
+                                    @endif
+                                @endforeach
+                            @endif
                         </ul>
 
                     </div>
