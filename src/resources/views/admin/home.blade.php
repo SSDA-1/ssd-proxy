@@ -147,7 +147,7 @@
                     </tr>
                 </thead>
                 <tbody>
-                    @inject('ServerStatusService', 'App\Service\ServerStatusService')
+                    @inject('ServerStatusService', 'Ssda1\proxies\Service\ServerStatusService')
                     @forelse($servers as $server)
                         @php
                             $countries = Countries::getList('en', 'php', 'cldr');
@@ -157,8 +157,8 @@
                             });
                             $countrySearch = reset($filteredCountries);
 
-                            $countModems = App\Models\Modem::where('server_id', '=', $server->id)->count();
-                            $countModemsFull = App\Models\Modem::where('server_id', '=', $server->id)
+                            $countModems = Ssda1\proxies\Models\Modem::where('server_id', '=', $server->id)->count();
+                            $countModemsFull = Ssda1\proxies\Models\Modem::where('server_id', '=', $server->id)
                                 ->get()
                                 ->where('proxyfull', '==', 'full')
                                 ->count();

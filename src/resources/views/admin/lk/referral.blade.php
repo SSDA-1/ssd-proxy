@@ -169,7 +169,7 @@
                                             ? '<td class="plus">' . __('proxies::phrases.Начисление') . '</td>'
                                             : '<td class="minus">' . __('proxies::phrases.Списание') . '</td>' !!}
                                         <td>{{ $siteSettingModel->deposit_percentage }}%, @lang('proxies::phrases.От'):
-                                            {{ App\Models\User::find($operation->referred_by)->name }}</td>
+                                            {{ Ssda1\proxies\Models\User::find($operation->referred_by)->name }}</td>
                                         <td>{{ $operation->duration }} @lang('proxies::phrases.дней'), {{ $operation->quantity }}
                                             @lang('proxies::phrases.шт'), {{ $operation->country ?? '' }}</td>
                                         <td>{{ $operation->balance_before ?? '-' }}$</td>

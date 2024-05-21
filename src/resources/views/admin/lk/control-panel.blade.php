@@ -43,7 +43,7 @@
                             <div class="cell box1">@lang('proxies::phrases.Действия')</div>
                         </div>
                         <div class="tbody">
-                            @inject('proxyStatusService', 'App\Service\ProxyStatusService')
+                            @inject('proxyStatusService', 'Ssda1\proxies\Service\ProxyStatusService')
                             @php
                                 $modemRow = 0;
                                 $idFirstRow = 0;

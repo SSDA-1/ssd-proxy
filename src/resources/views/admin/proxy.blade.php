@@ -75,7 +75,7 @@
                             @forelse ($ports->sortBy('id_kraken') as $port)
                                 @if ($item->id == $port->server_id)
                                     @php
-                                        $users = App\Models\User::whereIn('id_kraken', $port->users)->get(); // Получение пользователей по идентификаторам
+                                        $users = Ssda1\proxies\Models\User::whereIn('id_kraken', $port->users)->get(); // Получение пользователей по идентификаторам
                                     @endphp
                                     <tr id="modem_{{ $port->id }}">
                                         <td>{{ $port->id_kraken }}</td>
