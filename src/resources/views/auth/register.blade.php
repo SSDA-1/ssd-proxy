@@ -14,7 +14,7 @@
             </div>
         @endif
         <div class="wraper-lk-content">
-            <form method="POST" action="{{ route('register.post') }}" data-fetch="none">
+            <form method="POST" action="{{ route('register') }}" data-fetch="none">
                 @csrf
 
                 <div class="left-block-lk">
