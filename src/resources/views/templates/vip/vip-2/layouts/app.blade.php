@@ -23,7 +23,7 @@
 
 
     <!-- Styles -->
-    <link rel="stylesheet" href="{{ asset('assets/css/style.css') }}">
+    <link rel="stylesheet" href="/vendor/ssda-1/proxies/assets/css/style.css">
 
 </head>
 
