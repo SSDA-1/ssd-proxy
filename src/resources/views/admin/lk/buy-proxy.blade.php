@@ -418,26 +418,28 @@ personal-area
                     <div class="title">@lang('proxies::phrases.Продлить прокси ')<span class="numberProxyText"></span></div>
                     <div class="massage">
                         <select name="month">
-                            @for ($monthI = 7; $monthI <= $settingModel->proxy_mounth; $monthI++)
-                                @if ($monthI == 7)
-                                    <option value="{{ $monthI }}" data-sale="">{{ $monthI }}
-                                        @lang('proxies::phrases.дней')
-                                    </option>
-                                @elseif($monthI % 20 == 0 and $monthI <= 30)
-                                    <option value="{{ $monthI }}"
-                                        data-sale="{{ $settingModel->proxy_two_sel_period }}"
-                                        data-sale-count="{{ $settingModel->proxy_two_sel_count }}">{{ $monthI }}
-                                        @lang('proxies::phrases.дней')
-                                    </option>
-                                @elseif($monthI % 30 == 0)
-                                    <option value="{{ $monthI }}"
-                                        data-sale="{{ $settingModel->proxy_three_sel_period }}"
-                                        data-sale-count="{{ $settingModel->proxy_three_sel_count }}">
-                                        {{ $monthI }}
-                                        @lang('proxies::phrases.дней')
-                                    </option>
-                                @endif
-                            @endfor
+                            @if(!empty($settingModel->proxy_mounth))
+                                @for ($monthI = 7; $monthI <= $settingModel->proxy_mounth; $monthI++)
+                                    @if ($monthI == 7)
+                                        <option value="{{ $monthI }}" data-sale="">{{ $monthI }}
+                                            @lang('proxies::phrases.дней')
+                                        </option>
+                                    @elseif($monthI % 20 == 0 and $monthI <= 30)
+                                        <option value="{{ $monthI }}"
+                                            data-sale="{{ $settingModel->proxy_two_sel_period }}"
+                                            data-sale-count="{{ $settingModel->proxy_two_sel_count }}">{{ $monthI }}
+                                            @lang('proxies::phrases.дней')
+                                        </option>
+                                    @elseif($monthI % 30 == 0)
+                                        <option value="{{ $monthI }}"
+                                            data-sale="{{ $settingModel->proxy_three_sel_period }}"
+                                            data-sale-count="{{ $settingModel->proxy_three_sel_count }}">
+                                            {{ $monthI }}
+                                            @lang('proxies::phrases.дней')
+                                        </option>
+                                    @endif
+                                @endfor
+                            @endif
                         </select>
                         <input type="hidden" name="id">
                     </div>
