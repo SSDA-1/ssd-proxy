@@ -12,12 +12,11 @@
 12. php artisan vendor:publish --tag=proxies-public
 13. php artisan vendor:publish --tag=proxies-auth --force
 14. settings spatie/laravel-permission
-    - php artisan vendor:publish --provider="Spatie\Permission\PermissionServiceProvider"
     - add Kernel.php
       protected $middlewareAliases = [
   
-          'permission' => \Spatie\Permission\Middlewares\PermissionMiddleware::class,
-          'role_or_permission' => \Spatie\Permission\Middlewares\RoleOrPermissionMiddleware::class,
+          'permission' => \Spatie\Permission\Middleware\PermissionMiddleware::class,
+          'role_or_permission' => \Spatie\Permission\Middleware\RoleOrPermissionMiddleware::class,
           'subscription' => \App\Http\Middleware\RedirectIfProblematicSubscription::class,
       
       ];
