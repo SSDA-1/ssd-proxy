@@ -48,3 +48,4 @@
        
         ];
 16. php artisan package:seed
+17. php artisan vendor:publish --tag=laravel-pagination
