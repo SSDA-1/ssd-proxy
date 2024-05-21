@@ -7,8 +7,7 @@
 7. composer require webpatser/laravel-countries ^1.5
 8. composer require ssda-1/proxies
 9. php artisan migrate
-10. php artisan vendor:publish --tag=proxies-public
-11. php artisan vendor:publish --tag=proxies-config
-12. php artisan vendor:publish --tag=proxies-user --force
-13. php artisan vendor:publish --tag=proxies-routes --force
-14. php artisan vendor:publish --tag=proxies-controllers --force
+10. php artisan vendor:publish --tag=proxies-config
+11. php artisan vendor:publish --tag=proxies-public
+12. php artisan vendor:publish --tag=proxies-auth --force
+
