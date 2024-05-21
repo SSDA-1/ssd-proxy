@@ -216,12 +216,14 @@ personal-area
                                 <input type="hidden" name="type" value="private" class="type__proxy__day" hidden>
                             @endif
                             {{-- Страна --}}
-                            <select name="country" id="" class="country_day proxy__application-li">
-                                @foreach ($tariffSettings['days_tariff'] as $key2 => $country)
-                                    <option value="{{ $country['country'] }}">
-                                        {{ $country['country'] }}
-                                    </option>
-                                @endforeach
+                            <select name="country" id="" class="country_day proxy__application-li">\
+                                @if(isset($tariffSettings['days_tariff']))
+                                    @foreach ($tariffSettings['days_tariff'] as $key2 => $country)
+                                        <option value="{{ $country['country'] }}">
+                                            {{ $country['country'] }}
+                                        </option>
+                                    @endforeach
+                                @endif
                             </select>
                             {{-- Промокод --}}
                             <input class="promocode proxy__application-li" type="text" name="promo"
