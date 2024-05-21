@@ -102,15 +102,15 @@ class ProxyServiceProvider extends ServiceProvider
 
         $this->publishes([
             __DIR__.'/../public' => public_path('vendor/ssda-1/proxies'),
-        ], 'public');
+        ], 'proxies-public');
 
         $this->publishes([
             __DIR__.'/../config/license.php' => config_path('license.php'),
-        ], 'config');
+        ], 'proxies-config');
 
         $this->publishes([
-            __DIR__.'/../Http/Controllers/Auth' => app_path('Http/Controllers/Auth'),
-        ], 'controllers');
+            __DIR__.'/../Models/User.php' => app_path('Models/User.php'),
+        ], 'model-user');
 
         if ($this->app->runningInConsole()) {
             $this->commands([
