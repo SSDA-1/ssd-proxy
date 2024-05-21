@@ -61,13 +61,11 @@ class CustomAuthController extends Controller
         ]);
 
         $referralCodeGet = null;
-        $exp = 50;
 
         // Проверяем, существует ли реферальный код в сессии
         if (Session::has('referral_code')) {
             // Получаем реферальный код из сессии
             $referralCodeGet = Session::get('referral_code');
-            $exp = 80;
         }
 
         $referralCode = Str::random(8);
@@ -77,19 +75,16 @@ class CustomAuthController extends Controller
             'email' => $validatedData['email'],
             'password' => Hash::make($validatedData['password']),
             'referral_code' => $referralCode,
-            'exp' => $exp,
         ]);
 
         if (Session::has('referral_code')) {
             $refs = User::where('referral_code', $referralCodeGet)->first();
-            $expRefs = $refs->exp;
             // Создаем новую запись Referral
             $referral = Referral::create([
                 'user_id' => $user->id, // ID пользователя, который был приглашен
                 'referred_by' => $refs->id, // ID пользователя, который пригласил
                 'referral_code' => $referralCodeGet, // Сам код
             ]);
-            $refs->exp = $expRefs + 30;
             $refs->save();
         }
 
