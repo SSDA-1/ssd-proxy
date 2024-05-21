@@ -9,4 +9,4 @@
 9. php artisan migrate
 10. php artisan vendor:publish --tag=proxies-public
 11. php artisan vendor:publish --tag=proxies-config
-12. php artisan vendor:publish --tag=proxies-user
+12. php artisan vendor:publish --tag=proxies-user --force
