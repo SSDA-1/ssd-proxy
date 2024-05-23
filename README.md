@@ -13,21 +13,21 @@
 13. php artisan vendor:publish --tag=proxies-auth --force
 14. settings spatie/laravel-permission
     - add Kernel.php
-      protected $middlewareAliases = [
-  
-          'role' => \Spatie\Permission\Middleware\RoleMiddleware::class,
-          'permission' => \Spatie\Permission\Middleware\PermissionMiddleware::class,
-          'role_or_permission' => \Spatie\Permission\Middleware\RoleOrPermissionMiddleware::class,
-      
-      ];
+        protected $middlewareAliases = [
+        
+            'role' => \Spatie\Permission\Middleware\RoleMiddleware::class,
+            'permission' => \Spatie\Permission\Middleware\PermissionMiddleware::class,
+            'role_or_permission' => \Spatie\Permission\Middleware\RoleOrPermissionMiddleware::class,
+        
+        ];
     - add config.app
-      'providers' => [
-     
-          Spatie\Permission\PermissionServiceProvider::class,
-     
-      ];
+        'providers' => [
+        
+            Spatie\Permission\PermissionServiceProvider::class,
+        
+        ];
 15. settings ssda-1/proxies 
-    - add Kernel.php
+    - add Http\Kernel.php
         protected $middlewareGroups = [
       
            'web' => [
@@ -46,6 +46,13 @@
               'email_verification' => true,
             ],
        
+        ];
+    - add Console\Kernel.php
+        protected $commands = [
+        
+            \Ssda1\proxies\Console\Commands\EndProxyCron::class,
+            \Ssda1\proxies\Console\Commands\SendProxyExpirationNotifications::class,
+        
         ];
 16. php artisan package:seed
 17. php artisan vendor:publish --tag=laravel-pagination
