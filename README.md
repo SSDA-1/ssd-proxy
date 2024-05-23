@@ -11,7 +11,19 @@
 11. php artisan vendor:publish --tag=proxies-config
 12. php artisan vendor:publish --tag=proxies-public
 13. php artisan vendor:publish --tag=proxies-auth --force
-14. settings spatie/laravel-permission
+14. settings webpatser/laravel-countries
+    - add config.app
+        'providers' => [
+        
+            'Webpatser\Countries\CountriesServiceProvider',
+        
+        ];
+        'providers' => [
+        
+            'Countries' => 'Webpatser\Countries\CountriesFacade',
+        
+        ];
+16. settings spatie/laravel-permission
     - add Kernel.php
         protected $middlewareAliases = [
         
@@ -26,7 +38,7 @@
             Spatie\Permission\PermissionServiceProvider::class,
         
         ];
-15. settings ssda-1/proxies 
+17. settings ssda-1/proxies 
     - add Http\Kernel.php
         protected $middlewareGroups = [
       
@@ -54,5 +66,6 @@
             \Ssda1\proxies\Console\Commands\SendProxyExpirationNotifications::class,
         
         ];
-16. php artisan package:seed
-17. php artisan vendor:publish --tag=laravel-pagination
+18. php artisan package:seed
+19. php artisan vendor:publish --tag=laravel-pagination
+20. php artisan vendor:publish --tag="telegram-config"
