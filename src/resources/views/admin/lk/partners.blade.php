@@ -87,7 +87,7 @@
                                         {{ 'Скидка ' . $partner->discount . ('%')($partner->promo != null ? 'по промокоду ' . $partner->promo : '') }}
                                     </div>
                                 </div>
-                                <img src="{{ asset('$partner->logo') }}">
+                                <img src="{{ asset($partner->logo) }}">
                             </a>
                         @else
                             <div class="link-help">

@@ -1,7 +1,7 @@
 <!-- Меню настолка -->
 <header class="main header center">
     <div class="header__logo">
-        <a href="/"><img src="/assets/img/logo.svg" alt="ads-proxy"></a>
+        <a href="/"><img src="/vendor/ssda-1/proxies/assets/img/logo.svg" alt="ads-proxy"></a>
     </div>
     <nav class="header__nav">
         @foreach ($menusSite as $menu1)
@@ -24,14 +24,14 @@
         @foreach ($menusSite as $menu4)
             @if ($menu4->top_botton == 2)
                 @if ($menu4->name == 'telegram')
-                    <a href="{{ $menu4->link }}" target="_blank"><img src="/assets/img/telegramm.svg"
+                    <a href="{{ $menu4->link }}" target="_blank"><img src="/vendor/ssda-1/proxies/assets/img/telegramm.svg"
                             alt="telegramm"></a>
                 @endif
                 @if ($menu4->name == 'youtube')
-                    <a href="{{ $menu4->link }}" target="_blank"><img src="/assets/img/youtube.svg" alt="youtube"></a>
+                    <a href="{{ $menu4->link }}" target="_blank"><img src="/vendor/ssda-1/proxies/assets/img/youtube.svg" alt="youtube"></a>
                 @endif
                 @if ($menu4->name == 'email')
-                    <a href="{{ $menu4->link }}" target="_blank"><img src="/assets/img/mymir.svg" alt="mymir"></a>
+                    <a href="{{ $menu4->link }}" target="_blank"><img src="/vendor/ssda-1/proxies/assets/img/mymir.svg" alt="mymir"></a>
                 @endif
             @endif
         @endforeach

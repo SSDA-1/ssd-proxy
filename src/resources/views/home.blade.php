@@ -87,7 +87,7 @@
                                     <div class="proxy__application-countries">
                                         <div class="proxy__application-country">@lang('proxies::phrases.Казахстан')</div>
                                         <div class="proxy__application-countryFlag">
-                                            <img src="{{ asset('assets/img/kz.svg') }}" alt="flag">
+                                            <img src="/vendor/ssda-1/proxies/assets/img/kz.svg" alt="flag">
                                         </div>
                                     </div>
 
@@ -234,7 +234,7 @@
                                                              data-private="{{ $tariff['private_price'][$countryKey] == null ? 'Не доступно' : $tariff['private_price'][$countryKey] }}">
                                                         </div>
                                                         <div class="proxy__application-countryFlag">
-                                                            <img src="{{ asset('assets/img/kz.svg') }}" alt="flag">
+                                                            <img src="/vendor/ssda-1/proxies/assets/img/kz.svg" alt="flag">
                                                         </div>
                                                     </div>
                                                 </li>
@@ -249,7 +249,7 @@
                                                             {{ $tariffSettings->default_country }}
                                                         </div>
                                                         <div class="proxy__application-countryFlag">
-                                                            <img src="{{ asset('assets/img/kz.svg') }}" alt="flag">
+                                                            <img src="/vendor/ssda-1/proxies/assets/img/kz.svg" alt="flag">
                                                         </div>
                                                     </div>
                                                     <ul class="submenu" data-id="{{ $key }}"
@@ -541,7 +541,7 @@
         <div class="instruction__blocks">
             <div class="instruction__left">
                 <div class="instruction__img">
-                    <img src="/assets/img/seting.png" alt="img">
+                    <img src="/vendor/ssda-1/proxies/assets/img/seting.png" alt="img">
                 </div>
                 <div class="instruction__link">
                     <p>@lang('proxies::phrases.Наш') <a href="#">@lang('proxies::phrases.софт')</a></p>
@@ -551,7 +551,7 @@
             <div class="instruction__center">
                 <div class="instruction__center-top">
                     <div class="instruction__img">
-                        <img src="/assets/img/map.png" alt="img">
+                        <img src="/vendor/ssda-1/proxies/assets/img/map.png" alt="img">
                     </div>
                     <div class="instruction__link">
                         <p>@lang('proxies::phrases.Наш') <a href="#">@lang('proxies::phrases.впн')</a></p>
@@ -559,7 +559,7 @@
                 </div>
                 <div class="instruction__center-bot">
                     <div class="instruction__img">
-                        <img src="/assets/img/sistem.png" alt="img">
+                        <img src="/vendor/ssda-1/proxies/assets/img/sistem.png" alt="img">
                     </div>
                     <div class="instruction__link">
                         <p>@lang('proxies::phrases.Наши') <a href="#">@lang('proxies::phrases.сервера')</a></p>
@@ -570,7 +570,7 @@
             </div>
             <div class="instruction__right">
                 <div class="instruction__img">
-                    <img src="/assets/img/window.png" alt="img">
+                    <img src="/vendor/ssda-1/proxies/assets/img/window.png" alt="img">
                 </div>
                 <div class="instruction__link">
                     <p>@lang('proxies::phrases.Наш сервис')</p>
@@ -632,7 +632,7 @@
         </div>
         <div class="referral__blocks">
             <div class="referral__blocks-left">
-                <img src="/assets/img/referral.png" alt="picture">
+                <img src="/vendor/ssda-1/proxies/assets/img/referral.png" alt="picture">
             </div>
             <div class="referral__blocks-right">
                 <div class="referral__content">
@@ -719,7 +719,7 @@
                                     <div class="proxy__application-countries">
                                         <div class="proxy__application-country">Казахстан</div>
                                         <div class="proxy__application-countryFlag">
-                                            <img src="{{ asset('assets/img/kz.svg') }}" alt="flag">
+                                            <img src="/vendor/ssda-1/proxies/assets/img/kz.svg" alt="flag">
                                         </div>
                                     </div>
 

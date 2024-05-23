@@ -2,7 +2,7 @@
 <footer class="footer center">
     <div class="footer__left">
         <div class="footer__logo">
-            <a href="#"><img src="/assets/img/logo.svg" alt="ads-proxy"></a>
+            <a href="#"><img src="/vendor/ssda-1/proxies/assets/img/logo.svg" alt="ads-proxy"></a>
         </div>
         <div class="footer__language">
             <div class="footer__language-text">@lang('proxies::phrases.Язык'):</div>
@@ -52,10 +52,10 @@
                 @foreach ($menusSite as $menu3)
                     @if ($menu3->top_botton == 2)
                         @if ($menu3->name == 'telegram')
-                            <a href="{{ $menu3->link }}" target="_blank"><img src="/assets/img/telegramm.svg"
+                            <a href="{{ $menu3->link }}" target="_blank"><img src="/vendor/ssda-1/proxies/assets/img/telegramm.svg"
                                     alt="telegramm"></a>
                         @elseif ($menu3->name == 'youtube')
-                            <a href="{{ $menu3->link }}" target="_blank"><img src="/assets/img/youtube.svg"
+                            <a href="{{ $menu3->link }}" target="_blank"><img src="/vendor/ssda-1/proxies/assets/img/youtube.svg"
                                     alt="youtube"></a>
                         @else
                         {{-- <a href="{{ $menu3->link }}" target="_blank"></a> --}}
@@ -70,9 +70,9 @@
                 <h2>@lang('proxies::phrases.Связь с нами')</h2>
             </div>
             <div class="footer__social-lik">
-                <a href="{{ $settingsData->telegram }}" target="_blank"><img src="/assets/img/telegramm.svg"
+                <a href="{{ $settingsData->telegram }}" target="_blank"><img src="/vendor/ssda-1/proxies/assets/img/telegramm.svg"
                         alt="telegramm"></a>
-                <a href="Mailto:{{ $settingsData->email }}"><img src="/assets/img/mymir.svg"
+                <a href="Mailto:{{ $settingsData->email }}"><img src="/vendor/ssda-1/proxies/assets/img/mymir.svg"
                         alt="mymir"></a>
             </div>
         </div>

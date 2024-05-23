@@ -70,7 +70,7 @@ personal-area
                                                                      data-private="{{ $tariff['private_price'][$countryKey] == null ? 'Не доступно' : $tariff['private_price'][$countryKey] }}">
                                                                 </div>
                                                                 <div class="proxy__application-countryFlag">
-                                                                    <img src="{{ asset('assets/img/kz.svg') }}" alt="flag">
+                                                                    <img src="/vendor/ssda-1/proxies/assets/img/kz.svg" alt="flag">
                                                                 </div>
                                                             </div>
                                                         </li>
@@ -85,7 +85,7 @@ personal-area
                                                                     {{ $tariffSettings->default_country }}
                                                                 </div>
                                                                 <div class="proxy__application-countryFlag">
-                                                                    <img src="{{ asset('assets/img/kz.svg') }}" alt="flag">
+                                                                    <img src="/vendor/ssda-1/proxies/assets/img/kz.svg" alt="flag">
                                                                 </div>
                                                             </div>
                                                             <ul class="submenu" data-id="{{ $key }}"

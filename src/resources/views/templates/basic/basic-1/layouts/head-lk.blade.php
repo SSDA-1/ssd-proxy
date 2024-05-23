@@ -1,7 +1,7 @@
 <header class="header center lk-header">
     <div class="wrap">
         <div class="header__logo">
-            <a href="/"><img src="/assets/img/logo-w.png" alt="ads-proxy" /></a>
+            <a href="/"><img src="/vendor/ssda-1/proxies/assets/img/logo-w.png" alt="ads-proxy" /></a>
         </div>
         <nav class="header__nav">
             @foreach ($menusSite as $menu1)

@@ -22,8 +22,8 @@
                             @csrf
                             <input type="hidden" name="ids" class="ids">
                             <button type="submit" class="btn disabled">
-                                <img src="/assets/img/download-w.svg" />
-                                <img src="/assets/img/download-p.svg" class="hov" />
+                                <img src="/vendor/ssda-1/proxies/assets/img/download-w.svg" />
+                                <img src="/vendor/ssda-1/proxies/assets/img/download-p.svg" class="hov" />
                             </button>
                         </form>
                     </div>
@@ -312,18 +312,18 @@
                                             </div>
                                             <div class="extendWrap js-open-modal" data-text="Продлить"
                                                 data-modal="extend">
-                                                <img src="/assets/img/extend.svg" class="extendButt"
+                                                <img src="/vendor/ssda-1/proxies/assets/img/extend.svg" class="extendButt"
                                                     data-id="{{ $proxy->id }}" />
                                             </div>
                                             <div class="js-open-modal getEdit" data-modal="proxy"
                                                 data-unification="{{ $proxy->modem->id }}"
                                                 onclick="editProxy([{{ $idFirstRow }}, {{ $idFirstRow - 1 }}]{{ $proxy->modem->osfp != null ? ',' . $proxy->modem->osfp : ', false' }})"
                                                 data-text="Редактировать">
-                                                <img src="/assets/img/editing.svg" />
+                                                <img src="/vendor/ssda-1/proxies/assets/img/editing.svg" />
                                             </div>
                                             <a href="/proxy/download/{{ $proxy->id }}" class="extendWrap"
                                                 data-text="Скачать">
-                                                <img src="/assets/img/download.svg" />
+                                                <img src="/vendor/ssda-1/proxies/assets/img/download.svg" />
                                             </a>
                                             <div type="submit" class="btn reboot" name="reboot"
                                                 style="width: 100%;" data-id="{{ $proxy->modem->id }}">
@@ -381,7 +381,7 @@
                 <div class="textWrap">
                     <div class="title">@lang('proxies::phrases.Продлить прокси')
                         <span class="numberProxyText"></span>
-                        <img src="{{ asset('assets/img/close_ring_light.svg') }}" class="js-modal-close">
+                        <img src="/vendor/ssda-1/proxies/assets/img/close_ring_light.svg" class="js-modal-close">
                     </div>
                     <div class="massage">
                         <p>Пожалуйста, уточните, на какой срок планируется продление?</p>
@@ -449,7 +449,7 @@
                 <div class="textWrap">
                     <div class="title">@lang('proxies::phrases.Продлить прокси')
                         <span class="numberProxyText"></span>
-                        <img src="{{ asset('assets/img/close_ring_light.svg') }}" class="js-modal-close">
+                        <img src="/vendor/ssda-1/proxies/assets/img/close_ring_light.svg" class="js-modal-close">
                     </div>
                     <div class="massage">
                         <p>Пожалуйста, уточните, на какой срок планируется продление?</p>
@@ -517,7 +517,7 @@
                 <div class="textWrap">
                     <div class="title">@lang('proxies::phrases.Ротация IP')
                         <span class="numberProxyText"></span>
-                        <img src="{{ asset('assets/img/close_ring_light.svg') }}" class="js-modal-close">
+                        <img src="/vendor/ssda-1/proxies/assets/img/close_ring_light.svg" class="js-modal-close">
                     </div>
                     <div class="massage">
                         <p>Пожалуйста, уточните, интервал смены IP адреса прокси?</p>
@@ -545,7 +545,7 @@
                 <div class="textWrap">
                     <div class="title">@lang('proxies::phrases.Автопродление прокси')
                         <span class="numberProxyText"></span>
-                        <img src="{{ asset('assets/img/close_ring_light.svg') }}" class="js-modal-close">
+                        <img src="/vendor/ssda-1/proxies/assets/img/close_ring_light.svg" class="js-modal-close">
                     </div>
                     <div class="massage">
                         <p>Пожалуйста, уточните, на какой срок планируется продление?</p>

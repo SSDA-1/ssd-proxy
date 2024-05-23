@@ -18,7 +18,7 @@
                             <h3>@lang('proxies::phrases.Ваша партнерская ссылка')</h3>
                             <div class="ref-link copy" id="block1" data-target="block1">
                                 <div>{{ route('register', ['ref' => auth()->user()->referral_code]) }}</div>
-                                <img src="/assets/img/copy-w.svg" />
+                                <img src="/vendor/ssda-1/proxies/assets/img/copy-w.svg" />
                             </div>
                         </div>
                         <div class="wrap-ref-act">
@@ -51,7 +51,7 @@
                         <div class="wrap-ref wrap-ref-sum">
                             <div class="ref-sum">
                                 <div class="logo">
-                                    <img src="/assets/img/logo-w.png" alt="ads-proxy" />
+                                    <img src="/vendor/ssda-1/proxies/assets/img/logo-w.png" alt="ads-proxy" />
                                 </div>
                                 <div class="sum">
                                     @if ($siteSettingModel->referral_balance_enabled == 1)

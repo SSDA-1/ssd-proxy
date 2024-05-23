@@ -34,7 +34,7 @@ personal-area
                             <li>
                                 <input type="radio" name="gateway" id="qiwi" value="qiwi" class="custom-radio">
                                 <label for="qiwi">
-                                    <img src="{{ asset('/assets/img/qiwi.png') }}" />
+                                    <img src="/vendor/ssda-1/proxies/assets/img/qiwi.png" />
                                 </label>
                             </li>
                         @endif 
@@ -42,7 +42,7 @@ personal-area
                             <li>
                                 <input type="radio" name="gateway" id="yoomoney" value="yoomoney" class="custom-radio">
                                 <label for="yoomoney">
-                                    <img src="{{ asset('/assets/img/ymoney.png') }}" />
+                                    <img src="/vendor/ssda-1/proxies/assets/img/ymoney.png" />
                                 </label>
                             </li>
                         @endif
@@ -58,7 +58,7 @@ personal-area
                             <li>
                                 <input type="radio" name="gateway" id="freekassa" value="freekassa" class="custom-radio">
                                 <label for="freekassa">
-                                    <img src="{{ asset('/assets/img/freekassa.png') }}" />
+                                    <img src="/vendor/ssda-1/proxies/assets/img/freekassa.png" />
                                 </label>
                                 <span class="text">Оплата картой</span>
                             </li>
@@ -68,7 +68,7 @@ personal-area
                                 <input type="radio" name="gateway" id="betatransfer" value="betatransfer"
                                     class="custom-radio">
                                 <label for="betatransfer">
-                                    <img src="{{ asset('/assets/img/betatransfer.png') }}" />
+                                    <img src="/vendor/ssda-1/proxies/assets/img/betatransfer.png" />
                                 </label>
                             </li>
                         @endif

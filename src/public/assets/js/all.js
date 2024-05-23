@@ -54,7 +54,7 @@ function openModal(title, massage, status) {
         loadingElement.setAttribute('class', 'loadingProcess');
         loadingElement.setAttribute('style', 'width: 50px;');
         loadingElement.innerHTML = `
-        <span class="buy-timer"><img src="/assets/img/buy-timer.gif"></span>
+        <span class="buy-timer"><img src="/vendor/ssda-1/proxies/assets/img/buy-timer.gif"></span>
         `;
         element.appendChild(loadingElement);
     }

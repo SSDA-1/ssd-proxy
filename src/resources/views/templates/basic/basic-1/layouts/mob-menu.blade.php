@@ -38,7 +38,7 @@
                     <li><a href="{{ route('logout') }}"
                             onclick="event.preventDefault();
         document.getElementById('logout-form').submit();">
-                            <img src="/assets/img/log-out.svg">@lang('proxies::phrases.Выйти')
+                            <img src="/vendor/ssda-1/proxies/assets/img/log-out.svg">@lang('proxies::phrases.Выйти')
                         </a>
                     </li>
                 </ul>

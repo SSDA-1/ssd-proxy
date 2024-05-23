@@ -66,7 +66,7 @@ personal-area
                                             </div>
                                             <div class="type {{ $operation->type == 'minus' ? 'minus' : '' }}">
                                                 <img
-                                                    src="/assets/img/{{ $operation->type == 'plus' ? 'iconoir_plus.svg' : ($operation->type == 'minus' ? 'minus.svg' : ($operation->type == 'buySub' ? 'iconoir_plus.svg' : '')) }}" />{{ $operation->amount }}
+                                                    src="/vendor/ssda-1/proxies/assets/img/{{ $operation->type == 'plus' ? 'iconoir_plus.svg' : ($operation->type == 'minus' ? 'minus.svg' : ($operation->type == 'buySub' ? 'iconoir_plus.svg' : '')) }}" />{{ $operation->amount }}
                                                 $
                                             </div>
                                         </li>
@@ -78,7 +78,7 @@ personal-area
                                             </div>
                                             <div class="type {{ $operation->type == 'minus' ? 'minus' : '' }}">
                                                 <img
-                                                    src="/assets/img/{{ $operation->type == 'plus' ? 'iconoir_plus.svg' : ($operation->type == 'minus' ? 'minus.svg' : ($operation->type == 'buySub' ? 'iconoir_plus.svg' : '')) }}" />{{ $operation->amount }}
+                                                    src="/vendor/ssda-1/proxies/assets/img/{{ $operation->type == 'plus' ? 'iconoir_plus.svg' : ($operation->type == 'minus' ? 'minus.svg' : ($operation->type == 'buySub' ? 'iconoir_plus.svg' : '')) }}" />{{ $operation->amount }}
                                                 $
                                             </div>
                                         </li>
