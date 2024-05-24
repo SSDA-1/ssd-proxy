@@ -654,7 +654,7 @@ class PaymentController extends Controller
         // return redirect('personal')->with('success', $response);
     }
 
-    public function interactionСapitalist(Request $request)
+    public function interactionCapitalist(Request $request)
     {
         function processReferrals($userId, $amountReq) {
             $siteSettingModel = siteSetting::find(1);
@@ -711,7 +711,7 @@ class PaymentController extends Controller
 
         $return = $order;
 
-        file_put_contents('СapitalistLogWebhoock.txt', $content);
+        file_put_contents('СapitalistLogWebhoock.txt', $return);
 
         return response()->json([
             'status' => true,
