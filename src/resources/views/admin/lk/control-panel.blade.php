@@ -206,9 +206,15 @@
                                                     $endDate = \Carbon\Carbon::parse($proxy->date_end, 'GMT');
                                                     $timeDifference = $currentDate->diff($endDate);
                                                     $totalDays = $timeDifference->days;
+                                                    $totalHours =  $timeDifference->h;
+                                                    $flagDate = $currentDate > $endDate;
                                                 @endphp
                                                 <div class="cell">
-                                                    {{ $formattedTime = $totalDays . ' дней ' . $timeDifference->h . ' часов' }}
+                                                    @if ($flagDate)
+                                                        -
+                                                    @else
+                                                        {{ $formattedTime = $totalDays . ' дней ' . $totalHours . ' часов' }}
+                                                    @endif
                                                 </div>
                                             </div>
 
