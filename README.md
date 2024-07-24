@@ -14,13 +14,15 @@
 14. settings webpatser/laravel-countries
     - add config.app
         'providers' => [
-        
-            'Webpatser\Countries\CountriesServiceProvider',
-        
+      
+            Webpatser\Countries\CountriesServiceProvider,
+            Webpatser\Countries\CountriesServiceProvider::class,
+            Ssda1\proxies\Providers\ProxyServiceProvider::class,
         ];
-        'providers' => [
+      
+        'aliases' => [
         
-            'Countries' => 'Webpatser\Countries\CountriesFacade',
+            'Countries' => Webpatser\Countries\CountriesFacade,
         
         ];
 16. settings spatie/laravel-permission
