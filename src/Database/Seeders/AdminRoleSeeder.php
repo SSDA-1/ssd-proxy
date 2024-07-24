@@ -6,7 +6,6 @@ use Illuminate\Database\Seeder;
 use Ssda1\proxies\Models\User;
 use Spatie\Permission\Models\Role;
 use Spatie\Permission\Models\Permission;
-use Illuminate\Support\Facades\DB;
 
 class AdminRoleSeeder extends Seeder
 {
@@ -51,16 +50,14 @@ class AdminRoleSeeder extends Seeder
         }
 
         // Get all permissions
-        $permissions = Permission::where('guard_name', 'web')->pluck('id', 'id')->all();
+        $permissions = Permission::where('guard_name', 'web')->pluck('id')->all();
 
         // Sync permissions only if role does not have them
-        if (!$role->hasAllPermissions($permissions)) {
-            $role->syncPermissions($permissions);
-        }
+        $role->syncPermissions($permissions);
 
         // Assign role to user if not already assigned
         if (!$user->hasRole('Admin', 'web')) {
-            $user->assignRole('Admin', 'web');
+            $user->assignRole('Admin');
         }
     }
 }
