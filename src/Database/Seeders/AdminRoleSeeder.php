@@ -6,6 +6,7 @@ use Illuminate\Database\Seeder;
 use Ssda1\proxies\Models\User;
 use Spatie\Permission\Models\Role;
 use Spatie\Permission\Models\Permission;
+use Illuminate\Support\Facades\DB;
 
 class AdminRoleSeeder extends Seeder
 {
