@@ -6,6 +6,8 @@ use Illuminate\Database\Seeder;
 use Ssda1\proxies\Models\User;
 use Spatie\Permission\Models\Role;
 use Spatie\Permission\Models\Permission;
+use Illuminate\Support\Facades\DB;
+
 class AdminRoleSeeder extends Seeder
 {
     /**
@@ -15,18 +17,34 @@ class AdminRoleSeeder extends Seeder
      */
     public function run()
     {
-        $user = User::create([
-            'name' => 'Admin',
-            'email' => 'admin@admin.com',
-            'password' => bcrypt('123123Q!')
-        ]);
+        // Check if user already exists
+        $user = User::where('email', 'admin@admin.com')->first();
 
-        $role = Role::create(['name' => 'Admin']);
+        if (!$user) {
+            $user = User::create([
+                'name' => 'Admin',
+                'email' => 'admin@admin.com',
+                'password' => bcrypt('123123Q!')
+            ]);
+        }
 
-        $permissions = Permission::pluck('id','id')->all();
+        // Check if role already exists
+        $role = Role::where('name', 'Admin')->where('guard_name', 'web')->first();
+        if (!$role) {
+            $role = Role::create(['name' => 'Admin', 'guard_name' => 'web']);
+        }
 
-        $role->syncPermissions($permissions);
+        // Get all permissions
+        $permissions = Permission::where('guard_name', 'web')->pluck('id', 'id')->all();
 
-        $user->assignRole([$role->id]);
+        // Sync permissions only if role does not have them
+        if (!$role->hasAllPermissions($permissions)) {
+            $role->syncPermissions($permissions);
+        }
+
+        // Assign role to user if not already assigned
+        if (!$user->hasRole('Admin', 'web')) {
+            $user->assignRole('Admin', 'web');
+        }
     }
 }
