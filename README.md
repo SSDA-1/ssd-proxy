@@ -22,7 +22,7 @@
       
         'aliases' => [
         
-            'Countries' => Webpatser\Countries\CountriesFacade,
+            'Countries' => Webpatser\Countries\CountriesFacade::class,
         
         ];
 16. settings spatie/laravel-permission
