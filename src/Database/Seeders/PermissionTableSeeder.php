@@ -57,7 +57,14 @@ class PermissionTableSeeder extends Seeder
         ];
 
         foreach ($permissions as $permission) {
-            Permission::create(['name' => $permission, 'guard_name' => 'web']);
+            $perm = Permission::where('name', $permission)->first();
+
+            if ($perm) {
+                $perm->guard_name = 'web';
+                $perm->save();
+            } else {
+                Permission::create(['name' => $permission, 'guard_name' => 'web']);
+            }
         }
     }
 }
