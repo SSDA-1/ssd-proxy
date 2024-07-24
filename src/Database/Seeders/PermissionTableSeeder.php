@@ -4,6 +4,7 @@ namespace Ssda1\proxies\Database\Seeders;
 
 use Illuminate\Database\Seeder;
 use Spatie\Permission\Models\Permission;
+use Illuminate\Support\Facades\Log;
 
 class PermissionTableSeeder extends Seeder
 {
@@ -60,6 +61,9 @@ class PermissionTableSeeder extends Seeder
             $perm = Permission::where('name', $permission)->first();
 
             if ($perm) {
+                // Log current guard_name
+                Log::info("Permission '{$perm->name}' has guard '{$perm->guard_name}'");
+
                 $perm->guard_name = 'web';
                 $perm->save();
             } else {
