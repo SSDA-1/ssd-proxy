@@ -44,15 +44,15 @@ class AdminRoleSeeder extends Seeder
         }
 
         // Check if role already exists
-        $role = Role::where('name', 'Admin')->where('guard_name', 'web')->first();
-        if (!$role) {
-            $role = Role::create(['name' => 'Admin', 'guard_name' => 'web']);
-        }
+        $role = Role::firstOrCreate(
+            ['name' => 'Admin'],
+            ['guard_name' => 'web']
+        );
 
         // Get all permissions
-        $permissions = Permission::where('guard_name', 'web')->pluck('id')->all();
+        $permissions = Permission::where('guard_name', 'web')->get();
 
-        // Sync permissions only if role does not have them
+        // Sync permissions with the role
         $role->syncPermissions($permissions);
 
         // Assign role to user if not already assigned
