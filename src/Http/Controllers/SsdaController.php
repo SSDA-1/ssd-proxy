@@ -109,16 +109,62 @@ class SsdaController extends Controller
             'key' => $request['key']
         ];
 
-        $krakenService = new KrakenService();
-        $result = json_decode($krakenService->getLicenseKey($data), true);
-
-        if (!$result['error']) {
-            config(['license.key' => $data['key']]);
-            $configPath = config_path('license.php');
-            file_put_contents($configPath, '<?php return ' . var_export(config('license'), true) . ';');
-            Artisan::call('config:cache');
+        try {
+            $krakenService = new KrakenService();
+            $response = $krakenService->getLicenseKey($data);
+            
+            // Вывод диагностической информации
+            \Log::info('Ответ от сервиса лицензий: ' . $response);
+            
+            // Проверяем, является ли ответ валидным JSON
+            $result = json_decode($response, true);
+            
+            if (json_last_error() !== JSON_ERROR_NONE) {
+                \Log::error('Ошибка декодирования JSON: ' . json_last_error_msg());
+                return response()->json([
+                    'error' => true,
+                    'message' => 'Ошибка при обработке ответа: ' . json_last_error_msg(),
+                    'raw_response' => $response
+                ], 500);
+            }
+            
+            if (isset($result['status']) && $result['status'] === 'active') {
+                // Сохраняем лицензионный ключ
+                config(['license.key' => $data['key']]);
+                config(['license.status' => 'active']);
+                $configPath = config_path('license.php');
+                file_put_contents($configPath, '<?php return ' . var_export(config('license'), true) . ';');
+                
+                // Устанавливаем статус домена в is_domain_active = 1
+                $projectStatus = \Ssda1\proxies\Models\ProjectStatus::find(1);
+                if ($projectStatus) {
+                    $projectStatus->is_domain_active = 1;
+                    $projectStatus->is_archive = 0;
+                    $projectStatus->to_delete = 0;
+                    $projectStatus->save();
+                } else {
+                    $projectStatus = new \Ssda1\proxies\Models\ProjectStatus();
+                    $projectStatus->is_domain_active = 1;
+                    $projectStatus->is_archive = 0;
+                    $projectStatus->to_delete = 0;
+                    $projectStatus->save();
+                }
+                
+                Artisan::call('config:cache');
+                
+                return response()->json([
+                    'error' => false,
+                    'message' => 'Лицензионный ключ успешно сохранен'
+                ]);
+            }
+            
+            return response()->json($result);
+        } catch (\Exception $e) {
+            \Log::error('Исключение в licenseKey: ' . $e->getMessage());
+            return response()->json([
+                'error' => true,
+                'message' => 'Произошла ошибка: ' . $e->getMessage()
+            ], 500);
         }
-
-        return response()->json(true);
     }
 }
