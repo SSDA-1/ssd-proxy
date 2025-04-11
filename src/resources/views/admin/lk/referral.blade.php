@@ -50,8 +50,8 @@
                         </div>
                         <div class="wrap-ref wrap-ref-sum">
                             <div class="ref-sum">
-                                <div class="logo">
-                                    <img src="/vendor/ssda-1/proxies/assets/img/logo-w.png" alt="ads-proxy" />
+                                <div class="logo" style="color:#fff; font-size: 14px;">
+                                    {{ $settingsData->name }}
                                 </div>
                                 <div class="sum">
                                     @if ($siteSettingModel->referral_balance_enabled == 1)
