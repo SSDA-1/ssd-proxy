@@ -70,6 +70,7 @@
 }
 
 .lk-header .wrap .header__logo,
+.lk-header .wrap .header__logo a,
 .lk-header .wrap .header__link,
 .lk-header .wrap .header__social a {
   padding: 0;
