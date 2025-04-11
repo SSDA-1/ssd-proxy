@@ -1,7 +1,11 @@
 <header class="header center lk-header">
     <div class="wrap">
         <div class="header__logo">
-            <a href="/"><img src="/vendor/ssda-1/proxies/assets/img/logo-w.png" alt="ads-proxy" /></a>
+            @if ($settingsData->logo !== null)
+                <a href="/"><img src="{{ $settingsData->logo }}"></a>
+            @else
+                <a href="/">{{ $settingsData->name }}</a>
+            @endif
         </div>
         <nav class="header__nav">
             @foreach ($menusSite as $menu1)
