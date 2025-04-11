@@ -28,6 +28,13 @@
     margin-top: 10px;
 }
 
+.sidebar header .image a {
+    color: #fff; 
+    font-size: 28px; 
+    text-decoration: none; 
+    text-transform: uppercase;
+}
+
 .sidebar header .image,
 .sidebar .icon {
     min-width: 50px;
