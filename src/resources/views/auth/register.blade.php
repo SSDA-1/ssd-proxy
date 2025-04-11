@@ -6,7 +6,7 @@
     <div class="wraper-lk-block">
 
         <div class="card-header">
-            <h1>{{ __('auth.Register') }}</h1>
+            <h1>Register</h1>
         </div>
         @if ($errors->has('message'))
             <div class="alert alert-danger">
@@ -29,7 +29,7 @@
                         </span>
                     @enderror
 
-                    <label for="name">{{ __('auth.Name') }}:
+                    <label for="name">UserName:
                         <input id="name" type="text" class="input-lk @error('name') is-invalid @enderror"
                             name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
                     </label>
@@ -40,7 +40,7 @@
                         </span>
                     @enderror
 
-                    <label for="password">{{ __('auth.Password') }}:
+                    <label for="password">Password:
                         <input id="password" type="password" class="input-lk @error('password') is-invalid @enderror"
                             name="password" required autocomplete="new-password">
                     </label>
@@ -50,7 +50,7 @@
                             <strong>{{ $message }}</strong>
                         </span>
                     @enderror
-                    <label for="password-confirm">{{ __('auth.Confirm Password') }}:
+                    <label for="password-confirm">Confirm Password:
 
                         <input id="password-confirm" type="password" class="input-lk" name="password_confirmation" required
                             autocomplete="new-password">
@@ -78,22 +78,21 @@
                 <div class="form-check">
                     <input type="checkbox" name="check" id="check" required>
                     <label for="check">
-                        Согласен с <a href="/rules">политикой
-                            конфиденциальности</a>
+                        I agree with the <a href="/rules">privacy policy</a>
                     </label><br>
                 </div>
 
                 <div class="right-block-lk">
                     <button type="submit" class="btn button" style="    width: 100%;">
-                        {{ __('auth.Registers') }}
+                        Registers
                     </button>
                 </div>
                 
-                <script async src="https://telegram.org/js/telegram-widget.js?22" data-telegram-login="NotificationProxyBot" data-size="large" data-auth-url="@if (request()->has('ref')) https://ads-proxy.com/auth/telegram/{{ request()->get('ref') }} @else https://ads-proxy.com/auth/telegram/nocode @endif" data-request-access="write"></script>
+                <script async src="https://telegram.org/js/telegram-widget.js?22" data-telegram-login="NotificationProxyBot" data-size="large" data-auth-url="@if (request()->has('ref')) https://{{ parse_url(url('/'), PHP_URL_HOST) }}/auth/telegram/{{ request()->get('ref') }} @else https://{{ parse_url(url('/'), PHP_URL_HOST) }}/auth/telegram/nocode @endif" data-request-access="write"></script>
 
                 <div class="wrap-reg-form">
                     <div class="reg login-reg">
-                        <a href="/login">{{ __('auth.Login') }}</a>
+                        <a href="/login">Login</a>
                     </div>
                 </div>
             </form>
