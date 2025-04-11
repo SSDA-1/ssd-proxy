@@ -6,7 +6,7 @@
 
 <div class="wraper-lk-block">
     <div class="card-header">
-        <h1>{{ __('auth.Reset Password') }}</h1>
+        <h1>Reset Password</h1>
     </div>
 
     <div class="wraper-lk-content">
@@ -17,7 +17,7 @@
                 <input type="hidden" name="token" value="{{ $token }}">
 
 
-                <label for="email" class="col-md-4 col-form-label text-md-end">{{ __('auth.Email Address') }}</label>
+                <label for="email" class="col-md-4 col-form-label text-md-end">Email Address</label>
 
 
                 <input id="email" type="email" class="input-lk @error('email') is-invalid @enderror" name="email"
@@ -31,7 +31,7 @@
 
 
 
-                <label for="password" class="col-md-4 col-form-label text-md-end">{{ __('auth.Password') }}</label>
+                <label for="password" class="col-md-4 col-form-label text-md-end">Password</label>
 
 
                 <input id="password" type="password" class="input-lk @error('password') is-invalid @enderror"
@@ -46,13 +46,13 @@
 
 
                 <label for="password-confirm"
-                    class="col-md-4 col-form-label text-md-end">{{ __('auth.Confirm Password') }}</label>
+                    class="col-md-4 col-form-label text-md-end">Confirm Password</label>
 
                 <input id="password-confirm" type="password" class="input-lk" name="password_confirmation" required
                     autocomplete="new-password">
             </div>
             <button type="submit" class="btn button">
-                {{ __('auth.Reset the password') }}
+                Reset the password
             </button>
         </form>
     </div>
