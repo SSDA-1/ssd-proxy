@@ -2,7 +2,11 @@
 <footer class="footer center">
     <div class="footer__left">
         <div class="footer__logo">
-            <a href="#"><img src="/vendor/ssda-1/proxies/assets/img/logo.svg" alt="ads-proxy"></a>
+            @if ($settingsData->logo !== null)
+                <a href="/"><img src="{{ $settingsData->logo }}"></a>
+            @else
+                <a href="/">{{ $settingsData->name }}</a>
+            @endif
         </div>
         <div class="footer__language">
             <div class="footer__language-text">@lang('proxies::phrases.Язык'):</div>
