@@ -426,6 +426,7 @@ h6 {
 .wrap-days-tariff {
   width: 100%;
   display: flex;
+  flex-wrap: wrap;
   gap: 20px;
 }
 
