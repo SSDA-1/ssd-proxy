@@ -51,7 +51,7 @@
 
     <section class="proxy center proxy__fotter" style="margin-top: 35px;">
         <div class="proxy__title proxy__title-footter">
-            <h2>@lang('proxies::phrases.Ads-proxy удобный и качественный сервис прокси')</h2>
+            <h2>{{ $settingsData->name }} @lang('proxies::phrases. удобный и качественный сервис прокси')</h2>
         </div>
         <div class="proxy__blocks">
 
@@ -414,7 +414,7 @@
     {{-- <!-- Для чего подходят прокси ads-proxy --> --}}
     <section class="ads-proxy center">
         <div class="ads-proxy__title">
-            <h2>@lang('proxies::phrases.Для чего подходят прокси ads-proxy')</h2>
+            <h2>@lang('proxies::phrases.Для чего подходят прокси') {{ $settingsData->name }} </h2>
         </div>
         <div class="ads-proxy__blocks">
             <div class="ads-proxy__left">
@@ -465,7 +465,7 @@
                 </div>
                 <div class="ads-proxy__block ads-proxy__mobile btns-block">
                     <div class="ads-proxy__subtitle">
-                        <h2>@lang('proxies::phrases.Попробуйте Ads-proxy')</h2>
+                        <h2>@lang('proxies::phrases.Попробуйте ') {{ $settingsData->name }}</h2>
                         <div class="ads-proxy__text">
                             @lang('proxies::phrases.Приватные, быстрые мобильные прокси')
                         </div>
@@ -487,7 +487,7 @@
     {{-- <!-- Почему ads-proxy - удобно? --> --}}
     <section class="advantages center">
         <div class="advantages__title">
-            <h2>@lang('proxies::phrases.Почему ads-proxy - удобно')?</h2>
+            <h2>@lang('proxies::phrases.Почему') {{ $settingsData->name }} @lang('proxies::phrases.- удобно')?</h2>
         </div>
         <div class="advantages__blocks">
             <div class="advantages__block">
@@ -591,7 +591,7 @@
         <div class="rule__body">
             <div class="rule__left">
                 <ul class="rule__left-ul">
-                    <li><span>1</span>@lang('proxies::phrases.Регистрируетесь на сайте ads-proxy.com')</li>
+                    <li><span>1</span>@lang('proxies::phrases.Регистрируетесь на сайте ') {{ parse_url(url('/'), PHP_URL_HOST) }}</li>
                     <li><span>2</span>@lang('proxies::phrases.Пополняете баланс и выбираете тариф')</li>
                     <li><span>3</span>@lang('proxies::phrases.В вашем кабинете появится прокси в двух протоколах socks5 и http(s)')</li>
                     <li><span>4</span>@lang('proxies::phrases.Сменить айпи можно по полученной ссылке')</li>
@@ -682,7 +682,7 @@
     {{-- <!-- Ads-proxy удобный и качественный сервис прокси. --> --}}
     <section class="proxy center proxy__fotter">
         <div class="proxy__title proxy__title-footter">
-            <h2>@lang('proxies::phrases.Ads-proxy удобный и качественный сервис прокси')</h2>
+            <h2>{{ $settingsData->name }} @lang('proxies::phrases. удобный и качественный сервис прокси')</h2>
         </div>
         <div class="proxy__blocks">
 
@@ -838,7 +838,7 @@
         <div class="wrap">
             <div class="content">
                 <h2>Почему нас выбирают?</h2>
-                <p>Мы команда Ads-proxy работаем с трафиком уже свыше 15 лет и знаем,
+                <p>Мы команда {{ $settingsData->name }} работаем с трафиком уже свыше 15 лет и знаем,
                     <span class="text-gradient">как важны хорошие приватные мобильные прокси.</span>
                 </p>
                 <p>Поэтому в нашем сервисе вы сможете найти приватные прокси под ваши любые задачи,
