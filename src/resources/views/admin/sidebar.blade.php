@@ -2,9 +2,7 @@
     <header>
         <div class="image-text">
             <span class="image">
-                <img src="/vendor/ssda-1/proxies/admin/img/logo1.png" alt="" class="light-logo">
-                <img src="/vendor/ssda-1/proxies/admin/img/logo1.png" alt="" class="night-logo">
-                <img src="/vendor/ssda-1/proxies/admin/img/logo2.png" alt="" class="rolled-logo">
+                <a href="/">{{ $settingsData->name }}</a>
             </span>
 
             <div class="text logo-text">
