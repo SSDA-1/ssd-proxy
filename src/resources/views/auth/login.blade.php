@@ -6,7 +6,7 @@
 @section('content')
     <div class="wraper-lk-block">
         <div class="card-header">
-            <h1>{{ __('auth.Login') }}</h1>
+            <h1>Login</h1>
         </div>
 
         <div class="wraper-lk-content">
@@ -15,7 +15,7 @@
                     @csrf
 
 
-                    <label for="email" class="col-md-4 col-form-label text-md-end">{{ __('auth.Email Address') }}
+                    <label for="email" class="col-md-4 col-form-label text-md-end">Email Address
 
                         <input id="email" type="email" class="input-lk @error('email') is-invalid @enderror"
                             name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
@@ -26,7 +26,7 @@
                         </span>
                     @enderror
 
-                    <label for="password" class="col-md-4 col-form-label text-md-end">{{ __('auth.Password') }}
+                    <label for="password" class="col-md-4 col-form-label text-md-end">Password
 
                         <input id="password" type="password" class="input-lk @error('password') is-invalid @enderror"
                             name="password" required autocomplete="current-password">
@@ -44,13 +44,13 @@
                             {{ old('remember') ? 'checked' : '' }}>
 
                         <label class="form-check-label" for="remember">
-                            {{ __('auth.Remember Me') }}
+                            Remember Me
                         </label>
                     </div>
                 </div>
 
                 <button type="submit" class="btn btn-link button">
-                    {{ __('auth.Login') }}
+                    Login
                 </button>
                 
                 <script async src="https://telegram.org/js/telegram-widget.js?22" data-telegram-login="NotificationProxyBot" data-size="large" data-auth-url="https://ads-proxy.com/auth/telegram/nocode" data-request-access="write"></script>
@@ -61,7 +61,7 @@
                         <a href="/register">Зарегистрироваться!</a>
                         @if (Route::has('password.request'))
                             <a class="" href="{{ route('password.request') }}">
-                                {{ __('auth.Forgot Your Password?') }}
+                                Forgot Your Password?
                             </a>
                         @endif
                     </div>
