@@ -6,7 +6,7 @@
 
 <div class="wraper-lk-block">
     <div class="card-header">
-        <h1>{{ __('auth.Reset Password') }}</h1>
+        <h1>Reset Password</h1>
     </div>
 
     <div class="wraper-lk-content">
@@ -20,7 +20,7 @@
             @csrf
 
             <div class="left-block-lk">
-                <label for="email" class="col-md-4 col-form-label text-md-end">{{ __('auth.Email Address') }}</label>
+                <label for="email" class="col-md-4 col-form-label text-md-end">Email Address</label>
 
 
                 <input id="email" type="email" class="input-lk @error('email') is-invalid @enderror" name="email"
@@ -36,7 +36,7 @@
 
 
             <button type="submit" class="btn button">
-                {{ __('auth.Reset the password') }}
+                auth.Reset the password
             </button>
 
         </form>
