@@ -17,18 +17,18 @@ class ExportPortsService
 
     public function exportPorts($apiKey,$ip,$serverId)
     {
-        $proxyPortsList = curl_init($ip . '/api/devices/modem/list');
-        curl_setopt($proxyPortsList, CURLOPT_HTTPHEADER, array('Content-Type:application/json', 'Accept: application/json', 'Authorization: Token ' . $apiKey));
+        $proxyPortsList = \curl_init($ip . '/api/devices/modem/list');
+        \curl_setopt($proxyPortsList, CURLOPT_HTTPHEADER, array('Content-Type:application/json', 'Accept: application/json', 'Authorization: Token ' . $apiKey));
         $filter = [
             'filter' => []
         ];
-        curl_setopt($proxyPortsList, CURLOPT_POST, 1);
-        curl_setopt($proxyPortsList, CURLOPT_RETURNTRANSFER, true);
-        curl_setopt($proxyPortsList, CURLOPT_POSTFIELDS, json_encode($filter, JSON_UNESCAPED_UNICODE));
-        // curl_setopt($proxyPortsList, CURLOPT_RETURNTRANSFER, true);
+        \curl_setopt($proxyPortsList, CURLOPT_POST, 1);
+        \curl_setopt($proxyPortsList, CURLOPT_RETURNTRANSFER, true);
+        \curl_setopt($proxyPortsList, CURLOPT_POSTFIELDS, json_encode($filter, JSON_UNESCAPED_UNICODE));
+        // \curl_setopt($proxyPortsList, CURLOPT_RETURNTRANSFER, true);
 
-        $proxyPortsListPreRes = curl_exec($proxyPortsList);
-        curl_close($proxyPortsList);
+        $proxyPortsListPreRes = \curl_exec($proxyPortsList);
+        \curl_close($proxyPortsList);
         $proxyPortsListRes = json_decode($proxyPortsListPreRes, JSON_UNESCAPED_UNICODE);
         // $FingerListOption = [];
         $testLine = '';
@@ -67,18 +67,18 @@ class ExportPortsService
 
     public function exportProxy($apiKey,$ip)
     {
-        $proxyList = curl_init($ip . '/api/proxy/list');
-        curl_setopt($proxyList, CURLOPT_HTTPHEADER, array('Content-Type:application/json', 'Accept: application/json', 'Authorization: Token ' . $apiKey));
+        $proxyList = \curl_init($ip . '/api/proxy/list');
+        \curl_setopt($proxyList, CURLOPT_HTTPHEADER, array('Content-Type:application/json', 'Accept: application/json', 'Authorization: Token ' . $apiKey));
         $filter = [
             'filter' => []
         ];
-        curl_setopt($proxyList, CURLOPT_POST, 1);
-        curl_setopt($proxyList, CURLOPT_RETURNTRANSFER, true);
-        curl_setopt($proxyList, CURLOPT_POSTFIELDS, json_encode($filter, JSON_UNESCAPED_UNICODE));
-        // curl_setopt($proxyList, CURLOPT_RETURNTRANSFER, true);
+        \curl_setopt($proxyList, CURLOPT_POST, 1);
+        \curl_setopt($proxyList, CURLOPT_RETURNTRANSFER, true);
+        \curl_setopt($proxyList, CURLOPT_POSTFIELDS, json_encode($filter, JSON_UNESCAPED_UNICODE));
+        // \curl_setopt($proxyList, CURLOPT_RETURNTRANSFER, true);
 
-        $proxyListPreRes = curl_exec($proxyList);
-        curl_close($proxyList);
+        $proxyListPreRes = \curl_exec($proxyList);
+        \curl_close($proxyList);
         $proxyListRes = json_decode($proxyListPreRes, JSON_UNESCAPED_UNICODE);
         // $FingerListOption = [];
         $testLine = '';
@@ -136,18 +136,18 @@ class ExportPortsService
 
     public function exportUsers($apiKey,$ip)
     {
-        $proxyUsersList = curl_init($ip . '/api/users/list');
-        curl_setopt($proxyUsersList, CURLOPT_HTTPHEADER, array('Content-Type:application/json', 'Accept: application/json', 'Authorization: Token ' . $apiKey));
+        $proxyUsersList = \curl_init($ip . '/api/users/list');
+        \curl_setopt($proxyUsersList, CURLOPT_HTTPHEADER, array('Content-Type:application/json', 'Accept: application/json', 'Authorization: Token ' . $apiKey));
         $filter = [
             'pagination' => []
         ];
-        curl_setopt($proxyUsersList, CURLOPT_POST, 1);
-        curl_setopt($proxyUsersList, CURLOPT_RETURNTRANSFER, true);
-        curl_setopt($proxyUsersList, CURLOPT_POSTFIELDS, json_encode($filter, JSON_UNESCAPED_UNICODE));
-        // curl_setopt($proxyList, CURLOPT_RETURNTRANSFER, true);
+        \curl_setopt($proxyUsersList, CURLOPT_POST, 1);
+        \curl_setopt($proxyUsersList, CURLOPT_RETURNTRANSFER, true);
+        \curl_setopt($proxyUsersList, CURLOPT_POSTFIELDS, json_encode($filter, JSON_UNESCAPED_UNICODE));
+        // \curl_setopt($proxyList, CURLOPT_RETURNTRANSFER, true);
 
-        $proxyUsersListPreRes = curl_exec($proxyUsersList);
-        curl_close($proxyUsersList);
+        $proxyUsersListPreRes = \curl_exec($proxyUsersList);
+        \curl_close($proxyUsersList);
         $proxyListRes = json_decode($proxyUsersListPreRes, JSON_UNESCAPED_UNICODE);
         // $FingerListOption = [];
         $testLine = '';
