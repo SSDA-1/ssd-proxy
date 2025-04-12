@@ -553,10 +553,163 @@
         </div>
     </div>
     <div class="indent"></div>
+
+    <div class="block-background" id="update" style="display: none;">
+        <h2>Обновление системы</h2>
+        <div class="row">
+            <div class="field">
+                <div class="title-field">Текущая версия: <span id="current-version">Загрузка...</span></div>
+                <div class="title-field">Доступная версия: <span id="latest-version">Загрузка...</span></div>
+                <div class="title-field">Список изменений:</div>
+                <div class="wrap-input">
+                    <ul class="list" id="changelog-list">
+                        <li>Загрузка информации об обновлениях...</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="btn btn-primary" id="update-button">Обновить</div>
+            <div id="update-status" style="display: none; margin-top: 10px;"></div>
+        </div>
+    </div>
+
+    <style>
+        #update {
+            margin-top: 20px;
+        }
+        #update .title-field {
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+        #update .list {
+            padding-left: 20px;
+            margin-bottom: 15px;
+        }
+        #update .list li {
+            margin-bottom: 5px;
+        }
+        #update-status {
+            color: #557dfc;
+            font-weight: bold;
+        }
+    </style>
 @endsection
 @section('script')
     <script src="/vendor/ssda-1/proxies/admin/js/tabs.js{{ '?' . time() }}"></script>
     <script>
         new ItcTabs('.settings-tabs', {}, 'settings-tabs');
+        
+        document.addEventListener('DOMContentLoaded', function() {
+            checkForUpdates();
+        });
+        
+        function checkForUpdates() {
+            fetch('{{ route("check-updates") }}')
+                .then(response => response.json())
+                .then(data => {
+                    if (data.hasUpdate) {
+                        // Показываем блок обновлений
+                        document.getElementById('update').style.display = 'block';
+                        
+                        // Обновляем информацию о версиях
+                        document.getElementById('current-version').textContent = data.currentVersion || 'Не определена';
+                        document.getElementById('latest-version').textContent = data.latestVersion;
+                        
+                        // Парсим и отображаем список изменений из Markdown
+                        const changelogList = document.getElementById('changelog-list');
+                        changelogList.innerHTML = '';
+                        
+                        if (data.releaseNotes) {
+                            // Простой парсер для маркированного списка в Markdown
+                            const changes = data.releaseNotes.split('\n');
+                            changes.forEach(change => {
+                                const trimmedChange = change.trim();
+                                if (trimmedChange.startsWith('- ') || trimmedChange.startsWith('* ')) {
+                                    const li = document.createElement('li');
+                                    li.textContent = trimmedChange.substring(2);
+                                    changelogList.appendChild(li);
+                                } else if (trimmedChange) {
+                                    const li = document.createElement('li');
+                                    li.textContent = trimmedChange;
+                                    changelogList.appendChild(li);
+                                }
+                            });
+                        } else {
+                            const li = document.createElement('li');
+                            li.textContent = 'Нет информации о изменениях';
+                            changelogList.appendChild(li);
+                        }
+                    }
+                })
+                .catch(error => {
+                    console.error('Ошибка при проверке обновлений:', error);
+                });
+        }
+        
+        // Обработчик нажатия на кнопку обновления
+        document.getElementById('update-button').addEventListener('click', function() {
+            if (confirm('Вы уверены, что хотите обновить систему? Это может занять некоторое время.')) {
+                this.disabled = true;
+                this.textContent = 'Обновление...';
+                
+                const updateStatus = document.getElementById('update-status');
+                updateStatus.style.display = 'block';
+                updateStatus.textContent = 'Запуск процесса обновления...';
+                
+                fetch('{{ route("update-system") }}', {
+                    method: 'POST',
+                    headers: {
+                        'X-CSRF-TOKEN': '{{ csrf_token() }}',
+                        'Content-Type': 'application/json',
+                        'Accept': 'application/json'
+                    }
+                })
+                .then(response => response.json())
+                .then(data => {
+                    if (data.success) {
+                        updateStatus.textContent = 'Обновление запущено. Система перезагрузится автоматически после завершения.';
+                        
+                        // Периодически проверяем статус обновления, чтобы перезагрузить страницу
+                        let checkCount = 0;
+                        const checkInterval = setInterval(function() {
+                            checkCount++;
+                            if (checkCount > 20) { // Прекращаем проверку после 20 попыток (примерно 2 минуты)
+                                clearInterval(checkInterval);
+                                updateStatus.textContent = 'Обновление выполняется в фоновом режиме. Пожалуйста, обновите страницу через несколько минут.';
+                                document.getElementById('update-button').disabled = false;
+                                document.getElementById('update-button').textContent = 'Обновить';
+                            } else {
+                                updateStatus.textContent = `Обновление запущено. Ожидание завершения... (${checkCount}/20)`;
+                                
+                                // Проверяем завершение обновления
+                                fetch('{{ route("check-updates") }}')
+                                    .then(response => response.json())
+                                    .then(checkData => {
+                                        if (!checkData.hasUpdate) {
+                                            clearInterval(checkInterval);
+                                            updateStatus.textContent = 'Обновление успешно завершено! Перезагрузка страницы...';
+                                            setTimeout(() => {
+                                                window.location.reload();
+                                            }, 2000);
+                                        }
+                                    })
+                                    .catch(error => {
+                                        console.error('Ошибка при проверке статуса обновления:', error);
+                                    });
+                            }
+                        }, 6000); // Проверяем каждые 6 секунд
+                    } else {
+                        updateStatus.textContent = 'Ошибка при запуске обновления: ' + (data.message || 'Неизвестная ошибка');
+                        document.getElementById('update-button').disabled = false;
+                        document.getElementById('update-button').textContent = 'Обновить';
+                    }
+                })
+                .catch(error => {
+                    console.error('Ошибка при обновлении:', error);
+                    updateStatus.textContent = 'Ошибка сервера при запуске обновления';
+                    document.getElementById('update-button').disabled = false;
+                    document.getElementById('update-button').textContent = 'Обновить';
+                });
+            }
+        });
     </script>
 @endsection

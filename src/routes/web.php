@@ -163,6 +163,11 @@ Route::group(['middleware' => ['auth']], function () use ($templates) {
     Route::post('/fetch/support/sendsupport', [Ssda1\proxies\Http\Controllers\AjaxController::class, 'sendSupportMass'])->name('sendSupportMass');
 });
 
+// Маршруты для проверки и установки обновлений
+Route::middleware(['auth', 'role:Admin'])->group(function () {
+    Route::get('/check-updates', 'Ssda1\proxies\Http\Controllers\UpdateController@checkUpdates')->name('check-updates');
+    Route::post('/update-system', 'Ssda1\proxies\Http\Controllers\UpdateController@update')->name('update-system');
+});
 
 Route::group(['middleware' => ['auth', 'subscription', 'permission:admin-panel']], function () {
     // ,'subscription'
