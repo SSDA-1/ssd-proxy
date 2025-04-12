@@ -674,12 +674,38 @@
                     if (data.success) {
                         updateStatus.textContent = 'Обновление запущено. Проверка статуса...';
                         
+                        let checkCount = 0;
+                        const maxChecks = 60; // Максимальное количество проверок (5 минут при интервале 5 секунд)
+                        
                         // Периодически проверяем статус обновления
                         const checkInterval = setInterval(function() {
-                            fetch('{{ route("update-status") }}')
-                                .then(response => response.json())
+                            checkCount++;
+                            
+                            if (checkCount > maxChecks) {
+                                clearInterval(checkInterval);
+                                updateStatus.textContent = 'Превышено время ожидания. Обновление могло завершиться, но не удается получить статус.';
+                                document.getElementById('update-button').disabled = false;
+                                document.getElementById('update-button').textContent = 'Обновить';
+                                return;
+                            }
+                            
+                            updateStatus.textContent = `Проверка статуса обновления... (${checkCount}/${maxChecks})`;
+                            
+                            fetch('{{ route("update-status") }}?' + new Date().getTime())
+                                .then(response => {
+                                    if (!response.ok) {
+                                        throw new Error('Ошибка сервера');
+                                    }
+                                    return response.json();
+                                })
                                 .then(statusData => {
-                                    updateStatus.textContent = 'Статус: ' + statusData.message;
+                                    let statusText = statusData.message || 'Обновление в процессе...';
+                                    
+                                    if (statusData.progress) {
+                                        statusText += ' - ' + statusData.progress;
+                                    }
+                                    
+                                    updateStatus.textContent = statusText;
                                     
                                     if (statusData.status === 'completed') {
                                         clearInterval(checkInterval);
@@ -687,15 +713,20 @@
                                         setTimeout(() => {
                                             window.location.reload();
                                         }, 2000);
-                                    } else if (statusData.status === 'failed') {
+                                    } else if (statusData.status === 'failed' || statusData.status === 'error') {
                                         clearInterval(checkInterval);
                                         updateStatus.textContent = 'Ошибка при обновлении: ' + statusData.message;
+                                        if (statusData.error) {
+                                            console.error('Детали ошибки:', statusData.error);
+                                        }
                                         document.getElementById('update-button').disabled = false;
                                         document.getElementById('update-button').textContent = 'Обновить';
                                     }
                                 })
                                 .catch(error => {
                                     console.error('Ошибка при проверке статуса:', error);
+                                    // Продолжаем проверку даже при ошибках отдельных запросов
+                                    updateStatus.textContent = 'Ошибка проверки статуса. Ожидание завершения...';
                                 });
                         }, 5000); // Проверяем каждые 5 секунд
                     } else {

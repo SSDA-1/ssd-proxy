@@ -188,17 +188,68 @@ class UpdateController extends Controller
             ];
             File::put($this->updateStatusPath, json_encode($updateData));
             
-            // Запускаем composer update
-            $composerPath = base_path('composer.phar');
+            // Запоминаем текущую директорию для возврата
+            $oldDir = getcwd();
             
             try {
+                // Перейти в корневую директорию для правильного запуска composer
+                chdir(base_path());
+                
+                // Запускаем composer update
+                $composerPath = base_path('composer.phar');
+                $output = '';
+                
                 if (file_exists($composerPath)) {
                     // Если есть локальный composer.phar, используем его
-                    $output = shell_exec('php ' . $composerPath . ' update ssda-1/proxies --no-interaction 2>&1');
+                    $command = 'php ' . $composerPath . ' update ssda-1/proxies --no-interaction 2>&1';
                 } else {
                     // Иначе используем глобальный composer
-                    $output = shell_exec('composer update ssda-1/proxies --no-interaction 2>&1');
+                    $command = 'composer update ssda-1/proxies --no-interaction 2>&1';
                 }
+                
+                // Обновляем статус - запускаем команду
+                $updateData = [
+                    'status' => 'running',
+                    'message' => 'Выполняется: ' . $command,
+                    'command' => $command,
+                    'progress' => 'Подготовка...'
+                ];
+                File::put($this->updateStatusPath, json_encode($updateData));
+                
+                // Запускаем выполнение команды
+                $output = @shell_exec($command);
+                
+                // Если shell_exec не работает, попробуем другие методы
+                if ($output === null) {
+                    // Проверяем, доступна ли функция passthru
+                    if (function_exists('passthru')) {
+                        ob_start();
+                        passthru($command, $returnCode);
+                        $output = ob_get_clean();
+                        
+                        if ($returnCode !== 0) {
+                            throw new \Exception("Ошибка выполнения команды (код $returnCode): $output");
+                        }
+                    } elseif (function_exists('system')) {
+                        ob_start();
+                        system($command, $returnCode);
+                        $output = ob_get_clean();
+                        
+                        if ($returnCode !== 0) {
+                            throw new \Exception("Ошибка выполнения команды (код $returnCode): $output");
+                        }
+                    } else {
+                        throw new \Exception("Не удалось выполнить команду: функции shell_exec, passthru и system недоступны");
+                    }
+                }
+                
+                // Восстанавливаем директорию
+                if ($oldDir) {
+                    chdir($oldDir);
+                }
+                
+                // Проверяем и очищаем кэш приложения
+                $this->clearCache();
                 
                 // Обновляем статус
                 $updateData = [
@@ -208,11 +259,18 @@ class UpdateController extends Controller
                     'output' => $output
                 ];
             } catch (\Exception $e) {
+                // Восстанавливаем директорию в случае ошибки
+                if ($oldDir) {
+                    chdir($oldDir);
+                }
+                
                 // В случае ошибки
                 $updateData = [
                     'completed_at' => date('Y-m-d H:i:s'),
                     'status' => 'failed',
-                    'message' => 'Ошибка при обновлении: ' . $e->getMessage()
+                    'message' => 'Ошибка при обновлении: ' . $e->getMessage(),
+                    'error' => $e->getMessage(),
+                    'trace' => $e->getTraceAsString()
                 ];
             }
             
@@ -222,9 +280,37 @@ class UpdateController extends Controller
             // Удаляем маркер обновления
             File::delete($this->updateMarkerPath);
             
-            return 'Обновление выполнено';
+            return json_encode([
+                'status' => $updateData['status'],
+                'message' => $updateData['message']
+            ]);
         } catch (\Exception $e) {
-            return 'Ошибка при выполнении обновления: ' . $e->getMessage();
+            $error = 'Ошибка при выполнении обновления: ' . $e->getMessage();
+            
+            // Записываем ошибку в лог
+            File::put($this->updateStatusPath, json_encode([
+                'status' => 'error',
+                'message' => $error,
+                'error' => $e->getMessage(),
+                'trace' => $e->getTraceAsString()
+            ]));
+            
+            return $error;
+        }
+    }
+    
+    /**
+     * Очищает кэш приложения
+     */
+    private function clearCache()
+    {
+        try {
+            Artisan::call('cache:clear');
+            Artisan::call('view:clear');
+            Artisan::call('route:clear');
+            return true;
+        } catch (\Exception $e) {
+            return false;
         }
     }
     
