@@ -26,6 +26,7 @@ class ProxyGlobalService
             'bitrate_out' => 0
         ]);
 
+        // Проверим закомментированный код, который может использоваться в других местах
         // $url = $server->data['url'].'/api/proxy/auth/edit/'.$proxy->id_user_proxy_kraken;
         // $data = array(
         //     'login' => $login,
@@ -38,17 +39,15 @@ class ProxyGlobalService
         //     'Authorization: Token '.$apiKey
         // );
 
-        // $ch = curl_init();
-        // curl_setopt($ch, CURLOPT_URL, $url);
-        // curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-        // curl_setopt($ch, CURLOPT_POST, true);
-        // curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($data));
-        // curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
+        // $ch = \curl_init();
+        // \curl_setopt($ch, CURLOPT_URL, $url);
+        // \curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+        // \curl_setopt($ch, CURLOPT_POST, true);
+        // \curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($data));
+        // \curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
 
-        // $response = curl_exec($ch);
-        // curl_close($ch);
-
-        // $responseData = $response->json();
+        // $response = \curl_exec($ch);
+        // \curl_close($ch);
 
         if ($response->successful()) { //and $modemData['active'] == true
             // if(curl_getinfo($ch, CURLINFO_HTTP_CODE) === 200) {
