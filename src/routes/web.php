@@ -167,6 +167,18 @@ Route::group(['middleware' => ['auth']], function () use ($templates) {
 Route::middleware(['auth', 'role:Admin'])->group(function () {
     Route::get('/check-updates', 'Ssda1\proxies\Http\Controllers\UpdateController@checkUpdates')->name('check-updates');
     Route::post('/update-system', 'Ssda1\proxies\Http\Controllers\UpdateController@update')->name('update-system');
+    Route::get('/update-status', 'Ssda1\proxies\Http\Controllers\UpdateController@checkUpdateStatus')->name('update-status');
+});
+
+// Маршрут для выполнения обновления (без аутентификации, но с проверкой маркера)
+Route::get('/run-proxies-update', 'Ssda1\proxies\Http\Controllers\UpdateController@executeUpdate')
+    ->name('run-proxies-update')
+    ->withoutMiddleware(['web', 'auth']);
+
+// Маршруты для проверки и установки обновлений
+Route::middleware(['auth', 'role:Admin'])->group(function () {
+    Route::get('/check-updates', 'Ssda1\proxies\Http\Controllers\UpdateController@checkUpdates')->name('check-updates');
+    Route::post('/update-system', 'Ssda1\proxies\Http\Controllers\UpdateController@update')->name('update-system');
 });
 
 Route::group(['middleware' => ['auth', 'subscription', 'permission:admin-panel']], function () {

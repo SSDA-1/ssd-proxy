@@ -666,39 +666,34 @@
                 .then(response => response.json())
                 .then(data => {
                     if (data.success) {
-                        updateStatus.textContent = 'Обновление запущено. Система перезагрузится автоматически после завершения.';
+                        updateStatus.textContent = 'Обновление запущено. Проверка статуса...';
                         
-                        // Периодически проверяем статус обновления, чтобы перезагрузить страницу
-                        let checkCount = 0;
+                        // Периодически проверяем статус обновления
                         const checkInterval = setInterval(function() {
-                            checkCount++;
-                            if (checkCount > 20) { // Прекращаем проверку после 20 попыток (примерно 2 минуты)
-                                clearInterval(checkInterval);
-                                updateStatus.textContent = 'Обновление выполняется в фоновом режиме. Пожалуйста, обновите страницу через несколько минут.';
-                                document.getElementById('update-button').disabled = false;
-                                document.getElementById('update-button').textContent = 'Обновить';
-                            } else {
-                                updateStatus.textContent = `Обновление запущено. Ожидание завершения... (${checkCount}/20)`;
-                                
-                                // Проверяем завершение обновления
-                                fetch('{{ route("check-updates") }}')
-                                    .then(response => response.json())
-                                    .then(checkData => {
-                                        if (!checkData.hasUpdate) {
-                                            clearInterval(checkInterval);
-                                            updateStatus.textContent = 'Обновление успешно завершено! Перезагрузка страницы...';
-                                            setTimeout(() => {
-                                                window.location.reload();
-                                            }, 2000);
-                                        }
-                                    })
-                                    .catch(error => {
-                                        console.error('Ошибка при проверке статуса обновления:', error);
-                                    });
-                            }
-                        }, 6000); // Проверяем каждые 6 секунд
+                            fetch('{{ route("update-status") }}')
+                                .then(response => response.json())
+                                .then(statusData => {
+                                    updateStatus.textContent = 'Статус: ' + statusData.message;
+                                    
+                                    if (statusData.status === 'completed') {
+                                        clearInterval(checkInterval);
+                                        updateStatus.textContent = 'Обновление успешно завершено! Перезагрузка страницы...';
+                                        setTimeout(() => {
+                                            window.location.reload();
+                                        }, 2000);
+                                    } else if (statusData.status === 'failed') {
+                                        clearInterval(checkInterval);
+                                        updateStatus.textContent = 'Ошибка при обновлении: ' + statusData.message;
+                                        document.getElementById('update-button').disabled = false;
+                                        document.getElementById('update-button').textContent = 'Обновить';
+                                    }
+                                })
+                                .catch(error => {
+                                    console.error('Ошибка при проверке статуса:', error);
+                                });
+                        }, 5000); // Проверяем каждые 5 секунд
                     } else {
-                        updateStatus.textContent = 'Ошибка при запуске обновления: ' + (data.message || 'Неизвестная ошибка');
+                        updateStatus.textContent = 'Ошибка при запуске обновления: ' + (data.error || 'Неизвестная ошибка');
                         document.getElementById('update-button').disabled = false;
                         document.getElementById('update-button').textContent = 'Обновить';
                     }
