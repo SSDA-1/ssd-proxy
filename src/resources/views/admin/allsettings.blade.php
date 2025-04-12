@@ -567,8 +567,14 @@
                     </ul>
                 </div>
             </div>
-            <div class="btn btn-primary" id="update-button">Обновить</div>
-            <div id="update-status" style="display: none; margin-top: 10px;"></div>
+        </div>
+        <div class="row">
+            <div class="field">
+                <div class="btn btn-primary" id="update-button">Обновить</div>
+            </div>
+            <div class="field">
+                <div id="update-status" style="display: none; margin-top: 10px;"></div>
+            </div>
         </div>
     </div>
 
