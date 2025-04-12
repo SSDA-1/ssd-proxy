@@ -74,7 +74,7 @@ class UpdateController extends Controller
                 $process = popen('start /B cmd /C "' . $command . ' 2>&1"', 'r');
                 pclose($process);
             } else {
-                exec($command . ' > /dev/null 2>&1 &');
+                \exec($command . ' > /dev/null 2>&1 &');
             }
             
             return response()->json(['success' => true, 'message' => 'Обновление запущено']);
