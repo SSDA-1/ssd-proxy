@@ -18,12 +18,15 @@ class ProxiesServiceProvider extends ServiceProvider
     /**
      * Bootstrap any application services.
      *
-     * @return void
+     * @return void 
      */
     public function boot()
     {
-      $this->commands([
-          \Ssda1\proxies\Console\Commands\UpdatePackageCommand::class,
-      ]);
+        // Регистрация консольных команд
+        if ($this->app->runningInConsole()) {
+            $this->commands([
+                \Ssda1\proxies\Console\Commands\UpdatePackageCommand::class,
+            ]);
+        }
     }
 }

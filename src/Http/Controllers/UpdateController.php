@@ -64,10 +64,34 @@ class UpdateController extends Controller
     public function update()
     {
         try {
-            // Используем Artisan для запуска команды обновления
-            Artisan::queue('proxies:update');
+            // Запускаем composer update напрямую через PHP
+            $composerPath = base_path('composer.phar');
+            $command = '';
+            $workingDirectory = base_path();
             
-            return response()->json(['success' => true, 'message' => 'Обновление запущено']);
+            if (file_exists($composerPath)) {
+                // Если есть локальный composer.phar
+                $command = 'php ' . $composerPath . ' update ssda-1/proxies --no-interaction';
+            } else {
+                // Иначе используем глобальный composer
+                $command = 'composer update ssda-1/proxies --no-interaction';
+            }
+            
+            // Запускаем процесс через Symfony Process если доступен
+            if (class_exists('Symfony\Component\Process\Process')) {
+                $process = new \Symfony\Component\Process\Process(
+                    explode(' ', $command),
+                    $workingDirectory
+                );
+                $process->start();
+                
+                return response()->json(['success' => true, 'message' => 'Обновление запущено']);
+            } else {
+                // Запускаем через Artisan команду
+                Artisan::call('queue:work', ['--once' => true]);
+                
+                return response()->json(['success' => true, 'message' => 'Обновление поставлено в очередь']);
+            }
         } catch (\Exception $e) {
             return response()->json(['error' => 'Ошибка при обновлении: ' . $e->getMessage()], 500);
         }
