@@ -6,7 +6,6 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\File;
-use Composer\Semver\Comparator;
 
 class UpdateController extends Controller
 {
@@ -38,7 +37,7 @@ class UpdateController extends Controller
                 }
                 
                 // Если нет версии или новая версия больше текущей
-                if (empty($currentVersion) || Comparator::greaterThan($latestVersion, $currentVersion)) {
+                if (empty($currentVersion) || $this->isGreaterVersion($latestVersion, $currentVersion)) {
                     return response()->json([
                         'hasUpdate' => true,
                         'currentVersion' => $currentVersion,
@@ -82,5 +81,43 @@ class UpdateController extends Controller
         } catch (\Exception $e) {
             return response()->json(['error' => 'Ошибка при обновлении: ' . $e->getMessage()], 500);
         }
+    }
+    
+    /**
+     * Сравнивает версии в формате семантического версионирования
+     * 
+     * @param string $version1 Первая версия
+     * @param string $version2 Вторая версия
+     * @return bool true, если $version1 > $version2
+     */
+    private function isGreaterVersion($version1, $version2)
+    {
+        $v1Parts = explode('.', $version1);
+        $v2Parts = explode('.', $version2);
+        
+        // Дополняем массивы нулями до одинаковой длины
+        $maxLength = max(count($v1Parts), count($v2Parts));
+        for ($i = count($v1Parts); $i < $maxLength; $i++) {
+            $v1Parts[$i] = 0;
+        }
+        for ($i = count($v2Parts); $i < $maxLength; $i++) {
+            $v2Parts[$i] = 0;
+        }
+        
+        // Сравниваем компоненты версий
+        for ($i = 0; $i < $maxLength; $i++) {
+            $part1 = (int) $v1Parts[$i];
+            $part2 = (int) $v2Parts[$i];
+            
+            if ($part1 > $part2) {
+                return true;
+            }
+            if ($part1 < $part2) {
+                return false;
+            }
+        }
+        
+        // Версии равны
+        return false;
     }
 }
