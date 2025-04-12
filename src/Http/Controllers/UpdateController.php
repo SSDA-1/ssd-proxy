@@ -64,18 +64,8 @@ class UpdateController extends Controller
     public function update()
     {
         try {
-            // Путь к рабочей директории проекта
-            $workingDirectory = base_path();
-            
-            // Выполняем команду composer update
-            $command = 'cd ' . $workingDirectory . ' && composer update ssda-1/proxies';
-            
-            if (PHP_OS_FAMILY === 'Windows') {
-                $process = popen('start /B cmd /C "' . $command . ' 2>&1"', 'r');
-                pclose($process);
-            } else {
-                \exec($command . ' > /dev/null 2>&1 &');
-            }
+            // Используем Artisan для запуска команды обновления
+            Artisan::queue('proxies:update');
             
             return response()->json(['success' => true, 'message' => 'Обновление запущено']);
         } catch (\Exception $e) {
