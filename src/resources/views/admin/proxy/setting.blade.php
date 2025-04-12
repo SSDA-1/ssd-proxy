@@ -10,7 +10,7 @@
         </div>
     </div>
 
-    @if (count($errors) > 0)
+    @if (count($errors ?? []) > 0)
         <div class="alert alert-danger block-background">
             <strong>@lang('proxies::phrases.Упс')!</strong> @lang('proxies::phrases.Были некоторые проблемы с вашим вводом').<br><br>
             <ul>
@@ -49,7 +49,7 @@
                         </tr>
                     </thead>
                     <tbody>
-                        @forelse ($servers as $server)
+                        @forelse(($servers ?? []) as $server)
                             <tr id="server_{{ $server->id }}">
                                 <td>{{ $server->id }}</td>
                                 @php
@@ -59,23 +59,16 @@
                                         return isset($country['name']) && $country['name'] == $regionCode;
                                     });
                                     $countrySearch = reset($filteredCountries);
-                                    // print_r(reset($filteredCountries))
+                                    if (!$countrySearch) {
+                                        $countrySearch = ['citizenship' => 'Unknown'];
+                                    }
                                 @endphp
                                 <td>{{ $server->name }}</td>
                                 <td>{{ $countrySearch['citizenship'] }}</td>
                                 <td>{{ $server->data['url'] }}</td>
-                                {{-- <td>{{ $port->active == 1 ? 'Активный' : 'Не активный' }}</td>
-                                <td>{{ $port->type }}</td>
-                                <td>{{ $port->net_mode }}</td>
-                                <td>{{ $port->is_osfp == 0 ? 'Отпечаток не включен' : $port->osfp }}</td>
-                                <td>{{ $port->reconnect_type }}</td>
-                                <td>{{ $port->reconnect_interval }} сек</td>
-                                <td>{{ $port->type_pay == 'private' ? 'Приватный' : 'Общий' }}</td>
-                                <td>{{ $port->max_users }} / {{ $port->proxycount }}</td> --}}
                                 <td class="dayst">
                                     <a class="btn btn-action" href="{{ route('servers.edit', $server->id) }}"><i
                                             class="fa-regular fa-pen-to-square"></i></a>
-                                    {{-- <button type="submit" class="btn btn-danger"><i class="fa-solid fa-bullseye"></i></button> --}}
                                     <button type="submit" data-title="@lang('proxies::phrases.Вы точно хотите удалить Порт с сайта')? <br> Ps: @lang('proxies::phrases.В системе Кракен его нужно удалить вручную')"
                                         data-fetch="yes" data-action="{{ route('servers.destroy', $server->id) }}"
                                         data-modal="del" class="btn btn-danger"><i class="fa-solid fa-trash"></i></button>
@@ -164,14 +157,14 @@
                         </div>
                     </div>
                     <div class="row rates padding-20">
-                        @foreach ($tariffSetting->tariff as $key => $tariff)
+                        @foreach(($tariffSetting->tariff ?? []) as $key => $tariff)
                             <div class="field rate" data-id="{{ $key }}" data-lang="{{ $tariff['lang'] }}">
                                 <input type="hidden" name="id" value="{{ $key }}">
                                 <input type="hidden" name="lang_{{ $key }}" value="{{ $tariff['lang'] }}">
                                 <input type="text" name="name_{{ $key }}" value="{{ $tariff['name'] }}"
                                     class="input-text" placeholder="@lang('proxies::phrases.Название')">
                                 <div class="properties">
-                                    @foreach ($tariff['properties'] as $key2 => $property)
+                                    @foreach(($tariff['properties'] ?? []) as $key2 => $property)
                                         @if ($key2 != 0)
                                             <div class="wrap-input numberFormat">
                                                 <span class="delProperty"><i class="fa-solid fa-trash"></i></span>
@@ -190,7 +183,7 @@
                                 <input type="number" name="period_{{ $key }}" value="{{ $tariff['period'] }}"
                                     min="1" class="input-text" placeholder="@lang('proxies::phrases.Срок')">
                                 <div class="wrap-countries" data-id="{{ $key }}">
-                                    @foreach ($tariff['country'] as $key2 => $country)
+                                    @foreach(($tariff['country'] ?? []) as $key2 => $country)
                                         <div class="countries">
                                             <select class="input-text" name="country_{{ $key }}[]">
                                                 @foreach ($tariffCountries as $tariffCountry)
@@ -244,7 +237,7 @@
                     </div>
 
                     <div class="row group padding-20 prices">
-                        @foreach ($tariffSetting->days_tariff as $key => $day)
+                        @foreach(($tariffSetting->days_tariff ?? []) as $key => $day)
                             <div class="row price">
                                 <div class="field type-proxy" data-type="general"
                                     @if (!in_array($tariffSetting->type_proxy, ['general', 'all'])) disabled="disabled" @endif>
@@ -295,7 +288,6 @@
                         <div class="row title-block proxy">
                             <h2>@lang('proxies::phrases.Скидка на кол-во прокси (Скидка в процентах)'):</h2>
                             <button type="submit" class="btn btn-primary">@lang('proxies::phrases.Сохранить')</button>
-                            {{-- <div class="btn btn-success addQuantityDiscount"><span>+</span></div> --}}
                         </div>
                         <div class="row">
                             <div class="field">
@@ -322,7 +314,7 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                @foreach ($countProxyDiscounts as $countProxyDiscount)
+                                @foreach(($countProxyDiscounts ?? []) as $countProxyDiscount)
                                     <tr id="countProxyDiscount_{{ $countProxyDiscount->id }}">
                                         <th>{{ $countProxyDiscount->id }}</th>
                                         <td>{{ $countProxyDiscount->proxy }}</td>
@@ -377,7 +369,6 @@
                         <div class="row title-block proxy">
                             <h2>@lang('proxies::phrases.Скидка на кол-во дней (Скидка в процентах)'):</h2>
                             <button type="submit" class="btn btn-primary">@lang('proxies::phrases.Сохранить')</button>
-                            {{-- <div class="btn btn-success addDiscountDuration"><span>+</span></div> --}}
                         </div>
                         <div class="row">
                             <div class="field">
@@ -404,12 +395,12 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                @foreach ($countDaysDiscounts as $countDaysDiscount)
+                                @foreach(($countDaysDiscounts ?? []) as $countDaysDiscount)
                                     <tr id="countDaysDiscount_{{ $countDaysDiscount->id }}">
                                         <th>{{ $countDaysDiscount->id }}</th>
                                         <td>{{ $countDaysDiscount->days }}</td>
                                         <td>{{ $countDaysDiscount->discount }}%</td>
-                                        <td>{{ $countDaysDiscount->type == 'general' ? trans('proxies::phrases.Общие') : ($countProxyDiscount->type == 'private' ? trans('proxies::phrases.Приватные') : trans('proxies::phrases.Общие и Приватные')) }}
+                                        <td>{{ $countDaysDiscount->type == 'general' ? trans('proxies::phrases.Общие') : ($countDaysDiscount->type == 'private' ? trans('proxies::phrases.Приватные') : trans('proxies::phrases.Общие и Приватные')) }}
                                         </td>
                                         <td>{{ $countDaysDiscount->country }}</td>
                                         <td class="dayst">
@@ -526,7 +517,7 @@
                         </tr>
                     </thead>
                     <tbody>
-                        @foreach ($promocodes as $promocode)
+                        @foreach(($promocodes ?? []) as $promocode)
                             <tr id="promocode_{{ $promocode->id }}">
                                 <th>{{ $promocode->id }}</th>
                                 <td>{{ Carbon\Carbon::parse($promocode->date_end)->format('d.m.y H:i:s') }}</td>
@@ -557,7 +548,6 @@
                         <div class="row title-block proxy">
                             <h2>@lang('proxies::phrases.Скидка на покупку и продление'):</h2>
                             <button type="submit" class="btn btn-primary">@lang('proxies::phrases.Сохранить')</button>
-                            {{-- <div class="btn btn-success addDiscountDuration"><span>+</span></div> --}}
                         </div>
                         <div class="row">
                             <div class="field">
@@ -583,7 +573,7 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                @foreach ($countPairsProxyDiscounts as $countPairsProxyDiscount)
+                                @foreach(($countPairsProxyDiscounts ?? []) as $countPairsProxyDiscount)
                                     <tr id="countPairsProxyDiscount_{{ $countPairsProxyDiscount->id }}">
                                         <th>{{ $countPairsProxyDiscount->id }}</th>
                                         <td>{{ $countPairsProxyDiscount->count_pairs }}</td>
@@ -625,7 +615,7 @@
 
 @section('script')
     {{-- Табы --}}
-    <script src="/vendor/ssda-1/proxies/'admin/js/tabs.js{{ '?' . time() }}"></script>
+    <script src="/vendor/ssda-1/proxies/admin/js/tabs.js{{ '?' . time() }}"></script>
     <script>
         new ItcTabs('.settings-tabs', {}, 'settings-tabs');
     </script>
@@ -808,7 +798,7 @@
             selectElement = document.getElementById("language");
         }
         
-        let rateIdCounter = @json(count($tariffSetting->tariff) + 1); // ID из бд
+        let rateIdCounter = @json(count($tariffSetting->tariff ?? []) + 1); // ID из бд
 
         // Функция для создания нового тарифа
         function createRate() {
@@ -994,90 +984,6 @@
         toggleRatesVisibility();
     </script>
 
-    {{-- Скидка за количество --}}
-    {{-- <script>
-        function createDiscount() {
-            const quantityDiscount = document.querySelector('.quantity-discount');
-            const newDiscount = document.createElement('div');
-            newDiscount.className = 'row discount';
-
-            newDiscount.innerHTML = `<div class="field">
-                                        <div class="title-field">От штук</div>
-                                        <input type="text" class="input-text" placeholder="3" name="proxy">
-                                    </div>
-                                    <div class="field">
-                                        <div class="title-field">Процент скидки</div>
-                                        <input type="text" class="input-text" placeholder="10" name="discount"
-                                            value="{{ $settingModel->proxy_two_sel_count }}">
-                                    </div>
-                                    <div class="field">
-                                        <div class="title-field">Для страны</div>
-                                        <select class="input-text" name="country">
-                                            <option value="1" selected>Казахстан</option>
-                                        </select>
-                                    </div>
-                                    <div class="field wrap-btn">
-                                        <div class="btn btn-primary delQuantityDiscount">Удалить</div>
-                                    </div>`;
-
-            quantityDiscount.appendChild(newDiscount);
-        }
-
-        function deleteDiscount(event) {
-            if (event.target.classList.contains('delQuantityDiscount')) {
-                const discount = event.target.closest('.discount');
-                if (discount) {
-                    discount.remove();
-                }
-            }
-        }
-
-        document.querySelector('.addQuantityDiscount').addEventListener('click', createDiscount);
-        document.addEventListener('click', deleteDiscount);
-    </script> --}}
-
-    {{-- Скидка на срок --}}
-    {{-- <script>
-        function createDiscount() {
-            const quantityDiscount = document.querySelector('.discount-duration');
-            const newDiscount = document.createElement('div');
-            newDiscount.className = 'row duration';
-
-            newDiscount.innerHTML = `<div class="field">
-                                        <div class="title-field">От штук</div>
-                                        <input type="text" class="input-text" placeholder="3" name="amount_days">
-                                    </div>
-                                    <div class="field">
-                                        <div class="title-field">Процент скидки</div>
-                                        <input type="text" class="input-text" placeholder="10" name="sel_period"
-                                            value="{{ $settingModel->proxy_two_sel_count }}">
-                                    </div>
-                                    <div class="field">
-                                        <div class="title-field">Для страны</div>
-                                        <select class="input-text" name="country">
-                                            <option value="1" selected>Казахстан</option>
-                                        </select>
-                                    </div>
-                                    <div class="field wrap-btn">
-                                        <div class="btn btn-primary delDiscountDuration">Удалить</div>
-                                    </div>`;
-
-            quantityDiscount.appendChild(newDiscount);
-        }
-
-        function deleteDiscount(event) {
-            if (event.target.classList.contains('delDiscountDuration')) {
-                const discount = event.target.closest('.duration');
-                if (discount) {
-                    discount.remove();
-                }
-            }
-        }
-
-        document.querySelector('.addDiscountDuration').addEventListener('click', createDiscount);
-        document.addEventListener('click', deleteDiscount);
-    </script> --}}
-
     {{-- Промокоды --}}
     <script>
         document.addEventListener('DOMContentLoaded', function() {
@@ -1102,16 +1008,5 @@
                 return code;
             }
         });
-    </script>
-
-    {{-- Хз зачем это тут --}}
-    <script>
-        //     document.addEventListener('DOMContentLoaded', () => {
-        //         document.querySelector('#changePass').addEventListener('click', function(e) {
-        //             e.target.style.display = 'none'
-        //             document.querySelector('#passKraken').style.display = 'block'
-        //         });
-        //     });
-        // 
     </script>
 @endsection
