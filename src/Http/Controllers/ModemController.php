@@ -54,13 +54,26 @@ class ModemController extends Controller
         $apiKey = getToken($firstServer->data['url'], $firstServer->data['login'], $firstServer->data['password']);
         $freeInterfaceGet = getInterface($firstServer->data['url'], $apiKey);
         $freeInterface = [];
-        foreach ($freeInterfaceGet as $key => $value) {
-            $freeInterface[$value['ifname']] = $value['ifname'];
+        
+        // Добавляем проверку на корректность данных перед обработкой
+        if (is_array($freeInterfaceGet)) {
+            foreach ($freeInterfaceGet as $key => $value) {
+                if (is_array($value) && isset($value['ifname'])) {
+                    $freeInterface[$value['ifname']] = $value['ifname'];
+                }
+            }
         }
+        
         $modelModemsGet = getModems($firstServer->data['url'], $apiKey);
         $modelModems = [];
-        foreach ($modelModemsGet as $key => $value) {
-            $modelModems[$value['id']] = $value['name'];
+        
+        // Добавляем аналогичную проверку и для данных моделей модемов
+        if (is_array($modelModemsGet)) {
+            foreach ($modelModemsGet as $key => $value) {
+                if (is_array($value) && isset($value['id']) && isset($value['name'])) {
+                    $modelModems[$value['id']] = $value['name'];
+                }
+            }
         }
 
         if (!$apiKey) {

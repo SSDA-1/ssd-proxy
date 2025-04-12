@@ -418,8 +418,13 @@ if (!function_exists('getInterface')) {
         $result = $krakenService->getDevicesInterfaceList($data);
         $setIntRes = json_decode($result, JSON_UNESCAPED_UNICODE);
 
+        // Проверка на корректность данных
+        if (!is_array($setIntRes)) {
+            return []; // Возвращаем пустой массив, если данные некорректны
+        }
+        
         foreach ($setIntRes as $key => $val) {
-            if ($val['ifname'] == 'enp7s0') {
+            if (is_array($val) && isset($val['ifname']) && $val['ifname'] == 'enp7s0') {
                 unset($setIntRes[$key]);
             }
         }
