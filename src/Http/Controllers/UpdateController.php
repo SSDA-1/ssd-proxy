@@ -129,10 +129,30 @@ class UpdateController extends Controller
      */
     public function checkUpdateStatus()
     {
+        // Всегда отвечаем в формате JSON
+        header('Content-Type: application/json');
+        
         try {
             if (File::exists($this->updateStatusPath)) {
-                $status = json_decode(File::get($this->updateStatusPath), true);
-                return response()->json($status);
+                try {
+                    $content = File::get($this->updateStatusPath);
+                    $status = json_decode($content, true);
+                    
+                    // Проверяем, валидный ли JSON был в файле
+                    if (json_last_error() !== JSON_ERROR_NONE) {
+                        return response()->json([
+                            'status' => 'error',
+                            'message' => 'Некорректный формат файла статуса'
+                        ]);
+                    }
+                    
+                    return response()->json($status);
+                } catch (\Exception $e) {
+                    return response()->json([
+                        'status' => 'error',
+                        'message' => 'Не удалось прочитать файл статуса: ' . $e->getMessage()
+                    ]);
+                }
             }
             
             return response()->json([
@@ -143,7 +163,7 @@ class UpdateController extends Controller
             return response()->json([
                 'status' => 'error',
                 'message' => 'Ошибка при проверке статуса: ' . $e->getMessage()
-            ], 500);
+            ]);
         }
     }
     
